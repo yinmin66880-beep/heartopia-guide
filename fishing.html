@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心动小镇钓鱼图鉴大全（24种鱼·时段天气钓点速查）| 小镇攻略手账</title>
+<meta name="description" content="心动小镇（Heartopia）全鱼种图鉴：24 种鱼的出没时段、天气条件、钓点位置与卖价一览，支持「此刻能钓什么」实时查询——彩虹天钓锤头鲨/彩虹鳟，雨夜钓欧洲鳗鲡，午夜秘密池塘蹲锦鲤。">
+<meta name="keywords" content="心动小镇钓鱼,心动小镇鱼种,心动小镇钓鱼攻略,心动小镇锦鲤,心动小镇锤头鲨,Heartopia钓鱼">
+<link rel="canonical" href="https://heartopia.example.com/fishing.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="心动小镇钓鱼图鉴大全（24种鱼·时段天气钓点速查）| 小镇攻略手账">
+<meta property="og:description" content="24 种鱼 × 时段 × 天气 × 钓点速查，实时告诉你此刻能钓什么。">
+<meta property="og:url" content="https://heartopia.example.com/fishing.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="fishing">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>小镇攻略手账</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">首页</a>
+      <a href="codes.html" data-page="codes">兑换码</a>
+      <a href="weather.html" data-page="weather">天气日历</a>
+      <a href="fishing.html" data-page="fishing">钓鱼图鉴</a>
+      <a href="templates.html" data-page="templates">装修模板</a>
+      <a href="guide.html" data-page="guide">新手路线</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">首页</a> / 钓鱼图鉴</p>
+  <span class="hero-kicker display blue">🎣 工具引擎 · 实时</span>
+  <h1 class="display">钓鱼图鉴<em>速查</em></h1>
+  <p class="page-sub">心动小镇的鱼对时间和天气很挑剔 —— 选好此刻的条件马上知道<b>能钓到什么</b>；往下翻还有<b>全 24 种鱼</b>的完整出没档案。</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px" id="now">
+    <div class="sec-head">
+      <span class="sec-tag display blue">实时</span>
+      <h2 class="display"><span class="wavy">此刻能钓什么</span></h2>
+    </div>
+    <p class="sec-desc">默认跟随本机时间自动更新；天气选错鱼就跑，配合 <a href="weather.html">今日天气排期</a> 使用更准。</p>
+    <div class="panel">
+      <div class="ctrl-row">
+        <span class="ctrl-label">🕐 当前时段</span>
+        <button class="switch on" id="autoSwitch" title="跟随本机时间"><span class="knob"></span></button>
+        <span class="switch-text" id="clockText">—</span>
+        <div class="chips" id="timeChips">
+          <button class="chip" data-period="清晨">清晨 <small>06–12</small></button>
+          <button class="chip" data-period="午后">午后 <small>12–18</small></button>
+          <button class="chip" data-period="夜晚">夜晚 <small>18–24</small></button>
+          <button class="chip" data-period="深夜">深夜 <small>00–06</small></button>
+        </div>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">☁️ 当前天气</span>
+        <div class="chips" id="weatherChips">
+          <button class="chip wx sunny" data-weather="晴">☀️ 晴天</button>
+          <button class="chip wx rainy" data-weather="雨">🌧️ 雨天</button>
+          <button class="chip wx rainbow" data-weather="彩虹">🌈 彩虹天</button>
+          <button class="chip wx snow" data-weather="雪">❄️ 雪天</button>
+        </div>
+      </div>
+      <hr class="divider-dash">
+      <div class="search-bar">
+        <input class="search-input" id="searchInput" type="text" placeholder="🔍 搜索鱼名、钓点或特征，如「彩虹」「旧海」…">
+        <span class="result-summary" id="resultSummary"></span>
+      </div>
+      <div class="fish-grid" id="fishGrid"></div>
+    </div>
+  </section>
+
+  <section class="reveal" id="dex">
+    <div class="sec-head">
+      <span class="sec-tag display">图鉴库</span>
+      <h2 class="display"><span class="wavy">全鱼种图鉴（24 种）</span></h2>
+    </div>
+    <p class="sec-desc">不受当前条件过滤的完整档案，搜索框输入鱼名、钓点即可定位。传说鱼卡片带 ✨ 金框。</p>
+    <div class="fish-grid" id="fishGridAll"></div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">传说鱼</span>
+      <h2 class="display"><span class="wavy">传说渔获攻略</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">800 金币</span><span class="emo">🎏</span>
+        <h4 class="display">锦鲤 · 秘密池塘</h4>
+        <p>只在深夜（00–06）的秘密池塘现身，晴天限定。全图鉴最稀有的渔获之一，蹲点党必收。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">750 金币</span><span class="emo">🐟</span>
+        <h4 class="display">冰海天使 · 冰雪海域</h4>
+        <p>雪天全天出没于冰雪海域，传说中带来冬天祝福的鱼。冬季排期别错过。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">600 金币</span><span class="emo">🦈</span>
+        <h4 class="display">锤头鲨 · 鲸鱼海</h4>
+        <p>彩虹天白天（清晨/午后）限定，鱼竿记得拉满。彩虹天排期见天气日历。</p>
+      </div>
+      <a class="guide-card" href="weather.html">
+        <span class="guide-count">排期日历</span><span class="emo">📅</span>
+        <h4 class="display">彩虹天什么时候来</h4>
+        <p>天气是官方固定排期，提前看日历安排蹲点</p>
+        <span class="go">去看日历 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">常见问题</span>
+      <h2 class="display"><span class="wavy">钓鱼 FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>现在能钓什么鱼？</summary>
+      <div class="a">用上方<b>「此刻能钓什么」</b>面板：默认跟随你的本地时间，选好天气即可实时筛选。天气以 <a href="weather.html">天气日历</a> 为准（官方固定排期）。</div>
+    </details>
+    <details class="faq">
+      <summary>彩虹天可以钓什么传说鱼？</summary>
+      <div class="a">彩虹天白天可钓 <b>锤头鲨（鲸鱼海，600 金币）</b>和<b>彩虹鳟（湖泊，180 金币）</b>，雨夜的<b>欧洲鳗鲡</b>在彩虹天夜晚也会出没。</div>
+    </details>
+    <details class="faq">
+      <summary>锦鲤在哪里钓？</summary>
+      <div class="a">锦鲤只在<b>深夜（00:00–06:00）的秘密池塘</b>现身，且要求晴天。建议先看天气日历确认明天是晴天，再定闹钟蹲点。</div>
+    </details>
+    <details class="faq">
+      <summary>哪种鱼卖钱最多？</summary>
+      <div class="a">传说级：锦鲤 800、冰海天使 750、锤头鲨 600；日常可刷的高价鱼有欧洲龙虾 260、雪蟹 300。图鉴卡片右上角有稀有度标记。</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 小镇攻略手账</div>
+  <div class="foot-nav">
+    <a href="index.html">首页</a>
+    <a href="codes.html">每日兑换码</a>
+    <a href="weather.html">天气日历</a>
+    <a href="fishing.html">钓鱼图鉴</a>
+    <a href="templates.html">装修模板</a>
+    <a href="guide.html">新手路线</a>
+  </div>
+  <p>鱼种数据由游戏图鉴与社区攻略交叉整理 · 天气出没条件以官方固定排期为准</p>
+  <p>本站为玩家非官方攻略项目，与心动公司（XD Inc.）无关 · 《心动小镇》游戏素材版权归原厂所有</p>
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script src="data/fish.js"></script>
+<script>
+const FISH = window.HEARTOPIA_FISH || [];
+const RARITY = window.HEARTOPIA_RARITY || {};
+const state = {period:'',weather:'晴',auto:true,q:''};
+const timeChips = $$('#timeChips .chip');
+const weatherChips = $$('#weatherChips .chip');
+
+function periodOf(h){
+  if(h>=6&&h<12) return '清晨';
+  if(h>=12&&h<18) return '午后';
+  if(h>=18&&h<24) return '夜晚';
+  return '深夜';
+}
+function pad(n){return String(n).padStart(2,'0')}
+
+function tick(){
+  const now = new Date();
+  $('#clockText').textContent = '现在 ' + pad(now.getHours())+':'+pad(now.getMinutes()) + ' · ' + periodOf(now.getHours());
+  if(state.auto){
+    state.period = periodOf(now.getHours());
+    syncChips();
+    renderFish();
+  }
+}
+function syncChips(){
+  timeChips.forEach(c=>c.classList.toggle('active',c.dataset.period===state.period));
+  weatherChips.forEach(c=>c.classList.toggle('active',c.dataset.weather===state.weather));
+}
+function match(f){
+  const timeOk = f.times.includes('全天')||f.times.includes(state.period);
+  const weatherOk = f.weathers.includes(state.weather);
+  const q = state.q.trim().toLowerCase();
+  const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
+  return timeOk && weatherOk && qOk;
+}
+function cardHTML(f,i){
+  const r = RARITY[f.rarity] || {label:'?',cls:''};
+  const timeTxt = f.times.includes('全天')?'全天':f.times.join('/');
+  const legend = f.rarity===4;
+  return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
+    +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
+    +'<span class="name">'+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)+'</span>'
+    +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
+    +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
+    +'<span class="tag time">🕐'+timeTxt+'</span>'
+    +'<span class="tag">'+f.weathers.join('/')+'</span></div>'
+    +'<div class="fish-price">💰 '+f.price+' 金币</div>'
+    +'<p class="fish-note kai">'+esc(f.note)+'</p>'
+    +'</div>';
+}
+function renderFish(){
+  const list = FISH.filter(match);
+  const grid = $('#fishGrid');
+  grid.innerHTML = list.length
+    ? list.map(cardHTML).join('')
+    : '<div class="empty"><span class="emo">🎣</span>这个条件下钓不到鱼哦～换个天气或时段试试，说不定有惊喜。</div>';
+  $('#resultSummary').innerHTML = '此刻 <b>'+list.length+'</b> 种鱼可钓';
+  renderAll();
+}
+function renderAll(){
+  const q = state.q.trim().toLowerCase();
+  const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
+  $('#fishGridAll').innerHTML = list.length
+    ? list.map(cardHTML).join('')
+    : '<div class="empty"><span class="emo">🔍</span>没有找到这种鱼 —— 换个关键词试试。</div>';
+}
+timeChips.forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.auto = false;
+    $('#autoSwitch').classList.remove('on');
+    state.period = c.dataset.period;
+    syncChips();
+    renderFish();
+  });
+});
+weatherChips.forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.weather = c.dataset.weather;
+    syncChips();
+    renderFish();
+  });
+});
+$('#autoSwitch').addEventListener('click',e=>{
+  state.auto = !state.auto;
+  e.currentTarget.classList.toggle('on',state.auto);
+  if(state.auto) tick();
+});
+$('#searchInput').addEventListener('input',e=>{
+  state.q = e.target.value;
+  renderFish();
+});
+tick();
+setInterval(tick,30000);
+</script>
+</body>
+</html>

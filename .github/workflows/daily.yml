@@ -1,0 +1,44 @@
+name: daily-intel
+
+# 每日情报自动更新管道：
+#   北京时间 06:10（UTC 22:10）—— 物资点位 06:00 刷新后
+#   北京时间 18:10（UTC 10:10）—— 兑换码 18:00 更新后
+# 抓取成功后自动 commit data/daily.*，若仓库开启 GitHub Pages 会随之自动重新部署。
+# 注意：GitHub 定时任务可能有数分钟延迟；公开仓库 60 天无活动会暂停定时任务。
+
+on:
+  schedule:
+    - cron: '10 22 * * *'
+    - cron: '10 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-intel
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run daily intel pipeline
+        run: python scripts/fetch_daily.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "heartopia-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/daily.js data/daily.json
+          if git diff --cached --quiet; then
+            echo "今日数据无变化，跳过提交"
+          else
+            git commit -m "chore(daily): auto update intel $(date -u +%F)"
+            git push
+          fi
