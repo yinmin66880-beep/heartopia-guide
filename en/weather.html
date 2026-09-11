@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heartopia Weather Calendar (Rainbow / Rain / Meteor Shower Alerts) | Heartopia Guide</title>
+<meta name="description" content="Weather in Heartopia follows an official fixed schedule: this page lists rainbow, rain and meteor-shower dates, plus a weather × limited-fish chart — catch Hammerhead Shark and Rainbow Trout on rainbow days, European Eel on rainy nights. Check before you head out.">
+<meta name="keywords" content="Heartopia weather,Heartopia rainbow day,Heartopia weather calendar,Heartopia meteor shower,Heartopia fishing weather">
+<link rel="canonical" href="https://heartopia.example.com/en/weather.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopia.example.com/weather.html">
+<link rel="alternate" hreflang="en" href="https://heartopia.example.com/en/weather.html">
+<link rel="alternate" hreflang="ja" href="https://heartopia.example.com/ja/weather.html">
+<link rel="alternate" hreflang="ko" href="https://heartopia.example.com/ko/weather.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopia.example.com/weather.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heartopia Weather Calendar (Rainbow / Rain / Meteor Shower Alerts) | Heartopia Guide">
+<meta property="og:description" content="The official in-game weather schedule, as a calendar, plus a weather × limited-fish chart.">
+<meta property="og:url" content="https://heartopia.example.com/en/weather.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="weather">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>Heartopia Guide</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="codes.html" data-page="codes">Codes</a>
+      <a href="weather.html" data-page="weather">Weather</a>
+      <a href="fishing.html" data-page="fishing">Fishing</a>
+      <a href="templates.html" data-page="templates">Templates</a>
+      <a href="guide.html" data-page="guide">Newbie Route</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">Home</a> / Weather Calendar</p>
+  <span class="hero-kicker display">📅 Official schedule · Community-maintained</span>
+  <h1 class="display">Town Weather <em>Calendar</em></h1>
+  <p class="page-sub">Heartopia's weather is an <b>official fixed schedule</b>, not random — know the rainbow days and meteor-shower nights in advance and you'll never <b>miss a limited fish or exclusive gatherable</b> again.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="status-bar" id="statusBar">
+      <span class="status-pill ok" id="statusPill"><span class="dot"></span><span id="statusText">Loading…</span></span>
+      <span id="statusMeta">—</span>
+      <span class="src-links" id="srcLinks"></span>
+    </div>
+
+    <div class="grid-today">
+      <div class="card">
+        <span class="tape"></span>
+        <p class="today-date" id="todayDate">—</p>
+        <h3 class="display">Today's Weather</h3>
+        <div class="weather-big">
+          <span class="icon" id="wxIcon">⛅</span>
+          <div>
+            <div class="temp" id="wxLabel">—</div>
+            <div class="cond" id="wxDetail">—</div>
+          </div>
+        </div>
+        <div class="tip-box kai" id="wxTip">💡 Loading weather intel…</div>
+        <div class="tip-box next kai" id="wxNext" style="display:none"></div>
+      </div>
+      <div class="card blue">
+        <span class="tape"></span>
+        <h3 class="display">🎣 Weather × Fishing Cheat Sheet</h3>
+        <div class="res-row"><span class="emo">🌈</span><span class="name">Rainbow day</span><span class="pos">Hammerhead Shark · Rainbow Trout</span></div>
+        <div class="res-row"><span class="emo">🌧️</span><span class="name">Rainy day</span><span class="pos">Sand Bream · European Eel</span></div>
+        <div class="res-row"><span class="emo">❄️</span><span class="name">Snowy day</span><span class="pos">Snow Crab · Ice Sea Angel</span></div>
+        <div class="res-row"><span class="emo">☄️</span><span class="name">Meteor-shower night</span><span class="pos">Exclusive meteorite gathering</span></div>
+        <a class="more-link" href="fishing.html">See all 24 species and their conditions →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">Calendar</span>
+      <h2 class="display"><span class="wavy">Upcoming Weather</span></h2>
+    </div>
+    <p class="sec-desc"><b>Confirmed dates</b> below are community-collected and pipeline-checked; any date not listed is a regular sunny day.</p>
+    <div class="wx-cal" id="wxCal"></div>
+    <div class="wx-legend">
+      <span><b>☀️ Sunny</b> regular fishing</span>
+      <span><b>🌧️ Rain</b> rainy-day exclusives</span>
+      <span><b>🌈 Rainbow</b> legendary fish window</span>
+      <span><b>☄️ Meteor shower</b> meteorite gathering</span>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">Go deeper</span>
+      <h2 class="display"><span class="wavy">Weather Decides Today's Plan</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card" href="fishing.html">
+        <span class="guide-count">24 species</span><span class="emo">🎣</span>
+        <h4 class="display">Fishing Encyclopedia</h4>
+        <p>Time × weather × location lookup — don't miss the Hammerhead on rainbow days</p>
+        <span class="go">Look up fish →</span>
+      </a>
+      <a class="guide-card" href="codes.html">
+        <span class="guide-count">Updated daily</span><span class="emo">🎁</span>
+        <h4 class="display">Today's Codes</h4>
+        <p>New codes around 18:00 daily, one-click copy, grab resources on the way</p>
+        <span class="go">Copy now →</span>
+      </a>
+      <a class="guide-card" href="guide.html">
+        <span class="guide-count">7 days</span><span class="emo">🌱</span>
+        <h4 class="display">7-Day Newbie Route</h4>
+        <p>DAY4 is encyclopedia day: fish what you see, net what you meet</p>
+        <span class="go">See the route →</span>
+      </a>
+      <a class="guide-card" href="templates.html">
+        <span class="guide-count">30 templates</span><span class="emo">🏠</span>
+        <h4 class="display">Home Template Library</h4>
+        <p>Done fishing in the rain? Go home and decorate from a template</p>
+        <span class="go">Browse templates →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">FAQ</span>
+      <h2 class="display"><span class="wavy">Weather FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>Is Heartopia's weather random?</summary>
+      <div class="a">No. In-game weather follows an <b>official fixed schedule</b> — the whole server shares the same weather each day. The community turns it into a calendar (see the status bar for sources), so you can plan fishing and gathering in advance.</div>
+    </details>
+    <details class="faq">
+      <summary>When is the next rainbow day? What can I catch then?</summary>
+      <div class="a">See the calendar above for upcoming rainbow days. During the daytime you can catch the <b>Hammerhead Shark (600 coins) and Rainbow Trout (180 coins)</b> — both normally unobtainable. Full conditions in the <a href="fishing.html">Fishing Encyclopedia</a>.</div>
+    </details>
+    <details class="faq">
+      <summary>What does "Sunny → Rain" (e.g. "Rain after 12:00") mean?</summary>
+      <div class="a">The first half of the day is sunny, then it rains from the stated time. Once it rains, rainy-day exclusives (Sand Bream, European Eel) become catchable — an afternoon trip pays best.</div>
+    </details>
+    <details class="faq">
+      <summary>What are meteor showers for?</summary>
+      <div class="a">During meteor-shower windows (e.g. 18:00–24:00) you can gather <b>meteorites</b> at set spots — rare crafting/building materials. Missing one means waiting for the next scheduled window, so block out the time once the calendar confirms it.</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 Heartopia Guide</div>
+  <div class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="codes.html">Daily Codes</a>
+    <a href="weather.html">Weather</a>
+    <a href="fishing.html">Fishing</a>
+    <a href="templates.html">Templates</a>
+    <a href="guide.html">Newbie Route</a>
+  </div>
+  <p>Weather follows an official fixed schedule; the calendar is community-maintained and pipeline-checked daily · Unlisted dates are sunny by default</p>
+  <p>An unofficial fan-made guide project, not affiliated with XD Inc. · Heartopia game assets © their respective owners</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+<script src="../data/daily.js"></script>
+<script src="../data/weather-en.js"></script>
+<script src="../assets/i18n/en.js"></script>
+<script>
+const DAILY = window.HEARTOPIA_DAILY || null;
+const WX = window.HEARTOPIA_WEATHER || null;
+const I18N = window.HEARTOPIA_I18N;
+const WEEK = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function todayStr(){
+  const n = new Date();
+  return n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
+}
+
+function renderToday(){
+  const pill = $('#statusPill'), pillTxt = $('#statusText'), meta = $('#statusMeta'), links = $('#srcLinks');
+  const dNow = todayStr();
+  let w = null, sp = null;
+  if(DAILY){
+    const stMap = {
+      live:  {cls:'ok',   txt:'Live today'},
+      stale: {cls:'warn', txt:'Community archive'},
+      fallback:{cls:'warn', txt:'Cached fallback'}
+    };
+    let st = stMap[DAILY.status] || stMap.fallback;
+    if(DAILY.date < dNow) st = {cls:'warn', txt:'Update pending'};
+    pill.className = 'status-pill ' + st.cls;
+    pillTxt.textContent = st.txt;
+    const nOk = (DAILY.audit && DAILY.audit.sourcesOk ? DAILY.audit.sourcesOk.length : (DAILY.sources || []).length);
+    meta.textContent = DAILY.date + ' · updated ' + DAILY.generatedAt + (nOk ? ' · ' + nOk + ' sources' : '');
+    (DAILY.sources || []).slice(0, 2).forEach(s => {
+      const a = document.createElement('a');
+      a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = I18N.t(s.name);
+      links.appendChild(a);
+    });
+    w = DAILY.weather;
+    sp = DAILY.specialForecast;
+  }else if(WX && WX.days[dNow]){
+    pillTxt.textContent = 'Calendar data';
+    meta.textContent = 'Updated ' + WX.updated;
+    w = {icon: WX.days[dNow].icon, label: WX.days[dNow].label, detail: WX.days[dNow].note || 'Official fixed schedule', fishTip: ''};
+  }else{
+    pill.className = 'status-pill warn';
+    pillTxt.textContent = 'Update pending';
+    meta.textContent = 'Calendar does not cover today yet — waiting for the pipeline';
+  }
+
+  $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
+  if(w){
+    $('#wxIcon').textContent = w.icon || '⛅';
+    $('#wxLabel').textContent = w.label ? I18N.t(w.label) : 'Unknown';
+    $('#wxDetail').textContent = w.detail ? I18N.t(w.detail) : 'In-game weather follows an official fixed schedule';
+    $('#wxTip').textContent = w.fishTip ? I18N.fishTip(w.label, w.detail) : '💡 Check the weather before heading out — don\u2019t miss the limited fish.';
+  }
+  if(sp){
+    const nx = $('#wxNext');
+    nx.style.display = '';
+    nx.textContent = '📅 Heads-up: ' + sp.date + ' ' + I18N.t(sp.label) + (sp.note ? ' — ' + I18N.t(sp.note) : '');
+  }
+}
+
+function renderCal(){
+  const cal = $('#wxCal');
+  if(!WX || !WX.days){ cal.innerHTML = '<div class="empty"><span class="emo">📅</span>Failed to load calendar data — make sure data/weather-en.js is deployed.</div>'; return; }
+  const dNow = todayStr();
+  const rows = Object.keys(WX.days).sort().map(k => {
+    const d = WX.days[k];
+    const dt = new Date(k + 'T00:00:00');
+    const isToday = k === dNow;
+    const isPast = k < dNow;
+    let cls = 'wx-cell';
+    if(/Rainbow/.test(d.label)) cls += ' rainbow';
+    else if(/Rain|Snow/.test(d.label) && d.label !== 'Sunny') cls += ' special';
+    if(isToday) cls += ' today';
+    return '<div class="' + cls + '"' + (isPast ? ' style="opacity:.55"' : '') + '>'
+      + '<span class="wx-week">' + WEEK[dt.getDay()] + '</span>'
+      + '<div class="wx-date">' + MONTHS[parseInt(k.slice(5,7),10) - 1] + ' ' + (parseInt(k.slice(8,10),10)) + (isToday ? ' · today' : '') + '</div>'
+      + '<span class="wx-icon">' + d.icon + '</span>'
+      + '<div class="wx-label">' + esc(d.label) + '</div>'
+      + (d.note ? '<div class="wx-note">' + esc(d.note) + '</div>' : '<div class="wx-note"></div>')
+      + (d.fish ? '<div class="wx-fish">🎣 ' + esc(d.fish) + '</div>' : '')
+      + '</div>';
+  }).join('');
+  cal.innerHTML = rows || '<div class="empty"><span class="emo">📅</span>No schedule data yet</div>';
+}
+
+renderToday();
+renderCal();
+</script>
+</body>
+</html>

@@ -6,22 +6,43 @@
 
 ```
 heartopia-guide/
-├── index.html            # 首页（今日情报聚合 + 模块导航）
+├── index.html            # 首页（今日情报聚合 + 模块导航）· 简体中文（默认语言，站点根目录）
 ├── codes.html            # 每日兑换码 + 物资点位（SEO 主战场，含 FAQ 结构化数据）
 ├── weather.html          # 天气排期日历
 ├── fishing.html          # 钓鱼图鉴（实时查询 + 全鱼种档案）
 ├── templates.html        # 装修模板库（30 套，支持 ?style=森系 等 URL 参数）
 ├── guide.html            # 新手 7 日路线
-├── assets/               # 共享样式与脚本
-├── data/                 # 前端数据（daily.js 由管道自动生成）
+├── en/ ja/ ko/           # 英 / 日 / 韩版本（与根目录同名页面一一对应）
+├── assets/
+│   ├── css/style.css     # 全站样式（含 :lang(ja)/:lang(ko) 本地字体）
+│   ├── js/common.js      # 公共脚本
+│   ├── js/lang.js        # 语言切换器（LOCALES 注册表驱动）
+│   └── i18n/en|ja|ko.js  # 每日数据运行时翻译层（中文 → 目标语言）
+├── data/                 # 前端数据（daily.js 由管道自动生成，保持中文单一数据源）
+│   ├── fish.js / fish-en|ja|ko.js       # 鱼种图鉴（各语言独立文件）
+│   ├── weather.js / weather-en|ja|ko.js # 天气日历（各语言独立文件）
+│   └── templates.js / templates-en|ja|ko.js
 ├── data-src/             # 管道输入（天气日历 / 种子数据）
 ├── scripts/
 │   ├── fetch_daily.py    # 每日情报管道（零第三方依赖）
-│   └── build_sitemap.py  # sitemap 生成 + SEO 域名替换
+│   └── build_sitemap.py  # 多语言 sitemap 生成（含 hreflang 互链）+ SEO 域名替换
 ├── .github/workflows/daily.yml   # 定时管道（北京时间 06:10 / 18:10）
 ├── sitemap.xml / robots.txt
 └── update.bat            # 本地一键更新
 ```
+
+## 多语言（i18n）架构
+
+- **URL 结构**：中文在站点根目录（默认语言），`/en/`、`/ja/`、`/ko/` 子目录放同名页面。语言切换由 `assets/js/lang.js` 自动在导航栏渲染菜单，按当前页面文件名跨语言跳转。
+- **SEO**：每个页面头部声明完整 hreflang 组（`zh-CN` / `en` / `ja` / `ko` / `x-default`→中文版）；`sitemap.xml` 由 `build_sitemap.py` 生成 6 页 × 4 语言 = 24 个 URL 条目，每条带全量 hreflang 互链。换正式域名后重跑脚本（见部署步骤）即可全站替换。
+- **数据双语策略**：
+  - 静态数据（鱼种 / 天气 / 模板）按语言各一份文件（`fish-en.js` 等），结构与中文版完全一致，条目顺序与 id 必须同步。
+  - 管道产出的每日数据（`daily.js`）保持中文单一数据源，其他语言页面加载 `assets/i18n/<lang>.js` 在渲染时运行时翻译（词典精确匹配 + 句式正则），未命中回退中文原文，保证管道新增数据不会让页面空白。
+- **新增语言四步**（以 `xx` 为例）：
+  1. 复制 en 目录改名 `xx/`，翻译 6 个页面（注意脚本路径 `../` 与 hreflang 组要加上新语言行）；
+  2. 复制 `data/fish-en.js` 等三个数据文件为 `*-xx.js` 并翻译（筛选值要与页面 chips 的 `data-*` 属性完全一致）；
+  3. 复制 `assets/i18n/en.js` 为 `xx.js`，保留中文 key 换目标语言值；
+  4. 在 `lang.js` 的 `LOCALES` 注册、在 `build_sitemap.py` 的 `LOCALES` 注册并重跑 sitemap 脚本；所有语言页面 head 的 hreflang 组各加一行。
 
 ## 方案 A：GitHub Pages（推荐起步，全程免费）
 
@@ -57,10 +78,12 @@ heartopia-guide/
 | 操作 | 方法 |
 |------|------|
 | 每日情报 | 自动：Actions 每天跑 2 次（06:10 / 18:10）；手动：双击 `update.bat` 或在 Actions 页 Run workflow |
-| 天气日历补新日期 | 编辑 `data-src/weather-calendar.json`（管道输入）和 `data/weather.js`（页面数据），格式照抄现有条目 |
-| 装修模板扩充 | 编辑 `data/templates.js`，照抄现有字段结构，`id` 递增 |
-| 鱼种数据修正 | 编辑 `data/fish.js` |
-| 新增页面 | 复制任一子页改内容 → 在 `scripts/build_sitemap.py` 的 `PAGES` 表登记 → 重跑 sitemap 脚本 |
+| 每日情报新增固定文案 | 管道数据新增中文文案时，在 `assets/i18n/en|ja|ko.js` 的 dict 补对应词条（未命中会回退中文，不会报错） |
+| 天气日历补新日期 | 编辑 `data-src/weather-calendar.json`（管道输入）和 `data/weather.js`（页面数据），格式照抄现有条目；同步更新 `weather-en|ja|ko.js` |
+| 装修模板扩充 | 编辑 `data/templates.js`，照抄现有字段结构，`id` 递增；同步扩充 `templates-en|ja|ko.js`（条目顺序与 id 保持一致） |
+| 鱼种数据修正 | 编辑 `data/fish.js`；同步修改 `fish-en|ja|ko.js` |
+| i18n 一致性自检 | 运行 `python scripts/validate_i18n.py`：页面齐全、hreflang 完整、脚本/链接可解析、各语言数据条目与中文版同步、筛选 chips 覆盖数据取值 |
+| 新增页面 | 复制任一子页改内容 → 各语言目录同步建页 → 在 `scripts/build_sitemap.py` 的 `PAGES` 表登记 → 重跑 sitemap 脚本 |
 
 ## 数据说明
 

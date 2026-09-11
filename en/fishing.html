@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heartopia Fishing Encyclopedia (All 24 Fish · Time/Weather/Location Lookup) | Heartopia Guide</title>
+<meta name="description" content="Heartopia complete fish encyclopedia: all 24 species with active hours, weather conditions, locations and sell prices, plus a real-time "what can I catch right now" lookup — Hammerhead Shark and Rainbow Trout on rainbow days, European Eel on rainy nights, Koi at the secret pond past midnight.">
+<meta name="keywords" content="Heartopia fishing,Heartopia fish,Heartopia fishing guide,Heartopia koi,Heartopia hammerhead shark,Heartopia legendary fish">
+<link rel="canonical" href="https://heartopia.example.com/en/fishing.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopia.example.com/fishing.html">
+<link rel="alternate" hreflang="en" href="https://heartopia.example.com/en/fishing.html">
+<link rel="alternate" hreflang="ja" href="https://heartopia.example.com/ja/fishing.html">
+<link rel="alternate" hreflang="ko" href="https://heartopia.example.com/ko/fishing.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopia.example.com/fishing.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heartopia Fishing Encyclopedia (All 24 Fish · Time/Weather/Location Lookup) | Heartopia Guide">
+<meta property="og:description" content="24 species × time × weather × location lookup, telling you what's biting right now.">
+<meta property="og:url" content="https://heartopia.example.com/en/fishing.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="fishing">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>Heartopia Guide</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="codes.html" data-page="codes">Codes</a>
+      <a href="weather.html" data-page="weather">Weather</a>
+      <a href="fishing.html" data-page="fishing">Fishing</a>
+      <a href="templates.html" data-page="templates">Templates</a>
+      <a href="guide.html" data-page="guide">Newbie Route</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">Home</a> / Fishing Encyclopedia</p>
+  <span class="hero-kicker display blue">🎣 Tool · Real-time</span>
+  <h1 class="display">Fishing <em>Lookup</em></h1>
+  <p class="page-sub">Heartopia's fish are picky about time and weather — set the current conditions and instantly see <b>what you can catch</b>; scroll down for the complete profiles of <b>all 24 species</b>.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px" id="now">
+    <div class="sec-head">
+      <span class="sec-tag display blue">Real-time</span>
+      <h2 class="display"><span class="wavy">What's Biting Right Now</span></h2>
+    </div>
+    <p class="sec-desc">Follows your local clock by default and auto-updates; pair it with the <a href="weather.html">weather schedule</a> for accuracy — wrong weather, wrong fish.</p>
+    <div class="panel">
+      <div class="ctrl-row">
+        <span class="ctrl-label">🕐 Time of day</span>
+        <button class="switch on" id="autoSwitch" title="Follow local time"><span class="knob"></span></button>
+        <span class="switch-text" id="clockText">—</span>
+        <div class="chips" id="timeChips">
+          <button class="chip" data-period="Morning">Morning <small>06–12</small></button>
+          <button class="chip" data-period="Afternoon">Afternoon <small>12–18</small></button>
+          <button class="chip" data-period="Evening">Evening <small>18–24</small></button>
+          <button class="chip" data-period="Night">Night <small>00–06</small></button>
+        </div>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">☁️ Current weather</span>
+        <div class="chips" id="weatherChips">
+          <button class="chip wx sunny" data-weather="Sunny">☀️ Sunny</button>
+          <button class="chip wx rainy" data-weather="Rainy">🌧️ Rainy</button>
+          <button class="chip wx rainbow" data-weather="Rainbow">🌈 Rainbow</button>
+          <button class="chip wx snow" data-weather="Snowy">❄️ Snowy</button>
+        </div>
+      </div>
+      <hr class="divider-dash">
+      <div class="search-bar">
+        <input class="search-input" id="searchInput" type="text" placeholder="🔍 Search fish, location or traits, e.g. &quot;rainbow&quot;, &quot;Old Sea&quot;…">
+        <span class="result-summary" id="resultSummary"></span>
+      </div>
+      <div class="fish-grid" id="fishGrid"></div>
+    </div>
+  </section>
+
+  <section class="reveal" id="dex">
+    <div class="sec-head">
+      <span class="sec-tag display">Encyclopedia</span>
+      <h2 class="display"><span class="wavy">All Species (24)</span></h2>
+    </div>
+    <p class="sec-desc">The complete archive, unaffected by current filters — type a fish name or location in the search box to jump to it. Legendary cards have the ✨ gold frame.</p>
+    <div class="fish-grid" id="fishGridAll"></div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">Legendary</span>
+      <h2 class="display"><span class="wavy">Legendary Catches</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">800 coins</span><span class="emo">🎏</span>
+        <h4 class="display">Koi · Secret Pond</h4>
+        <p>Only appears at the Secret Pond at night (00–06), sunny days only. One of the rarest catches in the encyclopedia — a must for the dedicated.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">750 coins</span><span class="emo">🐟</span>
+        <h4 class="display">Ice Sea Angel · Frozen Waters</h4>
+        <p>Roams the Frozen Waters all day during snow. A fish said to carry winter's blessing — don't miss the winter schedule.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">600 coins</span><span class="emo">🦈</span>
+        <h4 class="display">Hammerhead Shark · Whale Sea</h4>
+        <p>Rainbow-day daytime exclusive (morning/afternoon) — get that rod fully bent. Rainbow days are on the weather calendar.</p>
+      </div>
+      <a class="guide-card" href="weather.html">
+        <span class="guide-count">Schedule</span><span class="emo">📅</span>
+        <h4 class="display">When is the next rainbow day</h4>
+        <p>Weather follows a fixed official schedule — check the calendar and camp out accordingly</p>
+        <span class="go">See calendar →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">FAQ</span>
+      <h2 class="display"><span class="wavy">Fishing FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>What can I catch right now?</summary>
+      <div class="a">Use the <b>"What's Biting Right Now"</b> panel above: it follows your local time by default — just pick the weather to filter live. Weather should follow the <a href="weather.html">weather calendar</a> (official fixed schedule).</div>
+    </details>
+    <details class="faq">
+      <summary>Which legendary fish can I catch on a rainbow day?</summary>
+      <div class="a">During the daytime: the <b>Hammerhead Shark (Whale Sea, 600 coins)</b> and <b>Rainbow Trout (Lake, 180 coins)</b>. The <b>European Eel</b>, normally a rainy-night fish, also appears on rainbow-day evenings.</div>
+    </details>
+    <details class="faq">
+      <summary>Where do I catch the Koi?</summary>
+      <div class="a">Only at the <b>Secret Pond at night (00:00–06:00)</b>, and only on sunny days. Check the weather calendar to confirm tomorrow is sunny, then set an alarm.</div>
+    </details>
+    <details class="faq">
+      <summary>Which fish sell for the most?</summary>
+      <div class="a">Legendary tier: Koi 800, Ice Sea Angel 750, Hammerhead Shark 600. High-value farmables include European Lobster 260 and Snow Crab 300. Rarity is marked on the top-right of each card.</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 Heartopia Guide</div>
+  <div class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="codes.html">Daily Codes</a>
+    <a href="weather.html">Weather</a>
+    <a href="fishing.html">Fishing</a>
+    <a href="templates.html">Templates</a>
+    <a href="guide.html">Newbie Route</a>
+  </div>
+  <p>Fish data cross-compiled from the game encyclopedia and community guides · Weather-dependent appearances follow the official fixed schedule</p>
+  <p>An unofficial fan-made guide project, not affiliated with XD Inc. · Heartopia game assets © their respective owners</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+<script src="../data/fish-en.js"></script>
+<script>
+const FISH = window.HEARTOPIA_FISH || [];
+const RARITY = window.HEARTOPIA_RARITY || {};
+const state = {period:'',weather:'Sunny',auto:true,q:''};
+const timeChips = $$('#timeChips .chip');
+const weatherChips = $$('#weatherChips .chip');
+
+function periodOf(h){
+  if(h>=6&&h<12) return 'Morning';
+  if(h>=12&&h<18) return 'Afternoon';
+  if(h>=18&&h<24) return 'Evening';
+  return 'Night';
+}
+function pad(n){return String(n).padStart(2,'0')}
+
+function tick(){
+  const now = new Date();
+  $('#clockText').textContent = 'Now ' + pad(now.getHours())+':'+pad(now.getMinutes()) + ' · ' + periodOf(now.getHours());
+  if(state.auto){
+    state.period = periodOf(now.getHours());
+    syncChips();
+    renderFish();
+  }
+}
+function syncChips(){
+  timeChips.forEach(c=>c.classList.toggle('active',c.dataset.period===state.period));
+  weatherChips.forEach(c=>c.classList.toggle('active',c.dataset.weather===state.weather));
+}
+function match(f){
+  const timeOk = f.times.includes('All day')||f.times.includes(state.period);
+  const weatherOk = f.weathers.includes(state.weather);
+  const q = state.q.trim().toLowerCase();
+  const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
+  return timeOk && weatherOk && qOk;
+}
+function cardHTML(f,i){
+  const r = RARITY[f.rarity] || {label:'?',cls:''};
+  const timeTxt = f.times.includes('All day')?'All day':f.times.join('/');
+  const legend = f.rarity===4;
+  return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
+    +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
+    +'<span class="name">'+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)+'</span>'
+    +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
+    +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
+    +'<span class="tag time">🕐'+timeTxt+'</span>'
+    +'<span class="tag">'+f.weathers.join('/')+'</span></div>'
+    +'<div class="fish-price">💰 '+f.price+' coins</div>'
+    +'<p class="fish-note kai">'+esc(f.note)+'</p>'
+    +'</div>';
+}
+function renderFish(){
+  const list = FISH.filter(match);
+  const grid = $('#fishGrid');
+  grid.innerHTML = list.length
+    ? list.map(cardHTML).join('')
+    : '<div class="empty"><span class="emo">🎣</span>No fish under these conditions — try another weather or time slot; you might be surprised.</div>';
+  $('#resultSummary').innerHTML = '<b>'+list.length+'</b> species biting right now';
+  renderAll();
+}
+function renderAll(){
+  const q = state.q.trim().toLowerCase();
+  const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
+  $('#fishGridAll').innerHTML = list.length
+    ? list.map(cardHTML).join('')
+    : '<div class="empty"><span class="emo">🔍</span>No such fish found — try another keyword.</div>';
+}
+timeChips.forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.auto = false;
+    $('#autoSwitch').classList.remove('on');
+    state.period = c.dataset.period;
+    syncChips();
+    renderFish();
+  });
+});
+weatherChips.forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.weather = c.dataset.weather;
+    syncChips();
+    renderFish();
+  });
+});
+$('#autoSwitch').addEventListener('click',e=>{
+  state.auto = !state.auto;
+  e.currentTarget.classList.toggle('on',state.auto);
+  if(state.auto) tick();
+});
+$('#searchInput').addEventListener('input',e=>{
+  state.q = e.target.value;
+  renderFish();
+});
+tick();
+setInterval(tick,30000);
+</script>
+</body>
+</html>

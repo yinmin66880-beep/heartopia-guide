@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heartopia Codes Today (Updated Daily ~18:00) | Heartopia Guide</title>
+<meta name="description" content="Heartopia redemption codes, updated live: new codes drop around 18:00 daily and expire at 23:59:59 the same day — one-click copy and redeem. Includes daily resource spots (Yo-yo Oak / Flawless Fluorite) and a step-by-step redeem path.">
+<meta name="keywords" content="Heartopia codes,Heartopia redemption codes,Heartopia gift codes,Heartopia codes today,Heartopia daily resources">
+<link rel="canonical" href="https://heartopia.example.com/en/codes.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopia.example.com/codes.html">
+<link rel="alternate" hreflang="en" href="https://heartopia.example.com/en/codes.html">
+<link rel="alternate" hreflang="ja" href="https://heartopia.example.com/ja/codes.html">
+<link rel="alternate" hreflang="ko" href="https://heartopia.example.com/ko/codes.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopia.example.com/codes.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heartopia Codes Today (Updated Daily ~18:00) | Heartopia Guide">
+<meta property="og:description" content="Today's codes, one-click copy · valid same-day · daily resource spots included.">
+<meta property="og:url" content="https://heartopia.example.com/en/codes.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where do I enter Heartopia redemption codes?",
+      "acceptedAnswer": {"@type": "Answer", "text": "In-game, open [Watch] → [Settings] → [Redeem Code] and paste today's code copied from this page to claim your reward."}
+    },
+    {
+      "@type": "Question",
+      "name": "What time are Heartopia codes updated each day?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Daily codes drop around 18:00. This page's data pipeline scrapes community sources automatically every day and cross-verifies them — no need to dig through forums yourself."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long are Heartopia codes valid?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Daily codes are valid until 23:59:59 of the same day. After that, wait for the next day's code — redeeming right after you log in each day is the habit to build."}
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the page say 'Update pending'?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It means the day's new code hasn't been posted yet, or the pipeline hasn't run (for example, you opened the page before 18:00). The page switches back to live status automatically once the pipeline updates."}
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I get the latest codes first?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Bookmark this page — an automated pipeline scrapes and cross-verifies multiple TapTap community sources daily. You can also follow the daily update threads on the TapTap Heartopia official forum."}
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="codes">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>Heartopia Guide</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="codes.html" data-page="codes">Codes</a>
+      <a href="weather.html" data-page="weather">Weather</a>
+      <a href="fishing.html" data-page="fishing">Fishing</a>
+      <a href="templates.html" data-page="templates">Templates</a>
+      <a href="guide.html" data-page="guide">Newbie Route</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">Home</a> / Daily Codes</p>
+  <span class="hero-kicker display">🎁 Daily must-read · Auto-updated</span>
+  <h1 class="display">Today's Codes <em>&amp;</em> Daily Resource Spots</h1>
+  <p class="page-sub">Codes drop around <b>18:00 daily</b> and are valid until 23:59:59 the same day; resource spots <b>reset at 06:00</b>.<br>This page is fed by a pipeline that scrapes and cross-verifies 5 TapTap community sources — 30 seconds before you log in is all it takes.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="status-bar" id="statusBar">
+      <span class="status-pill ok" id="statusPill"><span class="dot"></span><span id="statusText">Loading…</span></span>
+      <span id="statusMeta">—</span>
+      <span class="src-links" id="srcLinks"></span>
+    </div>
+
+    <div class="grid-today">
+      <div class="card blue" style="grid-column:1/-1;max-width:640px;margin:0 auto;width:100%">
+        <span class="tape"></span>
+        <h3 class="display" style="font-size:19px">🎁 Today's Codes (<span id="todayDate">—</span>)</h3>
+        <div id="codesWrap"></div>
+        <p class="mini-note" id="redeemPath">Redeem path: —</p>
+        <div class="steps-3">
+          <div class="step-3"><span class="n">1</span><b>Open the Watch</b>top-right of the main screen</div>
+          <div class="step-3"><span class="n">2</span><b>Settings → Redeem Code</b>find the redeem entry</div>
+          <div class="step-3"><span class="n">3</span><b>Paste today's code</b>reward goes to your mailbox</div>
+        </div>
+        <p class="mini-note kai" style="font-size:13.5px">A data pipeline scrapes and cross-verifies community sources daily; codes tagged "multi-source verified" are safe to use. Intel comes from the CN player community — some codes or schedules may differ on international servers.</p>
+      </div>
+
+      <div class="card" style="grid-column:1/-1;max-width:640px;margin:0 auto;width:100%">
+        <h3 class="display">🧺 Daily Resource Spots (reset 06:00)</h3>
+        <div id="resWrap"></div>
+        <p class="mini-note" style="margin-top:12px" id="resNote">—</p>
+        <a class="more-link" href="weather.html">📅 Check today's weather too — don't miss the limited fish →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">FAQ</span>
+      <h2 class="display"><span class="wavy">Code Redemption FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>Where do I enter Heartopia redemption codes?</summary>
+      <div class="a">In-game, open <b>[Watch] → [Settings] → [Redeem Code]</b>, paste today's code copied from this page, and the reward lands in your in-game mailbox.</div>
+    </details>
+    <details class="faq">
+      <summary>What time do codes update? How long are they valid?</summary>
+      <div class="a">Daily codes drop around <b>18:00</b> and are <b>valid until 23:59:59 the same day</b>. This page updates automatically via a data pipeline — no forum digging required.</div>
+    </details>
+    <details class="faq">
+      <summary>Why does the page show "Update pending"?</summary>
+      <div class="a">The day's new code hasn't been posted yet, or the pipeline hasn't run (say you opened the page before 18:00). The page follows the <a href="index.html">homepage intel pipeline</a> and updates itself — just refresh a bit later.</div>
+    </details>
+    <details class="faq">
+      <summary>How many times can I gather Yo-yo Oak and Flawless Fluorite each day?</summary>
+      <div class="a">They <b>reset at 06:00 daily</b> — one gather per spot per day, 3 items each, with spots changing daily (usually near house entrances, in Spirit Oakpine Forest, or at Hot Spring Mountain Ruins). Gathering unlocks after the "Finding Star Spirits" main quest.</div>
+    </details>
+    <details class="faq">
+      <summary>Where do I get the latest codes first?</summary>
+      <div class="a">Bookmark this page — it updates automatically every day. Data comes from <span id="faqSrc">multiple TapTap community sources</span>; you can also check the original threads.</div>
+    </details>
+  </section>
+
+  <section class="reveal" id="srcSection">
+    <div class="sec-head">
+      <span class="sec-tag display blue">Sources</span>
+      <h2 class="display"><span class="wavy">Intel Sources</span></h2>
+    </div>
+    <p class="sec-desc" id="srcDesc">This page is fed by an automated pipeline that scrapes and cross-verifies the community sources below; only codes matched by multiple sources get the "verified" tag.</p>
+    <div class="panel" id="srcPanel" style="font-size:14px;line-height:2.2"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 Heartopia Guide</div>
+  <div class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="codes.html">Daily Codes</a>
+    <a href="weather.html">Weather</a>
+    <a href="fishing.html">Fishing</a>
+    <a href="templates.html">Templates</a>
+    <a href="guide.html">Newbie Route</a>
+  </div>
+  <p>Daily intel is auto-scraped from 5 community sources and cross-verified by a data pipeline · Template library: 30 real community cases (Bilibili / TapTap)</p>
+  <p>An unofficial fan-made guide project, not affiliated with XD Inc. · Heartopia game assets © their respective owners</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+<script src="../data/daily.js"></script>
+<script src="../assets/i18n/en.js"></script>
+<script>
+const DAILY = window.HEARTOPIA_DAILY || null;
+const I18N = window.HEARTOPIA_I18N;
+
+function renderDaily(){
+  const pill = $('#statusPill'), pillTxt = $('#statusText'), meta = $('#statusMeta'), links = $('#srcLinks');
+  if(!DAILY){
+    pill.className = 'status-pill err';
+    pillTxt.textContent = 'Intel pipeline not run yet';
+    meta.textContent = 'Run scripts/fetch_daily.py first to generate data/daily.js';
+    return;
+  }
+  const stMap = {
+    live:  {cls:'ok',   txt:'Live today'},
+    stale: {cls:'warn', txt:'Community archive'},
+    fallback:{cls:'warn', txt:'Cached fallback'}
+  };
+  let st = stMap[DAILY.status] || stMap.fallback;
+  const now = new Date();
+  const dNow = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+  if(DAILY.date < dNow){
+    st = {cls: 'warn', txt: 'Update pending'};
+  }
+  pill.className = 'status-pill ' + st.cls;
+  pillTxt.textContent = st.txt;
+  const nOk = (DAILY.audit && DAILY.audit.sourcesOk ? DAILY.audit.sourcesOk.length : (DAILY.sources || []).length);
+  meta.textContent = DAILY.date + ' ' + I18N.t(DAILY.weekday || '') + ' · updated ' + DAILY.generatedAt + (nOk ? ' · ' + nOk + ' sources' : '');
+
+  (DAILY.sources || []).slice(0, 3).forEach(s => {
+    const a = document.createElement('a');
+    a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = I18N.t(s.name);
+    links.appendChild(a);
+  });
+  if((DAILY.sources || []).length > 3){
+    const more = document.createElement('span');
+    more.textContent = '+' + (DAILY.sources.length - 3) + ' more';
+    links.appendChild(more);
+  }
+
+  $('#todayDate').textContent = DAILY.date + ' ' + I18N.t(DAILY.weekday || '');
+
+  const cw = $('#codesWrap');
+  cw.innerHTML = (DAILY.codes || []).map(c =>
+    '<div class="code-box" style="padding:16px 18px">'
+    + '<span class="code" style="font-size:24px;letter-spacing:4px">' + esc(c.code) + '</span>'
+    + (c.verified ? '<span class="vtag">✓ ' + c.verified + '-source verified</span>' : '')
+    + '<button class="btn-copy" data-code="' + esc(c.code) + '" style="font-size:14px;padding:9px 22px">Copy</button>'
+    + '</div>'
+    + (c.note ? '<p class="mini-note" style="margin:-6px 0 12px">' + esc(I18N.note(c.note)) + '</p>' : '')
+  ).join('') || '<div class="code-box"><span class="code">None yet today · refresh after 18:00</span></div>';
+  $('#redeemPath').textContent = 'Redeem path: ' + I18N.t(DAILY.redeemPath || '游戏内【手表】→【设置】→【兑换码】') + ' · ' + I18N.t(DAILY.codeRule || '');
+
+  const rw = $('#resWrap');
+  rw.innerHTML = (DAILY.resources || []).map(r =>
+    '<div class="res-row"><span class="emo">' + (r.emo || '📍') + '</span>'
+    + '<span class="name">' + esc(I18N.t(r.name)) + '</span>'
+    + '<span class="pos">' + esc(I18N.pos(r.pos)) + '</span></div>'
+  ).join('') || '<div class="res-row"><span class="emo">🧺</span><span class="name">Today\u2019s spots pending update</span></div>';
+  $('#resNote').textContent = I18N.t(DAILY.resourceNote || '每日 06:00 刷新 · 顺路领完再去钓鱼') + (DAILY.resourceUnlock ? ' · ' + I18N.t(DAILY.resourceUnlock) : '');
+
+  const sp = $('#srcPanel');
+  sp.innerHTML = (DAILY.sources || []).map(s =>
+    '🔗 <a href="' + esc(s.url) + '" target="_blank" rel="noopener" style="color:var(--blue-deep)">' + esc(I18N.t(s.name)) + '</a>'
+  ).join('<br>') || 'No source records yet';
+  if(DAILY.audit && DAILY.audit.conflicts && DAILY.audit.conflicts.length){
+    $('#srcDesc').textContent = 'This page is fed by an automated pipeline that scrapes and cross-verifies the community sources below · ' + DAILY.audit.conflicts.length + ' spot conflicts today were resolved in favor of the first primary source';
+  }
+  const fs = $('#faqSrc');
+  if(fs && (DAILY.sources || []).length){
+    fs.textContent = DAILY.sources.length + ' monitored TapTap sources';
+  }
+}
+
+$('#codesWrap').addEventListener('click', e => {
+  const btn = e.target.closest('.btn-copy');
+  if(!btn) return;
+  copyText(btn.dataset.code, 'Copied to clipboard ✓');
+});
+
+renderDaily();
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heartopia Home Template Library (30 Real Builds · Forest/Modern/Chinese/Cute/F2P) | Heartopia Guide</title>
+<meta name="description" content="Heartopia home design templates: 30 real Bilibili/TapTap community tutorials covering 8 styles — Forest, Modern, Chinese, Cute, Blue, Cottagecore, Cream French and Retro — filterable by style, room and budget. Every entry includes build steps, pitfalls and a link to the original post. Copy and build.">
+<meta name="keywords" content="Heartopia house design,Heartopia home templates,Heartopia forest villa,Heartopia F2P build,Heartopia chinese style,Heartopia interior">
+<link rel="canonical" href="https://heartopia.example.com/en/templates.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopia.example.com/templates.html">
+<link rel="alternate" hreflang="en" href="https://heartopia.example.com/en/templates.html">
+<link rel="alternate" hreflang="ja" href="https://heartopia.example.com/ja/templates.html">
+<link rel="alternate" hreflang="ko" href="https://heartopia.example.com/ko/templates.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopia.example.com/templates.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heartopia Home Template Library (30 Real Builds) | Heartopia Guide">
+<meta property="og:description" content="30 real community build tutorials: filter by style × room × budget, with steps and pitfalls included.">
+<meta property="og:url" content="https://heartopia.example.com/en/templates.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="templates">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>Heartopia Guide</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="codes.html" data-page="codes">Codes</a>
+      <a href="weather.html" data-page="weather">Weather</a>
+      <a href="fishing.html" data-page="fishing">Fishing</a>
+      <a href="templates.html" data-page="templates">Templates</a>
+      <a href="guide.html" data-page="guide">Newbie Route</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">Home</a> / Template Library</p>
+  <span class="hero-kicker display">🏠 Core feature · Real builds</span>
+  <h1 class="display">Home Inspiration <em>Template Library</em></h1>
+  <p class="page-sub">All <b>30</b> templates come from real Bilibili / TapTap community tutorials — filter by style, room and budget, open a card for steps and pitfalls, and <b>jump to the original post to build along</b>.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="panel">
+      <div class="ctrl-row">
+        <span class="ctrl-label">🎨 Style</span>
+        <div class="chips" id="styleChips">
+          <button class="chip active" data-style="All">All</button>
+          <button class="chip" data-style="Forest">🌿 Forest</button>
+          <button class="chip" data-style="Modern">🏙️ Modern</button>
+          <button class="chip" data-style="Chinese">🏮 Chinese</button>
+          <button class="chip" data-style="Cute">🍓 Cute</button>
+          <button class="chip" data-style="Blue">🌊 Blue</button>
+          <button class="chip" data-style="Cottagecore">🌻 Cottagecore</button>
+          <button class="chip" data-style="Cream French">🕯️ Cream French</button>
+          <button class="chip" data-style="Retro">📻 Retro</button>
+        </div>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">🏠 Room</span>
+        <div class="chips" id="roomChips">
+          <button class="chip active" data-room="All">All</button>
+          <button class="chip" data-room="Whole House">🏡 Whole House</button>
+          <button class="chip" data-room="Bedroom">🛏️ Bedroom</button>
+          <button class="chip" data-room="Living Room">🛋️ Living Room</button>
+          <button class="chip" data-room="Bathroom">🛁 Bathroom</button>
+          <button class="chip" data-room="Study">📚 Study</button>
+          <button class="chip" data-room="Outdoor">🌸 Outdoor</button>
+        </div>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">💰 Budget</span>
+        <div class="chips" id="budgetChips">
+          <button class="chip budget active" data-budget="All">All</button>
+          <button class="chip budget zero" data-budget="F2P">🌱 F2P</button>
+          <button class="chip budget lite" data-budget="Low-Spend">✨ Low-Spend</button>
+        </div>
+      </div>
+      <hr class="divider-dash">
+      <div class="search-bar">
+        <input class="search-input" id="tplSearch" type="text" placeholder="🔍 Search templates by keyword, author or platform…">
+        <span class="result-summary" id="tplSummary"></span>
+      </div>
+      <div class="tpl-grid" id="tplGrid"></div>
+      <p class="tpl-foot" id="tplFoot"></p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">Around the build</span>
+      <h2 class="display"><span class="wavy">Before &amp; After You Build</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card" href="guide.html">
+        <span class="guide-count">DAY 7</span><span class="emo">🌱</span>
+        <h4 class="display">7-Day Newbie Route</h4>
+        <p>Don't build big early — start small with an 8×10 cottage</p>
+        <span class="go">See the route →</span>
+      </a>
+      <a class="guide-card" href="codes.html">
+        <span class="guide-count">Daily 06:00</span><span class="emo">🧺</span>
+        <h4 class="display">Daily Resource Spots</h4>
+        <p>Yo-yo Oak / Flawless Fluorite refresh daily — stock building materials</p>
+        <span class="go">Claim resources →</span>
+      </a>
+      <a class="guide-card" href="fishing.html">
+        <span class="guide-count">24 species</span><span class="emo">🎣</span>
+        <h4 class="display">Fish for Coins</h4>
+        <p>Short on budget? See what's biting and what pays best</p>
+        <span class="go">Look up fish →</span>
+      </a>
+      <a class="guide-card" href="weather.html">
+        <span class="guide-count">Official schedule</span><span class="emo">📅</span>
+        <h4 class="display">Weather Calendar</h4>
+        <p>Gather meteorites on shower nights — rare building material</p>
+        <span class="go">See schedule →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Template detail modal -->
+<div class="modal-mask" id="tplModal">
+  <div class="modal-card">
+    <button class="modal-close" id="tplModalClose" aria-label="Close">×</button>
+    <div class="modal-hero"><img id="mImg" src="" alt=""><span class="img-note">AI style illustration · see original post</span></div>
+    <div class="modal-body">
+      <h3 class="display" id="mTitle"></h3>
+      <div class="tpl-tags" id="mTags"></div>
+      <div class="modal-stats">
+        <div class="mstat"><div class="v" id="mDiff"></div><div class="k">Difficulty</div></div>
+        <div class="mstat"><div class="v" id="mScale"></div><div class="k">Plot scale</div></div>
+        <div class="mstat"><div class="v" id="mBudget"></div><div class="k">Budget</div></div>
+      </div>
+      <h5 class="display">✅ Build tips (from the original post)</h5>
+      <ul class="furni" id="mTips"></ul>
+      <h5 class="display">📝 Three steps to start</h5>
+      <ol class="steps" id="mSteps"></ol>
+      <div class="warn-box" id="mPit"></div>
+      <div class="modal-src" id="mSrc"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-logo display">🏡 Heartopia Guide</div>
+  <div class="foot-nav">
+    <a href="index.html">Home</a>
+    <a href="codes.html">Daily Codes</a>
+    <a href="weather.html">Weather</a>
+    <a href="fishing.html">Fishing</a>
+    <a href="templates.html">Templates</a>
+    <a href="guide.html">Newbie Route</a>
+  </div>
+  <p>The library collects 30 real community builds (Bilibili / TapTap, continuously updated) · Card images are AI style illustrations; actual results and full tutorials are in the original posts</p>
+  <p>An unofficial fan-made guide project, not affiliated with XD Inc. · Heartopia game assets © their respective owners</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+<script src="../data/templates-en.js"></script>
+<script>
+const TPLS = window.HEARTOPIA_TPLS || [];
+const TPL_META = window.HEARTOPIA_TPL_META || {};
+const imgOf = t => 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=' + encodeURIComponent(t.imgPrompt) + '&image_size=portrait_4_3';
+
+const dState = {style:'All', room:'All', budget:'All', q:''};
+const styleChips = $$('#styleChips .chip');
+const roomChips = $$('#roomChips .chip');
+const budgetChips = $$('#budgetChips .chip');
+
+/* URL param filters: templates.html?style=Forest&room=Bedroom&budget=F2P */
+(function initFromUrl(){
+  const p = new URLSearchParams(location.search);
+  const st = p.get('style'), rm = p.get('room'), bd = p.get('budget'), q = p.get('q');
+  if(st && TPLS.some(t=>t.style===st)) dState.style = st;
+  if(rm && TPLS.some(t=>t.room===rm)) dState.room = rm;
+  if(bd && TPLS.some(t=>t.budget===bd)) dState.budget = bd;
+  if(q) dState.q = q;
+})();
+
+function starTxt(n){return '★'.repeat(n)+'☆'.repeat(3-n)}
+function platformBadge(p){
+  const isBili = /Bilibili|B站|bilibili/i.test(p);
+  return '<span class="tpl-platform' + (isBili ? ' bili' : '') + '">' + (isBili ? 'Bilibili' : esc(p)) + '</span>';
+}
+function tplMatch(t){
+  const q = dState.q.trim().toLowerCase();
+  const hay = (t.title + t.style + t.room + t.budget + t.tips.join('') + t.source.author + t.source.platform).toLowerCase();
+  const qOk = !q || hay.includes(q);
+  return (dState.style==='All'||t.style===dState.style)
+    && (dState.room==='All'||t.room===dState.room)
+    && (dState.budget==='All'||t.budget===dState.budget)
+    && qOk;
+}
+function renderTpls(){
+  const list = TPLS.filter(tplMatch);
+  const grid = $('#tplGrid');
+  if(TPLS.length === 0){
+    grid.innerHTML = '<div class="empty"><span class="emo">📦</span>Failed to load template data — make sure data/templates-en.js is deployed alongside the page.</div>';
+  }else if(list.length===0){
+    grid.innerHTML = '<div class="empty"><span class="emo">🛋️</span>No templates for this combination yet — try another style or room; you might be surprised.</div>';
+  }else{
+    grid.innerHTML = list.map((t,i)=>(
+      '<div class="tpl-card" data-id="'+t.id+'" style="animation-delay:'+(i%12*45)+'ms">'
+      +'<div class="tpl-thumb">'
+      +'<span class="tpl-corner">'+esc(t.style)+' · '+esc(t.room)+'</span>'
+      + platformBadge(t.source.platform)
+      +'<img loading="lazy" src="'+imgOf(t)+'" alt="'+esc(t.title)+' style illustration" onerror="this.style.display=\'none\'">'
+      +'<span class="tpl-look">Open for build tips →</span>'
+      +'</div>'
+      +'<div class="tpl-body">'
+      +'<h4 class="display">'+esc(t.title)+'</h4>'
+      +'<div class="tpl-tags">'
+      +'<span class="dt style">'+esc(t.style)+'</span><span class="dt room">'+esc(t.room)+'</span>'
+      +'<span class="dt budget '+t.budget+'">'+esc(t.budget)+'</span>'
+      +'</div>'
+      +'<div class="tpl-meta"><span class="stars">'+starTxt(t.diff)+'</span><span class="scale">'+esc(t.scale)+'</span>'
+      +'<span class="views">'+(t.source.views && t.source.views !== 'unknown' ? esc(t.source.views.split(' ')[0]) : '')+'</span></div>'
+      +'</div></div>'
+    )).join('');
+  }
+  $('#tplSummary').innerHTML = '<b>'+list.length+'</b> templates';
+}
+
+function syncChips(){
+  styleChips.forEach(c=>c.classList.toggle('active',c.dataset.style===dState.style));
+  roomChips.forEach(c=>c.classList.toggle('active',c.dataset.room===dState.room));
+  budgetChips.forEach(c=>c.classList.toggle('active',c.dataset.budget===dState.budget));
+  const si = $('#tplSearch');
+  if(si && document.activeElement !== si && si.value !== dState.q) si.value = dState.q;
+}
+styleChips.forEach(c=>c.addEventListener('click',()=>{
+  dState.style = c.dataset.style; syncChips(); renderTpls();
+}));
+roomChips.forEach(c=>c.addEventListener('click',()=>{
+  dState.room = c.dataset.room; syncChips(); renderTpls();
+}));
+budgetChips.forEach(c=>c.addEventListener('click',()=>{
+  dState.budget = c.dataset.budget; syncChips(); renderTpls();
+}));
+$('#tplSearch').addEventListener('input',e=>{ dState.q = e.target.value; renderTpls(); });
+
+function openTpl(id){
+  const t = TPLS.find(x=>x.id===id);
+  if(!t) return;
+  $('#mImg').src = imgOf(t);
+  $('#mImg').style.display = '';
+  $('#mImg').onerror = function(){ this.style.display='none'; };
+  $('#mImg').alt = t.title + ' style illustration';
+  $('#mTitle').textContent = t.title;
+  $('#mTags').innerHTML = '<span class="dt style">'+esc(t.style)+'</span><span class="dt room">'+esc(t.room)+'</span><span class="dt budget '+t.budget+'">'+esc(t.budget)+'</span>';
+  $('#mDiff').textContent = starTxt(t.diff);
+  $('#mScale').textContent = t.scale;
+  $('#mBudget').textContent = t.budget;
+  $('#mTips').innerHTML = t.tips.map(x=>'<li>'+esc(x)+'</li>').join('');
+  $('#mSteps').innerHTML = t.steps.map(s=>'<li>'+esc(s)+'</li>').join('');
+  $('#mPit').textContent = '⚠️ Heads-up: '+t.pit;
+  const s = t.source;
+  $('#mSrc').innerHTML =
+    '<span class="who">👤 ' + esc(s.author) + ' @ ' + esc(s.platform) + '</span>'
+    + '<span class="views">' + esc(s.views || '') + (s.date && s.date !== 'unknown' ? ' · ' + esc(s.date) : '') + '</span>'
+    + '<a class="btn-link" href="' + esc(s.link) + '" target="_blank" rel="noopener">📺 Follow the original tutorial →</a>';
+  $('#tplModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeTpl(){
+  $('#tplModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+$('#tplGrid').addEventListener('click',e=>{
+  const card = e.target.closest('.tpl-card');
+  if(card) openTpl(Number(card.dataset.id));
+});
+$('#tplModalClose').addEventListener('click',closeTpl);
+$('#tplModal').addEventListener('click',e=>{ if(e.target===e.currentTarget) closeTpl(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeTpl(); });
+
+(function initFoot(){
+  if(TPL_META.total){
+    $('#tplFoot').innerHTML = 'Collecting <b>' + TPL_META.total + '</b> real community builds (Bilibili ' + TPLS.filter(t=>t.source.platform==='Bilibili').length + ' · TapTap ' + TPLS.filter(t=>t.source.platform==='TapTap').length + ') · Updated ' + esc(TPL_META.updatedAt) + '<br>Card images are AI style illustrations (not in-game screenshots); actual results and full tutorials are in the original posts';
+  }
+})();
+
+syncChips();
+renderTpls();
+</script>
+</body>
+</html>

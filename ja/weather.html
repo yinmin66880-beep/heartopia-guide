@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハートピア天気カレンダー（虹・雨・流星群のお知らせ）| ハートピア攻略手帳</title>
+<meta name="description" content="ハートピアの天気は公式の固定スケジュールに従います。虹・雨・流星群の日程と、天気 × 限定魚の早見表を掲載 — 虹の日はシュモクザメとニジマス、雨の夜はウナギ。お出かけ前にチェック。">
+<meta name="keywords" content="ハートピア天気,ハートピア虹の日,ハートピア天気カレンダー,ハートピア流星群,ハートピア釣り天気">
+<link rel="canonical" href="https://heartopia.example.com/ja/weather.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopia.example.com/weather.html">
+<link rel="alternate" hreflang="en" href="https://heartopia.example.com/en/weather.html">
+<link rel="alternate" hreflang="ja" href="https://heartopia.example.com/ja/weather.html">
+<link rel="alternate" hreflang="ko" href="https://heartopia.example.com/ko/weather.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopia.example.com/weather.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ハートピア天気カレンダー（虹・雨・流星群のお知らせ）| ハートピア攻略手帳">
+<meta property="og:description" content="公式のゲーム内天気スケジュールをカレンダー化。天気 × 限定魚の早見表つき。">
+<meta property="og:url" content="https://heartopia.example.com/ja/weather.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="weather">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>ハートピア攻略手帳</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">ホーム</a>
+      <a href="codes.html" data-page="codes">ギフトコード</a>
+      <a href="weather.html" data-page="weather">天気</a>
+      <a href="fishing.html" data-page="fishing">釣り図鑑</a>
+      <a href="templates.html" data-page="templates">テンプレート</a>
+      <a href="guide.html" data-page="guide">初心者ルート</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">ホーム</a> / 天気カレンダー</p>
+  <span class="hero-kicker display">📅 公式スケジュール · コミュニティ管理</span>
+  <h1 class="display">町の天気 <em>カレンダー</em></h1>
+  <p class="page-sub">ハートピアの天気はランダムではなく<b>公式の固定スケジュール</b>。虹の日と流星群の夜を事前に知れば、<b>限定魚も限定採集も逃しません</b>。</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="status-bar" id="statusBar">
+      <span class="status-pill ok" id="statusPill"><span class="dot"></span><span id="statusText">読み込み中…</span></span>
+      <span id="statusMeta">—</span>
+      <span class="src-links" id="srcLinks"></span>
+    </div>
+
+    <div class="grid-today">
+      <div class="card">
+        <span class="tape"></span>
+        <p class="today-date" id="todayDate">—</p>
+        <h3 class="display">今日の天気</h3>
+        <div class="weather-big">
+          <span class="icon" id="wxIcon">⛅</span>
+          <div>
+            <div class="temp" id="wxLabel">—</div>
+            <div class="cond" id="wxDetail">—</div>
+          </div>
+        </div>
+        <div class="tip-box kai" id="wxTip">💡 天気情報を読み込み中…</div>
+        <div class="tip-box next kai" id="wxNext" style="display:none"></div>
+      </div>
+      <div class="card blue">
+        <span class="tape"></span>
+        <h3 class="display">🎣 天気 × 釣り早見表</h3>
+        <div class="res-row"><span class="emo">🌈</span><span class="name">虹の日</span><span class="pos">シュモクザメ · ニジマス</span></div>
+        <div class="res-row"><span class="emo">🌧️</span><span class="name">雨の日</span><span class="pos">サンドブリーム · ウナギ</span></div>
+        <div class="res-row"><span class="emo">❄️</span><span class="name">雪の日</span><span class="pos">ズワイガニ · 氷の海の天使</span></div>
+        <div class="res-row"><span class="emo">☄️</span><span class="name">流星群の夜</span><span class="pos">隕石の限定採集</span></div>
+        <a class="more-link" href="fishing.html">全 24 種の出現条件を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">カレンダー</span>
+      <h2 class="display"><span class="wavy">今後の天気</span></h2>
+    </div>
+    <p class="sec-desc">下記の<b>確定済み日程</b>はコミュニティ収集 + パイプライン検証済み。掲載のない日は通常の晴れです。</p>
+    <div class="wx-cal" id="wxCal"></div>
+    <div class="wx-legend">
+      <span><b>☀️ 晴れ</b> いつもどおり釣り</span>
+      <span><b>🌧️ 雨</b> 雨の日限定</span>
+      <span><b>🌈 虹</b> 伝説級の魚のチャンス</span>
+      <span><b>☄️ 流星群</b> 隕石採集</span>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">さらに詳しく</span>
+      <h2 class="display"><span class="wavy">天気で今日の計画を決める</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card" href="fishing.html">
+        <span class="guide-count">24 種</span><span class="emo">🎣</span>
+        <h4 class="display">釣り図鑑</h4>
+        <p>時間 × 天気 × 釣り場の検索 — 虹の日にシュモクザメを逃さない</p>
+        <span class="go">魚を調べる →</span>
+      </a>
+      <a class="guide-card" href="codes.html">
+        <span class="guide-count">毎日更新</span><span class="emo">🎁</span>
+        <h4 class="display">今日のギフトコード</h4>
+        <p>毎日 18:00 頃に新しいコード、ワンクリックでコピー。ついでに物資も</p>
+        <span class="go">今すぐコピー →</span>
+      </a>
+      <a class="guide-card" href="guide.html">
+        <span class="guide-count">7 日間</span><span class="emo">🌱</span>
+        <h4 class="display">初心者 7 日間ルート</h4>
+        <p>DAY4 は図鑑の日：見た魚は釣って、会った虫は捕る</p>
+        <span class="go">ルートを見る →</span>
+      </a>
+      <a class="guide-card" href="templates.html">
+        <span class="guide-count">30 作</span><span class="emo">🏠</span>
+        <h4 class="display">家づくりテンプレートライブラリ</h4>
+        <p>雨の日の釣りが終わったら？ 帰宅してテンプレートでインテリア</p>
+        <span class="go">テンプレートを見る →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">FAQ</span>
+      <h2 class="display"><span class="wavy">天気 FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>ハートピアの天気はランダム？</summary>
+      <div class="a">いいえ。ゲーム内の天気は<b>公式の固定スケジュール</b>に従い、サーバー全体で毎日同じ天気になります。コミュニティがそれをカレンダー化しています（情報源はステータスバー参照）— 釣りも採集も事前に計画できます。</div>
+    </details>
+    <details class="faq">
+      <summary>次の虹の日はいつ？何が釣れる？</summary>
+      <div class="a">今後の虹の日は上のカレンダーで。昼間は<b>シュモクザメ（600 コイン）とニジマス（180 コイン）</b>が狙えます — どちらも通常日は釣れません。出現条件の詳細は<a href="fishing.html">釣り図鑑</a>へ。</div>
+    </details>
+    <details class="faq">
+      <summary>「晴れのち雨」（例：「12:00 以降は雨」）とは？</summary>
+      <div class="a">前半は晴れで、指定時刻から雨になります。雨になった時点で雨の日限定（サンドブリーム・ウナギ）が釣れるようになるので、午後の出撃がいちばんお得。</div>
+    </details>
+    <details class="faq">
+      <summary>流星群は何のため？</summary>
+      <div class="a">流星群の時間帯（例：18:00–24:00）には決まったスポットで<b>隕石</b>を採集できます — 貴重な制作・建材素材。逃すと次のスケジュールまで待つことに。カレンダーで確定したら時間を確保しておきましょう。</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 ハートピア攻略手帳</div>
+  <div class="foot-nav">
+    <a href="index.html">ホーム</a>
+    <a href="codes.html">デイリーギフトコード</a>
+    <a href="weather.html">天気</a>
+    <a href="fishing.html">釣り図鑑</a>
+    <a href="templates.html">テンプレート</a>
+    <a href="guide.html">初心者ルート</a>
+  </div>
+  <p>天気は公式の固定スケジュールに従い、カレンダーはコミュニティ管理 + パイプライン検証 · 掲載のない日は晴れ</p>
+  <p>非公式のファンメイド攻略プロジェクトであり、XD Inc. とは無関係 · 『ハートピア』のゲーム素材は各著作権者に帰属</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+<script src="../data/daily.js"></script>
+<script src="../data/weather-ja.js"></script>
+<script src="../assets/i18n/ja.js"></script>
+<script>
+const DAILY = window.HEARTOPIA_DAILY || null;
+const WX = window.HEARTOPIA_WEATHER || null;
+const I18N = window.HEARTOPIA_I18N;
+const WEEK = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
+const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+function todayStr(){
+  const n = new Date();
+  return n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
+}
+
+function renderToday(){
+  const pill = $('#statusPill'), pillTxt = $('#statusText'), meta = $('#statusMeta'), links = $('#srcLinks');
+  const dNow = todayStr();
+  let w = null, sp = null;
+  if(DAILY){
+    const stMap = {
+      live:  {cls:'ok',   txt:'今日の最新'},
+      stale: {cls:'warn', txt:'コミュニティアーカイブ'},
+      fallback:{cls:'warn', txt:'キャッシュフォールバック'}
+    };
+    let st = stMap[DAILY.status] || stMap.fallback;
+    if(DAILY.date < dNow) st = {cls:'warn', txt:'更新待ち'};
+    pill.className = 'status-pill ' + st.cls;
+    pillTxt.textContent = st.txt;
+    const nOk = (DAILY.audit && DAILY.audit.sourcesOk ? DAILY.audit.sourcesOk.length : (DAILY.sources || []).length);
+    meta.textContent = DAILY.date + ' · 更新 ' + DAILY.generatedAt + (nOk ? ' · 情報源 ' + nOk + ' 件' : '');
+    (DAILY.sources || []).slice(0, 2).forEach(s => {
+      const a = document.createElement('a');
+      a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = I18N.t(s.name);
+      links.appendChild(a);
+    });
+    w = DAILY.weather;
+    sp = DAILY.specialForecast;
+  }else if(WX && WX.days[dNow]){
+    pillTxt.textContent = 'カレンダーデータ';
+    meta.textContent = '更新 ' + WX.updated;
+    w = {icon: WX.days[dNow].icon, label: WX.days[dNow].label, detail: WX.days[dNow].note || '公式の固定スケジュール', fishTip: ''};
+  }else{
+    pill.className = 'status-pill warn';
+    pillTxt.textContent = '更新待ち';
+    meta.textContent = '今日はまだカレンダーの対象外です — パイプラインの更新を待っています';
+  }
+
+  $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
+  if(w){
+    $('#wxIcon').textContent = w.icon || '⛅';
+    $('#wxLabel').textContent = w.label ? I18N.t(w.label) : '不明';
+    $('#wxDetail').textContent = w.detail ? I18N.t(w.detail) : 'ゲーム内の天気は公式の固定スケジュールに従います';
+    $('#wxTip').textContent = w.fishTip ? I18N.fishTip(w.label, w.detail) : '💡 お出かけ前に天気をチェック — 限定魚を見逃さないで。';
+  }
+  if(sp){
+    const nx = $('#wxNext');
+    nx.style.display = '';
+    nx.textContent = '📅 先行予告：' + sp.date + ' ' + I18N.t(sp.label) + (sp.note ? ' — ' + I18N.t(sp.note) : '');
+  }
+}
+
+function renderCal(){
+  const cal = $('#wxCal');
+  if(!WX || !WX.days){ cal.innerHTML = '<div class="empty"><span class="emo">📅</span>カレンダーデータの読み込みに失敗しました — data/weather-ja.js が配置されているか確認してください。</div>'; return; }
+  const dNow = todayStr();
+  const rows = Object.keys(WX.days).sort().map(k => {
+    const d = WX.days[k];
+    const dt = new Date(k + 'T00:00:00');
+    const isToday = k === dNow;
+    const isPast = k < dNow;
+    let cls = 'wx-cell';
+    if(/虹/.test(d.label)) cls += ' rainbow';
+    else if(/雨|雪/.test(d.label) && d.label !== '晴れ') cls += ' special';
+    if(isToday) cls += ' today';
+    return '<div class="' + cls + '"' + (isPast ? ' style="opacity:.55"' : '') + '>'
+      + '<span class="wx-week">' + WEEK[dt.getDay()] + '</span>'
+      + '<div class="wx-date">' + MONTHS[parseInt(k.slice(5,7),10) - 1] + (parseInt(k.slice(8,10),10)) + '日' + (isToday ? ' · 今日' : '') + '</div>'
+      + '<span class="wx-icon">' + d.icon + '</span>'
+      + '<div class="wx-label">' + esc(d.label) + '</div>'
+      + (d.note ? '<div class="wx-note">' + esc(d.note) + '</div>' : '<div class="wx-note"></div>')
+      + (d.fish ? '<div class="wx-fish">🎣 ' + esc(d.fish) + '</div>' : '')
+      + '</div>';
+  }).join('');
+  cal.innerHTML = rows || '<div class="empty"><span class="emo">📅</span>スケジュールデータはまだありません</div>';
+}
+
+renderToday();
+renderCal();
+</script>
+</body>
+</html>

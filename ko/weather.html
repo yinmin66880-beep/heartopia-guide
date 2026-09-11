@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하트오피아 날씨 캘린더 (무지개 / 비 / 유성우 알림) | 하트오피아 가이드</title>
+<meta name="description" content="하트오피아의 날씨는 공식 고정 일정을 따릅니다: 이 페이지에 무지개, 비, 유성우 날짜와 날씨 × 한정 어종 표를 정리했습니다 — 무지개 날엔 망치상어와 무지개송어, 비 오는 밤엔 뱀장어. 외출 전에 확인하세요.">
+<meta name="keywords" content="하트오피아 날씨,하트오피아 무지개 날,하트오피아 날씨 캘린더,하트오피아 유성우,하트오피아 낚시 날씨">
+<link rel="canonical" href="https://heartopia.example.com/ko/weather.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopia.example.com/weather.html">
+<link rel="alternate" hreflang="en" href="https://heartopia.example.com/en/weather.html">
+<link rel="alternate" hreflang="ja" href="https://heartopia.example.com/ja/weather.html">
+<link rel="alternate" hreflang="ko" href="https://heartopia.example.com/ko/weather.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopia.example.com/weather.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="하트오피아 날씨 캘린더 (무지개 / 비 / 유성우 알림) | 하트오피아 가이드">
+<meta property="og:description" content="게임 내 공식 날씨 일정을 캘린더로, 날씨 × 한정 어종 표까지.">
+<meta property="og:url" content="https://heartopia.example.com/ko/weather.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="weather">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>하트오피아 가이드</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">홈</a>
+      <a href="codes.html" data-page="codes">쿠폰 코드</a>
+      <a href="weather.html" data-page="weather">날씨</a>
+      <a href="fishing.html" data-page="fishing">낚시</a>
+      <a href="templates.html" data-page="templates">템플릿</a>
+      <a href="guide.html" data-page="guide">초보 루트</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">홈</a> / 날씨 캘린더</p>
+  <span class="hero-kicker display">📅 공식 일정 · 커뮤니티 관리</span>
+  <h1 class="display">마을 날씨 <em>캘린더</em></h1>
+  <p class="page-sub">하트오피아의 날씨는 랜덤이 아니라 <b>공식 고정 일정</b>입니다 — 무지개 날과 유성우 밤을 미리 알면 <b>한정 어종이나 전용 채집물을 놓치는 일이 없습니다</b>.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="status-bar" id="statusBar">
+      <span class="status-pill ok" id="statusPill"><span class="dot"></span><span id="statusText">불러오는 중…</span></span>
+      <span id="statusMeta">—</span>
+      <span class="src-links" id="srcLinks"></span>
+    </div>
+
+    <div class="grid-today">
+      <div class="card">
+        <span class="tape"></span>
+        <p class="today-date" id="todayDate">—</p>
+        <h3 class="display">오늘의 날씨</h3>
+        <div class="weather-big">
+          <span class="icon" id="wxIcon">⛅</span>
+          <div>
+            <div class="temp" id="wxLabel">—</div>
+            <div class="cond" id="wxDetail">—</div>
+          </div>
+        </div>
+        <div class="tip-box kai" id="wxTip">💡 날씨 정보를 불러오는 중…</div>
+        <div class="tip-box next kai" id="wxNext" style="display:none"></div>
+      </div>
+      <div class="card blue">
+        <span class="tape"></span>
+        <h3 class="display">🎣 날씨 × 낚시 치트시트</h3>
+        <div class="res-row"><span class="emo">🌈</span><span class="name">무지개 날</span><span class="pos">망치상어 · 무지개송어</span></div>
+        <div class="res-row"><span class="emo">🌧️</span><span class="name">비 오는 날</span><span class="pos">샌드브림 · 뱀장어</span></div>
+        <div class="res-row"><span class="emo">❄️</span><span class="name">눈 오는 날</span><span class="pos">대게 · 얼음바다 천사</span></div>
+        <div class="res-row"><span class="emo">☄️</span><span class="name">유성우 밤</span><span class="pos">유성우 한정 운석 채집</span></div>
+        <a class="more-link" href="fishing.html">전체 24종과 출현 조건 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">캘린더</span>
+      <h2 class="display"><span class="wavy">다가오는 날씨</span></h2>
+    </div>
+    <p class="sec-desc">아래 <b>확정된 날짜</b>는 커뮤니티 수집 + 파이프라인 검증을 거친 것입니다; 목록에 없는 날짜는 평범한 맑은 날입니다.</p>
+    <div class="wx-cal" id="wxCal"></div>
+    <div class="wx-legend">
+      <span><b>☀️ 맑음</b> 평상 시즌 낚시</span>
+      <span><b>🌧️ 비</b> 비 오는 날 전용 어종</span>
+      <span><b>🌈 무지개</b> 전설의 물고기 타임</span>
+      <span><b>☄️ 유성우</b> 운석 채집</span>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">더보기</span>
+      <h2 class="display"><span class="wavy">오늘의 일정은 날씨가 결정합니다</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card" href="fishing.html">
+        <span class="guide-count">24종</span><span class="emo">🎣</span>
+        <h4 class="display">낚시 도감</h4>
+        <p>시간 × 날씨 × 낚시 포인트 조회 — 무지개 날 망치상어를 놓치지 마세요</p>
+        <span class="go">물고기 조회 →</span>
+      </a>
+      <a class="guide-card" href="codes.html">
+        <span class="guide-count">매일 갱신</span><span class="emo">🎁</span>
+        <h4 class="display">오늘의 쿠폰 코드</h4>
+        <p>매일 18:00경 새 코드, 원클릭 복사, 가는 길에 자원까지</p>
+        <span class="go">바로 복사 →</span>
+      </a>
+      <a class="guide-card" href="guide.html">
+        <span class="guide-count">7일</span><span class="emo">🌱</span>
+        <h4 class="display">초보 7일 루트</h4>
+        <p>DAY4는 도감의 날: 보이는 대로 낚고, 만나는 대로 잡기</p>
+        <span class="go">루트 보기 →</span>
+      </a>
+      <a class="guide-card" href="templates.html">
+        <span class="guide-count">30건 템플릿</span><span class="emo">🏠</span>
+        <h4 class="display">인테리어 템플릿 라이브러리</h4>
+        <p>비 오는 날 낚시가 끝났나요? 집에 돌아와 템플릿으로 꾸미기</p>
+        <span class="go">템플릿 보기 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">FAQ</span>
+      <h2 class="display"><span class="wavy">날씨 FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>하트오피아의 날씨는 랜덤인가요?</summary>
+      <div class="a">아니요. 게임 내 날씨는 <b>공식 고정 일정</b>을 따릅니다 — 서버 전체가 매일 같은 날씨를 공유합니다. 커뮤니티가 이를 캘린더로 정리해 두었으니(출처는 상태바 참고) 낚시와 채집을 미리 계획할 수 있어요.</div>
+    </details>
+    <details class="faq">
+      <summary>다음 무지개 날은 언제인가요? 그때 뭘 낚을 수 있죠?</summary>
+      <div class="a">다가오는 무지개 날은 위 캘린더에서 확인하세요. 낮 시간에는 <b>망치상어(600 코인)</b>과 <b>무지개송어(180 코인)</b> — 둘 다 평소엔 잡을 수 없는 어종입니다. 전체 조건은 <a href="fishing.html">낚시 도감</a>에서.</div>
+    </details>
+    <details class="faq">
+      <summary>"맑음 후 비"(예: "12:00 이후 비")는 무슨 뜻인가요?</summary>
+      <div class="a">하루 전반은 맑다가 안내된 시각부터 비가 온다는 뜻입니다. 비가 오기 시작하면 비 오는 날 전용 어종(샌드브림, 뱀장어)을 낚을 수 있습니다 — 오후 외출이 가장 이득이에요.</div>
+    </details>
+    <details class="faq">
+      <summary>유성우는 무슨 용도인가요?</summary>
+      <div class="a">유성우 시간대(예: 18:00–24:00)에는 정해진 포인트에서 <b>운석</b>을 채집할 수 있습니다 — 희귀 제작·건축 자재죠. 놓치면 다음 일정까지 기다려야 하니, 캘린더에서 확인되면 그 시간은 비워 두세요.</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 하트오피아 가이드</div>
+  <div class="foot-nav">
+    <a href="index.html">홈</a>
+    <a href="codes.html">데일리 쿠폰 코드</a>
+    <a href="weather.html">날씨</a>
+    <a href="fishing.html">낚시</a>
+    <a href="templates.html">템플릿</a>
+    <a href="guide.html">초보 루트</a>
+  </div>
+  <p>날씨는 공식 고정 일정을 따르며, 캘린더는 커뮤니티가 관리하고 파이프라인이 매일 대조합니다 · 목록에 없는 날짜는 기본적으로 맑음</p>
+  <p>비공식 팬메이드 가이드 프로젝트로 XD Inc.와 무관합니다 · 하트오피아 게임 자산 © 각 소유권자</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+<script src="../data/daily.js"></script>
+<script src="../data/weather-ko.js"></script>
+<script src="../assets/i18n/ko.js"></script>
+<script>
+const DAILY = window.HEARTOPIA_DAILY || null;
+const WX = window.HEARTOPIA_WEATHER || null;
+const I18N = window.HEARTOPIA_I18N;
+const WEEK = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+const MONTHS = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+
+function todayStr(){
+  const n = new Date();
+  return n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
+}
+
+function renderToday(){
+  const pill = $('#statusPill'), pillTxt = $('#statusText'), meta = $('#statusMeta'), links = $('#srcLinks');
+  const dNow = todayStr();
+  let w = null, sp = null;
+  if(DAILY){
+    const stMap = {
+      live:  {cls:'ok',   txt:'오늘 실시간'},
+      stale: {cls:'warn', txt:'커뮤니티 아카이브'},
+      fallback:{cls:'warn', txt:'캐시 폴백'}
+    };
+    let st = stMap[DAILY.status] || stMap.fallback;
+    if(DAILY.date < dNow) st = {cls: 'warn', txt: '갱신 대기 중'};
+    pill.className = 'status-pill ' + st.cls;
+    pillTxt.textContent = st.txt;
+    const nOk = (DAILY.audit && DAILY.audit.sourcesOk ? DAILY.audit.sourcesOk.length : (DAILY.sources || []).length);
+    meta.textContent = DAILY.date + ' · 갱신 ' + DAILY.generatedAt + (nOk ? ' · 소스 ' + nOk + '개' : '');
+    (DAILY.sources || []).slice(0, 2).forEach(s => {
+      const a = document.createElement('a');
+      a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = I18N.t(s.name);
+      links.appendChild(a);
+    });
+    w = DAILY.weather;
+    sp = DAILY.specialForecast;
+  }else if(WX && WX.days[dNow]){
+    pillTxt.textContent = '캘린더 데이터';
+    meta.textContent = '갱신 ' + WX.updated;
+    w = {icon: WX.days[dNow].icon, label: WX.days[dNow].label, detail: WX.days[dNow].note || '공식 고정 일정', fishTip: ''};
+  }else{
+    pill.className = 'status-pill warn';
+    pillTxt.textContent = '갱신 대기 중';
+    meta.textContent = '캘린더가 아직 오늘 날짜를 다루지 않습니다 — 파이프라인 대기 중';
+  }
+
+  $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
+  if(w){
+    $('#wxIcon').textContent = w.icon || '⛅';
+    $('#wxLabel').textContent = w.label ? I18N.t(w.label) : '알 수 없음';
+    $('#wxDetail').textContent = w.detail ? I18N.t(w.detail) : '게임 내 날씨는 공식 고정 일정을 따릅니다';
+    $('#wxTip').textContent = w.fishTip ? I18N.fishTip(w.label, w.detail) : '💡 외출 전 날씨를 확인하세요 — 한정 어종을 놓치지 마세요.';
+  }
+  if(sp){
+    const nx = $('#wxNext');
+    nx.style.display = '';
+    nx.textContent = '📅 사전 알림: ' + sp.date + ' ' + I18N.t(sp.label) + (sp.note ? ' — ' + I18N.t(sp.note) : '');
+  }
+}
+
+function renderCal(){
+  const cal = $('#wxCal');
+  if(!WX || !WX.days){ cal.innerHTML = '<div class="empty"><span class="emo">📅</span>캘린더 데이터를 불러오지 못했습니다 — data/weather-ko.js가 배포되어 있는지 확인하세요.</div>'; return; }
+  const dNow = todayStr();
+  const rows = Object.keys(WX.days).sort().map(k => {
+    const d = WX.days[k];
+    const dt = new Date(k + 'T00:00:00');
+    const isToday = k === dNow;
+    const isPast = k < dNow;
+    let cls = 'wx-cell';
+    if(/무지개/.test(d.label)) cls += ' rainbow';
+    else if(/비|눈/.test(d.label) && d.label !== '맑음') cls += ' special';
+    if(isToday) cls += ' today';
+    return '<div class="' + cls + '"' + (isPast ? ' style="opacity:.55"' : '') + '>'
+      + '<span class="wx-week">' + WEEK[dt.getDay()] + '</span>'
+      + '<div class="wx-date">' + MONTHS[parseInt(k.slice(5,7),10) - 1] + ' ' + (parseInt(k.slice(8,10),10)) + '일' + (isToday ? ' · 오늘' : '') + '</div>'
+      + '<span class="wx-icon">' + d.icon + '</span>'
+      + '<div class="wx-label">' + esc(d.label) + '</div>'
+      + (d.note ? '<div class="wx-note">' + esc(d.note) + '</div>' : '<div class="wx-note"></div>')
+      + (d.fish ? '<div class="wx-fish">🎣 ' + esc(d.fish) + '</div>' : '')
+      + '</div>';
+  }).join('');
+  cal.innerHTML = rows || '<div class="empty"><span class="emo">📅</span>아직 일정 데이터가 없습니다</div>';
+}
+
+renderToday();
+renderCal();
+</script>
+</body>
+</html>

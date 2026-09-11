@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハートピア釣り図鑑（全 24 種 · 時間/天気/釣り場検索）| ハートピア攻略手帳</title>
+<meta name="description" content="ハートピア完全釣り図鑑：全 24 種の出現時間・天気条件・釣り場・売値に加え、「今釣れるのはこれ」のリアルタイム検索 — 虹の日はシュモクザメとニジマス、雨の夜はウナギ、真夜中の秘密の池ではニシキゴイ。">
+<meta name="keywords" content="ハートピア釣り,ハートピア魚,ハートピア釣り攻略,ハートピアニシキゴイ,ハートピアシュモクザメ,ハートピア伝説の魚">
+<link rel="canonical" href="https://heartopia.example.com/ja/fishing.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopia.example.com/fishing.html">
+<link rel="alternate" hreflang="en" href="https://heartopia.example.com/en/fishing.html">
+<link rel="alternate" hreflang="ja" href="https://heartopia.example.com/ja/fishing.html">
+<link rel="alternate" hreflang="ko" href="https://heartopia.example.com/ko/fishing.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopia.example.com/fishing.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ハートピア釣り図鑑（全 24 種 · 時間/天気/釣り場検索）| ハートピア攻略手帳">
+<meta property="og:description" content="24 種 × 時間 × 天気 × 釣り場の検索で、今食べつく魚がひと目で分かる。">
+<meta property="og:url" content="https://heartopia.example.com/ja/fishing.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="fishing">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>ハートピア攻略手帳</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">ホーム</a>
+      <a href="codes.html" data-page="codes">ギフトコード</a>
+      <a href="weather.html" data-page="weather">天気</a>
+      <a href="fishing.html" data-page="fishing">釣り図鑑</a>
+      <a href="templates.html" data-page="templates">テンプレート</a>
+      <a href="guide.html" data-page="guide">初心者ルート</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">ホーム</a> / 釣り図鑑</p>
+  <span class="hero-kicker display blue">🎣 ツール · リアルタイム</span>
+  <h1 class="display">釣り <em>検索</em></h1>
+  <p class="page-sub">ハートピアの魚は時間と天気にうるさい — 今の条件を設定すれば<b>釣れる魚がすぐ分かる</b>。下にスクロールすれば<b>全 24 種</b>の詳細データも。</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px" id="now">
+    <div class="sec-head">
+      <span class="sec-tag display blue">リアルタイム</span>
+      <h2 class="display"><span class="wavy">今、何が釣れる？</span></h2>
+    </div>
+    <p class="sec-desc">既定では端末の時計に従って自動更新。<a href="weather.html">天気スケジュール</a>と併用すれば正確 — 天気を間違えると、魚も間違えます。</p>
+    <div class="panel">
+      <div class="ctrl-row">
+        <span class="ctrl-label">🕐 時間帯</span>
+        <button class="switch on" id="autoSwitch" title="現地時刻に追従"><span class="knob"></span></button>
+        <span class="switch-text" id="clockText">—</span>
+        <div class="chips" id="timeChips">
+          <button class="chip" data-period="朝">朝 <small>06–12</small></button>
+          <button class="chip" data-period="昼">昼 <small>12–18</small></button>
+          <button class="chip" data-period="夜">夜 <small>18–24</small></button>
+          <button class="chip" data-period="深夜">深夜 <small>00–06</small></button>
+        </div>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-label">☁️ 現在の天気</span>
+        <div class="chips" id="weatherChips">
+          <button class="chip wx sunny" data-weather="晴れ">☀️ 晴れ</button>
+          <button class="chip wx rainy" data-weather="雨">🌧️ 雨</button>
+          <button class="chip wx rainbow" data-weather="虹">🌈 虹</button>
+          <button class="chip wx snow" data-weather="雪">❄️ 雪</button>
+        </div>
+      </div>
+      <hr class="divider-dash">
+      <div class="search-bar">
+        <input class="search-input" id="searchInput" type="text" placeholder="🔍 魚・釣り場・特徴で検索（例：「虹」「旧海」…）">
+        <span class="result-summary" id="resultSummary"></span>
+      </div>
+      <div class="fish-grid" id="fishGrid"></div>
+    </div>
+  </section>
+
+  <section class="reveal" id="dex">
+    <div class="sec-head">
+      <span class="sec-tag display">図鑑</span>
+      <h2 class="display"><span class="wavy">全魚種（24）</span></h2>
+    </div>
+    <p class="sec-desc">現在のフィルターに影響されない完全アーカイブ。検索ボックスに魚名や釣り場を入力すれば、すぐ該当カードにたどり着けます。伝説級のカードには ✨ の金枠。</p>
+    <div class="fish-grid" id="fishGridAll"></div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">伝説級</span>
+      <h2 class="display"><span class="wavy">伝説の漁獲</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">800 コイン</span><span class="emo">🎏</span>
+        <h4 class="display">ニシキゴイ · 秘密の池</h4>
+        <p>夜（00–06）の秘密の池にだけ現れ、晴れの日限定。図鑑でも最もレアな部類の漁獲 — ガチ勢なら狙うべき一匹。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">750 コイン</span><span class="emo">🐟</span>
+        <h4 class="display">氷の海の天使 · 氷雪海域</h4>
+        <p>雪の日は氷雪海域を終日回遊。冬の祝福を運ぶとされる魚 — 冬のスケジュールを見逃さないで。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">600 コイン</span><span class="emo">🦈</span>
+        <h4 class="display">シュモクザメ · クジラ海</h4>
+        <p>虹の日の昼間限定（朝・昼）— 竿が限界まで曲がる大物。虹の日は天気カレンダーで確認を。</p>
+      </div>
+      <a class="guide-card" href="weather.html">
+        <span class="guide-count">スケジュール</span><span class="emo">📅</span>
+        <h4 class="display">次の虹の日はいつ？</h4>
+        <p>天気は公式の固定スケジュール — カレンダーで確認して、計画的に待機しよう</p>
+        <span class="go">カレンダーを見る →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">FAQ</span>
+      <h2 class="display"><span class="wavy">釣り FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>今すぐ釣れる魚は？</summary>
+      <div class="a">上の<b>「今、何が釣れる？」</b>パネルを使ってください。既定では端末の時刻に追従します — 天気を選ぶだけでライブ絞り込みできます。天気は<a href="weather.html">天気カレンダー</a>（公式の固定スケジュール）に合わせて。</div>
+    </details>
+    <details class="faq">
+      <summary>虹の日に釣れる伝説級の魚は？</summary>
+      <div class="a">昼間は<b>シュモクザメ（クジラ海・600 コイン）</b>と<b>ニジマス（湖・180 コイン）</b>。通常は雨の夜の魚である<b>ウナギ</b>も、虹の日の夜には現れます。</div>
+    </details>
+    <details class="faq">
+      <summary>ニシキゴイはどこで釣れる？</summary>
+      <div class="a"><b>秘密の池で夜（00:00–06:00）</b>のみ、晴れの日限定です。天気カレンダーで翌日が晴れか確認して、アラームをセットしましょう。</div>
+    </details>
+    <details class="faq">
+      <summary>いちばん高く売れる魚は？</summary>
+      <div class="a">伝説級：ニシキゴイ 800、氷の海の天使 750、シュモクザメ 600。高単価の周回候補はズワイガニ 300 とオマールエビ 260。レア度は各カードの右上に表示されています。</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 ハートピア攻略手帳</div>
+  <div class="foot-nav">
+    <a href="index.html">ホーム</a>
+    <a href="codes.html">デイリーギフトコード</a>
+    <a href="weather.html">天気</a>
+    <a href="fishing.html">釣り図鑑</a>
+    <a href="templates.html">テンプレート</a>
+    <a href="guide.html">初心者ルート</a>
+  </div>
+  <p>魚のデータはゲーム内図鑑とコミュニティ攻略をクロス編集 · 天気で変わる出現は公式の固定スケジュールに従います</p>
+  <p>非公式のファンメイド攻略プロジェクトであり、XD Inc. とは無関係 · 『ハートピア』のゲーム素材は各著作権者に帰属</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+<script src="../data/fish-ja.js"></script>
+<script>
+const FISH = window.HEARTOPIA_FISH || [];
+const RARITY = window.HEARTOPIA_RARITY || {};
+const state = {period:'',weather:'晴れ',auto:true,q:''};
+const timeChips = $$('#timeChips .chip');
+const weatherChips = $$('#weatherChips .chip');
+
+function periodOf(h){
+  if(h>=6&&h<12) return '朝';
+  if(h>=12&&h<18) return '昼';
+  if(h>=18&&h<24) return '夜';
+  return '深夜';
+}
+function pad(n){return String(n).padStart(2,'0')}
+
+function tick(){
+  const now = new Date();
+  $('#clockText').textContent = '現在 ' + pad(now.getHours())+':'+pad(now.getMinutes()) + ' · ' + periodOf(now.getHours());
+  if(state.auto){
+    state.period = periodOf(now.getHours());
+    syncChips();
+    renderFish();
+  }
+}
+function syncChips(){
+  timeChips.forEach(c=>c.classList.toggle('active',c.dataset.period===state.period));
+  weatherChips.forEach(c=>c.classList.toggle('active',c.dataset.weather===state.weather));
+}
+function match(f){
+  const timeOk = f.times.includes('終日')||f.times.includes(state.period);
+  const weatherOk = f.weathers.includes(state.weather);
+  const q = state.q.trim().toLowerCase();
+  const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
+  return timeOk && weatherOk && qOk;
+}
+function cardHTML(f,i){
+  const r = RARITY[f.rarity] || {label:'?',cls:''};
+  const timeTxt = f.times.includes('終日')?'終日':f.times.join('/');
+  const legend = f.rarity===4;
+  return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
+    +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
+    +'<span class="name">'+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)+'</span>'
+    +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
+    +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
+    +'<span class="tag time">🕐'+timeTxt+'</span>'
+    +'<span class="tag">'+f.weathers.join('/')+'</span></div>'
+    +'<div class="fish-price">💰 '+f.price+' コイン</div>'
+    +'<p class="fish-note kai">'+esc(f.note)+'</p>'
+    +'</div>';
+}
+function renderFish(){
+  const list = FISH.filter(match);
+  const grid = $('#fishGrid');
+  grid.innerHTML = list.length
+    ? list.map(cardHTML).join('')
+    : '<div class="empty"><span class="emo">🎣</span>この条件では釣れる魚がいません — 天気や時間帯を変えてみると、意外な収穫があるかも。</div>';
+  $('#resultSummary').innerHTML = '今釣れる魚は <b>'+list.length+'</b> 種';
+  renderAll();
+}
+function renderAll(){
+  const q = state.q.trim().toLowerCase();
+  const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
+  $('#fishGridAll').innerHTML = list.length
+    ? list.map(cardHTML).join('')
+    : '<div class="empty"><span class="emo">🔍</span>該当する魚が見つかりません — 別のキーワードで試してください。</div>';
+}
+timeChips.forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.auto = false;
+    $('#autoSwitch').classList.remove('on');
+    state.period = c.dataset.period;
+    syncChips();
+    renderFish();
+  });
+});
+weatherChips.forEach(c=>{
+  c.addEventListener('click',()=>{
+    state.weather = c.dataset.weather;
+    syncChips();
+    renderFish();
+  });
+});
+$('#autoSwitch').addEventListener('click',e=>{
+  state.auto = !state.auto;
+  e.currentTarget.classList.toggle('on',state.auto);
+  if(state.auto) tick();
+});
+$('#searchInput').addEventListener('input',e=>{
+  state.q = e.target.value;
+  renderFish();
+});
+tick();
+setInterval(tick,30000);
+</script>
+</body>
+</html>
