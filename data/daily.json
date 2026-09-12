@@ -1,7 +1,7 @@
 {
   "date": "2026-09-12",
   "weekday": "星期六",
-  "generatedAt": "2026-09-12 00:14:03",
+  "generatedAt": "2026-09-12 13:32:59",
   "status": "live",
   "weather": {
     "icon": "☀️",
@@ -24,6 +24,10 @@
     {
       "name": "TapTap 官方论坛 · 每日兑换码",
       "url": "https://www.taptap.cn/moment/844636406570549558"
+    },
+    {
+      "name": "TapTap 社区攻略 · 当日情报",
+      "url": "https://www.taptap.cn/moment/844484238282589354"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -55,7 +59,7 @@
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": false
+        "isTargetDate": true
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -73,8 +77,6 @@
       "天气分歧: 日历=晴 / 在线提及=['下雨', '雨天', '彩虹', '流星雨']（请人工复核日历）",
       "天气分歧: 日历=晴 / 在线提及=['下雨', '雨天', '彩虹', '流星雨']（请人工复核日历）"
     ],
-    "notes": [
-      "TapTap 社区攻略 · 当日情报 未提及目标日期，内容仅作参考"
-    ]
+    "notes": []
   }
 }
