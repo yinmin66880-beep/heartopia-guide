@@ -11,6 +11,8 @@
     --apply 除生成 sitemap.xml 外，同时把 HTML 中的
             https://heartopia.example.com/ 占位域名替换为 --base，
             并更新 robots.txt 的 Sitemap 地址
+    --from  旧站点域名（换域名迁移时指定），HTML 中所有旧域名
+            引用（canonical/hreflang/og:url/JSON-LD 等）一并替换
 
 多语言：
     zh = 站点根目录（默认语言），en/ja/ko = 同名子目录。
@@ -82,7 +84,10 @@ def build_sitemap(base):
     )
 
 
-def apply_domain(base):
+def apply_domain(base, old_base=None):
+    targets = [PLACEHOLDER]
+    if old_base:
+        targets.append(old_base.rstrip("/") + "/")
     html_files = sorted(ROOT.glob("*.html"))
     for sub, _ in LOCALES:
         if sub:
@@ -90,11 +95,16 @@ def apply_domain(base):
     n_files, n_hits = 0, 0
     for html in html_files:
         text = html.read_text(encoding="utf-8")
-        if PLACEHOLDER in text:
-            n_hits += text.count(PLACEHOLDER)
-            html.write_text(text.replace(PLACEHOLDER, base + "/"), encoding="utf-8")
+        new_text = text
+        hits = 0
+        for t in targets:
+            hits += new_text.count(t)
+            new_text = new_text.replace(t, base + "/")
+        if hits:
+            html.write_text(new_text, encoding="utf-8")
             n_files += 1
-            print(f"  已替换域名占位符: {html.relative_to(ROOT).as_posix()}")
+            n_hits += hits
+            print(f"  已替换域名: {html.relative_to(ROOT).as_posix()}（{hits} 处）")
     robots = ROOT / "robots.txt"
     if robots.exists():
         text = robots.read_text(encoding="utf-8")
@@ -107,6 +117,7 @@ def main():
     ap = argparse.ArgumentParser(description="生成多语言 sitemap 并替换 SEO 域名")
     ap.add_argument("--base", required=True, help="站点基准 URL，如 https://user.github.io/repo")
     ap.add_argument("--apply", action="store_true", help="同时替换 HTML/robots.txt 中的占位域名")
+    ap.add_argument("--from", dest="old_base", help="旧站点域名（换域名时指定，如 https://old.pages.dev），其引用一并替换为 --base")
     args = ap.parse_args()
     base = args.base.rstrip("/")
 
@@ -115,7 +126,7 @@ def main():
     print(f"sitemap.xml 已生成（{len(PAGES)} 页 × {len(LOCALES)} 语言，含 hreflang 互链，基准 {base}/）")
 
     if args.apply:
-        apply_domain(base)
+        apply_domain(base, args.old_base)
 
 
 if __name__ == "__main__":

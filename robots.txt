@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://heartopia-guide-dv3.pages.dev/sitemap.xml
+Sitemap: https://heartopiaguide.net/sitemap.xml
