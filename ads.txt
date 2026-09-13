@@ -1,2 +1,1 @@
-# AdSense 授权占位：拿到 pub-ID 后运行 python scripts/inject_adsense.py --pub ca-pub-XXXX 自动生成
-# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-3254582406359037, DIRECT, f08c47fec0942fa0
