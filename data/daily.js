@@ -1,21 +1,15 @@
 /* 心动小镇每日情报 · 由 scripts/fetch_daily.py 自动生成，勿手改 */
 window.HEARTOPIA_DAILY = {
-  "date": "2026-09-12",
-  "weekday": "星期六",
-  "generatedAt": "2026-09-12 23:58:42",
+  "date": "2026-09-13",
+  "weekday": "星期日",
+  "generatedAt": "2026-09-13 14:16:14",
   "status": "live",
-  "weather": {
-    "icon": "☀️",
-    "label": "晴",
-    "detail": "18:00–24:00 流星雨陨石",
-    "fishTip": "☀️ 晴天全图常规鱼种待机，出门顺路收图鉴。"
-  },
+  "weather": null,
   "specialForecast": null,
   "codes": [
     {
-      "code": "QFK8ZG5",
-      "note": "已获 4 个独立源交叉验证 · 当日有效",
-      "verified": 4
+      "code": "SV5ZWHN",
+      "note": "在线抓取 · 当日有效"
     }
   ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
@@ -33,10 +27,6 @@ window.HEARTOPIA_DAILY = {
       "url": "https://www.taptap.cn/moment/844636406570549558"
     },
     {
-      "name": "TapTap 社区攻略 · 当日情报",
-      "url": "https://www.taptap.cn/moment/844484238282589354"
-    },
-    {
       "name": "TapTap 策略库 · 每日兑换码汇总",
       "url": "https://www.taptap.cn/app/45213/strategy/entity-collection/386562"
     },
@@ -47,7 +37,7 @@ window.HEARTOPIA_DAILY = {
   ],
   "audit": {
     "fetchMode": "online",
-    "targetDate": "2026-09-12",
+    "targetDate": "2026-09-13",
     "sourcesTried": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
       "TapTap 官方论坛 · 每日兑换码",
@@ -66,7 +56,7 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": true
+        "isTargetDate": false
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -78,14 +68,11 @@ window.HEARTOPIA_DAILY = {
       }
     ],
     "sourcesFailed": [],
-    "conflicts": [
-      "天气分歧: 日历=晴 / 在线提及=['下雨', '雨天', '彩虹', '流星雨']（请人工复核日历）",
-      "天气分歧: 日历=晴 / 在线提及=['下雨', '雨天', '彩虹', '流星雨']（请人工复核日历）",
-      "天气分歧: 日历=晴 / 在线提及=['下雨', '雨天', '彩虹', '流星雨']（请人工复核日历）",
-      "天气分歧: 日历=晴 / 在线提及=['下雨', '雨天', '彩虹', '流星雨']（请人工复核日历）"
-    ],
+    "conflicts": [],
     "notes": [
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 提取到当日兑换码 QFK8ZG5"
+      "天气日历未覆盖 2026-09-13，需人工更新 weather-calendar.json",
+      "TapTap 官方论坛 · 每日兑换码 提取到当日兑换码 SV5ZWHN",
+      "TapTap 社区攻略 · 当日情报 未提及目标日期，内容仅作参考"
     ]
   }
 };
