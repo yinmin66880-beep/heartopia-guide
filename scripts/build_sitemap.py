@@ -35,6 +35,7 @@ PAGES = [
     ("templates.html", "weekly",  "0.9"),
     ("fishing.html",   "weekly",  "0.8"),
     ("guide.html",     "monthly", "0.7"),
+    ("privacy.html",   "yearly",  "0.3"),
 ]
 
 # (子目录, hreflang 值)；第一项为默认语言，部署在站点根目录

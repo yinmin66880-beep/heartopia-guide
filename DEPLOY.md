@@ -94,6 +94,21 @@ heartopia-guide/
 - **自动化**：`daily-intel` workflow 在数据有变化时 push → 等待 3 分钟（Cloudflare Pages 部署）→ 自动 ping IndexNow。
 - **手动推送**：`python scripts/ping_indexnow.py`；效果可在 Bing Webmaster Tools → IndexNow 页查看提交统计。
 
+## Google AdSense 广告
+
+站点已为 AdSense 做好准备（隐私政策 4 语言页 + 注入脚本 + ads.txt 模板）：
+
+1. **申请**：[adsense.google.com](https://adsense.google.com) 添加站点 `heartopiaguide.net`，等审核（数天至两周）。隐私政策页已上线（`/privacy.html`，各语言页脚均有入口），审核通过与否取决于内容原创性。
+2. **上线广告**：拿到 pub-ID（形如 `ca-pub-1234567890123456`）后一条命令搞定：
+   ```powershell
+   python scripts/inject_adsense.py --pub ca-pub-1234567890123456
+   git add -A ; git commit -m "feat(ads): enable adsense" ; git push
+   ```
+   脚本会把自动广告加载器注入全部 28 个 HTML 的 `<head>`，并把真实 pub-ID 写进 `ads.txt`（幂等，可重复执行）。
+3. **配置**：AdSense 后台 → Ads → By site 开启「Auto ads」；**Privacy & messaging** 里为 EEA/英国访客启用同意弹窗（必须，否则违规）。
+4. **撤销广告**：`python scripts/inject_adsense.py --remove` 可一键移除全部注入代码并还原 ads.txt 占位。
+5. **收款**：累计 $10 触发 PIN 验证，$100 起付。
+
 ## 数据说明
 
 - 每日情报状态含义：`live` = 5 源在线抓取成功；`stale` = 社区归档；`fallback` = 离线种子降级；`待更新` = 数据文件日期早于今天（页面自动检测）。

@@ -7,7 +7,7 @@ i18n 一致性校验：多语言页面与数据文件的结构检查。
     python scripts/validate_i18n.py
 
 检查项（每语言 en/ja/ko，基准为中文根目录）：
-  1. 6 个页面齐全，<html lang> 正确，hreflang 组完整（zh-CN/en/ja/ko/x-default）
+  1. 7 个页面齐全，<html lang> 正确，hreflang 组完整（zh-CN/en/ja/ko/x-default）
   2. 页面引用的脚本路径都能解析到真实文件
   3. 数据文件条目数与 id 顺序和中文版完全一致（fish / templates / weather 日期）
   4. 模板页筛选 chips 的 data-* 值 ⊇ 数据文件中出现的值（不含 "全部" 类哨兵值）
@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-PAGES = ["index.html", "codes.html", "weather.html", "fishing.html", "templates.html", "guide.html"]
+PAGES = ["index.html", "codes.html", "weather.html", "fishing.html", "templates.html", "guide.html", "privacy.html"]
 LOCALES = {"en": "English", "ja": "Japanese", "ko": "Korean"}
 PLACEHOLDER = "https://heartopia.example.com/"
 
