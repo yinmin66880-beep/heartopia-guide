@@ -59,7 +59,7 @@ heartopia-guide/
    git add -A ; git commit -m "chore(seo): finalize site domain" ; git push
    ```
 5. **验证**：浏览器打开站点各页；访问 `/sitemap.xml`、`/robots.txt` 确认 200；Actions 页手动 Run一次 `daily-intel` workflow 确认管道正常。
-6. **提交搜索引擎**：[Google Search Console](https://search.google.com/search-console) 添加资源并提交 sitemap；（可选）Bing 站长工具同步提交。
+6. **提交搜索引擎**：[Google Search Console](https://search.google.com/search-console) 添加资源并提交 sitemap；[Bing Webmaster Tools](https://www.bing.com/webmasters) 从 GSC 导入站点并提交 sitemap；IndexNow 即时索引见下方说明。
 
 > GitHub 定时任务注意事项：高峰期可能有 5–20 分钟延迟；公开仓库 60 天无任何活动（含手动 push）会自动暂停定时任务，届时手动 Run 一次即可恢复。
 
@@ -84,6 +84,15 @@ heartopia-guide/
 | 鱼种数据修正 | 编辑 `data/fish.js`；同步修改 `fish-en|ja|ko.js` |
 | i18n 一致性自检 | 运行 `python scripts/validate_i18n.py`：页面齐全、hreflang 完整、脚本/链接可解析、各语言数据条目与中文版同步、筛选 chips 覆盖数据取值 |
 | 新增页面 | 复制任一子页改内容 → 各语言目录同步建页 → 在 `scripts/build_sitemap.py` 的 `PAGES` 表登记 → 重跑 sitemap 脚本 |
+
+## IndexNow 即时索引（Bing / Yandex / Naver）
+
+每日数据更新部署后自动通知搜索引擎重新抓取，无需等待爬虫：
+
+- **key 文件**：根目录 `580b02a2057840c3bde8d11b74879bc9.txt`（内容即 key，来自 Bing Webmaster Tools → IndexNow → Get Started 生成页），部署在 `https://heartopiaguide.net/580b02a2057840c3bde8d11b74879bc9.txt`。
+- **推送脚本**：`scripts/ping_indexnow.py`，默认推送每日更新的 12 个页面（首页/兑换码/天气 × 4 语言），也可传参推送任意 URL。
+- **自动化**：`daily-intel` workflow 在数据有变化时 push → 等待 3 分钟（Cloudflare Pages 部署）→ 自动 ping IndexNow。
+- **手动推送**：`python scripts/ping_indexnow.py`；效果可在 Bing Webmaster Tools → IndexNow 页查看提交统计。
 
 ## 数据说明
 

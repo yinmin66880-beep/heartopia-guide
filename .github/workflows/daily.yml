@@ -32,6 +32,7 @@ jobs:
         run: python scripts/fetch_daily.py
 
       - name: Commit and push if changed
+        id: commit
         run: |
           git config user.name "heartopia-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -41,4 +42,15 @@ jobs:
           else
             git commit -m "chore(daily): auto update intel $(date -u +%F)"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # 等待 Cloudflare Pages 完成自动部署（静态站通常 1-2 分钟），确保 key 文件与最新数据已上线
+      - name: Wait for deploy
+        if: steps.commit.outputs.pushed == 'true'
+        run: sleep 180
+
+      # IndexNow：通知 Bing/Yandex/Naver 等重新抓取今日更新的页面
+      - name: Ping IndexNow
+        if: steps.commit.outputs.pushed == 'true'
+        run: python scripts/ping_indexnow.py
