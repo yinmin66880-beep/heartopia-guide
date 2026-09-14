@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハートピア金策ガイド：コイン稼ぎルート（毎日タダ取り × 釣り × 農作業 × 料理）| ハートピア攻略手帳</title>
+<meta name="description" content="ハートピア（Heartopia）金策ガイド：毎日タダで受け取るリスト、売値TOP10の魚ランキング（ニシキゴイ 800／氷の海の天使 750／シュモクザメ 600）、小麦＋パイナップルの輪作、料理の値上がり（ジャムで利益2倍）。序盤から終盤まで通じる一本のコインルート。データは全て検証可能。">
+<meta name="keywords" content="ハートピア金策,ハートピアコイン,ハートピアお金の稼ぎ方,ハートピア釣り金策,ハートピア農業,ハートピア料理,Heartopia money guide">
+<link rel="canonical" href="https://heartopiaguide.net/ja/money.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/money.html">
+<link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/money.html">
+<link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/money.html">
+<link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/money.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/money.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ハートピア金策ガイド：コイン稼ぎルート | ハートピア攻略手帳">
+<meta property="og:description" content="毎日タダ取り・釣り経済学・輪作・料理の値上げ — 4つのコインエンジンを一本のルートに。">
+<meta property="og:url" content="https://heartopiaguide.net/ja/money.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
+.money-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--line);font-size:13.5px;min-width:560px}
+.money-table th{background:rgba(143,181,115,.14);color:var(--green-deep);font-size:12.5px;letter-spacing:1px;padding:10px 12px;text-align:left;white-space:nowrap}
+.money-table td{padding:9px 12px;border-top:1px dashed var(--line);color:var(--ink-soft);white-space:nowrap}
+.money-table tr:hover td{background:rgba(143,181,115,.06)}
+.money-table .price{color:var(--coral-deep);font-weight:700}
+.money-table .legend{color:var(--gold-deep);font-weight:700}
+.money-table .fish-name{color:var(--ink);font-weight:700}
+.flow-math{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px 0 6px;font-size:14px}
+.flow-math .box{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;text-align:center}
+.flow-math .box b{display:block;font-size:16px;color:var(--ink)}
+.flow-math .arr{color:var(--green-deep);font-weight:700;font-size:16px}
+.flow-math .box.gold{border-color:var(--gold);background:linear-gradient(180deg,#FFFDF2,#FFFDF8)}
+.flow-math .box.gold b{color:var(--gold-deep)}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ハートピアの序盤で一番早いお金の稼ぎ方は？",
+      "acceptedAnswer": {"@type": "Answer", "text": "3層コンボ：まず毎日タダ取り（ギフトコード＋資材、30秒で完了）、次に小麦2周で基盤づくり（8時間成熟・1日2周）、最後に素材を料理してから売る — りんごは素材のまま1個28、星1のアップルジャムは270で売れます。そこに高額魚（オマールエビ260〜）を合わせれば序盤のコインの流れは完成です。"}
+    },
+    {
+      "@type": "Question",
+      "name": "ハートピアでどの魚が一番高く売れる？",
+      "acceptedAnswer": {"@type": "Answer", "text": "売値順：ニシキゴイ 800（秘密の池・深夜・晴れ）、氷の海の天使 750（氷雪海域・雪）、シュモクザメ 600（クジラ海・虹の日の昼）。虹の日は釣りの一攫千金ウィンドウ — シュモクザメ・ニジマス・ウナギは虹の日限定で出現するため、出かける前に天気カレンダーを確認しましょう。"}
+    },
+    {
+      "@type": "Question",
+      "name": "ハートピアで一番儲かる作物は？",
+      "acceptedAnswer": {"@type": "Answer", "text": "小麦＋パイナップル輪作がコミュニティ検証済みの安定コンボ：小麦は8時間で成熟して1日2周でき、収穫後の隙間はパイナップルとトマトで穴埋め。ガーデニング解放後は赤と黄を隣接植えにすると突然変異の発動率と売値がどちらも上がります。"}
+    },
+    {
+      "@type": "Question",
+      "name": "ハートピアで料理の利益を最大化するには？",
+      "acceptedAnswer": {"@type": "Answer", "text": "星が利益の倍率 — 同じ料理でも星5は星1の10〜70倍の利益になるため、シュガーフロストや希少魚などのキー素材は高星料理のために取っておくこと。コンロは3つ同時に稼働。レシピは料理レベル順：序盤アップルパイ／ミックスジャム → 中盤イチゴジャム／海鮮ピザ → 終盤キャンプセット／キャンドルディナー／タラバガニ系。"}
+    }
+  ]
+}
+</script>
+<!-- adsense:auto-ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+</head>
+<body data-page="money">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>ハートピア攻略手帳</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">ホーム</a>
+      <a href="codes.html" data-page="codes">ギフトコード</a>
+      <a href="weather.html" data-page="weather">天気</a>
+      <a href="fishing.html" data-page="fishing">釣り図鑑</a>
+      <a href="templates.html" data-page="templates">テンプレート</a>
+      <a href="guide.html" data-page="guide">初心者ルート</a>
+      <a href="money.html" data-page="money">金策ガイド</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">ホーム</a> / 金策ガイド</p>
+  <span class="hero-kicker display" style="background:var(--gold);color:#fff">💰 全段階対応 · データ検証済み</span>
+  <h1 class="display">コイン<em>稼ぎルート</em></h1>
+  <p class="page-sub">4つのコインエンジン — <b>毎日タダ取り・釣り・農作業・料理</b> — を、1日10分で回せる一本のルートに。魚価データは当サイトの<a href="fishing.html">釣り図鑑</a>から、全て検証可能です。</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="sec-head">
+      <span class="sec-tag display gold" style="background:var(--gold);color:#fff">本線</span>
+      <h2 class="display"><span class="wavy">毎日のコインループ 5ステップ</span></h2>
+    </div>
+    <p class="sec-desc">順番に回すだけで、序盤から安定した日収コインが生まれます。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">1</span></div>
+        <div class="tl-body">
+          <h4 class="display">🎁 毎日タダ取り <span class="todo">30秒 · ノーコスト</span></h4>
+          <p><a href="codes.html">ギフトコードを引き換える</a>（18:00 更新・当日限り）＋ <a href="codes.html">毎日資材を回収</a>（ヨヨオーク／無欠の蛍石、06:00 リセット）。タダで手に入るものは総じて利益です。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">2</span></div>
+        <div class="tl-body">
+          <h4 class="display">🌾 農作業で基盤づくり <span class="todo">小麦 × 2周</span></h4>
+          <p>朝に小麦を満植え（8時間で成熟、1日2周）、収穫後はパイナップルやトマトで穴埋めして、畑を絶対に遊ばせない。作物は料理の材料庫 — <b>素材のまま売らない</b>。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">3</span></div>
+        <div class="tl-body">
+          <h4 class="display">🎣 天気を見て釣りへ <span class="todo">虹の日＝一攫千金</span></h4>
+          <p>出かける前に<a href="weather.html">天気カレンダー</a>をチェック：雨の日はサンドブリームの食いつき率が倍になり、虹の日はシュモクザメやニジマスなど高額限定魚が釣れます。詳しい魚価は下の<a href="#fishtop">TOP10 ランキング</a>へ。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">4</span></div>
+        <div class="tl-body">
+          <h4 class="display">🍳 料理で値上げ <span class="todo">素材 → 料理で利益2倍</span></h4>
+          <p>作物と漁獲は料理にしてから売る：りんご4個はそのまま112、星1のアップルジャムは270 — 星が高いほど儲かります。コンロを3つ同時に稼働させて効率最大化。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">5</span></div>
+        <div class="tl-body">
+          <h4 class="display">🛒 高値で売る <span class="todo">図鑑優先</span></h4>
+          <p>初めて釣った／捕まえた新種は先に寄贈して図鑑報酬を回収し、その後の重複分を売る — 図鑑とコレクション報酬自体が隠れ収入になります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="fishtop">
+    <div class="sec-head">
+      <span class="sec-tag display blue">🎣 データドリブン</span>
+      <h2 class="display"><span class="wavy">釣り経済学：売値TOP10</span></h2>
+    </div>
+    <p class="sec-desc">竿をフル強化すれば、釣りは単位時間あたりの利益率が最も高い趣味です — 正しい魚を、正しい日に釣ることが前提。下表は売値順。魚価と出現条件は当サイトの<a href="fishing.html">釣り図鑑</a>（全24種）から。</p>
+    <div class="tbl-scroll">
+      <table class="money-table">
+        <thead>
+          <tr><th>魚種</th><th>売値</th><th>釣り場</th><th>時間帯</th><th>限定天気</th><th>レア度</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="fish-name">🎏 ニシキゴイ</td><td class="price">800</td><td>秘密の池</td><td>深夜</td><td>晴れ</td><td class="legend">伝説</td></tr>
+          <tr><td class="fish-name">🐟 氷の海の天使</td><td class="price">750</td><td>氷雪海域</td><td>終日</td><td>雪</td><td class="legend">伝説</td></tr>
+          <tr><td class="fish-name">🦈 シュモクザメ</td><td class="price">600</td><td>クジラ海</td><td>朝・昼</td><td>虹</td><td class="legend">伝説</td></tr>
+          <tr><td class="fish-name">🦀 ズワイガニ</td><td class="price">300</td><td>氷雪海域</td><td>夜</td><td>雪</td><td>レア</td></tr>
+          <tr><td class="fish-name">🦞 オマールエビ</td><td class="price">260</td><td>東の海</td><td>夜</td><td>晴れ・雨</td><td>レア</td></tr>
+          <tr><td class="fish-name">🐠 ニジマス</td><td class="price">180</td><td>湖</td><td>朝・昼</td><td>虹</td><td>レア</td></tr>
+          <tr><td class="fish-name">🐟 ウナギ</td><td class="price">150</td><td>旧海</td><td>夜</td><td>雨・虹</td><td>レア</td></tr>
+          <tr><td class="fish-name">🐟 ギンザメ</td><td class="price">140</td><td>全海域</td><td>深夜</td><td>晴れ</td><td>レア</td></tr>
+          <tr><td class="fish-name">🐠 ギンコショウドジョウ</td><td class="price">130</td><td>旧海</td><td>終日</td><td>晴れ</td><td>レア</td></tr>
+          <tr><td class="fish-name">🐟 アトランティックサーモン</td><td class="price">110</td><td>クジラ海</td><td>終日</td><td>晴れ・雨</td><td>レア</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn-box" style="margin-top:18px;background:rgba(232,184,75,.1);border-color:rgba(232,184,75,.45)">🌈 <b>虹の日は釣りの一攫千金ウィンドウ</b> — シュモクザメ（600）・ニジマス（180）・ウナギ（150）は虹の日限定の出現。虹の日を釣り切れば、通常数日分の利益になります。前もって<a href="weather.html" style="color:inherit;font-weight:700">天気カレンダー</a>で日程を確認を。</div>
+    <div class="warn-box green">💡 <b>序盤の雨の日もサボらない</b> — サンドブリームは雨の日に食いつき率2倍（55コイン／匹）。竿強化前の雨天コスパ王者です。伝説魚はりんごで合成した餌で食いつき率アップ。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">🌾 安定キャッシュフロー</span>
+      <h2 class="display"><span class="wavy">輪作：畑を絶対に遊ばせない</span></h2>
+    </div>
+    <p class="sec-desc">農作業はのんびり派向けの安定エンジン — 釣りほどの爆発力はないけれど、安定していて、オフラインでも育ち続けます。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">主体</span><span class="n">A</span></div>
+        <div class="tl-body">
+          <h4 class="display">🌾 小麦メインループ <span class="todo">8時間 × 2周</span></h4>
+          <p>小麦は8時間で成熟 — 朝に植えて寝る前にもう1周で、1日2周の安定生産。小麦はアップルパイや海鮮ピザの主原料なので、<b>キッチン優先、残りを売る</b>。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">補完</span><span class="n">B</span></div>
+        <div class="tl-body">
+          <h4 class="display">🍍 パイナップル／トマトで穴埋め <span class="todo">空き時間ゼロに</span></h4>
+          <p>小麦収穫後の隙間はパイナップルやトマトで埋めて、畑を遊ばせない。成熟期間のずれた作物を混植する「小麦＋パイナップル輪作」はコミュニティ検証済みの組み合わせ。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">応用</span><span class="n">C</span></div>
+        <div class="tl-body">
+          <h4 class="display">🌷 突変色フラワー <span class="todo">ガーデニング上級</span></h4>
+          <p>フラワー解放後は赤と黄を隣接植えにすると突然変異の発動率が上がり、突変色フラワーは高値で売れる — ガーデニングレベルが上がってからの追加利益エンジン。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display coral" style="background:var(--coral)">🍳 利益倍増器</span>
+      <h2 class="display"><span class="wavy">料理の値上げ：素材のまま売るな</span></h2>
+    </div>
+    <p class="sec-desc">同じ素材でも、そのまま売るのと料理にする間には利益倍率の壁があります。りんごで例えると：</p>
+    <div class="panel">
+      <div class="flow-math">
+        <div class="box">🍎 りんご4個<b>素材売り 112</b></div>
+        <span class="arr">→</span>
+        <div class="box gold">🥣 星1アップルジャム<b>270で売却</b></div>
+        <span class="arr">→</span>
+        <div class="box gold">⭐ 高星料理<b>利益10〜70倍</b></div>
+      </div>
+      <p class="mini-note" style="text-align:center;margin-top:10px">星が最大の変数：同じ料理でも星5は星1の10〜70倍の利益。シュガーフロストや希少魚などのキー素材は高星料理のために取っておくこと — 適当なシチューに放り込まない。</p>
+    </div>
+    <div class="grid-guides" style="margin-top:18px">
+      <a class="guide-card now" href="guide.html"><span class="guide-count">料理レベル 1-5</span><span class="emo">🥧</span><h4 class="display">序盤：練習料理</h4><p>アップルパイ、ミックスジャム、海鮮ピザ — 材料が安く、解放も早い。最初の資金はこれで稼ぐ</p><span class="go">解放ルートを見る →</span></a>
+      <a class="guide-card now" href="fishing.html"><span class="guide-count">料理レベル 5-8</span><span class="emo">🍓</span><h4 class="display">中盤：安定量産</h4><p>イチゴジャムと海鮮ピザを量産。自家製作物と漁獲でコストを最底辺に</p><span class="go">漁獲素材を確認 →</span></a>
+      <a class="guide-card now" href="weather.html"><span class="guide-count">料理レベル 8+</span><span class="emo">🦀</span><h4 class="display">終盤：利益爆発</h4><p>キャンプセット、キャンドルディナー、タラバガニ系の高星料理 — 星1つで数十倍の差</p><span class="go">限定素材を待つ →</span></a>
+    </div>
+    <div class="warn-box" style="margin-top:18px">⚠️ <b>コンロ3つ同時稼働</b> — 複数コンロが解放されたら3つ同時に。単位時間の生産量がそのまま3倍になります。放置プレイ派の必需品。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display" style="background:var(--coral)">散財回避</span>
+      <h2 class="display"><span class="wavy">お金の使い方 3原則</span></h2>
+    </div>
+    <div class="warn-box" style="margin-top:0">⚠️ <b>道具は全てに優先</b> — 斧・釣り竿・虫網を最初に強化して採集効率2倍。1日目に浮いたお金は2日目に全て道具へ。</div>
+    <div class="warn-box">⚠️ <b>大きな家に急がない</b> — 建材は序盤の収入をはるかに超える消費です。8×10で始めて、コインの流れが安定してから増築。インテリアはまず<a href="templates.html?budget=無課金" style="color:inherit;font-weight:700">テンプレートライブラリの無課金コーナー</a>を丸ごと真似る。</div>
+    <div class="warn-box" style="background:rgba(127,169,107,.08);border-color:rgba(92,138,78,.4);color:var(--green-deep)">✅ <b>キー素材を浪費しない</b> — シュガーフロストと希少魚は高星料理へ。新種は先に図鑑へ寄贈してから売る。<a href="guide.html" style="color:inherit;font-weight:700">初心者7日ルート</a>に序盤の全体計画があります。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">よくある質問</span>
+      <h2 class="display"><span class="wavy">金策 FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>序盤で一番早いお金の稼ぎ方は？</summary>
+      <div class="a">3層コンボ：<b>毎日タダ取り</b>（コード＋資材、30秒）→ <b>小麦2周</b>で基盤 → 素材は料理にして売る — りんごは素材のまま1個28、星1ジャムは270。そこに<a href="fishing.html">高額魚</a>（オマールエビ260〜）を合わせれば序盤のコインの流れは完成。</div>
+    </details>
+    <details class="faq">
+      <summary>どの魚が一番高く売れる？</summary>
+      <div class="a">ニシキゴイ 800（秘密の池・深夜・晴れ）&gt; 氷の海の天使 750（雪）&gt; シュモクザメ 600（虹の日の昼）。<b>虹の日が一攫千金ウィンドウ</b>：シュモクザメ・ニジマス・ウナギは虹の日限定。出かける前に<a href="weather.html">天気カレンダー</a>を。</div>
+    </details>
+    <details class="faq">
+      <summary>一番儲かる作物は？</summary>
+      <div class="a"><b>小麦＋パイナップル輪作</b>：小麦は8時間成熟で1日2周、隙間はパイナップルとトマトで穴埋め。ガーデニング解放後は赤黄隣接植えで<b>突変色フラワー</b> — 発動率も売値も上がります。</div>
+    </details>
+    <details class="faq">
+      <summary>料理の利益を最大化するには？</summary>
+      <div class="a"><b>星が倍率</b> — 同じ料理でも星5は星1の10〜70倍の利益。キー素材は高星料理へ。コンロ3つ同時稼働で効率化。レシピはレベル順：序盤アップルパイ／ミックスジャム → 中盤イチゴジャム／海鮮ピザ → 終盤キャンプセット／キャンドルディナー／タラバガニ系。</div>
+    </details>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">図鑑ライブラリ</span>
+      <h2 class="display"><span class="wavy">併用したいツール</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card now" href="fishing.html"><span class="guide-count">24種掲載</span><span class="emo">🎣</span><h4 class="display">釣り図鑑</h4><p>時間帯 × 天気 × 釣り場のクイック検索。TOP10 の完全データもこちら</p><span class="go">魚を調べる →</span></a>
+      <a class="guide-card now" href="weather.html"><span class="guide-count">スケジュールカレンダー</span><span class="emo">📅</span><h4 class="display">天気カレンダー</h4><p>虹の日・雪の日を事前に把握して、釣りウィンドウを逃さない</p><span class="go">スケジュールを見る →</span></a>
+      <a class="guide-card now" href="codes.html"><span class="guide-count">毎日更新</span><span class="emo">🎁</span><h4 class="display">デイリー情報</h4><p>ギフトコード＋資材スポット — コインループ第1ステップの無料収入</p><span class="go">受け取る →</span></a>
+      <a class="guide-card now" href="guide.html"><span class="guide-count">7日ルート</span><span class="emo">🌱</span><h4 class="display">初心者ルート</h4><p>道具強化と料理解放までの、序盤プラン全文</p><span class="go">ルートを見る →</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 ハートピア攻略手帳</div>
+  <div class="foot-nav">
+    <a href="index.html">ホーム</a>
+    <a href="codes.html">デイリーギフトコード</a>
+    <a href="weather.html">天気</a>
+    <a href="fishing.html">釣り図鑑</a>
+    <a href="templates.html">テンプレート</a>
+    <a href="guide.html">初心者ルート</a>
+    <a href="money.html">金策ガイド</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <p>魚価データは当サイトの釣り図鑑（ゲーム図鑑＋コミュニティ攻略の照合）から。農作業・料理の利益は Bilibili / TapTap コミュニティの実測を総合して整理しています。</p>
+  <p>非公式のファンメイド攻略プロジェクトであり、XD Inc. とは無関係 · 『ハートピア』のゲーム素材は各著作権者に帰属</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+</body>
+</html>

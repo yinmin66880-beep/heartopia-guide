@@ -242,6 +242,46 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://heartopiaguide.net/money.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/money.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/money.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/money.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/money.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/money.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/money.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/money.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/money.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/money.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/money.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/money.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ko/money.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/money.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/money.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/money.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/money.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://heartopiaguide.net/privacy.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/privacy.html"/>
