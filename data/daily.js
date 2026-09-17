@@ -1,14 +1,14 @@
 /* 心动小镇每日情报 · 由 scripts/fetch_daily.py 自动生成，勿手改 */
 window.HEARTOPIA_DAILY = {
-  "date": "2026-09-14",
-  "weekday": "星期一",
-  "generatedAt": "2026-09-14 16:19:02",
+  "date": "2026-09-17",
+  "weekday": "星期四",
+  "generatedAt": "2026-09-17 14:53:36",
   "status": "live",
   "weather": null,
   "specialForecast": null,
   "codes": [
     {
-      "code": "T7FPTPZ",
+      "code": "ZYP9WH9",
       "note": "在线抓取 · 当日有效"
     }
   ],
@@ -37,7 +37,7 @@ window.HEARTOPIA_DAILY = {
   ],
   "audit": {
     "fetchMode": "online",
-    "targetDate": "2026-09-14",
+    "targetDate": "2026-09-17",
     "sourcesTried": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
       "TapTap 官方论坛 · 每日兑换码",
@@ -70,8 +70,8 @@ window.HEARTOPIA_DAILY = {
     "sourcesFailed": [],
     "conflicts": [],
     "notes": [
-      "天气日历未覆盖 2026-09-14，需人工更新 weather-calendar.json",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 提取到当日兑换码 T7FPTPZ",
+      "天气日历未覆盖 2026-09-17，需人工更新 weather-calendar.json",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 提取到当日兑换码 ZYP9WH9",
       "TapTap 社区攻略 · 当日情报 未提及目标日期，内容仅作参考"
     ]
   }
