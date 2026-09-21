@@ -1,29 +1,58 @@
 {
-  "date": "2026-09-13",
-  "weekday": "星期日",
-  "generatedAt": "2026-09-13 14:16:14",
+  "date": "2026-09-21",
+  "weekday": "星期一",
+  "generatedAt": "2026-09-21 23:48:17",
   "status": "live",
-  "weather": null,
-  "specialForecast": null,
+  "weather": {
+    "icon": "🌠",
+    "label": "晴转流星雨",
+    "detail": "18:00-24:00 流星雨",
+    "fishTip": "🌠 今晚流星雨 —— 星陨矿石全图刷新，记得找朵朵兑换限定家具。"
+  },
+  "specialForecast": {
+    "date": "2026-09-24",
+    "label": "雨",
+    "note": "",
+    "icon": "🌧️"
+  },
   "codes": [
     {
-      "code": "SV5ZWHN",
-      "note": "在线抓取 · 当日有效"
+      "code": "J4ZR3D1",
+      "note": "四源交叉验证 · 9.21 当日 23:59:59 前有效"
     }
   ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
-  "resources": [],
+  "resources": [
+    {
+      "emo": "🪵",
+      "name": "溜溜橡木",
+      "pos": "12 号家园门口"
+    },
+    {
+      "emo": "💎",
+      "name": "无瑕萤石",
+      "pos": "温泉山遗迹"
+    }
+  ],
   "resourceNote": "溜溜橡木 / 无瑕萤石每日 06:00 刷新，每处每天 1 次、每次 3 个，位置每日随机（多见于各家园门口、森林灵橡松林、温泉山遗迹）",
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
+      "name": "TapTap 每日更新帖",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
-      "name": "TapTap 官方论坛 · 每日兑换码",
+      "name": "TapTap 官方论坛兑换码帖",
       "url": "https://www.taptap.cn/moment/844636406570549558"
+    },
+    {
+      "name": "筱鑫动态 · 每日攻略",
+      "url": "https://www.taptap.cn/user/594768777"
+    },
+    {
+      "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
+      "url": "https://www.taptap.cn/hashtag/心动小镇鑫时代"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -36,42 +65,55 @@
   ],
   "audit": {
     "fetchMode": "online",
-    "targetDate": "2026-09-13",
+    "targetDate": "2026-09-21",
     "sourcesTried": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
       "TapTap 官方论坛 · 每日兑换码",
       "TapTap 社区攻略 · 当日情报",
+      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
+      "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
       "TapTap 策略库 · 每日兑换码汇总",
       "TapTap 策略库 · 天气预报汇总"
     ],
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
-        "isTargetDate": true
+        "isTargetDate": true,
+        "posts": 19
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
-        "isTargetDate": true
+        "isTargetDate": true,
+        "posts": 16
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": false
+        "isTargetDate": false,
+        "posts": 2
+      },
+      {
+        "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
+        "isTargetDate": false,
+        "posts": 0
+      },
+      {
+        "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
+        "isTargetDate": true,
+        "posts": 37
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
-        "isTargetDate": true
+        "isTargetDate": true,
+        "posts": 72
       },
       {
         "name": "TapTap 策略库 · 天气预报汇总",
-        "isTargetDate": true
+        "isTargetDate": true,
+        "posts": 72
       }
     ],
     "sourcesFailed": [],
     "conflicts": [],
-    "notes": [
-      "天气日历未覆盖 2026-09-13，需人工更新 weather-calendar.json",
-      "TapTap 官方论坛 · 每日兑换码 提取到当日兑换码 SV5ZWHN",
-      "TapTap 社区攻略 · 当日情报 未提及目标日期，内容仅作参考"
-    ]
+    "notes": []
   }
 }

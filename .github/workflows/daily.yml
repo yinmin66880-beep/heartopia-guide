@@ -1,15 +1,19 @@
 name: daily-intel
 
-# 每日情报自动更新管道：
-#   北京时间 06:10（UTC 22:10）—— 物资点位 06:00 刷新后
-#   北京时间 18:10（UTC 10:10）—— 兑换码 18:00 更新后
-# 抓取成功后自动 commit data/daily.*，若仓库开启 GitHub Pages 会随之自动重新部署。
+# 每日情报自动更新管道（北京时间）：
+#   06:10 —— 物资点位 06:00 刷新后（主帖可能已更新位置）
+#   11:40 —— 社区每日攻略帖（筱鑫约 10:30-11:00 发布天气/物资/预告）
+#   18:10 —— 兑换码 18:00 更新后
+#   23:30 —— 晚间兜底：此时仍无当日数据则任务标红提醒人工介入
+# 抓取成功后自动 commit data/daily.* 与天气文件，若仓库开启 GitHub Pages 会随之自动重新部署。
 # 注意：GitHub 定时任务可能有数分钟延迟；公开仓库 60 天无活动会暂停定时任务。
 
 on:
   schedule:
     - cron: '10 22 * * *'
+    - cron: '40 3 * * *'
     - cron: '10 10 * * *'
+    - cron: '30 15 * * *'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +40,7 @@ jobs:
         run: |
           git config user.name "heartopia-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/daily.js data/daily.json
+          git add data/daily.js data/daily.json data/weather.js data/weather-en.js data/weather-ja.js data/weather-ko.js data-src/weather-calendar.json
           if git diff --cached --quiet; then
             echo "今日数据无变化，跳过提交"
           else
