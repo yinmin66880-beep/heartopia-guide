@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-09-22",
   "weekday": "星期二",
-  "generatedAt": "2026-09-22 08:47:04",
+  "generatedAt": "2026-09-22 16:47:35",
   "status": "live",
   "weather": null,
   "specialForecast": {
@@ -24,11 +24,6 @@ window.HEARTOPIA_DAILY = {
       "emo": "🪵",
       "name": "溜溜橡木",
       "pos": "8 号家园门口"
-    },
-    {
-      "emo": "💎",
-      "name": "无瑕萤石",
-      "pos": "2 号家园门口"
     }
   ],
   "resourceNote": "溜溜橡木 / 无瑕萤石每日 06:00 刷新，每处每天 1 次、每次 3 个，位置每日随机（多见于各家园门口、森林灵橡松林、温泉山遗迹）",
@@ -41,10 +36,6 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "TapTap 官方论坛 · 每日兑换码",
       "url": "https://www.taptap.cn/moment/844636406570549558"
-    },
-    {
-      "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-      "url": "https://www.taptap.cn/app/45213/topic"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -71,12 +62,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 17
+        "posts": 19
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 20
+        "posts": 16
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
@@ -85,13 +76,13 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-        "isTargetDate": true,
-        "posts": 5
+        "isTargetDate": false,
+        "posts": 0
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 40
+        "posts": 45
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -109,7 +100,6 @@ window.HEARTOPIA_DAILY = {
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 8 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 提取到当日兑换码 NJUCR1F",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 2 号家园门口",
       "天气日历未覆盖 2026-09-22，等待自动学习或人工补录"
     ]
   }
