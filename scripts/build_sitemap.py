@@ -36,6 +36,8 @@ PAGES = [
     ("fishing.html",   "weekly",  "0.8"),
     ("guide.html",     "monthly", "0.7"),
     ("money.html",     "weekly",  "0.8"),
+    ("recipes.html",   "weekly",  "0.8"),
+    ("gifts.html",     "weekly",  "0.8"),
     ("privacy.html",   "yearly",  "0.3"),
 ]
 

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하트오피아 요리 레시피 대전집: 전체 조합×이익 루트(요리 Lv.1-12) | 하트오피아 가이드</title>
+<meta name="description" content="하트오피아(Heartopia) 요리 레시피 대전집: 해금 조건(발전가협회 5레벨+취미 확장권), Lv.1-12 전체 레시피표(해산물 피자 780/애플파이 730/치즈케이크 480…), 잼 8종, 이익 루트(캠핑 세트 1600+/찐 킹크랩 3000+)와 체력 회복 수치까지. 커뮤니티 데이터 교차 정리.">
+<meta name="keywords" content="하트오피아 레시피,하트오피아 요리,하트오피아 레시피 모음,하트오피아 요리 해금,하트오피아 돈 되는 요리,하트오피아 잼,Heartopia recipes">
+<link rel="canonical" href="https://heartopiaguide.net/ko/recipes.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/recipes.html">
+<link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/recipes.html">
+<link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/recipes.html">
+<link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/recipes.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/recipes.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="하트오피아 요리 레시피 대전집: 전체 조합×이익 루트 | 하트오피아 가이드">
+<meta property="og:description" content="해금 조건 · Lv.1-12 레시피 표 · 잼 8종 · 이익 루트 — 요리는 이 페이지 하나로 끝.">
+<meta property="og:url" content="https://heartopiaguide.net/ko/recipes.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
+.recipe-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--line);font-size:13.5px;min-width:620px}
+.recipe-table th{background:rgba(232,184,75,.16);color:var(--gold-deep);font-size:12.5px;letter-spacing:1px;padding:10px 12px;text-align:left;white-space:nowrap}
+.recipe-table td{padding:9px 12px;border-top:1px dashed var(--line);color:var(--ink-soft);vertical-align:top}
+.recipe-table tr:hover td{background:rgba(232,184,75,.07)}
+.recipe-table .dish{color:var(--ink);font-weight:700;white-space:nowrap}
+.recipe-table .price{color:var(--coral-deep);font-weight:700}
+.recipe-table .lv{color:var(--green-deep);font-weight:700;white-space:nowrap}
+.recipe-table .memo{color:#a37f5a}
+.jam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.jam-grid .jam{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center}
+.jam-grid .jam b{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+.jam-grid .jam span{color:var(--coral-deep);font-weight:700;font-size:15px}
+.jam-grid .jam small{display:block;color:var(--ink-soft);font-size:11.5px;margin-top:2px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "하트오피아에서 요리는 어떻게 해금하나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "발전가협회 레벨이 5에 도달하면, 취미 확장권 1장을 타운 센터의 마시모(Massimo)에게 전달해 요리를 해금할 수 있습니다. 요리 레벨 상한은 12이며, 레벨업에 따라 새 레시피가 순차 해금됩니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "하트오피아 초반에 가장 돈이 되는 요리는?",
+      "acceptedAnswer": {"@type": "Answer", "text": "초반은 '잼 → 베이커리' 루트: 모둠 잼(아무 과일 ×4, 자동 해금, 1성 160)으로 시작하고, 혼합 잼 해금 후 사과잼(270)/파인애플잼(280)으로 전환. 4-5레벨부터 해산물 피자(1성 780)와 애플파이(730)를 만들면 이익이 한 단계 뛰어오릅니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "식재료의 별 개수는 무슨 의미인가요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "별이 많을수록 완성품의 판매가와 체력 회복량이 올라갑니다 — 같은 요리라도 고성과 1성은 몇 배 차이. 단, 2성 이상 식재료는 그냥 파는 게 더 이득일 수 있으니 냄비에 넣기 전에 가격을 비교하세요."}
+    },
+    {
+      "@type": "Question",
+      "name": "하트오피아 후반에 이익이 가장 높은 요리는?",
+      "acceptedAnswer": {"@type": "Answer", "text": "커뮤니티 실측 후반 3강: 찐 킹크랩(10레벨, 킹크랩 ×3 + 크림, 이익 3000+), 캠핑 세트(7레벨, 4요리 조합, 1600+), 랍스터 냉채(8레벨, 북유럽 가재 ×3 + 상추, 1000+)."}
+    }
+  ]
+}
+</script>
+<!-- adsense:auto-ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+</head>
+<body data-page="recipes">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>하트오피아 가이드</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">홈</a>
+      <a href="codes.html" data-page="codes">쿠폰 코드</a>
+      <a href="weather.html" data-page="weather">날씨</a>
+      <a href="fishing.html" data-page="fishing">낚시</a>
+      <a href="templates.html" data-page="templates">템플릿</a>
+      <a href="guide.html" data-page="guide">초보 루트</a>
+      <a href="money.html" data-page="money">골드 공략</a>
+      <a href="recipes.html" data-page="recipes">레시피</a>
+      <a href="gifts.html" data-page="gifts">선물 공략</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">홈</a> / 요리 레시피</p>
+  <span class="hero-kicker display" style="background:var(--gold);color:#fff">🍳 Lv.1-12 · 검증된 레시피</span>
+  <h1 class="display">요리 <em>레시피 대전집</em></h1>
+  <p class="page-sub">요리 해금부터 이익 폭발까지 — <b>전체 레시피 표, 잼 8종, 이익 루트, 체력 수치</b>. 레시피와 판매가는 17173 / 게임 커뮤니티 / TapTap 공략을 교차 정리했으며, 1성 기준가는 게임 내에서 확인할 수 있습니다.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="sec-head">
+      <span class="sec-tag display gold" style="background:var(--gold);color:#fff">입문</span>
+      <h2 class="display"><span class="wavy">요리 시스템 4단계</span></h2>
+    </div>
+    <p class="sec-desc">규칙부터 이해하면 주방에서 손해 보지 않습니다.</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">단계</span><span class="n">1</span></div>
+        <div class="tl-body">
+          <h4 class="display">🔓 요리 해금 <span class="todo">협회 5레벨 + 취미 확장권</span></h4>
+          <p>발전가협회 <b>5레벨</b> 도달 후, <b>취미 확장권</b> 1장을 타운 센터의 마시모(Massimo)에게 전달하면 해금. 요리 상한은 12레벨, 레시피는 순차 해금됩니다.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">단계</span><span class="n">2</span></div>
+        <div class="tl-body">
+          <h4 class="display">🍳 QTE 놓치지 않기 <span class="todo">실패 = 탄 요리</span></h4>
+          <p>요리 중 <b>녹색 삽</b> 아이콘의 QTE가 등장합니다. 타이밍 맞춰 눌러야 품질이 보장되고, 놓치면 '이상한 음식/음료'가 되어 순손해입니다.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">단계</span><span class="n">3</span></div>
+        <div class="tl-body">
+          <h4 class="display">⭐ 별 = 판매가 × 체력 <span class="todo">고성 식재료는 먼저 비교</span></h4>
+          <p>식재료의 별 개수는 완성품 판매가와 체력 회복을 직접 끌어올립니다. 단 <b>2성 이상 식재료는 그냥 파는 게 이득일 수도</b> 있으니 냄비 전에 가격 비교부터.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">단계</span><span class="n">4</span></div>
+        <div class="tl-body">
+          <h4 class="display">🔥 화덕 3개 동시 가동 <span class="todo">생산량 × 3</span></h4>
+          <p>화덕은 <b>3개</b>를 나란히 놓고 동시 조리 가능 — 방치 농사꾼의 최애. <a href="money.html">코인 루트</a>의 재료 공급과 결합하면 처리량이 3배가 됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="recipe-table-sec">
+    <div class="sec-head">
+      <span class="sec-tag display coral" style="background:var(--coral)">📋 핵심 표</span>
+      <h2 class="display"><span class="wavy">전체 레시피 표(해금 레벨순)</span></h2>
+    </div>
+    <p class="sec-desc">판매가는 커뮤니티 정리 <b>1성 기준가</b>, '이익'은 9game 실측 기준으로 식재료 시세에 따라 변동됩니다. 이벤트 한정 요리는 페이지 맨 아래 참고:</p>
+    <div class="tbl-scroll">
+      <table class="recipe-table">
+        <thead>
+          <tr><th>요리</th><th>재료 조합</th><th>해금</th><th>1성 판매가</th><th>비고</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="dish">🥗 가든 샐러드</td><td>아무 채소 ×2</td><td class="lv">자동 해금</td><td class="price">90</td><td class="memo">체력 +35</td></tr>
+          <tr><td class="dish">🥣 모둠 잼</td><td>아무 과일 / 토마토 ×4</td><td class="lv">자동 해금</td><td class="price">160</td><td class="memo">체력 +22 · 초반 첫 수익</td></tr>
+          <tr><td class="dish">🍟 피시 앤 칩스</td><td>아무 생선 ×2 + 감자 ×2</td><td class="lv">1레벨</td><td class="price">310</td><td class="memo">체력 +45+</td></tr>
+          <tr><td class="dish">🍰 치즈케이크</td><td>치즈 + 우유 + 밀</td><td class="lv">1레벨</td><td class="price">480</td><td class="memo">1레벨 이익 최고점</td></tr>
+          <tr><td class="dish">☕ 커피</td><td>커피콩 ×4</td><td class="lv">2레벨</td><td class="price">290</td><td class="memo">체력 +40</td></tr>
+          <tr><td class="dish">🥛 라떼</td><td>커피콩 ×2 + 우유 ×2</td><td class="lv">2레벨</td><td class="price">300</td><td class="memo">캠핑 세트 재료</td></tr>
+          <tr><td class="dish">🍤 해산물 리조또</td><td>아무 조개 ×2 + 토마토 + 밀</td><td class="lv">3레벨</td><td class="price">490</td><td class="memo">캔들라이트 디너 재료</td></tr>
+          <tr><td class="dish">🍲 시골 스튜</td><td>토마토 + 감자 + 상추</td><td class="lv">3레벨</td><td class="price">640</td><td class="memo">채소만으로 밭 직송</td></tr>
+          <tr><td class="dish">🍕 해산물 피자</td><td>아무 생선 + 토마토 소스 + 밀 + 치즈</td><td class="lv">4레벨</td><td class="price">780</td><td class="memo">1성 이익 약 225 · 중반 주력</td></tr>
+          <tr><td class="dish">🍝 미트소스 파스타</td><td>고기 + 토마토 + 밀 + 치즈</td><td class="lv">4레벨</td><td class="price">670</td><td class="memo">—</td></tr>
+          <tr><td class="dish">🥧 애플파이</td><td>사과 + 밀 + 달걀 + 크림</td><td class="lv">5레벨</td><td class="price">730</td><td class="memo">1성 이익 약 167</td></tr>
+          <tr><td class="dish">🌽 옥수수 크림수프</td><td>우유 + 버터 + 옥수수 ×2</td><td class="lv">5레벨</td><td class="price">—</td><td class="memo">실측 한 그릇 최소 450 이익</td></tr>
+          <tr><td class="dish">🍮 티라미수</td><td>커피 + 달걀 + 우유 + 치즈</td><td class="lv">6레벨</td><td class="price">—</td><td class="memo">이익 300+ · 추샤(初夏) 최애 선물</td></tr>
+          <tr><td class="dish">🏕️ 캠핑 세트</td><td>커피/라떼 + 해산물 피자 + 애플파이 + 피시 앤 칩스</td><td class="lv">7레벨</td><td class="price">—</td><td class="memo">이익 1600+ · 4요리 조합</td></tr>
+          <tr><td class="dish">🦞 랍스터 냉채</td><td>북유럽 가재 ×3 + 상추</td><td class="lv">8레벨</td><td class="price">—</td><td class="memo">이익 1000+</td></tr>
+          <tr><td class="dish">🕯️ 캔들라이트 디너</td><td>가든 샐러드 + 훈제 생선 베이글 + 해산물 리조또 + 티라미수</td><td class="lv">9레벨</td><td class="price">—</td><td class="memo">고성 이익 폭발</td></tr>
+          <tr><td class="dish">🦀 찐 킹크랩</td><td>킹크랩 ×3 + 크림</td><td class="lv">10레벨</td><td class="price">—</td><td class="memo">이익 3000+ · 후반의 왕</td></tr>
+          <tr><td class="dish">🍵 향긋한 홍차</td><td>홍차 ×2 + 우유 ×2</td><td class="lv">11레벨</td><td class="price">—</td><td class="memo">애프터눈 티 재료</td></tr>
+          <tr><td class="dish">🥤 밀크셰이크</td><td>아무 과일 ×2 + 우유 ×2</td><td class="lv">11레벨</td><td class="price">—</td><td class="memo">과일 변형 존재</td></tr>
+          <tr><td class="dish">☕ 정품 애프터눈 티</td><td>향긋한 홍차 ×2 + 치즈케이크 ×2</td><td class="lv">12레벨</td><td class="price">—</td><td class="memo">졸업급 레시피</td></tr>
+          <tr><td class="dish">🍄 버섯 파이</td><td>아무 버섯 ×2 + 밀 + 달걀</td><td class="lv">마시모 구매</td><td class="price">—</td><td class="memo">트러플판은 체력 60+</td></tr>
+          <tr><td class="dish">☁️ 구름 롤케이크</td><td>아무 색 설탕 ×2 + 우유 + 달걀</td><td class="lv">도리스 상점</td><td class="price">—</td><td class="memo">소원의 별 50개 · 비/무지개 날 한정 판매</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">🍓 초반 엔진</span>
+      <h2 class="display"><span class="wavy">잼 가족: 8종 변형 전체 수록</span></h2>
+    </div>
+    <p class="sec-desc">'혼합 잼' 해금 후에는 단일 과일 ×4로 해당 잼을 만들 수 있습니다 — 방치 밭의 인쇄기이자 <a href="money.html">코인 루트</a> 4단계의 주력:</p>
+    <div class="jam-grid">
+      <div class="jam"><b>🍎 사과잼</b><span>270</span><small>사과 ×4</small></div>
+      <div class="jam"><b>🍍 파인애플잼</b><span>280</span><small>파인애플 ×4</small></div>
+      <div class="jam"><b>🍊 귤잼</b><span>270</span><small>귤 ×4</small></div>
+      <div class="jam"><b>🍓 라즈베리잼</b><span>250</span><small>라즈베리 ×4</small></div>
+      <div class="jam"><b>🍅 토마토 소스</b><span>180</span><small>토마토 ×4</small></div>
+      <div class="jam"><b>🫐 블루베리잼</b><span>170</span><small>블루베리 ×4</small></div>
+      <div class="jam"><b>🥣 모둠 잼</b><span>160</span><small>아무 과일/토마토 ×4</small></div>
+      <div class="jam"><b>🍫 초코 소스</b><span>레시피 수록</span><small>코코아 ×4</small></div>
+    </div>
+    <div class="warn-box" style="margin-top:18px;background:rgba(232,184,75,.1);border-color:rgba(232,184,75,.45)">💡 <b>밭에서 나는 대로 끓이세요</b> — 사과(270)와 파인애플(280)이 잼 가격의 천장입니다. 과수원엔 사과나무, 빈 땅엔 파인애플을 심으면 잼 생산라인이 끊기지 않습니다.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">📈 루트</span>
+      <h2 class="display"><span class="wavy">이익 루트: 3단계별 요리 선택</span></h2>
+    </div>
+    <p class="sec-desc">잘못된 레벨에서 잘못된 요리를 만들지 마세요 — 각 단계마다 명확한 최적해가 있습니다.</p>
+    <div class="grid-guides">
+      <a class="guide-card now" href="guide.html"><span class="guide-count">요리 1-5레벨</span><span class="emo">🥣</span><h4 class="display">초반: 잼+베이커리</h4><p>모둠 잼 시작 → 사과잼/파인애플잼 → 치즈케이크 480. 재료는 전부 우리 밭에서</p><span class="go">초보 루트 보기 →</span></a>
+      <a class="guide-card now" href="fishing.html"><span class="guide-count">요리 4-8레벨</span><span class="emo">🍕</span><h4 class="display">중반: 피자+세트</h4><p>해산물 피자 780 / 애플파이 730 / 옥수수 수프 450+. 어획을 그대로 주방으로</p><span class="go">어획 재료 확인 →</span></a>
+      <a class="guide-card now" href="money.html"><span class="guide-count">요리 8-12레벨</span><span class="emo">🦀</span><h4 class="display">후반: 크랩+연회</h4><p>찐 킹크랩 3000+ / 캠핑 세트 1600+ / 랍스터 냉채 1000+. 이익은 초반의 10배</p><span class="go">코인 루트 →</span></a>
+      <a class="guide-card now" href="gifts.html"><span class="guide-count">호감도 연동</span><span class="emo">💝</span><h4 class="display">선물 루트도 함께</h4><p>티라미수(6레벨)는 추샤의 최애 — 레벨링하며 호감도 공략까지</p><span class="go">선물 공략 →</span></a>
+    </div>
+    <div class="warn-box" style="margin-top:18px">⚠️ <b>체력 요리를 전부 팔지 마세요</b> — 피시 앤 칩스(45+), 트러플 버섯 파이(60+)는 채굴/새 관찰 전에 챙겨 두세요. 체력은 곧 채집 생산력이며, '2성 이상 식재료는 직접 판매' 비교 원칙도 여기에 적용됩니다.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display" style="background:var(--coral)">한정</span>
+      <h2 class="display"><span class="wavy">이벤트 한정 요리</span></h2>
+    </div>
+    <p class="sec-desc">시즌 이벤트에서는 한정 화덕과 레시피가 열립니다 — 기간이 지나면 끝. 레시피는 해당 이벤트 페이지 기준:</p>
+    <div class="warn-box" style="margin-top:0">🐋 <b>고래 시즌(조석 조리대)</b> — 오션 아이스 드링크, 토마토 해산물 수프, 조개 진주 컵케이크, 잼 구운 오징어, 오션 피스트.</div>
+    <div class="warn-box">❄️ <b>빙설 시즌</b> — 빙컵 커피, 빙컵 라떼, 슈거 프로스트 팬케이크, 무 크림수프, 오로라 디너.</div>
+    <div class="warn-box green">🎀 <b>산리오 콜라보</b> — 마이멜로디 / 시나모롤 / 쿠로미 크레페 3종. 수집러는 놓치지 마세요.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">자주 묻는 질문</span>
+      <h2 class="display"><span class="wavy">요리 FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>요리는 어떻게 해금하나요?</summary>
+      <div class="a">발전가협회 <b>5레벨</b> 도달 후 <b>취미 확장권</b> 1장을 마시모에게 전달. 상한 12레벨, 레벨에 따라 레시피 해금.</div>
+    </details>
+    <details class="faq">
+      <summary>초반에 가장 돈 되는 요리는?</summary>
+      <div class="a"><b>잼 → 베이커리</b> 루트: 모둠 잼(160) 시작 → 사과잼(270)/파인애플잼(280) → 치즈케이크(480). 4레벨부터 해산물 피자(780)로 이익 한 단계 상승.</div>
+    </details>
+    <details class="faq">
+      <summary>식재료의 별은 무슨 역할?</summary>
+      <div class="a">별은 완성품의 <b>판매가와 체력 회복</b>을 올리며, 고성과 1성은 몇 배 차이. 단 2성 이상 식재료는 <b>직접 파는 게 이득인 경우도</b> 있으니 먼저 비교하세요.</div>
+    </details>
+    <details class="faq">
+      <summary>후반 최고 이익 요리는?</summary>
+      <div class="a">찐 킹크랩(10레벨, 이익 3000+) &gt; 캠핑 세트(7레벨, 1600+) &gt; 랍스터 냉채(8레벨, 1000+). 킹크랩은 <a href="weather.html">날씨 창</a>을 노려 채집하세요.</div>
+    </details>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">도감</span>
+      <h2 class="display"><span class="wavy">함께 쓰면 좋은 도구</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card now" href="money.html"><span class="guide-count">코인 루트</span><span class="emo">💰</span><h4 class="display">돈 벌기 공략</h4><p>요리 부가가치는 코인 순환의 4단계 — 완전한 루트는 여기</p><span class="go">벌러 가기 →</span></a>
+      <a class="guide-card now" href="fishing.html"><span class="guide-count">해산물 공급</span><span class="emo">🎣</span><h4 class="display">낚시 도감</h4><p>해산물 피자와 랍스터 냉채의 재료 — 물고기 출현 조건 표</p><span class="go">도감 보기 →</span></a>
+      <a class="guide-card now" href="gifts.html"><span class="guide-count">호감도 연동</span><span class="emo">💝</span><h4 class="display">선물 공략</h4><p>티라미수는 추샤에게, 당근덮밥은 아이미에게 — 레시피를 호감도로</p><span class="go">선호도 확인 →</span></a>
+      <a class="guide-card now" href="weather.html"><span class="guide-count">한정 창구</span><span class="emo">📅</span><h4 class="display">날씨 캘린더</h4><p>구름 롤케이크는 비/무지개 날에만 판매 — 한정 식재료 일정 확인</p><span class="go">일정 보기 →</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 하트오피아 가이드</div>
+  <div class="foot-nav">
+    <a href="index.html">홈</a>
+    <a href="codes.html">데일리 쿠폰 코드</a>
+    <a href="weather.html">날씨</a>
+    <a href="fishing.html">낚시</a>
+    <a href="templates.html">템플릿</a>
+    <a href="guide.html">초보 루트</a>
+    <a href="money.html">골드 공략</a>
+    <a href="recipes.html">레시피</a>
+    <a href="gifts.html">선물 공략</a>
+    <a href="privacy.html">개인정보 처리방침</a>
+  </div>
+  <p>레시피와 판매가는 17173 레시피 목록 / 커뮤니티 이익 표 / 9game / TapTap 공략을 교차 정리했으며, 게임 내 실제 수치를 우선으로 합니다.</p>
+  <p>본 사이트는 비공식 팬 공략 프로젝트로 XD Inc.와 무관합니다 · '하트오피아' 게임 자료의 저작권은 원 제작사에 있습니다</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+</body>
+</html>

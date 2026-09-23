@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハートピアプレゼント攻略：住民好感度早見表（好きな贈り物×誕生日×ハート5イベント）| ハートピア攻略</title>
+<meta name="description" content="ハートピア（Heartopia）住民プレゼント攻略：主要NPC全員の好きな贈り物早見表（初夏はイチゴムース、百里零は鉱石、嵐はリンゴ…）、プレゼントの仕組み（全住民で1日10回共有）、好感度 tier の数値、誕生日カレンダー、ハート5の招待イベントまで。公式攻略Wiki と照合済みデータ。">
+<meta name="keywords" content="ハートピアプレゼント,ハートピア好感度,ハートピア住民,ハートピア贈り物,ハートピア誕生日,Heartopia gift">
+<link rel="canonical" href="https://heartopiaguide.net/ja/gifts.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/gifts.html">
+<link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/gifts.html">
+<link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/gifts.html">
+<link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/gifts.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/gifts.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ハートピアプレゼント攻略：住民好感度早見表 | ハートピア攻略">
+<meta property="og:description" content="好きな贈り物早見表 · 毎日のプレゼント仕組み · 誕生日カレンダー · ハート5イベント。">
+<meta property="og:url" content="https://heartopiaguide.net/ja/gifts.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
+.gift-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--line);font-size:13.5px;min-width:640px}
+.gift-table th{background:rgba(236,140,150,.14);color:var(--coral-deep);font-size:12.5px;letter-spacing:1px;padding:10px 12px;text-align:left;white-space:nowrap}
+.gift-table td{padding:9px 12px;border-top:1px dashed var(--line);color:var(--ink-soft);vertical-align:top}
+.gift-table tr:hover td{background:rgba(236,140,150,.06)}
+.gift-table .npc{color:var(--ink);font-weight:700;white-space:nowrap}
+.gift-table .love{color:var(--coral-deep);font-weight:700}
+.gift-table .avoid{color:#a37f5a}
+.favor-math{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0 6px;font-size:13.5px}
+.favor-math .box{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:9px 13px;text-align:center}
+.favor-math .box b{display:block;font-size:15px;color:var(--ink)}
+.favor-math .box.love{border-color:var(--coral);background:linear-gradient(180deg,#FFF5F5,#FFFAFA)}
+.favor-math .box.love b{color:var(--coral-deep)}
+.favor-math .box.hate b{color:#a37f5a}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ハートピアでプレゼントはどう解放される？",
+      "acceptedAnswer": {"@type": "Answer", "text": "住民との「毎日のおしゃべり」で好感度が「知り合い」段階に達すると、プレゼント機能が解放されます。解放後は住民ごとに1日1個、全住民で1日10回の上限を共有し、深夜0時にリセットされます。"}
+    },
+    {
+      "@type": "Question",
+      "name": "ハートピアで1日に渡せるプレゼントは何個？",
+      "acceptedAnswer": {"@type": "Answer", "text": "各住民は1日1個まで受け取れ、全住民で1日10回の総数を共有（深夜リセット）。同じ住民に同じアイテムを1日2回渡すのはNG — 相手は当日もらったものを覚えています。"}
+    },
+    {
+      "@type": "Question",
+      "name": "どのプレゼントが好感度一番上がる？",
+      "acceptedAnswer": {"@type": "Answer", "text": "「大好き」枠のプレゼントは好感度 +15〜20 で、普通枠の5倍以上。タダで手に入る大好き品：嵐はリンゴ（自宅の果樹）、百里零は鉱石（採掘ついで）、顧禾は種と自作農作物、丁小葵は動物のえさ（ショップで安価）。"}
+    },
+    {
+      "@type": "Question",
+      "name": "ハート5になると何がある？",
+      "acceptedAnswer": {"@type": "Answer", "text": "ハート5に到達すると住民から手紙が届き、読むと「〇〇からの招待」という限定ストーリーが発生します。初夏・百里零・丁小葵・顧禾・嵐・楓汐の主要住民それぞれに独立したストーリーがあります。"}
+    }
+  ]
+}
+</script>
+<!-- adsense:auto-ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+</head>
+<body data-page="gifts">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>ハートピア攻略</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">ホーム</a>
+      <a href="codes.html" data-page="codes">ギフトコード</a>
+      <a href="weather.html" data-page="weather">天気</a>
+      <a href="fishing.html" data-page="fishing">釣り図鑑</a>
+      <a href="templates.html" data-page="templates">テンプレート</a>
+      <a href="guide.html" data-page="guide">初心者ルート</a>
+      <a href="money.html" data-page="money">金策ガイド</a>
+      <a href="recipes.html" data-page="recipes">レシピ</a>
+      <a href="gifts.html" data-page="gifts">プレゼント</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">ホーム</a> / プレゼント攻略</p>
+  <span class="hero-kicker display" style="background:var(--coral);color:#fff">💝 全住民早見表 · 検証済みデータ</span>
+  <h1 class="display">住民<em>プレゼント攻略</em></h1>
+  <p class="page-sub">好感度のすべて — <b>好きな贈り物早見表、毎日の仕組み、誕生日カレンダー、ハート5イベント</b>。正しい贈り物は3日分の効果、間違いは逆に好感度ダウン。</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="sec-head">
+      <span class="sec-tag display" style="background:var(--coral);color:#fff">仕組み</span>
+      <h2 class="display"><span class="wavy">プレゼントのルール 4ステップ</span></h2>
+    </div>
+    <p class="sec-desc">ルールを知ってから渡せば、1個も無駄になりません。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">1</span></div>
+        <div class="tl-body">
+          <h4 class="display">💬 毎日のおしゃべりで解放 <span class="todo">まず会話、その後贈り物</span></h4>
+          <p>住民との「毎日のおしゃべり」で好感度を<b>「知り合い」段階</b>まで上げるとプレゼント機能が解放。序盤から誰にでも話しかけておくのが得。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">2</span></div>
+        <div class="tl-body">
+          <h4 class="display">🎁 1日の上限 <span class="todo">1人1個 · 島全体で10回共有</span></h4>
+          <p>各住民は1日<b>1個</b>まで。しかも全住民で<b>1日10回</b>の上限を共有（深夜リセット）。同じ人に同じ物を1日2回は渡さない — 覚えられています。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">3</span></div>
+        <div class="tl-body">
+          <h4 class="display">💕 「大好き」枠だけ狙う <span class="todo">好感度 +15〜20</span></h4>
+          <p>贈り物は大好き / 好き / 普通 / 嫌い / 大嫌いの5段階で、効果は桁違い。早見表は下記。<b>地雷回避は命中と同じくらい重要</b> — 大嫌い枠は一撃で 15〜20 減。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">4</span></div>
+        <div class="tl-body">
+          <h4 class="display">💌 ハート5イベントを狙う <span class="todo">手紙 → 招待ストーリー</span></h4>
+          <p>好感度<b>ハート5</b>で住民から手紙が届き、読むと「〇〇からの招待」限定ストーリーへ — 初夏・百里零・丁小葵・顧禾・嵐・楓汐、全員に用意されています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="gift-table-sec">
+    <div class="sec-head">
+      <span class="sec-tag display coral">💝 早見表</span>
+      <h2 class="display"><span class="wavy">住民プレゼント早見表</span></h2>
+    </div>
+    <p class="sec-desc">主要住民の好み一覧（ゲーム内照合用に中国語表記を併記）。公式攻略Wiki（BWIKI）とコミュニティ攻略の照合データ。「未公開」は攻略サイト未収録の意味。</p>
+    <div class="tbl-scroll">
+      <table class="gift-table">
+        <thead>
+          <tr><th>住民</th><th>役割</th><th>誕生日</th><th>大好きな贈り物</th><th>好き</th><th>避けたい（嫌い / 大嫌い）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="npc">💗 初夏（Chuxia）</td><td>コミュニティセンター助手 · 幼なじみ</td><td>秋 26 日</td><td class="love">イチゴムース、ティラミス</td><td>飲み物、巨大作物、黄金の果実、花、焼き菓子、お菓子</td><td class="avoid">魚介、昆虫（大嫌い：魚料理・エビ料理）</td></tr>
+          <tr><td class="npc">🛠️ 百里零（Baili Ling）</td><td>製作の師匠 · 雑貨店主</td><td>春 21 日</td><td class="love">鉱石、手芸品</td><td>本、花</td><td class="avoid">肥料、動物のえさ、釣り餌（大嫌い：昆虫）</td></tr>
+          <tr><td class="npc">🐮 丁小葵（Ding Xiaokui）</td><td>牧場の師匠 · 緑茵牧場主</td><td>夏 4 日</td><td class="love">動物のえさ、服、小説</td><td>月映えの森の採集植物、花、ペットフード</td><td class="avoid">肥料、お菓子、酒（大嫌い：肉料理、肉）</td></tr>
+          <tr><td class="npc">🌾 顧禾（Gu He）</td><td>農業の師匠 · 隣のお兄さん</td><td>冬 1 日</td><td class="love">種、自家製農作物</td><td>本、鉢植え、肥料</td><td class="avoid">動物のえさ、飲み物、お菓子（大嫌い：酒）</td></tr>
+          <tr><td class="npc">🧭 嵐（Lan）</td><td>冒険の師匠 · 探検家ギルド長</td><td>夏 10 日</td><td class="love">月映えの森の採集植物、リンゴ</td><td>服</td><td class="avoid">作物の種、えさ、お菓子（大嫌い：海産物、漬物）</td></tr>
+          <tr><td class="npc">🌊 楓汐（Fengxi）</td><td>釣りの師匠 · 深海観測所</td><td>秋 11 日</td><td>未公開</td><td>服、月映えの森の採集植物</td><td class="avoid">作物の種、えさ、お菓子</td></tr>
+          <tr><td class="npc">🌸 艾米（Aimi）</td><td>花屋の店主</td><td>調査中</td><td>未公開</td><td>ニシキゴイ、月のサカガイ、わたあめ、にんじん丼</td><td class="avoid">調査中</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn-box" style="margin-top:18px;background:rgba(236,140,150,.1);border-color:rgba(236,140,150,.45)">💡 <b>艾米の花屋は町の中心</b> — 艾米の好感度は「ニシキゴイ / 月のサカガイ」ルート。ニシキゴイは深夜の秘密の池で狙えます（<a href="fishing.html" style="color:inherit;font-weight:700">釣り図鑑</a>参照）。1匹で図鑑と好感度の両取り。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">📊 数値参考</span>
+      <h2 class="display"><span class="wavy">好感度段階：桁が違う</span></h2>
+    </div>
+    <p class="sec-desc">コミュニティ実測の段階別好感度変化（17173 攻略データ、バージョンで微調整の可能性あり）：</p>
+    <div class="panel">
+      <div class="favor-math">
+        <div class="box love">💖 大好き<b>+15〜20</b></div>
+        <span class="arr">→</span>
+        <div class="box">💗 好き<b>+5〜10</b></div>
+        <span class="arr">→</span>
+        <div class="box">😐 普通<b>+1〜3</b></div>
+        <span class="arr">→</span>
+        <div class="box">😖 嫌い<b>−5〜10</b></div>
+        <span class="arr">→</span>
+        <div class="box hate">💔 大嫌い<b>−15〜20</b></div>
+      </div>
+      <p class="mini-note" style="text-align:center;margin-top:10px">同じリンゴでも、嵐には「大好き」、顧禾にはただのお菓子枠 — <b>贈り物に高級・安物はなく、贈り相手が合っているかだけ</b>。</p>
+    </div>
+    <div class="warn-box" style="margin-top:18px">⚠️ <b>食材のばらまき注意</b> — 初夏は魚・エビ料理が大嫌い、丁小葵は肉料理が大嫌い、嵐は海産物が大嫌い。漁獲をそのまま渡す前に早見表で確認を。好感度マイナスで元も子もありません。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">💰 タダ路線</span>
+      <h2 class="display"><span class="wavy">お金のかからない「大好き」リスト</span></h2>
+    </div>
+    <p class="sec-desc">4人の住民の大好き品はほぼ無料。日課のついでに貯めておきましょう：</p>
+    <div class="grid-guides">
+      <a class="guide-card now" href="guide.html"><span class="guide-count">自宅の果樹</span><span class="emo">🍎</span><h4 class="display">嵐 · リンゴ</h4><p>果樹からぽろり — ギルド長のお気に入り、毎日タダで好感度</p><span class="go">農業ルート →</span></a>
+      <a class="guide-card now" href="money.html"><span class="guide-count">採掘のおまけ</span><span class="emo">⛏️</span><h4 class="display">百里零 · 鉱石</h4><p>採掘のたびに1個キープ — 鉱山から直送の好感度</p><span class="go">資材情報 →</span></a>
+      <a class="guide-card now" href="recipes.html"><span class="guide-count">農場直送</span><span class="emo">🌾</span><h4 class="display">顧禾 · 種 / 自作作物</h4><p>作ったものをそのまま贈る — 畑と一緒に隣人の好感度も育つ</p><span class="go">レシピ →</span></a>
+      <a class="guide-card now" href="money.html"><span class="guide-count">ショップ最安</span><span class="emo">🥕</span><h4 class="display">丁小葵 · 動物のえさ</h4><p>ショップの安いえさが牧場の師匠の大好き — コスパ王</p><span class="go">資金計画 →</span></a>
+    </div>
+    <div class="warn-box green" style="margin-top:18px">✅ <b>ムースは後回しでOK</b> — イチゴムースとティラミスは料理レベルが必要。まずタダ組（嵐 / 百里零 / 顧禾 / 丁小葵）で好感度を稼ぎ、<a href="recipes.html" style="color:inherit;font-weight:700">レシピ</a>解放後に初夏へ。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display gold" style="background:var(--gold);color:#fff">🎂 誕生日カレンダー</span>
+      <h2 class="display"><span class="wavy">住民の誕生日：季節別リスト</span></h2>
+    </div>
+    <p class="sec-desc">誕生日に「大好き」枠を渡せば、好感度は通常日よりはるかに伸びます。<a href="weather.html">天気カレンダー</a>と一緒に計画へ。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">春</span><span class="n">21</span></div>
+        <div class="tl-body">
+          <h4 class="display">🛠️ 百里零 <span class="todo">春 21 日</span></h4>
+          <p>鉱石か手芸品 — 春の採掘ペースにちょうど合います。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">夏</span><span class="n">4</span></div>
+        <div class="tl-body">
+          <h4 class="display">🐮 丁小葵 <span class="todo">夏 4 日</span></h4>
+          <p>えさ・服・小説の三択。夏の牧草刈りの前に満点を。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">夏</span><span class="n">10</span></div>
+        <div class="tl-body">
+          <h4 class="display">🧭 嵐 <span class="todo">夏 10 日</span></h4>
+          <p>リンゴ1個で大好き枠 — 島で一番安い誕生日プレゼント。忘れなければ勝ち。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">秋</span><span class="n">11</span></div>
+        <div class="tl-body">
+          <h4 class="display">🌊 楓汐 <span class="todo">秋 11 日</span></h4>
+          <p>観測所の主の誕生日 — 服か月映えの森の採集植物で確実に。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">秋</span><span class="n">26</span></div>
+        <div class="tl-body">
+          <h4 class="display">💗 初夏 <span class="todo">秋 26 日</span></h4>
+          <p>幼なじみの誕生日は秋の締めくくり — イチゴムースは前もって練習を。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">冬</span><span class="n">1</span></div>
+        <div class="tl-body">
+          <h4 class="display">🌾 顧禾 <span class="todo">冬 1 日</span></h4>
+          <p>冬の初日が隣人の誕生日 — 種 / 自作作物を畑から直送。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">よくある質問</span>
+      <h2 class="display"><span class="wavy">プレゼント FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>プレゼントはどう解放される？</summary>
+      <div class="a">住民との<b>「毎日のおしゃべり」</b>で好感度が「知り合い」段階に到達すると解放。序盤は会う人全員と喋るのが最短ルート。</div>
+    </details>
+    <details class="faq">
+      <summary>1日に何個渡せる？</summary>
+      <div class="a">住民1人につき<b>1個</b>、全住民で<b>1日10回</b>の共有上限（深夜リセット）。同じ物の再贈答は当日不可。10枠は「大好き」枠の住民から優先的に。</div>
+    </details>
+    <details class="faq">
+      <summary>何を渡すと一番上がる？</summary>
+      <div class="a"><b>「大好き」枠で +15〜20</b>、普通枠の5倍以上。タダの大好き品：嵐・リンゴ、百里零・鉱石、顧禾・種/自作作物、丁小葵・動物のえさ。</div>
+    </details>
+    <details class="faq">
+      <summary>ハート5の報酬は？</summary>
+      <div class="a">ハート5で手紙が届き、読むと<b>「〇〇からの招待」限定ストーリー</b>が発生 — 初夏・百里零・丁小葵・顧禾・嵐・楓汐それぞれに独立したストーリーがあります。</div>
+    </details>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">ツール</span>
+      <h2 class="display"><span class="wavy">あわせて使いたい</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card now" href="recipes.html"><span class="guide-count">大好き料理</span><span class="emo">🥧</span><h4 class="display">料理レシピ</h4><p>イチゴムースとティラミス — 初夏の大好き品の作り方</p><span class="go">レシピ →</span></a>
+      <a class="guide-card now" href="fishing.html"><span class="guide-count">ニシキゴイ</span><span class="emo">🎣</span><h4 class="display">釣り図鑑</h4><p>艾米の好きなニシキゴイ：深夜の秘密の池、晴れ限定</p><span class="go">図鑑 →</span></a>
+      <a class="guide-card now" href="money.html"><span class="guide-count">資金計画</span><span class="emo">💰</span><h4 class="display">お金稼ぎ</h4><p>プレゼントにも資金が要る — 毎日タダ取り＋農業＋釣り</p><span class="go">稼ぐ →</span></a>
+      <a class="guide-card now" href="guide.html"><span class="guide-count">7日ルート</span><span class="emo">🌱</span><h4 class="display">初心者ルート</h4><p>序盤から毎日のおしゃべりを習慣化 — 好感度の出遅れなし</p><span class="go">ルート →</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 ハートピア攻略</div>
+  <div class="foot-nav">
+    <a href="index.html">ホーム</a>
+    <a href="codes.html">デイリーギフトコード</a>
+    <a href="weather.html">天気</a>
+    <a href="fishing.html">釣り図鑑</a>
+    <a href="templates.html">テンプレート</a>
+    <a href="guide.html">初心者ルート</a>
+    <a href="money.html">金策ガイド</a>
+    <a href="recipes.html">レシピ</a>
+    <a href="gifts.html">プレゼント</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <p>住民の好みとハート5イベントは公式攻略Wiki（BWIKI）、プレゼント仕組みと好感度数値は 17173 / 9game の攻略を照合して作成。</p>
+  <p>非公式ファン攻略サイトです。XD Inc. とは無関係 · ハートピアのゲーム素材の著作権は原著作者に帰属します</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心动小镇送礼攻略：居民好感度速查表（最爱礼物×生日×五心剧情）| 小镇攻略手账</title>
+<meta name="description" content="心动小镇（Heartopia）居民送礼攻略：全部主要 NPC 的最爱礼物速查表（初夏爱草莓慕斯、百里零爱矿石、岚爱苹果…）、送礼机制（每日共享 10 次）、好感度档位数值、生日日历与五心邀请剧情，数据来自官方 WIKI 交叉整理。">
+<meta name="keywords" content="心动小镇送礼,心动小镇好感度,心动小镇居民喜好,心动小镇NPC送礼,心动小镇初夏喜欢什么,心动小镇生日,Heartopia gift guide">
+<link rel="canonical" href="https://heartopiaguide.net/gifts.html">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/gifts.html">
+<link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/gifts.html">
+<link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/gifts.html">
+<link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/gifts.html">
+<link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/gifts.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="心动小镇送礼攻略：居民好感度速查表 | 小镇攻略手账">
+<meta property="og:description" content="最爱礼物速查 · 每日送礼机制 · 生日日历 · 五心剧情——好感度一条攻略全搞定。">
+<meta property="og:url" content="https://heartopiaguide.net/gifts.html">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
+.gift-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--line);font-size:13.5px;min-width:640px}
+.gift-table th{background:rgba(236,140,150,.14);color:var(--coral-deep);font-size:12.5px;letter-spacing:1px;padding:10px 12px;text-align:left;white-space:nowrap}
+.gift-table td{padding:9px 12px;border-top:1px dashed var(--line);color:var(--ink-soft);vertical-align:top}
+.gift-table tr:hover td{background:rgba(236,140,150,.06)}
+.gift-table .npc{color:var(--ink);font-weight:700;white-space:nowrap}
+.gift-table .love{color:var(--coral-deep);font-weight:700}
+.gift-table .avoid{color:#a37f5a}
+.favor-math{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0 6px;font-size:13.5px}
+.favor-math .box{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:9px 13px;text-align:center}
+.favor-math .box b{display:block;font-size:15px;color:var(--ink)}
+.favor-math .box.love{border-color:var(--coral);background:linear-gradient(180deg,#FFF5F5,#FFFAFA)}
+.favor-math .box.love b{color:var(--coral-deep)}
+.favor-math .box.hate b{color:#a37f5a}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "心动小镇怎么解锁送礼？",
+      "acceptedAnswer": {"@type": "Answer", "text": "先跟居民「每日一聊」把好感聊到「熟悉」阶段，即可解锁赠礼功能。解锁后每位居民每天能收一份礼物，全岛居民共享每日 10 次的送礼上限，午夜刷新。"}
+    },
+    {
+      "@type": "Question",
+      "name": "心动小镇每天能送几次礼物？",
+      "acceptedAnswer": {"@type": "Answer", "text": "每位居民每天最多收一份礼物，且所有居民共享每天 10 次的送礼总次数（午夜重置）。注意同一天不要给同一位居民重复送一样的礼物——居民会记得当天收过什么。"}
+    },
+    {
+      "@type": "Question",
+      "name": "心动小镇送什么礼物好感度涨最快？",
+      "acceptedAnswer": {"@type": "Answer", "text": "送「最爱」档礼物好感 +15~20，是「中立」礼物的 5 倍以上。低成本最爱推荐：岚爱苹果（自己种）、百里零爱矿石（挖矿顺手拿）、顾禾爱种子和自产农作物、丁小葵爱动物饲料（商店便宜买）。"}
+    },
+    {
+      "@type": "Question",
+      "name": "心动小镇好感度五心有什么奖励？",
+      "acceptedAnswer": {"@type": "Answer", "text": "居民好感达到 5 心后会收到 TA 的邮件，阅读邮件触发「XX 的邀请」专属剧情——每位主要居民（初夏、百里零、丁小葵、顾禾、岚、枫汐）都有独立剧情，是好感系统的核心彩蛋。"}
+    }
+  ]
+}
+</script>
+<!-- adsense:auto-ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+</head>
+<body data-page="gifts">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="index.html"><span class="house">🏡</span>小镇攻略手账</a>
+    <div class="nav-links">
+      <a href="index.html" data-page="home">首页</a>
+      <a href="codes.html" data-page="codes">兑换码</a>
+      <a href="weather.html" data-page="weather">天气日历</a>
+      <a href="fishing.html" data-page="fishing">钓鱼图鉴</a>
+      <a href="templates.html" data-page="templates">装修模板</a>
+      <a href="guide.html" data-page="guide">新手路线</a>
+      <a href="money.html" data-page="money">赚钱攻略</a>
+      <a href="recipes.html" data-page="recipes">烹饪食谱</a>
+      <a href="gifts.html" data-page="gifts">送礼攻略</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="index.html">首页</a> / 送礼攻略</p>
+  <span class="hero-kicker display" style="background:var(--coral);color:#fff">💝 全居民速查 · 数据可查证</span>
+  <h1 class="display">居民<em>送礼攻略</em></h1>
+  <p class="page-sub">好感度的全部秘密——<b>最爱礼物速查、每日送礼机制、生日日历、五心剧情</b>。送对礼，一天顶别人三天；送错礼，好感还倒扣。</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="sec-head">
+      <span class="sec-tag display" style="background:var(--coral);color:#fff">机制</span>
+      <h2 class="display"><span class="wavy">送礼机制 4 件事</span></h2>
+    </div>
+    <p class="sec-desc">先把规则弄清楚，礼物才不会白送。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">步</span><span class="n">1</span></div>
+        <div class="tl-body">
+          <h4 class="display">💬 每日一聊解锁 <span class="todo">先聊天，后送礼</span></h4>
+          <p>赠礼功能需要先和居民「每日一聊」、把好感聊到<b>「熟悉」阶段</b>才解锁。前期见到居民就搭话，解锁越早收益越大。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">步</span><span class="n">2</span></div>
+        <div class="tl-body">
+          <h4 class="display">🎁 每日限额 <span class="todo">每人 1 份 · 全岛共享 10 次</span></h4>
+          <p>每位居民每天最多收<b>一份</b>礼物，且所有居民<b>共享每日 10 次</b>送礼上限，午夜重置。同一天别给同一人重复送同一样礼物——居民记得住。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">步</span><span class="n">3</span></div>
+        <div class="tl-body">
+          <h4 class="display">💕 只送「最爱」档 <span class="todo">好感 +15~20</span></h4>
+          <p>礼物分最爱 / 喜欢 / 中立 / 不喜欢 / 讨厌五档，好感加成差出一个数量级。速查表在下方，<b>避开雷区比送对礼物同样重要</b>——讨厌档一次倒扣 15~20。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">步</span><span class="n">4</span></div>
+        <div class="tl-body">
+          <h4 class="display">💌 蹲五心剧情 <span class="todo">邮件 → 邀请彩蛋</span></h4>
+          <p>好感到 <b>5 心</b>后居民会寄来邮件，读信触发「TA 的邀请」专属剧情——初夏、百里零、丁小葵、顾禾、岚、枫汐人人有份。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="gift-table-sec">
+    <div class="sec-head">
+      <span class="sec-tag display coral">💝 核心速查</span>
+      <h2 class="display"><span class="wavy">居民送礼速查表</span></h2>
+    </div>
+    <p class="sec-desc">主要居民的偏好一览。数据来自官方 WIKI（BWIKI 心动小镇攻略）与社区攻略交叉整理；「官方尚未公布」表示攻略站暂未收录，后续补充。</p>
+    <div class="tbl-scroll">
+      <table class="gift-table">
+        <thead>
+          <tr><th>居民</th><th>身份</th><th>生日</th><th>最爱礼物</th><th>也喜欢</th><th>避雷（不喜欢 / 讨厌）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="npc">💗 初夏</td><td>社区中心助理 · 青梅竹马</td><td>秋季 26 日</td><td class="love">草莓慕斯、提拉米苏</td><td>饮料、巨大作物、黄金水果、鲜花、烘焙品、零食</td><td class="avoid">鱼虾、昆虫（讨厌：烹饪鱼类、烹饪虾类）</td></tr>
+          <tr><td class="npc">🛠️ 百里零</td><td>制造导师 · 零点杂货店店长</td><td>春季 21 日</td><td class="love">矿石、手工品</td><td>书籍、花卉</td><td class="avoid">肥料、动物饲料、鱼饵（讨厌：昆虫）</td></tr>
+          <tr><td class="npc">🐮 丁小葵</td><td>畜牧导师 · 绿茵牧场主</td><td>夏季 4 日</td><td class="love">动物饲料、衣服、小说书刊</td><td>荧月之森采集植物、花、宠物粮</td><td class="avoid">肥料、零食、酒（讨厌：荤菜、动物肉）</td></tr>
+          <tr><td class="npc">🌾 顾禾</td><td>种植导师 · 邻居哥哥</td><td>冬季 1 日</td><td class="love">种子、自家产农作物</td><td>书类、盆栽、肥料</td><td class="avoid">动物饲料、饮料、零食（讨厌：酒）</td></tr>
+          <tr><td class="npc">🧭 岚</td><td>探险导师 · 冒险家公会会长</td><td>夏季 10 日</td><td class="love">荧月之森采集植物、苹果</td><td>衣服</td><td class="avoid">作物种子、饲料、零食（讨厌：海产品、腌制食物）</td></tr>
+          <tr><td class="npc">🌊 枫汐</td><td>渔趣导师 · 深海观测站主理人</td><td>秋季 11 日</td><td>官方尚未公布</td><td>衣服、荧月之森采集植物</td><td class="avoid">作物种子、饲料、零食</td></tr>
+          <tr><td class="npc">🌸 艾米</td><td>花店老板</td><td>待补充</td><td>官方尚未公布</td><td>锦鲤、月亮海螺、棉花糖、胡萝卜盖饭</td><td class="avoid">待补充</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn-box" style="margin-top:18px;background:rgba(236,140,150,.1);border-color:rgba(236,140,150,.45)">💡 <b>艾米的花店在镇中心</b> —— 艾米好感走「锦鲤 / 月亮海螺」路线，锦鲤可在深夜秘密池塘蹲点（详见 <a href="fishing.html" style="color:inherit;font-weight:700">钓鱼图鉴</a>），一鱼两用：图鉴 + 好感。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">📊 数值参考</span>
+      <h2 class="display"><span class="wavy">好感度档位：差一个数量级</span></h2>
+    </div>
+    <p class="sec-desc">社区实测的各档位好感变化（17173 攻略数据，不同版本可能微调）：</p>
+    <div class="panel">
+      <div class="favor-math">
+        <div class="box love">💖 最爱<b>+15 ~ 20</b></div>
+        <span class="arr">→</span>
+        <div class="box">💗 喜欢<b>+5 ~ 10</b></div>
+        <span class="arr">→</span>
+        <div class="box">😐 中立<b>+1 ~ 3</b></div>
+        <span class="arr">→</span>
+        <div class="box">😖 不喜欢<b>−5 ~ 10</b></div>
+        <span class="arr">→</span>
+        <div class="box hate">💔 讨厌<b>−15 ~ 20</b></div>
+      </div>
+      <p class="mini-note" style="text-align:center;margin-top:10px">同一个苹果：送给岚是「最爱」，送给顾禾只是普通零食档——<b>礼物没有贵贱，只有送没送对人</b>。</p>
+    </div>
+    <div class="warn-box" style="margin-top:18px">⚠️ <b>别拿食材乱送</b> —— 初夏讨厌烹饪鱼类/虾类、丁小葵讨厌荤菜、岚讨厌海产品：把渔获当礼物送人前，先对照上方速查表，倒扣好感得不偿失。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">💰 零成本路线</span>
+      <h2 class="display"><span class="wavy">不花钱的「最爱」清单</span></h2>
+    </div>
+    <p class="sec-desc">四位居民的最爱礼物几乎零成本，日常顺手就能攒：</p>
+    <div class="grid-guides">
+      <a class="guide-card now" href="guide.html"><span class="guide-count">自家果园</span><span class="emo">🍎</span><h4 class="display">岚 · 苹果</h4><p>果树随手收，探险会长的心头好，每天一份白送的好感</p><span class="go">种植路线 →</span></a>
+      <a class="guide-card now" href="money.html"><span class="guide-count">挖矿顺手</span><span class="emo">⛏️</span><h4 class="display">百里零 · 矿石</h4><p>采矿石时留一份给杂货店店长，矿场白拿的好感度</p><span class="go">物资点位 →</span></a>
+      <a class="guide-card now" href="recipes.html"><span class="guide-count">农田直供</span><span class="emo">🌾</span><h4 class="display">顾禾 · 种子/自产作物</h4><p>种什么送什么，邻居哥哥的好感跟着农田一起长</p><span class="go">料理食谱 →</span></a>
+      <a class="guide-card now" href="money.html"><span class="guide-count">商店白菜价</span><span class="emo">🥕</span><h4 class="display">丁小葵 · 动物饲料</h4><p>商店低价饲料就是畜牧导师的最爱，性价比之王</p><span class="go">金币规划 →</span></a>
+    </div>
+    <div class="warn-box green" style="margin-top:18px">✅ <b>初夏慕斯路线留给后期</b> —— 草莓慕斯、提拉米苏需要烹饪等级支撑，前期先用零成本四人组（岚/百里零/顾禾/丁小葵）铺好感，解锁<a href="recipes.html" style="color:inherit;font-weight:700">食谱</a>后再攻略初夏。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display gold" style="background:var(--gold);color:#fff">🎂 生日日历</span>
+      <h2 class="display"><span class="wavy">居民生日：按季节排班</span></h2>
+    </div>
+    <p class="sec-desc">记住生日，当天送出「最爱」档礼物，好感收益远超平日——配合 <a href="weather.html">天气日历</a> 一起排进每日计划。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">春</span><span class="n">21</span></div>
+        <div class="tl-body">
+          <h4 class="display">🛠️ 百里零 <span class="todo">春季 21 日</span></h4>
+          <p>生日礼物备矿石或手工品——正好卡在开春挖矿的节奏上。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">夏</span><span class="n">4</span></div>
+        <div class="tl-body">
+          <h4 class="display">🐮 丁小葵 <span class="todo">夏季 4 日</span></h4>
+          <p>饲料、衣服、小说书刊三选一，夏天第一批牧草收割前先把她喂饱。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">夏</span><span class="n">10</span></div>
+        <div class="tl-body">
+          <h4 class="display">🧭 岚 <span class="todo">夏季 10 日</span></h4>
+          <p>一颗苹果就是最爱档——全岛最便宜的生日礼物，别忘了就行。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">秋</span><span class="n">11</span></div>
+        <div class="tl-body">
+          <h4 class="display">🌊 枫汐 <span class="todo">秋季 11 日</span></h4>
+          <p>深海观测站主理人的生日，衣服或荧月之森采集植物兜底。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">秋</span><span class="n">26</span></div>
+        <div class="tl-body">
+          <h4 class="display">💗 初夏 <span class="todo">秋季 26 日</span></h4>
+          <p>青梅竹马的生日压轴秋天——草莓慕斯提前练手，别当天才想起没学做。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">冬</span><span class="n">1</span></div>
+        <div class="tl-body">
+          <h4 class="display">🌾 顾禾 <span class="todo">冬季 1 日</span></h4>
+          <p>冬季第一天就是邻居哥哥生日，种子/自产作物直接从田里现摘。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">常见问题</span>
+      <h2 class="display"><span class="wavy">送礼 FAQ</span></h2>
+    </div>
+    <details class="faq" open>
+      <summary>怎么解锁送礼？</summary>
+      <div class="a">先和居民<b>「每日一聊」</b>，好感到「熟悉」阶段即解锁赠礼。前期见人就聊，是解锁最快的方式。</div>
+    </details>
+    <details class="faq">
+      <summary>每天能送几次礼物？</summary>
+      <div class="a">每位居民每天<b>一份</b>，全岛共享<b>每日 10 次</b>上限，午夜重置；同一天别重复送同一样礼物。10 次名额优先给「最爱」档居民。</div>
+    </details>
+    <details class="faq">
+      <summary>送什么好感涨最快？</summary>
+      <div class="a"><b>「最爱」档 +15~20</b>，是中立档的 5 倍以上。零成本最爱：岚·苹果、百里零·矿石、顾禾·种子/自产作物、丁小葵·动物饲料。</div>
+    </details>
+    <details class="faq">
+      <summary>五心有什么奖励？</summary>
+      <div class="a">5 心后居民寄来邮件，读信触发<b>「TA 的邀请」专属剧情</b>——初夏、百里零、丁小葵、顾禾、岚、枫汐各有独立剧情线。</div>
+    </details>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">图鉴库</span>
+      <h2 class="display"><span class="wavy">配合使用的工具</span></h2>
+    </div>
+    <div class="grid-guides">
+      <a class="guide-card now" href="recipes.html"><span class="guide-count">最爱料理</span><span class="emo">🥧</span><h4 class="display">烹饪食谱</h4><p>草莓慕斯、提拉米苏——初夏最爱礼物的做法都在这</p><span class="go">查食谱 →</span></a>
+      <a class="guide-card now" href="fishing.html"><span class="guide-count">锦鲤路线</span><span class="emo">🎣</span><h4 class="display">钓鱼图鉴</h4><p>艾米喜欢的锦鲤：深夜秘密池塘，晴天才现身</p><span class="go">去查鱼 →</span></a>
+      <a class="guide-card now" href="money.html"><span class="guide-count">礼物预算</span><span class="emo">💰</span><h4 class="display">赚钱攻略</h4><p>送礼也要本金——每日白拿+种田+钓鱼的金币主线</p><span class="go">去赚钱 →</span></a>
+      <a class="guide-card now" href="guide.html"><span class="guide-count">7 日路线</span><span class="emo">🌱</span><h4 class="display">新手路线</h4><p>开荒期把每日一聊排进日程，好感解锁不落后</p><span class="go">看路线 →</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 小镇攻略手账</div>
+  <div class="foot-nav">
+    <a href="index.html">首页</a>
+    <a href="codes.html">每日兑换码</a>
+    <a href="weather.html">天气日历</a>
+    <a href="fishing.html">钓鱼图鉴</a>
+    <a href="templates.html">装修模板</a>
+    <a href="guide.html">新手路线</a>
+    <a href="money.html">赚钱攻略</a>
+    <a href="recipes.html">烹饪食谱</a>
+    <a href="gifts.html">送礼攻略</a>
+    <a href="privacy.html">隐私政策</a>
+  </div>
+  <p>居民偏好与五心剧情来自 BWIKI 官方攻略；送礼机制与好感档位数值综合 17173 / 9game 社区攻略交叉整理。</p>
+  <p>本站为玩家非官方攻略项目，与心动公司（XD Inc.）无关 · 《心动小镇》游戏素材版权归原厂所有</p>
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/lang.js"></script>
+</body>
+</html>

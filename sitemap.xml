@@ -282,6 +282,86 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://heartopiaguide.net/recipes.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/recipes.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/recipes.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/recipes.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/recipes.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/recipes.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ko/recipes.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/recipes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/recipes.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/gifts.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/gifts.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/gifts.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/gifts.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/gifts.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/gifts.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ko/gifts.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/gifts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/gifts.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://heartopiaguide.net/privacy.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/privacy.html"/>
