@@ -22,10 +22,11 @@ HOST = "heartopiaguide.net"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 
 # 每日数据（兑换码/天气/物资）渲染到的页面，随 fetch_daily.py 更新而变化
+# 注意：必须使用干净 URL（无 .html），与 canonical/sitemap 一致
 DAILY_URLS = [
     f"https://{HOST}/{sub}{page}"
     for sub in ("", "en/", "ja/", "ko/")
-    for page in ("", "codes.html", "weather.html")
+    for page in ("", "codes", "weather")
 ]
 
 

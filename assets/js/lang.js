@@ -19,8 +19,8 @@
     ? htmlLang.slice(0, 2)
     : (htmlLang.startsWith('zh') ? 'zh' : 'en');
 
-  // 当前页面文件名（zh 页在根目录，其他语言页在子目录，文件名一致）
-  const file = (location.pathname.split('/').pop() || 'index.html');
+  // 当前页面路径末段（干净 URL 无扩展名；首页为空串）
+  const file = location.pathname.split('/').pop() || '';
   const inSub = /^\/(en|ja|ko)(\/|$)/i.test(location.pathname);
   const query = location.search || '';
 
