@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-09-23",
   "weekday": "星期三",
-  "generatedAt": "2026-09-23 08:25:51",
+  "generatedAt": "2026-09-23 16:48:56",
   "status": "live",
   "weather": null,
   "specialForecast": {
@@ -11,7 +11,12 @@ window.HEARTOPIA_DAILY = {
     "note": "",
     "icon": "🌧️"
   },
-  "codes": [],
+  "codes": [
+    {
+      "code": "NJUCR1F",
+      "note": "在线抓取 · 当日有效"
+    }
+  ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
   "resources": [
@@ -62,12 +67,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 17
+        "posts": 19
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 20
+        "posts": 16
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
@@ -77,12 +82,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": false,
-        "posts": 10
+        "posts": 8
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 37
+        "posts": 45
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -92,13 +97,14 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 策略库 · 天气预报汇总",
         "isTargetDate": true,
-        "posts": 77
+        "posts": 82
       }
     ],
     "sourcesFailed": [],
     "conflicts": [],
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 6 号家园门口",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 提取到当日兑换码 NJUCR1F",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 2 号家园门口",
       "天气日历未覆盖 2026-09-23，等待自动学习或人工补录"
     ]
