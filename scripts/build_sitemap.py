@@ -51,11 +51,13 @@ LOCALES = [
 
 
 def page_url(base, sub, path):
+    # Cloudflare Pages 会把 /foo.html 308 重定向到 /foo（clean URL），
+    # sitemap 必须使用最终 URL，因此去掉 .html 扩展名
     url = base + "/"
     if sub:
         url += sub + "/"
     if path != "index.html":
-        url += path
+        url += path[:-5]
     return url
 
 
