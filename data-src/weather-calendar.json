@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-21",
+  "updated": "2026-09-22",
   "source": {
     "name": "TapTap 心动小镇 · 社区每日攻略（筱鑫）+ 天气预报策略库",
     "url": "https://www.taptap.cn/user/594768777",
@@ -196,6 +196,14 @@
       "phases": [
         {
           "t": "rainbow"
+        }
+      ],
+      "auto": true
+    },
+    "2026-09-22": {
+      "phases": [
+        {
+          "t": "sunny"
         }
       ],
       "auto": true
