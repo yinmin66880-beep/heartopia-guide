@@ -2,7 +2,7 @@
  * 由 scripts/fetch_daily.py 从 data-src/weather-calendar.json 自动生成，勿手改。
  * 游戏内天气为官方固定排期，本日历由社区攻略帖每日对照维护。 */
 window.HEARTOPIA_WEATHER = {
-  updated: "2026-09-22",
+  updated: "2026-09-25",
   source: {
     name: "TapTap 心动小镇 · 社区天气攻略汇总",
     url: "https://www.taptap.cn/user/594768777"
@@ -120,11 +120,23 @@ window.HEARTOPIA_WEATHER = {
     "note": "",
     "fish": "沙白鱼 · 欧洲鳗鲡"
   },
+  "2026-09-25": {
+    "label": "晴转流星雨",
+    "icon": "🌠",
+    "note": "18:00-24:00 流星雨",
+    "fish": "流星雨限定采集（星陨矿石）"
+  },
   "2026-09-26": {
     "label": "彩虹",
     "icon": "🌈",
     "note": "",
     "fish": "锤头鲨 · 彩虹鳟"
+  },
+  "2026-10-01": {
+    "label": "流星雨",
+    "icon": "🌠",
+    "note": "",
+    "fish": "流星雨限定采集（星陨矿石）"
   }
 }
 };
