@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハートピア釣り図鑑（全 24 種 · 時間/天気/釣り場検索）| ハートピア攻略手帳</title>
-<meta name="description" content="ハートピア完全釣り図鑑：全 24 種の出現時間・天気条件・釣り場・売値に加え、「今釣れるのはこれ」のリアルタイム検索 — 虹の日はシュモクザメとニジマス、雨の夜はウナギ、真夜中の秘密の池ではニシキゴイ。">
+<title>ハートピア釣り図鑑大全（24 種 · 釣り場攻略 · 糸さばきテクニック）| ハートピア攻略手帳</title>
+<meta name="description" content="ハートピア（Heartopia）釣り図鑑：人気 24 種の出現時間・天気条件・釣り場・売値の早見表に加え、釣り場マップ、釣りの趣味レベル解放表、ラインの色のさばき方、釣り大会とコレクション実績の攻略 — 虹の日はシュモクザメ、雨の夜はウナギ、深夜の秘密の池でニシキゴイを狙う。">
 <meta name="keywords" content="ハートピア釣り,ハートピア魚,ハートピア釣り攻略,ハートピアニシキゴイ,ハートピアシュモクザメ,ハートピア伝説の魚">
 <link rel="canonical" href="https://heartopiaguide.net/ja/fishing">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/fishing">
@@ -54,6 +54,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "伝説級：ニシキゴイ 800、氷の海の天使 750、シュモクザメ 600。高単価の周回候補はズワイガニ 300 とオマールエビ 260。レア度は各カードの右上に表示されています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "釣りレベルはどう上げるのが一番速い？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "釣りの経験値は主に新魚種の解放から。同じ魚を繰り返し釣ってもほぼ伸びません。釣り場を順番に回って未解放の魚を優先し、特殊天気には限定魚（ぜんぶ新魚種）を集中させるのが最速です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ラインがしょっちゅう切れるのはどうすればいい？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ほとんどは赤いラインのまま引っ張り続けたのが原因 — 赤に変わったらすぐ手を離し、白か黄に戻ってから巻きましょう。竿のメンテナンスと駆け引きの達人のレベルが上がると失敗も減ります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "釣った魚はそのまま売る？それとも料理する？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "新魚種はまず図鑑に寄贈して報酬を回収。サケは寿司にすると直売より約 350 コイン得で、星 1 の安価な魚はフィッシュアンドチップス向き。伝説級の高額魚はそのまま売るのがいちばん手軽です。"
       }
     }
   ]
@@ -129,9 +153,9 @@
   <section class="reveal" id="dex">
     <div class="sec-head">
       <span class="sec-tag display">図鑑</span>
-      <h2 class="display"><span class="wavy">全魚種（24）</span></h2>
+      <h2 class="display"><span class="wavy">人気魚種の図鑑（24 種）</span></h2>
     </div>
-    <p class="sec-desc">現在のフィルターに影響されない完全アーカイブ。検索ボックスに魚名や釣り場を入力すれば、すぐ該当カードにたどり着けます。伝説級のカードには ✨ の金枠。</p>
+    <p class="sec-desc">検索や出釣頻度の高い人気魚種から 24 種をセレクト。検索ボックスに魚名や釣り場を入力すれば、すぐ該当カードにたどり着けます。趣味レベル解放や季節限定も含め、ゲーム内の完全図鑑には実際に 90 種以上の魚が収録されています。レア度はカード右上の表示、魚価はゲーム内の図鑑を基準にどうぞ。</p>
     <div class="fish-grid" id="fishGridAll"></div>
   </section>
 
@@ -167,6 +191,166 @@
 
   <section class="reveal">
     <div class="sec-head">
+      <span class="sec-tag display blue">釣り場マップ</span>
+      <h2 class="display"><span class="wavy">全釣り場の出魚ガイド</span></h2>
+    </div>
+    <p class="sec-desc">ハートピアの水域は町のあちこちに散らばっており、釣り場ごとに釣れる魚はほぼ重なりません — どこで何を釣りたいか、まずはこの表で確認。魚価と出現条件はゲーム内の図鑑を基準にしてください。</p>
+    <div class="tbl-scroll">
+      <table class="money-table">
+        <thead>
+          <tr><th>釣り場</th><th>行き方</th><th>代表魚種</th><th>特徴</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="fish-name">🏞️ 静かな川 / 川</td><td>町の中央を貫く</td><td>ミノー · パーチ · サンドブリーム</td><td>釣りの入門第 1 歩、終日釣れる</td></tr>
+          <tr><td class="fish-name">⛰️ 湖（近郊の湖 / 森の湖）</td><td>森林エリア</td><td>ニジマス · ハクレン · オオクチバス</td><td>虹の日の朝に訪れるニジマスの時間帯</td></tr>
+          <tr><td class="fish-name">♨️ 温泉の小川 / 温泉山の湖</td><td>温泉山エリア</td><td>サクラエビ · ゴールデンコイ · ライオンヘッド金魚</td><td>レア観賞魚の産地、虹の日はライオンヘッド金魚</td></tr>
+          <tr><td class="fish-name">🌊 東の海</td><td>東側の海岸</td><td>海エビ · オマールエビ</td><td>夜のエビ釣り（260 コイン）の安定スポット</td></tr>
+          <tr><td class="fish-name">🏴 旧海</td><td>灯台方面の古い海域</td><td>フグ · ヒラメ · ウナギ · クロダイ</td><td>雨の夜のウナギはここでしか釣れない</td></tr>
+          <tr><td class="fish-name">🐋 クジラ海</td><td>北部の沖合</td><td>シュモクザメ · サバ · アトランティックサーモン</td><td>虹の日の伝説級メインステージ</td></tr>
+          <tr><td class="fish-name">🧊 氷雪海域</td><td>アイスシーズン限定</td><td>ズワイガニ · 氷の海の天使 · 氷晶シリーズ</td><td>アイスシーズンのみ開放、限定魚がいちばん密集</td></tr>
+          <tr><td class="fish-name">🕳️ 秘密の池</td><td>隠しスポット</td><td>ニシキゴイ · 真夜中のニシキゴイ</td><td>深夜限定、伝説漁獲の待ち伏せ聖地</td></tr>
+          <tr><td class="fish-name">💦 滝 / 温泉</td><td>温泉山の上</td><td>滝マス · 滝パーチ · 温泉ウナギ</td><td>特殊スポット、レア魚が出没</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn-box" style="margin-top:18px">🗺️ <b>ルート提案</b> — 日常は「川 → 湖 → 東の海」の 3 点周回がコスパ最高。特殊天気のときだけ限定釣り場へ直行です（虹の日はクジラ海、雨の夜は旧海、雪の日は氷雪海域）。通常の天気で限定魚を待ち伏せても、待つだけ損です。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">上級</span>
+      <h2 class="display"><span class="wavy">釣りの趣味レベル：解放表と報酬</span></h2>
+    </div>
+    <p class="sec-desc">釣りレベルは「新魚種の解放」で上がります — 初めて釣った魚だけが経験値になり、同じ魚の再キャッチはほぼ無意味。レベルが高いほど、釣れるレア魚と実用アイテムが増えていきます。</p>
+    <div class="tbl-scroll">
+      <table class="money-table">
+        <thead>
+          <tr><th>趣味レベル</th><th>主な報酬</th><th>説明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="price">レベル 1</td><td>釣りテクニック 1 · 魚の品質 1</td><td>入門報酬、ドロップ品質が上がり始める</td></tr>
+          <tr><td class="price">レベル 2</td><td>竿メンテナンス 1 · 魚の品質 2</td><td>竿の耐久消費が軽減</td></tr>
+          <tr><td class="price">レベル 4</td><td>魚寄せ · 駆け引きの達人 1</td><td>魚寄せは青く光る魚影を呼び出せる</td></tr>
+          <tr><td class="price">レベル 6</td><td>人魚の香水 · 駆け引きの達人 2</td><td>香水で釣りイベントの目標達成を支援</td></tr>
+          <tr><td class="price">レベル 10</td><td>駆け引きの達人 4 · 竿メンテナンス 5</td><td>糸さばきの許容範囲と竿の保守がほぼ完成形</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warn-box" style="margin-top:18px;background:rgba(232,184,75,.1);border-color:rgba(232,184,75,.45)">🌈 <b>虹の日の限定魚もレベルで解放</b> — レベル 6 でシロザケ・大真珠貝・ホウボウ、7 でウナギ、8 でタラバガニ・ゴールデンタラバガニ、9 でドナウパイクパーチ・ホンマグロ、10 でマコザメ・シュモクザメ・メカジキ。レベルが足りないと虹の日に遭遇しても釣れない伝説魚があります — 日頃からのレベル上げこそ本番です。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">実技講座</span>
+      <h2 class="display"><span class="wavy">糸のさばき方：ラインの色が合図</span></h2>
+    </div>
+    <p class="sec-desc">釣りの核心操作は「引き合いの駆け引き」— ラインの色こそがスタート合図。色の見間違いが大物を逃がす原因ナンバーワンです。</p>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">安全</span><span class="emo">⬜</span>
+        <h4 class="display">白いライン</h4>
+        <p>糸はたるみ、状態は安全。長押しで巻き取りを続け、回線の隙をしっかり活用。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">減速</span><span class="emo">🟨</span>
+        <h4 class="display">黄色いライン</h4>
+        <p>テンション上昇。一拍置くか点押しで力を調整 — 急がないこと。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">危険</span><span class="emo">🟥</span>
+        <h4 class="display">赤いライン</h4>
+        <p>すぐ手を離すこと！引っ張り続けると糸切れて逃げられます。白か黄に戻ってから再開。</p>
+      </div>
+    </div>
+    <div class="tl" style="margin-top:22px">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">1</span></div>
+        <div class="tl-body">
+          <h4 class="display">魚影のそばにキャスト</h4>
+          <p>水中の魚影を見つけたら、その近くに浮きを投げて食いつきを待つ。震えやビックリマークが出たらヒットです。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">2</span></div>
+        <div class="tl-body">
+          <h4 class="display">長押しでファイト、ラインの色を注視</h4>
+          <p>長押しで駆け引き開始、最後までラインの色から目を離さない：白 → 黄 → 赤がサイクルで巡り、赤では必ず手を離す。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">STEP</span><span class="n">3</span></div>
+        <div class="tl-body">
+          <h4 class="display">大きな魚影は多段の引き合い</h4>
+          <p>体の大きな魚ほど引き合いの回数が増えます、焦らず冷静に。りんごから合成した餌や魚寄せ（青く光る魚影）で食いつき率と品質を底上げできます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display gold" style="background:var(--gold);color:#fff">イベント</span>
+      <h2 class="display"><span class="wavy">釣り大会とコレクション実績</span></h2>
+    </div>
+    <p class="sec-desc">釣りは日々の売却以外にも、周期的な大会と長期のコレクション目標があります。報酬はどちらも限定品。</p>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">漁村の船</span><span class="emo">⚓</span>
+        <h4 class="display">釣り大会の遊び方</h4>
+        <p>大会は漁村の船で開始。時間内にできるだけ多く釣り上げます：個人目標 5 匹・チーム合計 30 匹でクリア、報酬はサプライズガチャカプセル。人魚の香水で短時間の効率アップも。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">メダル</span><span class="emo">🏅</span>
+        <h4 class="display">図鑑コレクションのマイルストーン</h4>
+        <p>10 種解放でブロンズ釣りメダル、50 種でシルバー、全図鑑完成でゴールド釣りメダルと特製ロッド — コレクターの一生の好敵手。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">称号</span><span class="emo">👑</span>
+        <h4 class="display">釣りの実績一覧</h4>
+        <p>釣りの趣味レベル 10 で「熟練釣り客」の称号、大会の隠しステージ累計 10 回で「釣り師」、魚群の発生累計 100 回で「魚群の祝福」。</p>
+      </div>
+      <a class="guide-card" href="money">
+        <span class="guide-count">エコノミクス</span><span class="emo">💰</span>
+        <h4 class="display">釣りのいちばんお得な金策</h4>
+        <p>高単価魚 TOP10 + 天気ごとのリターン分析</p>
+        <span class="go">攻略を見る →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">価値チェーン</span>
+      <h2 class="display"><span class="wavy">釣った後はどうする？売るか、料理するか</span></h2>
+    </div>
+    <p class="sec-desc">漁獲の行き先は 3 つ：そのまま売る、料理で価値を上げる、図鑑に寄贈する。使い分けができる人が得をします。</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">初</span><span class="n">釣</span></div>
+        <div class="tl-body">
+          <h4 class="display">🐟 新魚種はまず図鑑に寄贈 <span class="todo">図鑑報酬は隠れた資産</span></h4>
+          <p>初めて釣った新種は優先して寄贈して図鑑報酬を回収 — 図鑑の進捗とコレクション実績自体が隠れた収入です。重複した分から売りましょう。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">料</span><span class="n">理</span></div>
+        <div class="tl-body">
+          <h4 class="display">🍳 料理で魚価は 2 倍 <span class="todo">素材 → 料理で利益アップ</span></h4>
+          <p>料理にしたほうが直売より稼げる魚は多い：サケの握り寿司は生サケ直売より約 350 コイン得。星 1 で 130 未満の魚はフィッシュアンドチップス（星 1 ジャガイモと）向き、貝 2 + 魚 2 で豪華シーフード盛り合わせに。詳細は <a href="recipes">料理レシピ</a> へ。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day"><span class="d">直</span><span class="n">売</span></div>
+        <div class="tl-body">
+          <h4 class="display">🛒 高額魚は迷わず直売 <span class="todo">伝説級は即決</span></h4>
+          <p>ニシキゴイ、氷の海の天使、シュモクザメといった伝説級の漁獲はそのまま売るのがいちばん楽 — 単価が高く、キッチンの生産力にも依存しません。日々貯めた低星の魚はキッチンに任せれば、どちらも無駄が出ません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
       <span class="sec-tag display">FAQ</span>
       <h2 class="display"><span class="wavy">釣り FAQ</span></h2>
     </div>
@@ -176,7 +360,7 @@
     </details>
     <details class="faq">
       <summary>虹の日に釣れる伝説級の魚は？</summary>
-      <div class="a">昼間は<b>シュモクザメ（クジラ海・600 コイン）</b>と<b>ニジマス（湖・180 コイン）</b>。通常は雨の夜の魚である<b>ウナギ</b>も、虹の日の夜には現れます。</div>
+      <div class="a">昼間は<b>シュモクザメ（クジラ海・600 コイン）</b>と<b>ニジマス（湖・180 コイン）</b>。通常は雨の夜の魚である<b>ウナギ</b>も、虹の日の夜には現れます。ただし、虹の日の限定魚の一部は釣りの趣味レベルが条件です（上のレベル解放表を参照）。</div>
     </details>
     <details class="faq">
       <summary>ニシキゴイはどこで釣れる？</summary>
@@ -185,6 +369,18 @@
     <details class="faq">
       <summary>いちばん高く売れる魚は？</summary>
       <div class="a">伝説級：ニシキゴイ 800、氷の海の天使 750、シュモクザメ 600。高単価の周回候補はズワイガニ 300 とオマールエビ 260。レア度は各カードの右上に表示されています。</div>
+    </details>
+    <details class="faq">
+      <summary>釣りレベルはどう上げるのが一番速い？</summary>
+      <div class="a">経験値は主に<b>新魚種の解放</b>から。同じ魚の再キャッチはほぼ無意味です。速攻ルート：釣り場を順番に回って未解放の魚種を優先し、特殊天気は限定魚（＝丸ごと新魚種）の集中チャンスにする。</div>
+    </details>
+    <details class="faq">
+      <summary>ラインがしょっちゅう切れるのはどうすればいい？</summary>
+      <div class="a">断線はほぼ<b>赤いラインのまま引っ張り続けた</b>のが原因 — 赤に変わったら即手を離し、白か黄に戻ってから再開。竿のメンテナンスのレベルが上がると耐久消費が減り、駆け引きの達人で許容範囲が広がります。</div>
+    </details>
+    <details class="faq">
+      <summary>釣り大会はいつ始まる？報酬は？</summary>
+      <div class="a">大会は<b>漁村の船</b>で受付。時間内の釣り上げチャレンジで、個人目標 5 匹・チーム合計 30 匹、報酬はサプライズガチャカプセル。開始前に人魚の香水で短時間の効率アップも可能です。</div>
     </details>
   </section>
 
@@ -203,6 +399,7 @@
     <a href="recipes">レシピ</a>
     <a href="gifts">プレゼント</a>
     <a href="privacy">プライバシーポリシー</a>
+    <a href="about">当サイトについて</a>
   </div>
   <p>魚のデータはゲーム内図鑑とコミュニティ攻略をクロス編集 · 天気で変わる出現は公式の固定スケジュールに従います</p>
   <p>非公式のファンメイド攻略プロジェクトであり、XD Inc. とは無関係 · 『ハートピア』のゲーム素材は各著作権者に帰属</p>
