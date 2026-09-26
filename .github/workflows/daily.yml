@@ -53,7 +53,13 @@ jobs:
             echo "今日数据无变化，跳过提交"
           else
             git commit -m "chore(daily): auto update intel $(date -u +%F)"
-            git push
+            # 并发运行（延迟的定时任务挤在一起时）可能抢先推送导致 fetch first 被拒：
+            # rebase 到最新远端后重试；数据文件冲突时仍失败退出，由下次运行自愈
+            if ! git push; then
+              echo "推送被拒（远端已前移），rebase 后重试"
+              git pull --rebase
+              git push
+            fi
             echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
 
