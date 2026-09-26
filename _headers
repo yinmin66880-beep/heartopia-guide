@@ -1,0 +1,21 @@
+# Cloudflare Pages 自定义响应头
+# 数据文件按更新频率分级缓存：
+#   daily.js —— 管道每天最多跑 7 次（06:10~23:30 BJT），兑换码 18:00 发布、
+#               当日 23:59:59 失效，浏览器缓存必须短，否则下午访问过的访客
+#               晚间刷新仍看到"今日暂无"（Pages 对 .js 默认 max-age=14400，
+#               2026-09-26 线上实测踩坑）
+#   weather*.js / codes-history.js —— 日历学习与历史归档，时效性要求低一档
+# HTML 页面走 Pages 默认（max-age=0, must-revalidate），无需配置
+/data/daily.js
+  Cache-Control: public, max-age=120, must-revalidate
+
+/data/weather.js
+  Cache-Control: public, max-age=600, must-revalidate
+/data/weather-en.js
+  Cache-Control: public, max-age=600, must-revalidate
+/data/weather-ja.js
+  Cache-Control: public, max-age=600, must-revalidate
+/data/weather-ko.js
+  Cache-Control: public, max-age=600, must-revalidate
+/data/codes-history.js
+  Cache-Control: public, max-age=600, must-revalidate
