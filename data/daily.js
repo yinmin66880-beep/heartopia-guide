@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-09-26",
   "weekday": "星期六",
-  "generatedAt": "2026-09-26 03:25:22",
+  "generatedAt": "2026-09-26 08:35:52",
   "status": "live",
   "weather": {
     "icon": "🌈",
@@ -19,13 +19,35 @@ window.HEARTOPIA_DAILY = {
   "codes": [],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
-  "resources": [],
+  "resources": [
+    {
+      "emo": "🪵",
+      "name": "溜溜橡木",
+      "pos": "9 号家园门口"
+    }
+  ],
   "resourceNote": "溜溜橡木 / 无瑕萤石每日 06:00 刷新，每处每天 1 次、每次 3 个，位置每日随机（多见于各家园门口、森林灵橡松林、温泉山遗迹）",
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
+      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
+      "url": "https://www.taptap.cn/moment/651125368966612788"
+    },
+    {
+      "name": "TapTap 官方论坛 · 每日兑换码",
+      "url": "https://www.taptap.cn/moment/844636406570549558"
+    },
+    {
       "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
       "url": "https://www.taptap.cn/app/45213/topic"
+    },
+    {
+      "name": "TapTap 策略库 · 每日兑换码汇总",
+      "url": "https://www.taptap.cn/app/45213/strategy/entity-collection/386562"
+    },
+    {
+      "name": "TapTap 策略库 · 天气预报汇总",
+      "url": "https://www.taptap.cn/app/45213/strategy/entity-collection/283527"
     }
   ],
   "audit": {
@@ -43,12 +65,12 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
-        "isTargetDate": false,
-        "posts": 21
+        "isTargetDate": true,
+        "posts": 19
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 10
       },
       {
@@ -59,26 +81,28 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 3
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 37
+        "posts": 40
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
-        "isTargetDate": false,
-        "posts": 82
+        "isTargetDate": true,
+        "posts": 77
       },
       {
         "name": "TapTap 策略库 · 天气预报汇总",
-        "isTargetDate": false,
-        "posts": 82
+        "isTargetDate": true,
+        "posts": 77
       }
     ],
     "sourcesFailed": [],
     "conflicts": [],
-    "notes": []
+    "notes": [
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 9 号家园门口"
+    ]
   }
 };
