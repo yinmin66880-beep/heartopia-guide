@@ -3,6 +3,14 @@
   "description": "人工维护的情报种子数据：作为在线抓取失败时的降级基准，以及新增监控源的登记处。已知情报按日期归档，管道优先用在线源覆盖。",
   "watchUrls": [
     {
+      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
+      "url": "https://www.taptap.cn/moment/651125368966612788",
+      "momentId": "651125368966612788",
+      "type": "moment-comments",
+      "priority": "primary",
+      "enabled": true
+    },
+    {
       "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
       "url": "https://www.taptap.cn/moment/651125368966612788",
       "type": "daily-moment",

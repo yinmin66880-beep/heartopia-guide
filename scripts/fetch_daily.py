@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-心动小镇攻略手账 · 每日情报管道 v2.0
+心动小镇攻略手账 · 每日情报管道 v2.1
 ====================================
+
+v2.1 相比 v2.0 的修复与增强：
+  1. 兑换码改用 TapTap 评论 API 抓取 —— 每日码已迁移到主帖评论区
+     （作者「努力再努力」每日 ~18:00 发布，最新一条会被置顶），帖子正文
+     不再包含当日码，HTML 抓取自 9 月下旬起持续抓空。评论 API 按评论
+     created_time 的北京时间归属日期，精确到天，杜绝串日/捞旧码。
+     接口注意：limit 上限 20、from 为偏移量、必须携带 X-UA 头。
+  2. 质量保护：同日低分不覆盖高分；空数据不覆盖任何旧数据
 
 v2.0 相比 v1.0 的修复与增强：
   1. 目标日期按北京时间计算 —— 修复 GitHub Actions runner（UTC）凌晨任务
@@ -66,6 +74,13 @@ CODE_RE = re.compile(r"\b([A-Z0-9]{7})\b")
 CODE_BLACKLIST = {"JAVASCR", "CHARSET", "ENCODE", "DEFAULT", "DISPLAY", "CONTENT"}
 WEEKDAYS = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
 
+# TapTap 评论 API：每日兑换码由作者「努力再努力」以评论形式发布（约 18:00），
+# 帖子正文不再包含当日码，HTML 抓取拿不到 —— 评论 API 是兑换码的权威源。
+# 注意：limit 上限 20（50/100 会 400）；from 为偏移量；X-UA 必须携带。
+COMMENT_API = "https://www.taptap.cn/webapiv2/moment-comment/v1/by-moment"
+XUA_HEADER = ("V=1&PN=WebApp&LANG=zh_CN&VN_CODE=100000000&LOC=CN&PLT=PC&DS=Android"
+              "&UID=11111111-2222-3333-4444-555555555555&OS=Windows&OSV=10&DT=PC")
+
 # 学习窗口：只回填最近 N 天内的历史（防止策略库旧帖无限膨胀日历）
 LEARN_PAST_DAYS = 10
 
@@ -115,6 +130,75 @@ def fetch_source(src, retries=2):
                 time.sleep(3)
                 continue
             return False, f"{type(e).__name__}: {e}"
+
+
+# ---------------------------------------------------------------- 评论 API（兑换码权威源）
+
+def comment_text(c):
+    """评论正文：contents 为 {json: [{children: [{text}]}]} 富文本结构。"""
+    cont = c.get("contents")
+    if isinstance(cont, str):
+        try:
+            cont = json.loads(cont)
+        except Exception:
+            return cont or ""
+    if isinstance(cont, dict):
+        blocks = cont.get("json") or []
+    elif isinstance(cont, list):
+        blocks = cont
+    else:
+        return ""
+    parts = []
+    for b in blocks if isinstance(blocks, list) else []:
+        if isinstance(b, dict):
+            for ch in b.get("children", []):
+                if isinstance(ch, dict) and ch.get("text"):
+                    parts.append(str(ch["text"]))
+    return " ".join(parts)
+
+
+def fetch_comment_codes(moment_id, target, tries=3):
+    """从评论 API 提取【当日】兑换码。
+
+    作者每日 ~18:00 发布一条仅含码的评论（最新一条会被置顶）。
+    按评论 created_time 的北京时间归属日期，天然精确，无需文本日期匹配。
+    第一页（最新 20 条）足以覆盖最近半个月的每日码。
+    返回 [(code, is_pinned, author, hh:mm)]；抓取失败抛异常由调用方记录。
+    """
+    url = (f"{COMMENT_API}?moment_id={moment_id}&sort=created_at&order=desc"
+           f"&regulate_all=false&group_id=4761&limit=20")
+    last_err = None
+    for attempt in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": UA, "X-UA": XUA_HEADER, "Accept": "application/json"})
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="replace"))
+            break
+        except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError) as e:
+            last_err = e
+            if attempt + 1 < tries:
+                time.sleep(3)
+    else:
+        raise last_err
+
+    out = []
+    for c in (data.get("data") or {}).get("list") or []:
+        ts = c.get("created_time")
+        if not ts:
+            continue
+        if datetime.fromtimestamp(ts, BJT).date() != target:
+            continue
+        text = comment_text(c)
+        for code in CODE_RE.findall(text):
+            if (code in CODE_BLACKLIST or not re.search(r"[A-Z]", code)
+                    or not re.search(r"\d", code)):
+                continue
+            if code not in [x[0] for x in out]:
+                hm = datetime.fromtimestamp(ts, BJT).strftime("%H:%M")
+                out.append((code, bool(c.get("is_top_comment")),
+                            (c.get("author") or {}).get("name", "?"), hm))
+    return out
 
 
 def strip_html(html):
@@ -356,7 +440,7 @@ def extract_res_segment(seg):
                             hit = True
                             break
                     if not hit:
-                        hm = re.search(r"(\d{1,2})\s*号", win)
+                        hm = re.search(r"(\d{1,2})\s*号", win) or re.search(r"(\d{1,2})\s*家园", win)
                         if hm and 1 <= int(hm.group(1)) <= 12:
                             res[key] = f"{int(hm.group(1))} 号家园门口"
                             hit = True
@@ -607,6 +691,31 @@ def build_daily(target, mode):
             if not src.get("enabled", True):
                 continue
             audit["sourcesTried"].append(src["name"])
+
+            # 评论 API 源：兑换码权威通道（正文里已无当日码）
+            if src.get("type") == "moment-comments":
+                try:
+                    pairs = fetch_comment_codes(src.get("momentId"), target)
+                except Exception as e:
+                    audit["sourcesFailed"].append({"name": src["name"],
+                                                   "error": f"{type(e).__name__}: {e}"})
+                    log(f"  [fail] {src['name']}: {type(e).__name__}: {e}")
+                    continue
+                audit["sourcesOk"].append({"name": src["name"], "isTargetDate": bool(pairs),
+                                           "posts": len(pairs)})
+                for code, pinned, author, hm in pairs:
+                    votes.setdefault(code, set()).add(src["name"])
+                    if code not in {x["code"] for x in codes}:
+                        codes.append({"code": code, "note": "置顶码评 · 当日 23:59:59 前有效"})
+                        audit["notes"].append(
+                            f"{src['name']} 提取到当日兑换码 {code}（{author} {hm} 发布）")
+                log(f"  [ok]   {src['name']}（评论 API, 当日码 {len(pairs)} 个）")
+                if pairs:
+                    if src["url"] not in {s.get("url") for s in sources}:
+                        sources.append({"name": src["name"], "url": src["url"]})
+                    status = "live"
+                continue
+
             ok, payload = fetch_source(src)
             if not ok:
                 audit["sourcesFailed"].append({"name": src["name"], "error": payload})
@@ -789,7 +898,7 @@ def main():
         except Exception:
             pass
 
-    ap = argparse.ArgumentParser(description="心动小镇每日情报管道 v2.0")
+    ap = argparse.ArgumentParser(description="心动小镇每日情报管道 v2.1")
     ap.add_argument("--date", help="目标日期 YYYY-MM-DD，默认今天（北京时间）")
     ap.add_argument("--offline", action="store_true", help="不联网，仅用本地数据")
     ap.add_argument("--dry-run", action="store_true", help="不写文件，仅打印")
@@ -797,7 +906,7 @@ def main():
 
     target = date.fromisoformat(args.date) if args.date else today_bjt()
     mode = "offline" if args.offline else "online"
-    log(f"=== 心动小镇每日情报管道 v2.0 | 目标 {target.isoformat()} | 模式 {mode} ===")
+    log(f"=== 心动小镇每日情报管道 v2.1 | 目标 {target.isoformat()} | 模式 {mode} ===")
 
     daily, cal, cal_dirty = build_daily(target, mode)
     issues = validate(daily)
