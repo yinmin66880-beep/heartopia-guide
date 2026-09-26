@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-心动小镇攻略手账 · 每日情报管道 v2.1
+心动小镇攻略手账 · 每日情报管道 v2.2
 ====================================
+
+v2.2 相比 v2.1 的修复与增强：
+  1. 每日码历史归档自动维护 —— data/codes-history.js 由管道生成，
+     评论 API 单次调用同时提取当日码 + 回填窗口（14 天）内缺失日期的
+     历史码；GitHub 定时任务高负载被延迟/丢弃时，次日运行自动补档
+  2. codes 页历史归档表改为读 codes-history.js 动态渲染（4 语言）
 
 v2.1 相比 v2.0 的修复与增强：
   1. 兑换码改用 TapTap 评论 API 抓取 —— 每日码已迁移到主帖评论区
@@ -34,6 +40,7 @@ v2.0 相比 v1.0 的修复与增强：
     data/daily.json / data/daily.js                    每日情报（页面直接加载）
     data-src/weather-calendar.json                     天气日历（学习有变更时）
     data/weather.js / weather-{en,ja,ko}.js            4 语言天气日历（有变更时）
+    data/codes-history.js                              每日码历史归档（有变更时）
     logs/fetch_YYYYMMDD_HHMMSS.log                     审计日志
 
 退出码：0 = 有任一有效数据（天气/兑换码/物资），或早间运行源可达但当日帖未发布；
@@ -83,6 +90,12 @@ XUA_HEADER = ("V=1&PN=WebApp&LANG=zh_CN&VN_CODE=100000000&LOC=CN&PLT=PC&DS=Andro
 
 # 学习窗口：只回填最近 N 天内的历史（防止策略库旧帖无限膨胀日历）
 LEARN_PAST_DAYS = 10
+
+# 每日码历史归档：data/codes-history.js 由管道自动维护，
+# 回填窗口内缺失日期（GitHub 定时任务高负载时可能被延迟甚至丢弃，
+# 丢掉的运行靠次日运行的回填自愈），空条目 = 已查过当日无码
+CODES_HIST_JS = DATA_DIR / "codes-history.js"
+CODES_HIST_WINDOW = 14
 
 
 def log(msg):
@@ -157,13 +170,16 @@ def comment_text(c):
     return " ".join(parts)
 
 
-def fetch_comment_codes(moment_id, target, tries=3):
-    """从评论 API 提取【当日】兑换码。
+def fetch_comment_codes(moment_id, target, tries=3, extra_dates=None):
+    """从评论 API 提取兑换码（按评论 created_time 的北京时间归属日期）。
 
     作者每日 ~18:00 发布一条仅含码的评论（最新一条会被置顶）。
     按评论 created_time 的北京时间归属日期，天然精确，无需文本日期匹配。
     第一页（最新 20 条）足以覆盖最近半个月的每日码。
-    返回 [(code, is_pinned, author, hh:mm)]；抓取失败抛异常由调用方记录。
+    extra_dates：需一并提取的历史回填日期集合（codes-history 补档用）。
+    返回 (pairs, seen)：pairs = [(日期, code, is_pinned, author, hh:mm)]；
+    seen = 本页评论覆盖到的全部日期集合（含无码日，作「已查过」标记）。
+    抓取失败抛异常由调用方记录。
     """
     url = (f"{COMMENT_API}?moment_id={moment_id}&sort=created_at&order=desc"
            f"&regulate_all=false&group_id=4761&limit=20")
@@ -182,23 +198,26 @@ def fetch_comment_codes(moment_id, target, tries=3):
     else:
         raise last_err
 
-    out = []
+    wanted = {target} | set(extra_dates or ())
+    out, seen = [], set()
     for c in (data.get("data") or {}).get("list") or []:
         ts = c.get("created_time")
         if not ts:
             continue
-        if datetime.fromtimestamp(ts, BJT).date() != target:
+        d = datetime.fromtimestamp(ts, BJT).date()
+        seen.add(d)
+        if d not in wanted:
             continue
         text = comment_text(c)
         for code in CODE_RE.findall(text):
             if (code in CODE_BLACKLIST or not re.search(r"[A-Z]", code)
                     or not re.search(r"\d", code)):
                 continue
-            if code not in [x[0] for x in out]:
+            if (d, code) not in [(x[0], x[1]) for x in out]:
                 hm = datetime.fromtimestamp(ts, BJT).strftime("%H:%M")
-                out.append((code, bool(c.get("is_top_comment")),
+                out.append((d, code, bool(c.get("is_top_comment")),
                             (c.get("author") or {}).get("name", "?"), hm))
-    return out
+    return out, seen
 
 
 def strip_html(html):
@@ -662,7 +681,7 @@ def mentions_target_date(text, target):
     return any(p in text for p in patterns)
 
 
-def build_daily(target, mode):
+def build_daily(target, mode, backfill_dates=None):
     cal = load_json(WEATHER_CAL) or {"updated": target.isoformat(), "days": {}}
     seed = load_json(SEED) or {}
     audit = {
@@ -672,6 +691,7 @@ def build_daily(target, mode):
         "conflicts": [], "notes": [],
     }
     cal_dirty = False
+    comment_data = None  # 评论 API 原始结果（pairs + seen），供历史归档回填
 
     # ---- 种子情报（降级基准） ----
     key = target.isoformat()
@@ -695,22 +715,27 @@ def build_daily(target, mode):
             # 评论 API 源：兑换码权威通道（正文里已无当日码）
             if src.get("type") == "moment-comments":
                 try:
-                    pairs = fetch_comment_codes(src.get("momentId"), target)
+                    pairs, seen_dates = fetch_comment_codes(
+                        src.get("momentId"), target, extra_dates=backfill_dates)
                 except Exception as e:
                     audit["sourcesFailed"].append({"name": src["name"],
                                                    "error": f"{type(e).__name__}: {e}"})
                     log(f"  [fail] {src['name']}: {type(e).__name__}: {e}")
                     continue
-                audit["sourcesOk"].append({"name": src["name"], "isTargetDate": bool(pairs),
+                comment_data = {"pairs": pairs, "seen": sorted(d.isoformat() for d in seen_dates)}
+                today_pairs = [(code, pinned, author, hm) for d, code, pinned, author, hm in pairs
+                               if d == target]
+                audit["sourcesOk"].append({"name": src["name"], "isTargetDate": bool(today_pairs),
                                            "posts": len(pairs)})
-                for code, pinned, author, hm in pairs:
+                for code, pinned, author, hm in today_pairs:
                     votes.setdefault(code, set()).add(src["name"])
                     if code not in {x["code"] for x in codes}:
                         codes.append({"code": code, "note": "置顶码评 · 当日 23:59:59 前有效"})
                         audit["notes"].append(
                             f"{src['name']} 提取到当日兑换码 {code}（{author} {hm} 发布）")
-                log(f"  [ok]   {src['name']}（评论 API, 当日码 {len(pairs)} 个）")
-                if pairs:
+                log(f"  [ok]   {src['name']}（评论 API, 当日码 {len(today_pairs)} 个, "
+                    f"归档 {len(pairs) - len(today_pairs)} 条历史）")
+                if today_pairs:
                     if src["url"] not in {s.get("url") for s in sources}:
                         sources.append({"name": src["name"], "url": src["url"]})
                     status = "live"
@@ -831,7 +856,80 @@ def build_daily(target, mode):
         "sources": sources,
         "audit": audit,
     }
-    return daily, cal, cal_dirty
+    return daily, cal, cal_dirty, comment_data
+
+
+def load_codes_history():
+    """读取 data/codes-history.js（每日码历史归档）；缺失/损坏时返回 []。"""
+    if not CODES_HIST_JS.exists():
+        return []
+    text = CODES_HIST_JS.read_text(encoding="utf-8")
+    m = re.search(r"window\.HEARTOPIA_CODE_HISTORY\s*=\s*(\[.*\])\s*;?\s*$", text, re.S)
+    if not m:
+        return []
+    try:
+        return json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return []
+
+
+def update_codes_history(target, daily, comment_data, hist, dry_run=False):
+    """维护每日码历史归档 data/codes-history.js。
+
+    - 当日码来自本次 daily 构建（含多源票数与评论 API 标记）
+    - 回填：评论 API 结果里命中归档窗口内缺失日期的码直接补档；
+      seen 中覆盖到但无码的日期记空条目（已查过，当日无码）
+    - 空条目不视为「已有」——次日起仍会随窗口重查（防当日抢跑漏码），
+      有码条目（含人工校准的历史）永不覆盖
+    """
+    by_date = {e["date"]: e for e in hist if e.get("date")}
+    dirty = False
+    window_lo = target - timedelta(days=CODES_HIST_WINDOW - 1)
+
+    if comment_data:
+        for d, code, pinned, author, hm in comment_data["pairs"]:
+            iso = d.isoformat()
+            if iso < window_lo.isoformat():
+                continue
+            e = by_date.setdefault(iso, {"date": iso, "codes": []})
+            if code not in e["codes"]:
+                e["codes"].append(code)
+                e["api"] = True
+                dirty = True
+                log(f"  [hist] 归档 {iso} 兑换码 {code}（{author} {hm} 发布）")
+        for iso in comment_data["seen"]:
+            if window_lo.isoformat() <= iso <= target.isoformat() and iso not in by_date:
+                by_date[iso] = {"date": iso, "codes": []}
+                dirty = True
+
+    # 当日条目：合并本次构建结果
+    key = target.isoformat()
+    e = by_date.setdefault(key, {"date": key, "codes": []})
+    for c in daily.get("codes", []):
+        if c["code"] not in e["codes"]:
+            e["codes"].append(c["code"])
+            dirty = True
+    if daily.get("codes"):
+        n_votes = max((c.get("verified") or 0) for c in daily["codes"])
+        if n_votes >= 2 and (e.get("verified") or 0) < n_votes:
+            e["verified"] = n_votes
+            dirty = True
+        if comment_data and any(d == target for d, *_ in comment_data["pairs"]):
+            e["api"] = True
+            dirty = True
+
+    entries = sorted(by_date.values(), key=lambda x: x["date"], reverse=True)
+    payload = json.dumps(entries, ensure_ascii=False, indent=2)
+    if dry_run:
+        if dirty:
+            log(f"\n[dry-run] 将生成 data/codes-history.js（{len(entries)} 天）")
+        return
+    if not dirty and CODES_HIST_JS.exists():
+        return
+    CODES_HIST_JS.write_text(
+        "/* 心动小镇每日码历史归档 · 由 scripts/fetch_daily.py 自动生成，勿手改 */\n"
+        f"window.HEARTOPIA_CODE_HISTORY = {payload};\n", encoding="utf-8")
+    log(f"每日码历史归档已更新 → {CODES_HIST_JS.relative_to(ROOT)}（{len(entries)} 天）")
 
 
 def validate(daily):
@@ -906,9 +1004,16 @@ def main():
 
     target = date.fromisoformat(args.date) if args.date else today_bjt()
     mode = "offline" if args.offline else "online"
-    log(f"=== 心动小镇每日情报管道 v2.1 | 目标 {target.isoformat()} | 模式 {mode} ===")
+    log(f"=== 心动小镇每日情报管道 v2.2 | 目标 {target.isoformat()} | 模式 {mode} ===")
 
-    daily, cal, cal_dirty = build_daily(target, mode)
+    # 归档回填窗口：已有「有码」条目的日期不再重查（人工校准历史优先），
+    # 窗口内其余日期随评论 API 一次调用一并提取，GitHub 丢任务可自愈
+    hist = load_codes_history()
+    window = {target - timedelta(days=i) for i in range(CODES_HIST_WINDOW)}
+    have = {e["date"] for e in hist if e.get("codes")}
+    backfill_dates = (window - have) if mode == "online" else set()
+
+    daily, cal, cal_dirty, comment_data = build_daily(target, mode, backfill_dates=backfill_dates)
     issues = validate(daily)
 
     LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -923,6 +1028,7 @@ def main():
             log(f"  - {i}")
 
     generate_weather_js(cal, target, dry_run=args.dry_run)
+    update_codes_history(target, daily, comment_data, hist, dry_run=args.dry_run)
 
     emit(daily, args.dry_run)
 

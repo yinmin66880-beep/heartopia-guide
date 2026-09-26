@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name "heartopia-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/daily.js data/daily.json data/weather.js data/weather-en.js data/weather-ja.js data/weather-ko.js data-src/weather-calendar.json
+          git add data/daily.js data/daily.json data/weather.js data/weather-en.js data/weather-ja.js data/weather-ko.js data/codes-history.js data-src/weather-calendar.json
           if git diff --cached --quiet; then
             echo "今日数据无变化，跳过提交"
           else
