@@ -54,10 +54,11 @@ jobs:
           else
             git commit -m "chore(daily): auto update intel $(date -u +%F)"
             # 并发运行（延迟的定时任务挤在一起时）可能抢先推送导致 fetch first 被拒：
-            # rebase 到最新远端后重试；数据文件冲突时仍失败退出，由下次运行自愈
+            # rebase 到最新远端后重试；-X theirs 使冲突时采用本次运行的最新抓取数据
+            # （本运行晚于对方结束，抓取更新鲜）；极端情况下仍失败由下次运行自愈
             if ! git push; then
               echo "推送被拒（远端已前移），rebase 后重试"
-              git pull --rebase
+              git pull --rebase -X theirs
               git push
             fi
             echo "pushed=true" >> "$GITHUB_OUTPUT"
