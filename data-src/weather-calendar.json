@@ -195,7 +195,12 @@
     "2026-09-26": {
       "phases": [
         {
-          "t": "rainbow"
+          "t": "sunny"
+        },
+        {
+          "t": "meteor",
+          "s": 18,
+          "e": 24
         }
       ],
       "auto": true

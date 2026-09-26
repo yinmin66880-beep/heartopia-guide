@@ -127,10 +127,10 @@ window.HEARTOPIA_WEATHER = {
     "fish": "Exclusive meteorite gathering"
   },
   "2026-09-26": {
-    "label": "Rainbow",
-    "icon": "🌈",
-    "note": "",
-    "fish": "Hammerhead Shark · Rainbow Trout"
+    "label": "Sunny → Meteor Shower",
+    "icon": "🌠",
+    "note": "18:00-24:00 Meteor Shower",
+    "fish": "Exclusive meteorite gathering"
   },
   "2026-10-01": {
     "label": "Meteor Shower",
