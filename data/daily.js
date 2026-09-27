@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-09-27",
   "weekday": "星期日",
-  "generatedAt": "2026-09-27 17:30:25",
+  "generatedAt": "2026-09-27 23:06:45",
   "status": "live",
   "weather": {
     "icon": "🌧️🌈",
@@ -17,6 +17,10 @@ window.HEARTOPIA_DAILY = {
     "icon": "🌠"
   },
   "codes": [
+    {
+      "code": "GZF7W5D",
+      "note": "置顶码评 · 当日 23:59:59 前有效"
+    },
     {
       "code": "J4ZR3D1",
       "note": "在线抓取 · 当日有效"
@@ -40,7 +44,7 @@ window.HEARTOPIA_DAILY = {
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
+      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
@@ -48,8 +52,8 @@ window.HEARTOPIA_DAILY = {
       "url": "https://www.taptap.cn/moment/844636406570549558"
     },
     {
-      "name": "TapTap 社区攻略 · 当日情报",
-      "url": "https://www.taptap.cn/moment/844484238282589354"
+      "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
+      "url": "https://www.taptap.cn/app/45213/topic"
     },
     {
       "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
@@ -80,7 +84,7 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 12
       },
       {
@@ -95,12 +99,12 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": true,
+        "isTargetDate": false,
         "posts": 2
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 0
       },
       {
@@ -128,11 +132,10 @@ window.HEARTOPIA_DAILY = {
       "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 4 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 3 号家园门口"
     ],
     "notes": [
+      "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 GZF7W5D（努力再努力 18:01 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 3 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口",
-      "TapTap 官方论坛 · 每日兑换码 提取到当日兑换码 J4ZR3D1",
-      "话题标签 · 心动小镇鑫时代（每日攻略聚合） 修正 2026-09-27 天气 → 晴转雨转彩虹",
-      "话题标签 · 心动小镇鑫时代（每日攻略聚合） 学习到 2026-10-04 预告: 雨"
+      "TapTap 官方论坛 · 每日兑换码 提取到当日兑换码 J4ZR3D1"
     ]
   }
 };

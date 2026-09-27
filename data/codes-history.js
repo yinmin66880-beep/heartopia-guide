@@ -3,8 +3,10 @@ window.HEARTOPIA_CODE_HISTORY = [
   {
     "date": "2026-09-27",
     "codes": [
-      "J4ZR3D1"
-    ]
+      "J4ZR3D1",
+      "GZF7W5D"
+    ],
+    "api": true
   },
   {
     "date": "2026-09-26",
