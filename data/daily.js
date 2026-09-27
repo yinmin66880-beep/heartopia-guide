@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-09-27",
   "weekday": "星期日",
-  "generatedAt": "2026-09-27 23:16:42",
+  "generatedAt": "2026-09-27 23:47:33",
   "status": "live",
   "weather": {
     "icon": "🌧️🌈",
@@ -56,10 +56,6 @@ window.HEARTOPIA_DAILY = {
       "url": "https://www.taptap.cn/app/45213/topic"
     },
     {
-      "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-      "url": "https://www.taptap.cn/hashtag/心动小镇鑫时代"
-    },
-    {
       "name": "TapTap 策略库 · 每日兑换码汇总",
       "url": "https://www.taptap.cn/app/45213/strategy/entity-collection/386562"
     },
@@ -109,8 +105,8 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-        "isTargetDate": true,
-        "posts": 48
+        "isTargetDate": false,
+        "posts": 37
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
