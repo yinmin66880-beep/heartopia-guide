@@ -133,7 +133,7 @@ window.HEARTOPIA_WEATHER = {
     "fish": "Exclusive meteorite gathering"
   },
   "2026-09-27": {
-    "label": "Rain → Rainbow",
+    "label": "Sunny → Rain → Rainbow",
     "icon": "🌧️🌈",
     "note": "12:00-18:00 Rain, 18:00-24:00 Rainbow",
     "fish": "Hammerhead Shark · Rainbow Trout"
@@ -143,6 +143,12 @@ window.HEARTOPIA_WEATHER = {
     "icon": "🌠",
     "note": "",
     "fish": "Exclusive meteorite gathering"
+  },
+  "2026-10-04": {
+    "label": "Rain",
+    "icon": "🌧️",
+    "note": "",
+    "fish": "Sand Bream · European Eel"
   }
 }
 };
