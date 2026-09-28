@@ -2,9 +2,14 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-09-28",
   "weekday": "星期一",
-  "generatedAt": "2026-09-28 08:38:57",
+  "generatedAt": "2026-09-28 18:08:12",
   "status": "live",
-  "weather": null,
+  "weather": {
+    "icon": "☀️",
+    "label": "晴",
+    "detail": "",
+    "fishTip": "☀️ 晴天全图常规鱼种待机，出门顺路收图鉴。"
+  },
   "specialForecast": {
     "date": "2026-10-01",
     "label": "流星雨",
@@ -12,6 +17,11 @@ window.HEARTOPIA_DAILY = {
     "icon": "🌠"
   },
   "codes": [
+    {
+      "code": "S2P84U1",
+      "note": "已获 2 个独立源交叉验证 · 当日有效",
+      "verified": 2
+    },
     {
       "code": "J4ZR3D1",
       "note": "在线抓取 · 当日有效"
@@ -35,7 +45,7 @@ window.HEARTOPIA_DAILY = {
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
+      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
@@ -45,6 +55,10 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
       "url": "https://www.taptap.cn/app/45213/topic"
+    },
+    {
+      "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
+      "url": "https://www.taptap.cn/hashtag/心动小镇鑫时代"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -71,8 +85,8 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
-        "isTargetDate": false,
-        "posts": 12
+        "isTargetDate": true,
+        "posts": 13
       },
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
@@ -92,11 +106,11 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 6
+        "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 37
       },
       {
@@ -119,11 +133,11 @@ window.HEARTOPIA_DAILY = {
       "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 11 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 6 号家园门口"
     ],
     "notes": [
+      "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 S2P84U1（努力再努力 18:02 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 6 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 11 号家园门口",
       "TapTap 官方论坛 · 每日兑换码 提取到当日兑换码 J4ZR3D1",
-      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 修正 2026-09-27 天气 → 雨转彩虹",
-      "天气日历未覆盖 2026-09-28，等待自动学习或人工补录"
+      "话题标签 · 心动小镇鑫时代（每日攻略聚合） 学习到 2026-09-28 天气: 晴"
     ]
   }
 };
