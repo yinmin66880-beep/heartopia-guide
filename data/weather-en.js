@@ -149,6 +149,12 @@ window.HEARTOPIA_WEATHER = {
     "note": "",
     "fish": "Sand Bream · European Eel"
   },
+  "2026-09-30": {
+    "label": "Sunny → Rain",
+    "icon": "🌧️",
+    "note": "06:00-12:00 Rain, 18:00-24:00 Rain",
+    "fish": "Sand Bream · European Eel"
+  },
   "2026-10-01": {
     "label": "Meteor Shower",
     "icon": "🌠",
@@ -160,6 +166,12 @@ window.HEARTOPIA_WEATHER = {
     "icon": "🌧️",
     "note": "",
     "fish": "Sand Bream · European Eel"
+  },
+  "2026-10-07": {
+    "label": "Rainbow",
+    "icon": "🌈",
+    "note": "",
+    "fish": "Hammerhead Shark · Rainbow Trout"
   }
 }
 };
