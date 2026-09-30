@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>更新履歴 | ハートピア攻略手帳</title>
+<meta name="description" content="ハートピア攻略手帳の更新履歴：新ページ公開、データパイプライン改善、攻略コンテンツ深化、障害修正の記録。データは 1 日 7 回自動更新。重要な変更はすべてこのページで透明に公開しています。">
+<link rel="canonical" href="https://heartopiaguide.net/ja/changelog">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/changelog">
+<link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/changelog">
+<link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/changelog">
+<link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/changelog">
+<link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/changelog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="更新履歴 | ハートピア攻略手帳">
+<meta property="og:description" content="新ページ、パイプライン改善、攻略の深掘り、障害修正——当サイトの重要な更新をすべて透明に記録。">
+<meta property="og:url" content="https://heartopiaguide.net/ja/changelog">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+<!-- adsense:auto-ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+</head>
+<body data-page="changelog">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="./"><span class="house">🏡</span>ハートピア攻略手帳</a>
+    <div class="nav-links">
+      <a href="./" data-page="home">ホーム</a>
+      <a href="codes" data-page="codes">ギフトコード</a>
+      <a href="weather" data-page="weather">天気</a>
+      <a href="fishing" data-page="fishing">釣り図鑑</a>
+      <a href="templates" data-page="templates">テンプレート</a>
+      <a href="guide" data-page="guide">初心者ルート</a>
+      <a href="money" data-page="money">金策ガイド</a>
+      <a href="recipes" data-page="recipes">レシピ</a>
+      <a href="gifts" data-page="gifts">プレゼント</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="./">ホーム</a> / 更新履歴</p>
+  <span class="hero-kicker display blue">📜 透明性・継続メンテナンス</span>
+  <h1 class="display">更新<em>履歴</em></h1>
+  <p class="page-sub">この手帳は一度作って終わりの静的サイトではありません——データパイプラインは毎日走り、攻略は毎週深くなっています。このページでは、あなたの利用体験に影響する変更を新しい順に記録します。</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="sec-head">
+      <span class="sec-tag display green">記録方針</span>
+      <h2 class="display"><span class="wavy">このログに載せるもの・載せないもの</span></h2>
+    </div>
+    <p><b>載せるもの：</b>新ページの公開、攻略の深化、データパイプラインの重要な改善、障害とその修正——何を・なぜ変えたのかを必ず添えます。<b>載せないもの：</b>毎日の定例データ更新（ギフトコード / 天気 / 採集スポット）。パイプラインは 1 日 7 回静かに走り、最新の取得時刻はホームのデータパネルに表示されます。</p>
+    <div class="warn-box" style="margin-top:18px">📮 データの誤りを見つけたら？<a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a> までメールを。確認後 48 時間以内に修正し、このページにも記録します。</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display gold" style="background:var(--gold)">2026-09-30</span>
+      <h2 class="display"><span class="wavy">パイプライン強化と攻略の深掘り</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">パイプライン</span><span class="emo">🔄</span>
+        <h4 class="display">1 日 7 回取得 + 定時監査</h4>
+        <p>取得枠を北京時間 06:10–23:30 の計 7 回に拡大し、さらに 1 日 3 回の自動監査（12:50 / 21:50 / 23:50）を追加。予約実行がプラットフォーム側で落ちた場合も即リトライし、コード更新が cron の遅延に左右されなくなりました。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">パイプライン</span><span class="emo">🎯</span>
+        <h4 class="display">コード取得をコメント API へ移行</h4>
+        <p>公式のコード発行場所が投稿のコメント欄へ移ったのに合わせ、コメント API に切り替えて投稿時刻で日付帰属。過去 14 日間の欠落も自動補填し、「古いコードを今日のものと取り違える」事故を根絶しました。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">コンテンツ</span><span class="emo">📈</span>
+        <h4 class="display">攻略 4 ページに深掘り分析を追加</h4>
+        <p>釣り「魚汛経済学」、レシピ「利益徹底計算」、プレゼント「好感度エコノミー」、天気「天気の損得勘定」を順次公開。実データで各プレイスタイルの機会費用を計算し、中 / 英 / 日 / 韓の 4 言語に同期しています。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">検索最適化</span><span class="emo">🔍</span>
+        <h4 class="display">釣りページの構造化リニューアル</h4>
+        <p>各魚を独立見出し（魚名 + 場所 + 天気 + 時間帯）に変更し FAQ 構造化データを追加、「〇〇はどこで釣れる？」系の検索にマッチ。各言語のページタイトルも実際の検索語に合わせました。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">2026-09-26</span>
+      <h2 class="display"><span class="wavy">サイト紹介ページとコード履歴</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">新ページ</span><span class="emo">🏡</span>
+        <h4 class="display">「当サイトについて」公開</h4>
+        <p>管理者プロフィール、データの出どころ、運営方針を 1 ページにまとめました（4 言語）。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">新ページ</span><span class="emo">🗂️</span>
+        <h4 class="display">コード履歴アーカイブ</h4>
+        <p>「コードあり / なし」を日別に記録し、任意の日の公式発表をさかのぼって確認できます。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">インフラ</span><span class="emo">⚙️</span>
+        <h4 class="display">独自ドメインのキャッシュ修正</h4>
+        <p>独自ドメインでデータが遅れる問題を修正。デイリーデータは 2 分、天気は 10 分のブラウザキャッシュで、常に最新の取得結果が表示されます。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">運営</span><span class="emo">📋</span>
+        <h4 class="display">AdSense 審査の振り返り</h4>
+        <p>初回審査は「低価値コンテンツ」で不合格。直ちにコンテンツ深化計画を策定しました——上記の「深掘り分析」シリーズはその成果物です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">2026-09-23</span>
+      <h2 class="display"><span class="wavy">レシピとプレゼント攻略を公開</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">新ページ</span><span class="emo">🍳</span>
+        <h4 class="display">レシピページ公開</h4>
+        <p>利益カーブ、食材の入手先、コンロのアップグレード順（4 言語）。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">新ページ</span><span class="emo">🎁</span>
+        <h4 class="display">プレゼント攻略を公開</h4>
+        <p>全 NPC の好みギフト表、1 日の贈り物上限、タダで押さえる好物リスト（4 言語）。</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">インフラ</span><span class="emo">🔗</span>
+        <h4 class="display">全サイト clean URL 化</h4>
+        <p>内部リンクから .html 拡張子を外してホスティングのリダイレクト規則に合わせ、余計な 308 リダイレクトを解消しました。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display coral" style="background:var(--coral)">2026-09-21</span>
+      <h2 class="display"><span class="wavy">パイプライン障害の修正</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">障害修正</span><span class="emo">🛠️</span>
+        <h4 class="display">9/18–9/21 のデータ断絶を振り返る</h4>
+        <p>原因は、予約実行のタイムゾーン換算バグ・天気カレンダーの欠落・コード発信源の失効の三重奏。修正後に欠けたデータをすべて補填し、同種の問題が黙って再発しないよう自己診断の仕組みも追加しました。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">2026-09-13</span>
+      <h2 class="display"><span class="wavy">プライバシーポリシー</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">新ページ</span><span class="emo">🔒</span>
+        <h4 class="display">プライバシーポリシー公開（4 言語）</h4>
+        <p>匿名アクセス解析と広告 Cookie の使い方・オプトアウト方法を説明。個人情報は収集せず、データツールは Cookie なしで全機能が使えます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">2026 年 9 月上旬</span>
+      <h2 class="display"><span class="wavy">サイト開設</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">マイルストーン</span><span class="emo">🚀</span>
+        <h4 class="display">初版リリース</h4>
+        <p>デイリーギフトコード、天気カレンダー、釣り図鑑、テンプレートライブラリ、初心者ルート、金策ガイドを初日から揃え、中 / 英 / 日 / 韓の 4 言語で同時公開しました。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 ハートピア攻略手帳</div>
+  <div class="foot-nav">
+    <a href="./">ホーム</a>
+    <a href="codes">デイリーギフトコード</a>
+    <a href="weather">天気</a>
+    <a href="fishing">釣り図鑑</a>
+    <a href="templates">テンプレート</a>
+    <a href="guide">初心者ルート</a>
+    <a href="money">金策ガイド</a>
+    <a href="recipes">レシピ</a>
+    <a href="gifts">プレゼント</a>
+    <a href="privacy">プライバシーポリシー</a>
+    <a href="about">当サイトについて</a>
+    <a href="changelog">更新履歴</a>
+  </div>
+  <p>ルート内容は Bilibili / TapTap コミュニティの実測経験を総合して整理 · 当サイトのデータツールはすべて無料で利用できます</p>
+  <p class="foot-contact">📮 データ訂正・お問い合わせ：<a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a></p>
+  <p>非公式のファンメイド攻略プロジェクトであり、XD Inc. とは無関係 · 『ハートピア』のゲーム素材は各著作権者に帰属</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+</body>
+</html>

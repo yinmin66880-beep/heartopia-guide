@@ -500,6 +500,8 @@ footer p{font-size:12.5px;color:var(--ink-soft);max-width:680px;margin:0 auto 4p
 footer .foot-nav{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:10px 0 6px;font-size:13px}
 footer .foot-nav a{color:var(--blue-deep);text-decoration:none}
 footer .foot-nav a:hover{color:var(--coral-deep)}
+footer .foot-contact a{color:var(--blue-deep);text-decoration:none;font-weight:600}
+footer .foot-contact a:hover{color:var(--coral-deep)}
 
 .toast{
   position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);opacity:0;

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog | Heartopia Guide</title>
+<meta name="description" content="Heartopia Guide changelog: new pages, data pipeline upgrades, in-depth guide expansions and incident fixes — every change that affects your experience, recorded transparently. Data auto-updates 7 times a day.">
+<link rel="canonical" href="https://heartopiaguide.net/en/changelog">
+<link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/changelog">
+<link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/changelog">
+<link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/changelog">
+<link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/changelog">
+<link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/changelog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Changelog | Heartopia Guide">
+<meta property="og:description" content="New pages, pipeline upgrades, content deep-dives and fixes — a transparent record of every important update to this site.">
+<meta property="og:url" content="https://heartopiaguide.net/en/changelog">
+<meta name="theme-color" content="#FAF5EA">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="stylesheet" href="../assets/css/style.css">
+<!-- adsense:auto-ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+</head>
+<body data-page="changelog">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo display" href="./"><span class="house">🏡</span>Heartopia Guide</a>
+    <div class="nav-links">
+      <a href="./" data-page="home">Home</a>
+      <a href="codes" data-page="codes">Codes</a>
+      <a href="weather" data-page="weather">Weather</a>
+      <a href="fishing" data-page="fishing">Fishing</a>
+      <a href="templates" data-page="templates">Templates</a>
+      <a href="guide" data-page="guide">Newbie Route</a>
+      <a href="money" data-page="money">Money Guide</a>
+      <a href="recipes" data-page="recipes">Recipes</a>
+      <a href="gifts" data-page="gifts">Gift Guide</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="crumbs"><a href="./">Home</a> / Changelog</p>
+  <span class="hero-kicker display blue">📜 Transparent · Continuously maintained</span>
+  <h1 class="display">Changelog</h1>
+  <p class="page-sub">This site is not a one-shot static brochure — the data pipeline runs every day and the guides get deeper every week. This page records, in reverse chronological order, every change that affects your experience.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal" style="padding-top:40px">
+    <div class="sec-head">
+      <span class="sec-tag display green">Scope</span>
+      <h2 class="display"><span class="wavy">What this log covers — and what it doesn't</span></h2>
+    </div>
+    <p><b>Covered:</b> new pages, in-depth guide expansions, major data pipeline improvements, incidents and their fixes — each with what changed and why. <b>Not covered:</b> routine daily data updates (codes / weather / resource spots) — the pipeline runs silently 7 times a day, and the latest fetch time is shown right on the homepage data panel.</p>
+    <div class="warn-box" style="margin-top:18px">📮 Spotted a data error? Email <a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a> — verified corrections are applied within 48 hours and noted on this page.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display gold" style="background:var(--gold)">2026-09-30</span>
+      <h2 class="display"><span class="wavy">Pipeline upgrade &amp; content deep-dives</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">Pipeline</span><span class="emo">🔄</span>
+        <h4 class="display">7 fetches a day + scheduled audits</h4>
+        <p>Fetch slots were expanded to 7 per day (06:10–23:30 Beijing time), plus 3 automatic audits (12:50 / 21:50 / 23:50). If a scheduled run is dropped by the platform, a retry is triggered immediately — codes no longer depend on precise cron timing.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">Pipeline</span><span class="emo">🎯</span>
+        <h4 class="display">Codes moved to the comment API</h4>
+        <p>After the official code moved into a post's comment section, the pipeline switched to the comment API and attributes each code by its publish time, auto-backfilling a rolling 14-day window — no more mistaking an old code for today's.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">Content</span><span class="emo">📈</span>
+        <h4 class="display">Deep-dive analysis sections</h4>
+        <p>Fishing "Fishery Economics", recipes "Profit Deep Dive", gifts "Favor Economics" and weather "The Weather Ledger" went live one by one — real in-game numbers to compute the opportunity cost of every activity, synced across zh / en / ja / ko.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">Search</span><span class="emo">🔍</span>
+        <h4 class="display">Fishing page restructured</h4>
+        <p>Every fish now gets its own heading (name + location + weather + time) plus FAQ structured data, matching "where to catch X" queries; page titles across languages were aligned with real search terms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">2026-09-26</span>
+      <h2 class="display"><span class="wavy">About page &amp; code archive</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">New page</span><span class="emo">🏡</span>
+        <h4 class="display">"About Us" launched</h4>
+        <p>Editor profile, data sources and maintenance commitments in one place (4 languages) — so you know exactly who runs this site and where the data comes from.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">New page</span><span class="emo">🗂️</span>
+        <h4 class="display">Code history archive</h4>
+        <p>A day-by-day record of "code / no code", letting you verify what the official source published on any given date.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">Infra</span><span class="emo">⚙️</span>
+        <h4 class="display">Custom-domain caching fixed</h4>
+        <p>Fixed stale data on the custom domain: daily data now caches for 2 minutes and weather for 10, so you always see the latest fetch.</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">Ops</span><span class="emo">📋</span>
+        <h4 class="display">AdSense review debrief</h4>
+        <p>The first review was rejected for "low value content"; a content-deepening plan followed — the deep-dive sections listed above are its direct output.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display blue">2026-09-23</span>
+      <h2 class="display"><span class="wavy">Recipes &amp; gift guides launched</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">New page</span><span class="emo">🍳</span>
+        <h4 class="display">Recipes page launched</h4>
+        <p>Profit curves, ingredient sourcing and stove upgrade routes (4 languages).</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">New page</span><span class="emo">🎁</span>
+        <h4 class="display">Gift guide launched</h4>
+        <p>Per-NPC favorite gifts, the daily gift quota, and zero-cost favorites (4 languages).</p>
+      </div>
+      <div class="guide-card now">
+        <span class="guide-count">Infra</span><span class="emo">🔗</span>
+        <h4 class="display">Site-wide clean URLs</h4>
+        <p>Internal links were unified to extension-less URLs, matching the hosting platform's redirect rules and removing extra 308 hops.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display coral" style="background:var(--coral)">2026-09-21</span>
+      <h2 class="display"><span class="wavy">Pipeline incident fix</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">Incident</span><span class="emo">🛠️</span>
+        <h4 class="display">Sept 18–21 outage post-mortem</h4>
+        <p>Three stacked causes: a UTC-vs-Beijing timezone bug in scheduled runs, a gap in the weather calendar, and a stale code source. All missing data was backfilled, and self-checks were added so a silent failure can't happen again.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display green">2026-09-13</span>
+      <h2 class="display"><span class="wavy">Privacy policy</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">New page</span><span class="emo">🔒</span>
+        <h4 class="display">Privacy policy (4 languages)</h4>
+        <p>Explains anonymous analytics and ad cookies with opt-out options: we collect no personal information, and every data tool works fully without cookies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="sec-head">
+      <span class="sec-tag display">Early Sept 2026</span>
+      <h2 class="display"><span class="wavy">Site launch</span></h2>
+    </div>
+    <div class="grid-guides">
+      <div class="guide-card now">
+        <span class="guide-count">Milestone</span><span class="emo">🚀</span>
+        <h4 class="display">First release</h4>
+        <p>Daily codes, the weather calendar, the fishing encyclopedia, the template library, the newbie route and the money guide — all on day one, in Chinese, English, Japanese and Korean.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-logo display">🏡 Heartopia Guide</div>
+  <div class="foot-nav">
+    <a href="./">Home</a>
+    <a href="codes">Daily Codes</a>
+    <a href="weather">Weather</a>
+    <a href="fishing">Fishing</a>
+    <a href="templates">Templates</a>
+    <a href="guide">Newbie Route</a>
+    <a href="money">Money Guide</a>
+    <a href="recipes">Recipes</a>
+    <a href="gifts">Gift Guide</a>
+    <a href="privacy">Privacy Policy</a>
+    <a href="about">About Us</a>
+    <a href="changelog">Changelog</a>
+  </div>
+  <p>Route content is compiled from hands-on experience shared by the Bilibili / TapTap community · All data tools on this site are free to use</p>
+  <p class="foot-contact">📮 Data corrections &amp; contact: <a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a></p>
+  <p>An unofficial fan-made guide project, not affiliated with XD Inc. · Heartopia game assets © their respective owners</p>
+</footer>
+
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/lang.js"></script>
+</body>
+</html>

@@ -441,4 +441,44 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://heartopiaguide.net/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/changelog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/changelog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/changelog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ko/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/changelog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

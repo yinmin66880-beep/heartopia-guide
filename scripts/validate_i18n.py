@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-PAGES = ["index.html", "codes.html", "weather.html", "fishing.html", "templates.html", "guide.html", "money.html", "recipes.html", "gifts.html", "about.html", "privacy.html"]
+PAGES = ["index.html", "codes.html", "weather.html", "fishing.html", "templates.html", "guide.html", "money.html", "recipes.html", "gifts.html", "about.html", "privacy.html", "changelog.html"]
 LOCALES = {"en": "English", "ja": "Japanese", "ko": "Korean"}
 PLACEHOLDER = "https://heartopia.example.com/"
 
