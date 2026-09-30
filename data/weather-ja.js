@@ -2,7 +2,7 @@
  * scripts/fetch_daily.py による自動生成 — 手書き編集はしないでください。
  * ゲーム内天気は公式の固定スケジュールに従います。コミュニティ投稿と毎日照合しています。 */
 window.HEARTOPIA_WEATHER = {
-  updated: "2026-09-30",
+  updated: "2026-10-01",
   source: {
     name: "TapTap ハートピア · コミュニティ天気情報",
     url: "https://www.taptap.cn/user/594768777"
