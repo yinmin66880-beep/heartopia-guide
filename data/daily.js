@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-01",
   "weekday": "星期四",
-  "generatedAt": "2026-10-01 00:22:42",
+  "generatedAt": "2026-10-01 00:30:06",
   "status": "live",
   "weather": {
     "icon": "🌠",
