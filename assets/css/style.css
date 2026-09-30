@@ -348,6 +348,16 @@ section{padding:64px 0 0;scroll-margin-top:84px}
 }
 .empty .emo{font-size:40px;display:block;margin-bottom:8px;animation:floaty 4s ease-in-out infinite}
 
+/* ============ 数据表格（钓鱼/天气深算等页面共用） ============ */
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
+.money-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--line);font-size:13.5px;min-width:560px}
+.money-table th{background:rgba(143,181,115,.14);color:var(--green-deep);font-size:12.5px;letter-spacing:1px;padding:10px 12px;text-align:left;white-space:nowrap}
+.money-table td{padding:9px 12px;border-top:1px dashed var(--line);color:var(--ink-soft);white-space:nowrap}
+.money-table tr:hover td{background:rgba(143,181,115,.06)}
+.money-table .price{color:var(--coral-deep);font-weight:700}
+.money-table .legend{color:var(--gold-deep);font-weight:700}
+.money-table .fish-name{color:var(--ink);font-weight:700}
+
 /* ============ 钓鱼模块 ============ */
 .fish-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:14px;margin-top:20px}
 .fish-card{

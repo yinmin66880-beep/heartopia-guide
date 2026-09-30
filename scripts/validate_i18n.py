@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-PAGES = ["index.html", "codes.html", "weather.html", "fishing.html", "templates.html", "guide.html", "money.html", "privacy.html"]
+PAGES = ["index.html", "codes.html", "weather.html", "fishing.html", "templates.html", "guide.html", "money.html", "recipes.html", "gifts.html", "about.html", "privacy.html"]
 LOCALES = {"en": "English", "ja": "Japanese", "ko": "Korean"}
 PLACEHOLDER = "https://heartopia.example.com/"
 
@@ -106,6 +106,9 @@ def check_page(locale, page, page_path):
         if not link:
             continue
         target = (page_path.parent / link).resolve()
+        # 站内链接自 2026-09-23 起统一为无扩展名形式（本地文件为 .html）
+        if not target.exists() and not target.suffix:
+            target = target.with_name(target.name + ".html")
         if not target.exists():
             err(f"{rel}: 站内链接失效 {href}")
 
