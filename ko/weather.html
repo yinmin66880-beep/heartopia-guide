@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>하트오피아 날씨 캘린더 (무지개 / 비 / 유성우 공략 핸드북) | 하트오피아 가이드</title>
-<meta name="description" content="하트오피아(Heartopia)의 게임 내 날씨는 공식 고정 일정을 따릅니다: 무지개 날, 비, 유성우 날짜 캘린더에 날씨 갱신 메커니즘 상세 해설, 특수 날씨 행동 매뉴얼(두두 한정 상점/2배 채집/운석 수집), 날씨 × 한정 어종 대조표까지 — 외출 전 한 번 보고 헛걸음 없이.">
-<meta name="keywords" content="하트오피아 날씨,하트오피아 무지개 날,하트오피아 날씨 캘린더,하트오피아 유성우,하트오피아 낚시 날씨">
+<title>하트오피아 오늘 날씨 캘린더 (무지개 / 비 / 유성우 공략 핸드북) | 하트오피아 가이드</title>
+<meta name="description" content="하트오피아(Heartopia)의 오늘 날씨를 매일 자동 갱신으로 확인하세요. 무지개 날, 비, 유성우 날짜 캘린더에 날씨 갱신 메커니즘 상세 해설, 특수 날씨 행동 매뉴얼(두두 한정 상점/2배 채집/운석 수집), 날씨 × 한정 어종 대조표까지 — 외출 전 한 번 보고 헛걸음 없이.">
+<meta name="keywords" content="하트오피아 날씨,하트오피아 오늘 날씨,하트오피아 무지개 날,하트오피아 날씨 캘린더,하트오피아 유성우,하트오피아 낚시 날씨">
 <link rel="canonical" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/weather">
 <link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/weather">
@@ -13,7 +13,7 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/weather">
 <meta property="og:type" content="website">
-<meta property="og:title" content="하트오피아 날씨 캘린더 (무지개 / 비 / 유성우 알림) | 하트오피아 가이드">
+<meta property="og:title" content="하트오피아 오늘 날씨 캘린더 (무지개 / 비 / 유성우 알림) | 하트오피아 가이드">
 <meta property="og:description" content="게임 내 공식 날씨 일정을 캘린더로, 날씨 × 한정 어종 표까지.">
 <meta property="og:url" content="https://heartopiaguide.net/ko/weather">
 <meta name="theme-color" content="#FAF5EA">
@@ -110,6 +110,7 @@
   <span class="hero-kicker display">📅 공식 일정 · 커뮤니티 관리</span>
   <h1 class="display">마을 날씨 <em>캘린더</em></h1>
   <p class="page-sub">하트오피아의 날씨는 랜덤이 아니라 <b>공식 고정 일정</b>입니다 — 무지개 날과 유성우 밤을 미리 알면 <b>한정 어종이나 전용 채집물을 놓치는 일이 없습니다</b>.</p>
+  <p class="hero-updated" id="heroUpdated">⏱ 마지막 업데이트: 매일 7회 자동 갱신</p>
 </header>
 
 <main class="wrap">
@@ -192,6 +193,12 @@
         <h4 class="display">인테리어 템플릿 라이브러리</h4>
         <p>비 오는 날 낚시가 끝났나요? 집에 돌아와 템플릿으로 꾸미기</p>
         <span class="go">템플릿 보기 →</span>
+      </a>
+      <a class="guide-card" href="recipes">
+        <span class="guide-count">요리로 2배</span><span class="emo">🍳</span>
+        <h4 class="display">잡은 물고기는 요리가 이득</h4>
+        <p>연어 초밥은 직판보다 약 350 코인 추가 수익 — 어가를 올리는 레시피표</p>
+        <span class="go">레시피 보기 →</span>
       </a>
     </div>
   </section>
@@ -412,6 +419,8 @@ function renderToday(){
   }
 
   $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ 마지막 업데이트: ' + (DAILY && DAILY.generatedAt ? DAILY.generatedAt : (WX && WX.updated ? WX.updated : '—')) + ' · 매일 7회 자동 갱신';
   if(w){
     $('#wxIcon').textContent = w.icon || '⛅';
     $('#wxLabel').textContent = w.label ? I18N.t(w.label) : '알 수 없음';

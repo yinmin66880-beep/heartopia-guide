@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハートピア天気カレンダー（虹・雨・流星群の攻略ハンドブック）| ハートピア攻略手帳</title>
-<meta name="description" content="ハートピア（Heartopia）の天気は公式の固定スケジュールに従います。虹・雨・流星群の日程カレンダーに加え、天気リセットの仕組み詳解、特殊天気のアクションハンドブック（ドゥオドゥオ限定ショップ／採集 2 倍／隕石収集）、天気 × 釣り限定魚の早見表 — お出かけ前にチェックして空振りなし。">
-<meta name="keywords" content="ハートピア天気,ハートピア虹の日,ハートピア天気カレンダー,ハートピア流星群,ハートピア釣り天気">
+<title>ハートピア今日の天気とカレンダー（虹・雨・流星群の攻略ハンドブック）| ハートピア攻略手帳</title>
+<meta name="description" content="ハートピア（Heartopia）の今日の天気を自動更新で掲載。虹・雨・流星群の日程カレンダーに加え、天気リセットの仕組み詳解、特殊天気のアクションハンドブック（ドゥオドゥオ限定ショップ／採集 2 倍／隕石収集）、天気 × 釣り限定魚の早見表 — お出かけ前にチェックして空振りなし。">
+<meta name="keywords" content="ハートピア天気,ハートピア今日の天気,ハートピア虹の日,ハートピア天気カレンダー,ハートピア流星群,ハートピア釣り天気">
 <link rel="canonical" href="https://heartopiaguide.net/ja/weather">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/weather">
 <link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/weather">
@@ -13,7 +13,7 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/weather">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ハートピア天気カレンダー（虹・雨・流星群のお知らせ）| ハートピア攻略手帳">
+<meta property="og:title" content="ハートピア今日の天気カレンダー（虹・雨・流星群のお知らせ）| ハートピア攻略手帳">
 <meta property="og:description" content="公式のゲーム内天気スケジュールをカレンダー化。天気 × 限定魚の早見表つき。">
 <meta property="og:url" content="https://heartopiaguide.net/ja/weather">
 <meta name="theme-color" content="#FAF5EA">
@@ -110,6 +110,7 @@
   <span class="hero-kicker display">📅 公式スケジュール · コミュニティ管理</span>
   <h1 class="display">町の天気 <em>カレンダー</em></h1>
   <p class="page-sub">ハートピアの天気はランダムではなく<b>公式の固定スケジュール</b>。虹の日と流星群の夜を事前に知れば、<b>限定魚も限定採集も逃しません</b>。</p>
+  <p class="hero-updated" id="heroUpdated">⏱ 最終更新：毎日 7 回自動更新</p>
 </header>
 
 <main class="wrap">
@@ -192,6 +193,12 @@
         <h4 class="display">家づくりテンプレートライブラリ</h4>
         <p>雨の日の釣りが終わったら？ 帰宅してテンプレートでインテリア</p>
         <span class="go">テンプレートを見る →</span>
+      </a>
+      <a class="guide-card" href="recipes">
+        <span class="guide-count">料理で 2 倍</span><span class="emo">🍳</span>
+        <h4 class="display">釣った魚は料理がお得</h4>
+        <p>サケの握り寿司は直売より約 350 コイン得 — 魚価の上がるレシピ表</p>
+        <span class="go">レシピを見る →</span>
       </a>
     </div>
   </section>
@@ -412,6 +419,8 @@ function renderToday(){
   }
 
   $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ 最終更新：' + (DAILY && DAILY.generatedAt ? DAILY.generatedAt : (WX && WX.updated ? WX.updated : '—')) + ' · 毎日 7 回自動更新';
   if(w){
     $('#wxIcon').textContent = w.icon || '⛅';
     $('#wxLabel').textContent = w.label ? I18N.t(w.label) : '不明';

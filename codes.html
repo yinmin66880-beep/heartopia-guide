@@ -89,6 +89,7 @@
   <span class="hero-kicker display">🎁 每日必看 · 自动更新</span>
   <h1 class="display">今日兑换码 <em>&amp;</em> 每日物资点位</h1>
   <p class="page-sub">兑换码每天 <b>18:00 左右发布</b>、当日 23:59:59 前有效；物资点位每天 <b>06:00 刷新</b>。<br>本页数据由管道自动抓取 5 个 TapTap 社区源交叉验证，上线前 30 秒看完。</p>
+  <p class="hero-updated" id="heroUpdated">⏱ 最后更新：每日 7 次自动更新</p>
 </header>
 
 <main class="wrap">
@@ -317,6 +318,8 @@ function renderDaily(){
   }
 
   $('#todayDate').textContent = DAILY.date + ' ' + (DAILY.weekday || '');
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ 最后更新：' + (DAILY.generatedAt || '—') + ' · 每日 7 次自动更新';
 
   const cw = $('#codesWrap');
   cw.innerHTML = (DAILY.codes || []).map(c =>

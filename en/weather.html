@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heartopia Weather Calendar (Rainbow / Rain / Meteor Shower Handbook) | Heartopia Guide</title>
-<meta name="description" content="Weather in Heartopia follows an official fixed schedule: this page lists rainbow, rain and meteor-shower dates, plus the weather refresh mechanics explained, a special-weather action handbook (Duoduo's limited shop / double gathering / meteorite collecting) and a weather × limited-fish chart — check before you head out and never miss a window.">
-<meta name="keywords" content="Heartopia weather,Heartopia rainbow day,Heartopia weather calendar,Heartopia meteor shower,Heartopia fishing weather">
+<title>Heartopia Weather Today & Calendar (Rainbow / Rain / Meteor Shower Handbook) | Heartopia Guide</title>
+<meta name="description" content="Today's Heartopia weather, auto-updated every day, plus the full schedule calendar: rainbow, rain and meteor-shower dates, the weather refresh mechanics explained, a special-weather action handbook (Duoduo's limited shop / double gathering / meteorite collecting) and a weather × limited-fish chart — check before you head out and never miss a window.">
+<meta name="keywords" content="Heartopia weather,Heartopia weather today,Heartopia rainbow day,Heartopia weather calendar,Heartopia meteor shower,Heartopia fishing weather">
 <link rel="canonical" href="https://heartopiaguide.net/en/weather">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/weather">
 <link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/weather">
@@ -13,7 +13,7 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/weather">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Heartopia Weather Calendar (Rainbow / Rain / Meteor Shower Alerts) | Heartopia Guide">
+<meta property="og:title" content="Heartopia Weather Today & Calendar (Rainbow / Rain / Meteor Shower Alerts) | Heartopia Guide">
 <meta property="og:description" content="The official in-game weather schedule, as a calendar, plus a weather × limited-fish chart.">
 <meta property="og:url" content="https://heartopiaguide.net/en/weather">
 <meta name="theme-color" content="#FAF5EA">
@@ -110,6 +110,7 @@
   <span class="hero-kicker display">📅 Official schedule · Community-maintained</span>
   <h1 class="display">Town Weather <em>Calendar</em></h1>
   <p class="page-sub">Heartopia's weather is an <b>official fixed schedule</b>, not random — know the rainbow days and meteor-shower nights in advance and you'll never <b>miss a limited fish or exclusive gatherable</b> again.</p>
+  <p class="hero-updated" id="heroUpdated">⏱ Last updated: auto-refreshed 7× daily</p>
 </header>
 
 <main class="wrap">
@@ -192,6 +193,12 @@
         <h4 class="display">Home Template Library</h4>
         <p>Done fishing in the rain? Go home and decorate from a template</p>
         <span class="go">Browse templates →</span>
+      </a>
+      <a class="guide-card" href="recipes">
+        <span class="guide-count">2× via cooking</span><span class="emo">🍳</span>
+        <h4 class="display">Cook your catch for more</h4>
+        <p>Salmon sushi earns ~350 coins over raw sale — recipes that raise fish value</p>
+        <span class="go">See recipes →</span>
       </a>
     </div>
   </section>
@@ -412,6 +419,8 @@ function renderToday(){
   }
 
   $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ Last updated: ' + (DAILY && DAILY.generatedAt ? DAILY.generatedAt : (WX && WX.updated ? WX.updated : '—')) + ' · auto-refreshed 7× daily';
   if(w){
     $('#wxIcon').textContent = w.icon || '⛅';
     $('#wxLabel').textContent = w.label ? I18N.t(w.label) : 'Unknown';

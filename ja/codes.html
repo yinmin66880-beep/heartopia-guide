@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハートピアのギフトコード今日分（毎日 18:00 更新 · 過去コードのアーカイブつき）| ハートピア攻略手帳</title>
-<meta name="description" content="ハートピア（Heartopia）のギフトコードをリアルタイム更新：新しいコードは毎日 18:00 頃に投稿され、当日 23:59:59 に失効 — ワンクリックでコピーして引き換え。引き換えルールの詳解、デイリーコードの過去アーカイブ、記念日・周年記念コードの記録、引き換え失敗のトラブルシューティングに加え、デイリー物資スポット（ヨーヨーオーク／無欠の蛍石）も掲載。">
+<title>ハートピア今日のギフトコード（毎日 18:00 更新 · 過去コードのアーカイブつき）| ハートピア攻略手帳</title>
+<meta name="description" content="ハートピア（Heartopia）今日のギフトコードをリアルタイム更新：新しいコードは毎日 18:00 頃に投稿され、当日 23:59:59 に失効 — ワンクリックでコピーして引き換え。引き換えルールの詳解、デイリーコードの過去アーカイブ、記念日・周年記念コードの記録、引き換え失敗のトラブルシューティングに加え、デイリー物資スポット（ヨーヨーオーク／無欠の蛍石）も掲載。">
 <meta name="keywords" content="ハートピアギフトコード,ハートピア引き換えコード,ハートピアシリアルコード,ハートピア今日のコード,ハートピア物資スポット">
 <link rel="canonical" href="https://heartopiaguide.net/ja/codes">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/codes">
@@ -13,7 +13,7 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/codes">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/codes">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ハートピアのギフトコード今日分（毎日 18:00 頃更新）| ハートピア攻略手帳">
+<meta property="og:title" content="ハートピア今日のギフトコード（毎日 18:00 頃更新）| ハートピア攻略手帳">
 <meta property="og:description" content="今日のコードをワンクリックでコピー · 当日有効 · デイリー物資スポットつき。">
 <meta property="og:url" content="https://heartopiaguide.net/ja/codes">
 <meta name="theme-color" content="#FAF5EA">
@@ -89,6 +89,7 @@
   <span class="hero-kicker display">🎁 毎日必見 · 自動更新</span>
   <h1 class="display">今日のギフトコード <em>&amp;</em> デイリー物資スポット</h1>
   <p class="page-sub">コードは<b>毎日 18:00 頃</b>に投稿され、当日 23:59:59 まで有効。物資スポットは<b>06:00 にリセット</b>。<br>このページは 5 つの TapTap コミュニティソースを自動取得・クロス検証するパイプラインで動いています — ログイン前の 30 秒で十分。</p>
+  <p class="hero-updated" id="heroUpdated">⏱ 最終更新：毎日 7 回自動更新</p>
 </header>
 
 <main class="wrap">
@@ -319,6 +320,8 @@ function renderDaily(){
   }
 
   $('#todayDate').textContent = DAILY.date + ' ' + I18N.t(DAILY.weekday || '');
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ 最終更新：' + (DAILY.generatedAt || '—') + ' · 毎日 7 回自動更新';
 
   const cw = $('#codesWrap');
   cw.innerHTML = (DAILY.codes || []).map(c =>

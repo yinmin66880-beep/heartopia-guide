@@ -104,6 +104,7 @@ nav{
 .page-hero h1 em{font-style:normal;color:var(--green-deep)}
 .page-sub{margin:12px auto 0;max-width:620px;color:var(--ink-soft);font-size:15px;animation:pop .7s ease .12s both;line-height:1.7}
 .page-sub b{color:var(--coral-deep)}
+.hero-updated{margin:16px auto 0;font-size:13px;color:var(--ink-soft);background:rgba(255,255,255,.6);border:1px dashed rgba(169,150,113,.55);border-radius:999px;display:inline-block;padding:6px 18px;animation:pop .7s ease .2s both}
 .crumbs{font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;animation:pop .6s ease both}
 .crumbs a{color:var(--blue-deep);text-decoration:none;border-bottom:1px dotted var(--blue-deep)}
 .crumbs a:hover{color:var(--coral-deep);border-bottom-color:var(--coral-deep)}
@@ -357,6 +358,8 @@ section{padding:64px 0 0;scroll-margin-top:84px}
 .fish-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .fish-top .emo{font-size:30px;filter:drop-shadow(0 2px 1px rgba(76,68,55,.18))}
 .fish-top .name{font-size:16.5px;font-weight:700;letter-spacing:.5px}
+.fish-top h3.name{margin:0;display:inline}
+.fish-top .h-loc{font-size:12px;font-weight:600;color:#9A8B6E;letter-spacing:0;margin-left:2px}
 .rarity{margin-left:auto;font-size:11px;border-radius:999px;padding:2.5px 10px;letter-spacing:1px}
 .r1{background:#EDF2E4;color:#6B8561}
 .r2{background:#E4EFF6;color:#4E86A8}

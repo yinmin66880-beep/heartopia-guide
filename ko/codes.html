@@ -89,6 +89,7 @@
   <span class="hero-kicker display">🎁 데일리 필수 · 자동 갱신</span>
   <h1 class="display">오늘의 쿠폰 코드 <em>&amp;</em> 데일리 자원 포인트</h1>
   <p class="page-sub">코드는 <b>매일 18:00경</b> 발표되어 당일 23:59:59까지 유효, 자원 포인트는 <b>06:00에 초기화</b>됩니다.<br>이 페이지는 TapTap 커뮤니티 소스 5곳을 수집·교차 검증하는 파이프라인으로 운영됩니다 — 접속 전 30초면 충분합니다.</p>
+  <p class="hero-updated" id="heroUpdated">⏱ 마지막 업데이트: 매일 7회 자동 갱신</p>
 </header>
 
 <main class="wrap">
@@ -319,6 +320,8 @@ function renderDaily(){
   }
 
   $('#todayDate').textContent = DAILY.date + ' ' + I18N.t(DAILY.weekday || '');
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ 마지막 업데이트: ' + (DAILY.generatedAt || '—') + ' · 매일 7회 자동 갱신';
 
   const cw = $('#codesWrap');
   cw.innerHTML = (DAILY.codes || []).map(c =>

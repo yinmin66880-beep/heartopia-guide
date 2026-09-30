@@ -50,6 +50,22 @@
     },
     {
       "@type": "Question",
+      "name": "エビはどこで釣れる？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3 種類います：サクラエビは温泉の小川で晴れの朝（65 コイン）、海エビは東の海で終日（25 コイン）、オマールエビは東の海の夜・晴れか雨（260 コイン）。夜の東の海がいちばん効率的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ウナギはどこで釣れる？何時？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "旧海（灯台方面の古い海域）で、雨の夜 18:00–24:00 が狙い時（150 コイン）。虹の日の夜にも現れます。釣りの趣味レベル 7 で解放されます。"
+      }
+    },
+    {
+      "@type": "Question",
       "name": "いちばん高く売れる魚は？",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -356,6 +372,12 @@
         <p>高単価魚 TOP10 + 天気ごとのリターン分析</p>
         <span class="go">攻略を見る →</span>
       </a>
+      <a class="guide-card" href="codes">
+        <span class="guide-count">毎日 18:00</span><span class="emo">🎁</span>
+        <h4 class="display">出撃前に今日のギフトコード</h4>
+        <p>釣りに出かける前にワンクリックでコピー — 報酬はメールボックスへ</p>
+        <span class="go">コードを受け取る →</span>
+      </a>
     </div>
   </section>
 
@@ -406,6 +428,14 @@
     <details class="faq">
       <summary>ニシキゴイはどこで釣れる？</summary>
       <div class="a"><b>秘密の池で夜（00:00–06:00）</b>のみ、晴れの日限定です。天気カレンダーで翌日が晴れか確認して、アラームをセットしましょう。</div>
+    </details>
+    <details class="faq">
+      <summary>エビはどこで釣れる？</summary>
+      <div class="a">3 種類います：<b>サクラエビ</b>（温泉の小川 · 晴れの朝 · 65 コイン）、<b>海エビ</b>（東の海 · 終日 · 25 コイン）、<b>オマールエビ</b>（東の海 · 夜 · 晴れ/雨 · 260 コイン）。夜の東の海がいちばん効率的です。</div>
+    </details>
+    <details class="faq">
+      <summary>ウナギはどこで釣れる？何時？</summary>
+      <div class="a"><b>旧海</b>（灯台方面の古い海域）で、<b>雨の夜 18:00–24:00</b> が狙い時（150 コイン）。虹の日の夜にも現れます。釣りの趣味レベル 7 で解放。</div>
     </details>
     <details class="faq">
       <summary>いちばん高く売れる魚は？</summary>
@@ -484,13 +514,16 @@ function match(f){
   const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
   return timeOk && weatherOk && qOk;
 }
-function cardHTML(f,i){
+function cardHTML(f,i,useH){
   const r = RARITY[f.rarity] || {label:'?',cls:''};
   const timeTxt = f.times.includes('終日')?'終日':f.times.join('/');
   const legend = f.rarity===4;
+  const nameOpen = useH ? '<h3 class="name">' : '<span class="name">';
+  const nameClose = useH ? '</h3>' : '</span>';
   return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
     +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
-    +'<span class="name">'+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)+'</span>'
+    +nameOpen+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)
+    +(useH?'<span class="h-loc">（'+esc(f.loc)+'）</span>':'')+nameClose
     +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
     +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
     +'<span class="tag time">🕐'+timeTxt+'</span>'
@@ -503,7 +536,7 @@ function renderFish(){
   const list = FISH.filter(match);
   const grid = $('#fishGrid');
   grid.innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i)).join('')
     : '<div class="empty"><span class="emo">🎣</span>この条件では釣れる魚がいません — 天気や時間帯を変えてみると、意外な収穫があるかも。</div>';
   $('#resultSummary').innerHTML = '今釣れる魚は <b>'+list.length+'</b> 種';
   renderAll();
@@ -512,7 +545,7 @@ function renderAll(){
   const q = state.q.trim().toLowerCase();
   const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
   $('#fishGridAll').innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i,true)).join('')
     : '<div class="empty"><span class="emo">🔍</span>該当する魚が見つかりません — 別のキーワードで試してください。</div>';
 }
 timeChips.forEach(c=>{

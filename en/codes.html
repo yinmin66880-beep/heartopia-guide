@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heartopia Codes Today (Updated Daily ~18:00 · with Code Archive) | Heartopia Guide</title>
-<meta name="description" content="Heartopia redemption codes, updated live: new codes drop around 18:00 daily and expire at 23:59:59 the same day — one-click copy and redeem. Plus the code rules explained, a daily code history archive, festival & anniversary gift code records, troubleshooting for failed redemptions, and daily resource spots (Yo-yo Oak / Flawless Fluorite).">
+<meta name="description" content="Today's Heartopia redemption codes, updated live: new codes drop around 18:00 daily and expire at 23:59:59 the same day — one-click copy and redeem. Plus the code rules explained, a daily code history archive, festival & anniversary gift code records, troubleshooting for failed redemptions, and daily resource spots (Yo-yo Oak / Flawless Fluorite).">
 <meta name="keywords" content="Heartopia codes,Heartopia redemption codes,Heartopia gift codes,Heartopia codes today,Heartopia daily resources">
 <link rel="canonical" href="https://heartopiaguide.net/en/codes">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/codes">
@@ -89,6 +89,7 @@
   <span class="hero-kicker display">🎁 Daily must-read · Auto-updated</span>
   <h1 class="display">Today's Codes <em>&amp;</em> Daily Resource Spots</h1>
   <p class="page-sub">Codes drop around <b>18:00 daily</b> and are valid until 23:59:59 the same day; resource spots <b>reset at 06:00</b>.<br>This page is fed by a pipeline that scrapes and cross-verifies 5 TapTap community sources — 30 seconds before you log in is all it takes.</p>
+  <p class="hero-updated" id="heroUpdated">⏱ Last updated: auto-refreshed 7× daily</p>
 </header>
 
 <main class="wrap">
@@ -319,6 +320,8 @@ function renderDaily(){
   }
 
   $('#todayDate').textContent = DAILY.date + ' ' + I18N.t(DAILY.weekday || '');
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ Last updated: ' + (DAILY.generatedAt || '—') + ' · auto-refreshed 7× daily';
 
   const cw = $('#codesWrap');
   cw.innerHTML = (DAILY.codes || []).map(c =>

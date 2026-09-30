@@ -50,6 +50,22 @@
     },
     {
       "@type": "Question",
+      "name": "虾在哪里钓？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "共 3 种：樱花虾在温泉溪流、晴天清晨（65 金币）；海虾在东海、全天可钓（25 金币）；欧洲龙虾在东海、夜晚、晴或雨天（260 金币）。夜里的东海是效率最高的钓虾点。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "欧洲鳗鲡在哪里钓？几点出没？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "在旧海（灯塔方向的古老海域），雨天夜晚 18:00–24:00 是最佳时段（150 金币），彩虹天夜晚也会出没。钓鱼爱好 7 级解锁。"
+      }
+    },
+    {
+      "@type": "Question",
       "name": "哪种鱼卖钱最多？",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -356,6 +372,12 @@
         <p>TOP10 高价鱼排行 + 天气窗口收益分析</p>
         <span class="go">去看攻略 →</span>
       </a>
+      <a class="guide-card" href="codes">
+        <span class="guide-count">每天 18:00</span><span class="emo">🎁</span>
+        <h4 class="display">出钓前顺手领今日兑换码</h4>
+        <p>出发钓鱼前一键复制 — 奖励直达邮箱</p>
+        <span class="go">去领码 →</span>
+      </a>
     </div>
   </section>
 
@@ -406,6 +428,14 @@
     <details class="faq">
       <summary>锦鲤在哪里钓？</summary>
       <div class="a">锦鲤只在<b>深夜（00:00–06:00）的秘密池塘</b>现身，且要求晴天。建议先看天气日历确认明天是晴天，再定闹钟蹲点。</div>
+    </details>
+    <details class="faq">
+      <summary>虾在哪里钓？</summary>
+      <div class="a">共 3 种：<b>樱花虾</b>（温泉溪流 · 晴天清晨 · 65 金币）、<b>海虾</b>（东海 · 全天 · 25 金币）、<b>欧洲龙虾</b>（东海 · 夜晚 · 晴/雨 · 260 金币）。夜里的东海是效率最高的钓虾点。</div>
+    </details>
+    <details class="faq">
+      <summary>欧洲鳗鲡在哪里钓？几点出没？</summary>
+      <div class="a"><b>旧海</b>（灯塔方向的古老海域），<b>雨天夜晚 18:00–24:00</b> 是最佳时段（150 金币），彩虹天夜晚也会出没。钓鱼爱好 7 级解锁。</div>
     </details>
     <details class="faq">
       <summary>哪种鱼卖钱最多？</summary>
@@ -484,13 +514,16 @@ function match(f){
   const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
   return timeOk && weatherOk && qOk;
 }
-function cardHTML(f,i){
+function cardHTML(f,i,useH){
   const r = RARITY[f.rarity] || {label:'?',cls:''};
   const timeTxt = f.times.includes('全天')?'全天':f.times.join('/');
   const legend = f.rarity===4;
+  const nameOpen = useH ? '<h3 class="name">' : '<span class="name">';
+  const nameClose = useH ? '</h3>' : '</span>';
   return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
     +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
-    +'<span class="name">'+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)+'</span>'
+    +nameOpen+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)
+    +(useH?'<span class="h-loc"> · '+esc(f.loc)+'</span>':'')+nameClose
     +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
     +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
     +'<span class="tag time">🕐'+timeTxt+'</span>'
@@ -503,7 +536,7 @@ function renderFish(){
   const list = FISH.filter(match);
   const grid = $('#fishGrid');
   grid.innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i)).join('')
     : '<div class="empty"><span class="emo">🎣</span>这个条件下钓不到鱼哦～换个天气或时段试试，说不定有惊喜。</div>';
   $('#resultSummary').innerHTML = '此刻 <b>'+list.length+'</b> 种鱼可钓';
   renderAll();
@@ -512,7 +545,7 @@ function renderAll(){
   const q = state.q.trim().toLowerCase();
   const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
   $('#fishGridAll').innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i,true)).join('')
     : '<div class="empty"><span class="emo">🔍</span>没有找到这种鱼 —— 换个关键词试试。</div>';
 }
 timeChips.forEach(c=>{

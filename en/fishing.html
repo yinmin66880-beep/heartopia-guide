@@ -50,6 +50,22 @@
     },
     {
       "@type": "Question",
+      "name": "Where can I catch shrimp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three kinds: Sakura Shrimp at the Hot Spring Creek on sunny mornings (65 coins), Sea Shrimp in the Eastern Sea all day (25 coins), and European Lobster in the Eastern Sea at night in sun or rain (260 coins). The Eastern Sea at night is the most efficient spot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I catch the eel? At what time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the Old Sea (the old waters near the lighthouse), best on rainy nights 18:00–24:00 (150 coins). It also appears on rainbow-day evenings. Unlocks at fishing hobby level 7."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Which fish sell for the most?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -332,6 +348,12 @@
         <p>TOP10 pricey fish ranking + weather-window analysis</p>
         <span class="go">See the guide →</span>
       </a>
+      <a class="guide-card" href="codes">
+        <span class="guide-count">Daily 18:00</span><span class="emo">🎁</span>
+        <h4 class="display">Grab today's codes before you head out</h4>
+        <p>One-click copy before the fishing trip — rewards land in your mailbox</p>
+        <span class="go">Get the code →</span>
+      </a>
     </div>
   </section>
 
@@ -382,6 +404,14 @@
     <details class="faq">
       <summary>Where do I catch the Koi?</summary>
       <div class="a">Only at the <b>Secret Pond at night (00:00–06:00)</b>, and only on sunny days. Check the weather calendar to confirm tomorrow is sunny, then set an alarm.</div>
+    </details>
+    <details class="faq">
+      <summary>Where can I catch shrimp?</summary>
+      <div class="a">Three kinds: <b>Sakura Shrimp</b> (Hot Spring Creek · sunny mornings · 65 coins), <b>Sea Shrimp</b> (Eastern Sea · all day · 25 coins), <b>European Lobster</b> (Eastern Sea · night · sun/rain · 260 coins). The Eastern Sea at night is the most efficient spot.</div>
+    </details>
+    <details class="faq">
+      <summary>Where can I catch the eel? At what time?</summary>
+      <div class="a">In the <b>Old Sea</b> (old waters near the lighthouse), best on <b>rainy nights 18:00–24:00</b> (150 coins). Also appears on rainbow-day evenings. Unlocks at fishing hobby level 7.</div>
     </details>
     <details class="faq">
       <summary>Which fish sell for the most?</summary>
@@ -460,13 +490,16 @@ function match(f){
   const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
   return timeOk && weatherOk && qOk;
 }
-function cardHTML(f,i){
+function cardHTML(f,i,useH){
   const r = RARITY[f.rarity] || {label:'?',cls:''};
   const timeTxt = f.times.includes('All day')?'All day':f.times.join('/');
   const legend = f.rarity===4;
+  const nameOpen = useH ? '<h3 class="name">' : '<span class="name">';
+  const nameClose = useH ? '</h3>' : '</span>';
   return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
     +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
-    +'<span class="name">'+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)+'</span>'
+    +nameOpen+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)
+    +(useH?'<span class="h-loc"> · '+esc(f.loc)+'</span>':'')+nameClose
     +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
     +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
     +'<span class="tag time">🕐'+timeTxt+'</span>'
@@ -479,7 +512,7 @@ function renderFish(){
   const list = FISH.filter(match);
   const grid = $('#fishGrid');
   grid.innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i)).join('')
     : '<div class="empty"><span class="emo">🎣</span>No fish under these conditions — try another weather or time slot; you might be surprised.</div>';
   $('#resultSummary').innerHTML = '<b>'+list.length+'</b> species biting right now';
   renderAll();
@@ -488,7 +521,7 @@ function renderAll(){
   const q = state.q.trim().toLowerCase();
   const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
   $('#fishGridAll').innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i,true)).join('')
     : '<div class="empty"><span class="emo">🔍</span>No such fish found — try another keyword.</div>';
 }
 timeChips.forEach(c=>{

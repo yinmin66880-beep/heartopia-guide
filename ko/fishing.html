@@ -50,6 +50,22 @@
     },
     {
       "@type": "Question",
+      "name": "새우는 어디서 낚나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3종입니다: 벚꽃새우는 온천 개울에서 맑은 아침에(65 코인), 바다새우는 동쪽 바다에서 종일(25 코인), 유럽랍스터는 동쪽 바다 밤·맑음 또는 비(260 코인). 밤의 동쪽 바다가 가장 효율적입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "뱀장어는 어디서 낚나요? 몇 시에?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "옛 바다(등대 쪽 오래된 해역)에서 비 오는 밤 18:00–24:00가 노려볼 시간대입니다(150 코인). 무지개 날 저녁에도 출현합니다. 낚시 취미 레벨 7에 해금됩니다."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "어떤 물고기가 가장 비싸게 팔리나요?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -364,6 +380,12 @@
         <p>TOP10 고가 어종 랭킹 + 날씨 창 수익 분석</p>
         <span class="go">공략 보러 가기 →</span>
       </a>
+      <a class="guide-card" href="codes">
+        <span class="guide-count">매일 18:00</span><span class="emo">🎁</span>
+        <h4 class="display">출조 전 오늘의 쿠폰 코드 챙기기</h4>
+        <p>낚시 가기 전 원클릭 복사 — 보상은 우편함으로</p>
+        <span class="go">코드 받기 →</span>
+      </a>
     </div>
   </section>
 
@@ -414,6 +436,14 @@
     <details class="faq">
       <summary>비단잉어는 어디서 낚나요?</summary>
       <div class="a"><b>심야(00:00–06:00) 비밀 연못에서만</b>, 그것도 맑은 날에만입니다. 날씨 캘린더로 내일이 맑은지 확인한 뒤 알람을 맞춰 두세요.</div>
+    </details>
+    <details class="faq">
+      <summary>새우는 어디서 낚나요?</summary>
+      <div class="a">3종입니다: <b>벚꽃새우</b>(온천 개울 · 맑은 아침 · 65 코인), <b>바다새우</b>(동쪽 바다 · 종일 · 25 코인), <b>유럽랍스터</b>(동쪽 바다 · 밤 · 맑음/비 · 260 코인). 밤의 동쪽 바다가 가장 효율적입니다.</div>
+    </details>
+    <details class="faq">
+      <summary>뱀장어는 어디서 낚나요? 몇 시에?</summary>
+      <div class="a"><b>옛 바다</b>(등대 쪽 오래된 해역)에서 <b>비 오는 밤 18:00–24:00</b>가 노려볼 시간대입니다(150 코인). 무지개 날 저녁에도 출현합니다. 낚시 취미 레벨 7에 해금.</div>
     </details>
     <details class="faq">
       <summary>어떤 물고기가 가장 비싸게 팔리나요?</summary>
@@ -496,13 +526,16 @@ function match(f){
   const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
   return timeOk && weatherOk && qOk;
 }
-function cardHTML(f,i){
+function cardHTML(f,i,useH){
   const r = RARITY[f.rarity] || {label:'?',cls:''};
   const timeTxt = f.times.includes('종일')?'종일':f.times.join('/');
   const legend = f.rarity===4;
+  const nameOpen = useH ? '<h3 class="name">' : '<span class="name">';
+  const nameClose = useH ? '</h3>' : '</span>';
   return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
     +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
-    +'<span class="name">'+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)+'</span>'
+    +nameOpen+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)
+    +(useH?'<span class="h-loc"> · '+esc(f.loc)+'</span>':'')+nameClose
     +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
     +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
     +'<span class="tag time">🕐'+timeTxt+'</span>'
@@ -515,7 +548,7 @@ function renderFish(){
   const list = FISH.filter(match);
   const grid = $('#fishGrid');
   grid.innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i)).join('')
     : '<div class="empty"><span class="emo">🎣</span>이 조건에서는 낚이는 물고기가 없습니다 — 다른 날씨나 시간대를 시도해 보세요, 의외의 수확이 있을지도 몰라요.</div>';
   $('#resultSummary').innerHTML = '<b>'+list.length+'</b>종이 지금 입질 중';
   renderAll();
@@ -524,7 +557,7 @@ function renderAll(){
   const q = state.q.trim().toLowerCase();
   const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
   $('#fishGridAll').innerHTML = list.length
-    ? list.map(cardHTML).join('')
+    ? list.map((f,i)=>cardHTML(f,i,true)).join('')
     : '<div class="empty"><span class="emo">🔍</span>해당 물고기를 찾을 수 없습니다 — 다른 키워드로 검색해 보세요.</div>';
 }
 timeChips.forEach(c=>{

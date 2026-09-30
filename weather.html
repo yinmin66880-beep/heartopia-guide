@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>心动小镇天气预报日历（彩虹天/雨天/流星雨攻略手册）| 小镇攻略手账</title>
-<meta name="description" content="心动小镇（Heartopia）游戏内天气为官方固定排期：本页汇总彩虹天、雨天、流星雨日期日历，附天气刷新机制详解、特殊天气行动手册（朵朵限定商店/双倍采集/陨石收集）与天气×钓鱼限定鱼对照表——出门前看一眼不踩空。">
-<meta name="keywords" content="心动小镇天气,心动小镇彩虹天,心动小镇天气预报,心动小镇流星雨,Heartopia天气">
+<title>心动小镇今日天气与日历（彩虹天/雨天/流星雨攻略手册）| 小镇攻略手账</title>
+<meta name="description" content="心动小镇（Heartopia）今日天气每日自动更新：本页汇总彩虹天、雨天、流星雨日期日历，附天气刷新机制详解、特殊天气行动手册（朵朵限定商店/双倍采集/陨石收集）与天气×钓鱼限定鱼对照表——出门前看一眼不踩空。">
+<meta name="keywords" content="心动小镇天气,心动小镇今日天气,心动小镇彩虹天,心动小镇天气预报,心动小镇流星雨,Heartopia天气">
 <link rel="canonical" href="https://heartopiaguide.net/weather">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/weather">
 <link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/weather">
@@ -13,7 +13,7 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/weather">
 <meta property="og:type" content="website">
-<meta property="og:title" content="心动小镇天气预报日历（彩虹天/雨天/流星雨提醒）| 小镇攻略手账">
+<meta property="og:title" content="心动小镇今日天气日历（彩虹天/雨天/流星雨提醒）| 小镇攻略手账">
 <meta property="og:description" content="游戏内天气官方固定排期日历 + 天气×钓鱼限定鱼对照表。">
 <meta property="og:url" content="https://heartopiaguide.net/weather">
 <meta name="theme-color" content="#FAF5EA">
@@ -110,6 +110,7 @@
   <span class="hero-kicker display">📅 官方排期 · 社区整理</span>
   <h1 class="display">小镇天气<em>日历</em></h1>
   <p class="page-sub">心动小镇的天气是<b>官方固定排期</b>，不是随机的 —— 提前知道哪天彩虹、哪天流星雨，<b>限定鱼和限定采集</b>一个不漏。</p>
+  <p class="hero-updated" id="heroUpdated">⏱ 最后更新：每日 7 次自动更新</p>
 </header>
 
 <main class="wrap">
@@ -192,6 +193,12 @@
         <h4 class="display">装修模板库</h4>
         <p>雨天钓完鱼，回家照模板装修</p>
         <span class="go">去挑模板 →</span>
+      </a>
+      <a class="guide-card" href="recipes">
+        <span class="guide-count">料理翻倍</span><span class="emo">🍳</span>
+        <h4 class="display">钓到的鱼做菜更值钱</h4>
+        <p>三文鱼寿司比直卖多赚约 350 金币 — 鱼价翻倍的食谱表</p>
+        <span class="go">去看食谱 →</span>
       </a>
     </div>
   </section>
@@ -409,6 +416,8 @@ function renderToday(){
   }
 
   $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
+  const hu = $('#heroUpdated');
+  if(hu) hu.textContent = '⏱ 最后更新：' + (DAILY && DAILY.generatedAt ? DAILY.generatedAt : (WX && WX.updated ? WX.updated : '—')) + ' · 每日 7 次自动更新';
   if(w){
     $('#wxIcon').textContent = w.icon || '⛅';
     $('#wxLabel').textContent = w.label || '未知';
