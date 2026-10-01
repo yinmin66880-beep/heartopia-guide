@@ -2,18 +2,13 @@
  * 由 scripts/fetch_daily.py 从 data-src/weather-calendar.json 自动生成，勿手改。
  * 游戏内天气为官方固定排期，本日历由社区攻略帖每日对照维护。 */
 window.HEARTOPIA_WEATHER = {
-  updated: "2026-10-01",
+  updated: "2026-10-02",
   source: {
     name: "TapTap 心动小镇 · 社区天气攻略汇总",
     url: "https://www.taptap.cn/user/594768777"
   },
   note: "心动小镇的游戏内天气为官方固定排期。特殊天气（雨/彩虹/雪/流星雨）决定限定鱼种与专属采集内容。",
   days: {
-  "2026-09-01": {
-    "label": "晴",
-    "icon": "☀️",
-    "note": ""
-  },
   "2026-09-02": {
     "label": "晴转雨",
     "icon": "🌧️",
