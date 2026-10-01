@@ -2,12 +2,12 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-01",
   "weekday": "星期四",
-  "generatedAt": "2026-10-01 13:06:50",
+  "generatedAt": "2026-10-01 18:26:00",
   "status": "live",
   "weather": {
     "icon": "🌠",
-    "label": "流星雨",
-    "detail": "",
+    "label": "晴转流星雨",
+    "detail": "18:00-24:00 流星雨",
     "fishTip": "🌠 今晚流星雨 —— 星陨矿石全图刷新，记得找朵朵兑换限定家具。"
   },
   "specialForecast": {
@@ -90,7 +90,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 19
+        "posts": 21
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
@@ -105,12 +105,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 45
+        "posts": 42
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -133,6 +133,8 @@ window.HEARTOPIA_DAILY = {
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 4 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口",
       "TapTap 官方论坛 · 每日兑换码 提取到当日兑换码 J4ZR3D1",
+      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 修正 2026-10-01 天气 → 晴转流星雨",
+      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 学习到 2026-10-08 预告: 流星雨",
       "话题标签 · 心动小镇鑫时代（每日攻略聚合） 修正 2026-09-30 天气 → 晴转雨转彩虹",
       "话题标签 · 心动小镇鑫时代（每日攻略聚合） 修正 2026-09-30 天气 → 晴转雨"
     ]

@@ -229,7 +229,12 @@
     "2026-10-01": {
       "phases": [
         {
-          "t": "meteor"
+          "t": "sunny"
+        },
+        {
+          "t": "meteor",
+          "s": 18,
+          "e": 24
         }
       ],
       "auto": true
@@ -298,6 +303,14 @@
       "phases": [
         {
           "t": "rainbow"
+        }
+      ],
+      "auto": true
+    },
+    "2026-10-08": {
+      "phases": [
+        {
+          "t": "meteor"
         }
       ],
       "auto": true

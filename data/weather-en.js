@@ -156,9 +156,9 @@ window.HEARTOPIA_WEATHER = {
     "fish": "Sand Bream · European Eel"
   },
   "2026-10-01": {
-    "label": "Meteor Shower",
+    "label": "Sunny → Meteor Shower",
     "icon": "🌠",
-    "note": "",
+    "note": "18:00-24:00 Meteor Shower",
     "fish": "Exclusive meteorite gathering"
   },
   "2026-10-04": {
@@ -172,6 +172,12 @@ window.HEARTOPIA_WEATHER = {
     "icon": "🌈",
     "note": "",
     "fish": "Hammerhead Shark · Rainbow Trout"
+  },
+  "2026-10-08": {
+    "label": "Meteor Shower",
+    "icon": "🌠",
+    "note": "",
+    "fish": "Exclusive meteorite gathering"
   }
 }
 };
