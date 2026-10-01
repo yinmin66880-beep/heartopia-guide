@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-01",
   "weekday": "星期四",
-  "generatedAt": "2026-10-01 04:12:06",
+  "generatedAt": "2026-10-01 09:16:01",
   "status": "live",
   "weather": {
     "icon": "🌠",
@@ -16,10 +16,26 @@ window.HEARTOPIA_DAILY = {
     "note": "",
     "icon": "🌧️"
   },
-  "codes": [],
+  "codes": [
+    {
+      "code": "J4ZR3D1",
+      "note": "在线抓取 · 当日有效"
+    }
+  ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
-  "resources": [],
+  "resources": [
+    {
+      "emo": "🪵",
+      "name": "溜溜橡木",
+      "pos": "4 号家园门口"
+    },
+    {
+      "emo": "💎",
+      "name": "无瑕萤石",
+      "pos": "4 号家园门口"
+    }
+  ],
   "resourceNote": "溜溜橡木 / 无瑕萤石每日 06:00 刷新，每处每天 1 次、每次 3 个，位置每日随机（多见于各家园门口、森林灵橡松林、温泉山遗迹）",
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
@@ -74,7 +90,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 21
+        "posts": 19
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
@@ -94,12 +110,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 43
+        "posts": 32
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
         "isTargetDate": true,
-        "posts": 82
+        "posts": 77
       },
       {
         "name": "TapTap 策略库 · 天气预报汇总",
@@ -108,9 +124,16 @@ window.HEARTOPIA_DAILY = {
       }
     ],
     "sourcesFailed": [],
-    "conflicts": [],
+    "conflicts": [
+      "物资点位分歧: 溜溜橡木 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 4 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 12 号家园门口",
+      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 4 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 森林灵橡松林",
+      "物资点位分歧: 溜溜橡木 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 4 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 12 号家园门口"
+    ],
     "notes": [
-      "话题标签 · 心动小镇鑫时代（每日攻略聚合） 修正 2026-09-30 天气 → 晴转雨转彩虹",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 修正 2026-09-30 天气 → 晴转雨转彩虹",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 4 号家园门口",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口",
+      "TapTap 官方论坛 · 每日兑换码 提取到当日兑换码 J4ZR3D1",
       "话题标签 · 心动小镇鑫时代（每日攻略聚合） 修正 2026-09-30 天气 → 晴转雨"
     ]
   }
