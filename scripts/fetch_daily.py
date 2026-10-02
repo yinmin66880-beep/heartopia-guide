@@ -79,6 +79,8 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
 CODE_RE = re.compile(r"\b([A-Z0-9]{7})\b")
 CODE_BLACKLIST = {"JAVASCR", "CHARSET", "ENCODE", "DEFAULT", "DISPLAY", "CONTENT"}
+# 评论「今日无/今天无」声明：后不紧跟汉字，避免误匹配「今日无意/无聊」等水友文本
+NO_CODE_RE = re.compile(r"今[日天]无(?![\u4e00-\u9fff])")
 WEEKDAYS = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
 
 # TapTap 评论 API：每日兑换码由作者「努力再努力」以评论形式发布（约 18:00），
@@ -170,15 +172,17 @@ def comment_text(c):
     return " ".join(parts)
 
 
-def fetch_comment_codes(moment_id, target, tries=3, extra_dates=None):
+def fetch_comment_codes(moment_id, target, tries=3):
     """从评论 API 提取兑换码（按评论 created_time 的北京时间归属日期）。
 
-    作者每日 ~18:00 发布一条仅含码的评论（最新一条会被置顶）。
+    作者每日 ~18:00 发布一条仅含码的评论（最新一条会被置顶）；
+    官方停发日会发「今日无/今天无」声明（如国庆）。
     按评论 created_time 的北京时间归属日期，天然精确，无需文本日期匹配。
     第一页（最新 20 条）足以覆盖最近半个月的每日码。
-    extra_dates：需一并提取的历史回填日期集合（codes-history 补档用）。
-    返回 (pairs, seen)：pairs = [(日期, code, is_pinned, author, hh:mm)]；
-    seen = 本页评论覆盖到的全部日期集合（含无码日，作「已查过」标记）。
+    返回 (pairs, seen, no_code)：pairs = [(日期, code, is_pinned, author, hh:mm)]
+    （第一页全部日期，供历史归档自愈隔日旧码污染）；
+    seen = 本页评论覆盖到的全部日期集合（含无码日，作「已查过」标记）；
+    no_code = 声明「今日无」的日期集合（该日评论无有效码且匹配声明）。
     抓取失败抛异常由调用方记录。
     """
     url = (f"{COMMENT_API}?moment_id={moment_id}&sort=created_at&order=desc"
@@ -198,26 +202,28 @@ def fetch_comment_codes(moment_id, target, tries=3, extra_dates=None):
     else:
         raise last_err
 
-    wanted = {target} | set(extra_dates or ())
-    out, seen = [], set()
+    out, seen, no_code = [], set(), set()
     for c in (data.get("data") or {}).get("list") or []:
         ts = c.get("created_time")
         if not ts:
             continue
         d = datetime.fromtimestamp(ts, BJT).date()
         seen.add(d)
-        if d not in wanted:
-            continue
         text = comment_text(c)
-        for code in CODE_RE.findall(text):
-            if (code in CODE_BLACKLIST or not re.search(r"[A-Z]", code)
-                    or not re.search(r"\d", code)):
-                continue
-            if (d, code) not in [(x[0], x[1]) for x in out]:
-                hm = datetime.fromtimestamp(ts, BJT).strftime("%H:%M")
-                out.append((d, code, bool(c.get("is_top_comment")),
-                            (c.get("author") or {}).get("name", "?"), hm))
-    return out, seen
+        valid = [code for code in CODE_RE.findall(text)
+                 if code not in CODE_BLACKLIST
+                 and re.search(r"[A-Z]", code) and re.search(r"\d", code)]
+        if valid:
+            for code in valid:
+                if (d, code) not in [(x[0], x[1]) for x in out]:
+                    hm = datetime.fromtimestamp(ts, BJT).strftime("%H:%M")
+                    out.append((d, code, bool(c.get("is_top_comment")),
+                                (c.get("author") or {}).get("name", "?"), hm))
+        elif NO_CODE_RE.search(text):
+            # 该日评论声明无码且提取不到有效码 → 权威无码日
+            no_code.add(d)
+    no_code -= {x[0] for x in out}  # 有码声明优先于无码声明
+    return out, seen, no_code
 
 
 def strip_html(html):
@@ -353,6 +359,8 @@ def derive_entry(phases):
 # 聚合页里每个帖子的日期标记（标题或正文头）
 POST_MARKS = [
     re.compile(r"心动小镇\s*(\d{1,2})月(\d{1,2})日\s*星期[一二三四五六日天]"),   # 筱鑫正文头
+    re.compile(r"心动小镇\s*(\d{1,2})月(\d{1,2})日(?!\s*星期)"),                  # 心动小镇9月21日陨石位置攻略等任意日期攻略帖标题
+    re.compile(r"(\d{1,2})月(\d{1,2})日\s*今天的兑换码"),                          # 报告老板！9月19日今天的兑换码已更新啦
     re.compile(r"(?<![\d.])(\d{1,2})\.(\d{1,2})(?![\d.])[）)\s]*(?:溜溜木|心动小镇)"),  # 9.21溜溜木 / 9.21心动小镇 标题
     re.compile(r"(\d{1,2})月(\d{1,2})日小镇日报"),                                # 主帖标题
     re.compile(r"(\d{1,2})月(\d{1,2})日位置播报"),                                # 位置播报帖
@@ -681,7 +689,7 @@ def mentions_target_date(text, target):
     return any(p in text for p in patterns)
 
 
-def build_daily(target, mode, backfill_dates=None):
+def build_daily(target, mode):
     cal = load_json(WEATHER_CAL) or {"updated": target.isoformat(), "days": {}}
     seed = load_json(SEED) or {}
     audit = {
@@ -715,14 +723,16 @@ def build_daily(target, mode, backfill_dates=None):
             # 评论 API 源：兑换码权威通道（正文里已无当日码）
             if src.get("type") == "moment-comments":
                 try:
-                    pairs, seen_dates = fetch_comment_codes(
-                        src.get("momentId"), target, extra_dates=backfill_dates)
+                    pairs, seen_dates, no_code_dates = fetch_comment_codes(
+                        src.get("momentId"), target)
                 except Exception as e:
                     audit["sourcesFailed"].append({"name": src["name"],
                                                    "error": f"{type(e).__name__}: {e}"})
                     log(f"  [fail] {src['name']}: {type(e).__name__}: {e}")
                     continue
-                comment_data = {"pairs": pairs, "seen": sorted(d.isoformat() for d in seen_dates)}
+                comment_data = {"pairs": pairs,
+                                "seen": sorted(d.isoformat() for d in seen_dates),
+                                "no_code": sorted(d.isoformat() for d in no_code_dates)}
                 today_pairs = [(code, pinned, author, hm) for d, code, pinned, author, hm in pairs
                                if d == target]
                 audit["sourcesOk"].append({"name": src["name"], "isTargetDate": bool(today_pairs),
@@ -795,6 +805,17 @@ def build_daily(target, mode, backfill_dates=None):
             if src["url"] not in {s.get("url") for s in sources}:
                 sources.append({"name": src["name"], "url": src["url"]})
             status = "live"
+
+        # 权威压制：评论通道声明今日无码（官方停发日）时，
+        # 清除其他来源提取的兑换码 —— 聚合帖中隔日旧段漏切分时，
+        # 旧码（如 9-21 的 J4ZR3D1）会被误当作当日码挂上站
+        if comment_data and target.isoformat() in comment_data["no_code"]:
+            if codes:
+                audit["notes"].append(
+                    "评论权威通道声明今日无码，已压制其他来源的兑换码: "
+                    + ", ".join(c["code"] for c in codes))
+                log(f"  [压制] 评论通道声明今日无码，清空 {len(codes)} 个其他来源的码")
+            codes = []
 
         # 投票标注：≥2 个独立源命中的码标记 verified
         for c in codes:
@@ -879,14 +900,45 @@ def update_codes_history(target, daily, comment_data, hist, dry_run=False):
     - 当日码来自本次 daily 构建（含多源票数与评论 API 标记）
     - 回填：评论 API 结果里命中归档窗口内缺失日期的码直接补档；
       seen 中覆盖到但无码的日期记空条目（已查过，当日无码）
+    - 权威自愈（评论 API 为兑换码权威源）：
+      1) 声明「今日无」的日期，条目清空 —— 修正聚合帖隔日旧段漏切分
+         导致的当日污染（如 2026-10-01 被误标 9-21 旧码 J4ZR3D1）
+      2) 条目中「属于其他日期当日码」的码 = 隔日旧码污染，移除
     - 空条目不视为「已有」——次日起仍会随窗口重查（防当日抢跑漏码），
-      有码条目（含人工校准的历史）永不覆盖
+      有码条目（含人工校准的历史）除权威自愈外永不覆盖
     """
     by_date = {e["date"]: e for e in hist if e.get("date")}
     dirty = False
     window_lo = target - timedelta(days=CODES_HIST_WINDOW - 1)
 
     if comment_data:
+        # 权威自愈 1：无码声明日 → 条目清空（含当日构建前的错误版本）
+        for iso in comment_data["no_code"]:
+            if not (window_lo.isoformat() <= iso <= target.isoformat()):
+                continue
+            e = by_date.get(iso)
+            if e and e.get("codes"):
+                log(f"  [hist] {iso} 评论通道声明无码，清空条目 {e['codes']}")
+                e["codes"] = []
+                dirty = True
+        # 权威自愈 2：隔日旧码 → 从条目移除
+        by_api, owned = {}, {}
+        for d, code, pinned, author, hm in comment_data["pairs"]:
+            iso = d.isoformat()
+            by_api.setdefault(iso, []).append(code)
+            owned.setdefault(code, iso)
+        for iso, api_codes in by_api.items():
+            if not (window_lo.isoformat() <= iso <= target.isoformat()):
+                continue
+            e = by_date.get(iso)
+            if not e or not e.get("codes"):
+                continue
+            stale = [c for c in e["codes"]
+                     if c not in api_codes and owned.get(c) not in (None, iso)]
+            if stale:
+                log(f"  [hist] {iso} 移除隔日旧码 {stale}（当日评论码 {api_codes}）")
+                e["codes"] = [c for c in e["codes"] if c not in stale]
+                dirty = True
         for d, code, pinned, author, hm in comment_data["pairs"]:
             iso = d.isoformat()
             if iso < window_lo.isoformat():
@@ -1006,14 +1058,11 @@ def main():
     mode = "offline" if args.offline else "online"
     log(f"=== 心动小镇每日情报管道 v2.2 | 目标 {target.isoformat()} | 模式 {mode} ===")
 
-    # 归档回填窗口：已有「有码」条目的日期不再重查（人工校准历史优先），
-    # 窗口内其余日期随评论 API 一次调用一并提取，GitHub 丢任务可自愈
+    # 评论 API 第一页（最新 20 条）全量提取、按 14 天窗口落档：
+    # GitHub 丢任务由次日运行自动补档，隔日旧码/无码声明自动自愈
     hist = load_codes_history()
-    window = {target - timedelta(days=i) for i in range(CODES_HIST_WINDOW)}
-    have = {e["date"] for e in hist if e.get("codes")}
-    backfill_dates = (window - have) if mode == "online" else set()
 
-    daily, cal, cal_dirty, comment_data = build_daily(target, mode, backfill_dates=backfill_dates)
+    daily, cal, cal_dirty, comment_data = build_daily(target, mode)
     issues = validate(daily)
 
     LOG_DIR.mkdir(parents=True, exist_ok=True)
