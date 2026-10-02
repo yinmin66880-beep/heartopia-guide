@@ -1,10 +1,12 @@
 /* 心动小镇每日码历史归档 · 由 scripts/fetch_daily.py 自动生成，勿手改 */
 window.HEARTOPIA_CODE_HISTORY = [
   {
+    "date": "2026-10-02",
+    "codes": []
+  },
+  {
     "date": "2026-10-01",
-    "codes": [
-      "J4ZR3D1"
-    ]
+    "codes": []
   },
   {
     "date": "2026-09-30",
@@ -13,7 +15,6 @@ window.HEARTOPIA_CODE_HISTORY = [
   {
     "date": "2026-09-29",
     "codes": [
-      "J4ZR3D1",
       "PF9529V"
     ],
     "api": true,
@@ -22,7 +23,6 @@ window.HEARTOPIA_CODE_HISTORY = [
   {
     "date": "2026-09-28",
     "codes": [
-      "J4ZR3D1",
       "S2P84U1"
     ],
     "api": true,
@@ -31,7 +31,6 @@ window.HEARTOPIA_CODE_HISTORY = [
   {
     "date": "2026-09-27",
     "codes": [
-      "J4ZR3D1",
       "GZF7W5D"
     ],
     "api": true
