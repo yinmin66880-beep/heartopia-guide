@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-04",
   "weekday": "星期日",
-  "generatedAt": "2026-10-04 23:17:40",
+  "generatedAt": "2026-10-04 23:29:26",
   "status": "live",
   "weather": {
     "icon": "🌧️",
@@ -82,7 +82,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 19
+        "posts": 21
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
