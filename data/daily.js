@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-04",
   "weekday": "星期日",
-  "generatedAt": "2026-10-04 23:29:26",
+  "generatedAt": "2026-10-04 23:59:12",
   "status": "live",
   "weather": {
     "icon": "🌧️",
@@ -19,7 +19,8 @@ window.HEARTOPIA_DAILY = {
   "codes": [
     {
       "code": "X5UH7CE",
-      "note": "置顶码评 · 当日 23:59:59 前有效"
+      "note": "已获 2 个独立源交叉验证 · 当日有效",
+      "verified": 2
     }
   ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
@@ -97,7 +98,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
