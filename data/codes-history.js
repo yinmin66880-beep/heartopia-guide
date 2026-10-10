@@ -2,7 +2,10 @@
 window.HEARTOPIA_CODE_HISTORY = [
   {
     "date": "2026-10-10",
-    "codes": []
+    "codes": [
+      "A7VR5E9"
+    ],
+    "api": true
   },
   {
     "date": "2026-10-09",
