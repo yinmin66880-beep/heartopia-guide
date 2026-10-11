@@ -1,37 +1,31 @@
 /* 心动小镇每日情报 · 由 scripts/fetch_daily.py 自动生成，勿手改 */
 window.HEARTOPIA_DAILY = {
-  "date": "2026-10-10",
-  "weekday": "星期六",
-  "generatedAt": "2026-10-10 23:56:51",
+  "date": "2026-10-11",
+  "weekday": "星期日",
+  "generatedAt": "2026-10-11 08:57:08",
   "status": "live",
   "weather": null,
   "specialForecast": null,
-  "codes": [
-    {
-      "code": "A7VR5E9",
-      "note": "已获 2 个独立源交叉验证 · 当日有效",
-      "verified": 2
-    }
-  ],
+  "codes": [],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
   "resources": [
     {
       "emo": "🪵",
       "name": "溜溜橡木",
-      "pos": "10 号家园门口"
+      "pos": "11 号家园门口"
     },
     {
       "emo": "💎",
       "name": "无瑕萤石",
-      "pos": "9 号家园门口"
+      "pos": "11 号家园门口"
     }
   ],
   "resourceNote": "溜溜橡木 / 无瑕萤石每日 06:00 刷新，每处每天 1 次、每次 3 个，位置每日随机（多见于各家园门口、森林灵橡松林、温泉山遗迹）",
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
+      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
@@ -41,14 +35,6 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "TapTap 社区攻略 · 当日情报",
       "url": "https://www.taptap.cn/moment/844484238282589354"
-    },
-    {
-      "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-      "url": "https://www.taptap.cn/app/45213/topic"
-    },
-    {
-      "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-      "url": "https://www.taptap.cn/hashtag/心动小镇鑫时代"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -61,7 +47,7 @@ window.HEARTOPIA_DAILY = {
   ],
   "audit": {
     "fetchMode": "online",
-    "targetDate": "2026-10-10",
+    "targetDate": "2026-10-11",
     "sourcesTried": [
       "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
@@ -75,13 +61,13 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
-        "isTargetDate": true,
+        "isTargetDate": false,
         "posts": 9
       },
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 23
+        "posts": 21
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
@@ -95,13 +81,13 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-        "isTargetDate": true,
+        "isTargetDate": false,
         "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-        "isTargetDate": true,
-        "posts": 43
+        "isTargetDate": false,
+        "posts": 40
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -116,15 +102,12 @@ window.HEARTOPIA_DAILY = {
     ],
     "sourcesFailed": [],
     "conflicts": [
-      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 9 号家园门口 / TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 提到 10 号家园门口",
-      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 9 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 10 号家园门口",
-      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 9 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 10 号家园门口"
+      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 11 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 森林灵橡松林"
     ],
     "notes": [
-      "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 A7VR5E9（努力再努力 18:00 发布）",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 10 号家园门口",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 9 号家园门口",
-      "天气日历未覆盖 2026-10-10，等待自动学习或人工补录"
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 11 号家园门口",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 11 号家园门口",
+      "天气日历未覆盖 2026-10-11，等待自动学习或人工补录"
     ]
   }
 };
