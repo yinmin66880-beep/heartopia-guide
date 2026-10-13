@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-13",
   "weekday": "星期二",
-  "generatedAt": "2026-10-13 10:45:51",
+  "generatedAt": "2026-10-13 11:00:52",
   "status": "live",
   "weather": {
     "icon": "🌧️",
@@ -43,10 +43,6 @@ window.HEARTOPIA_DAILY = {
       "url": "https://www.taptap.cn/moment/844636406570549558"
     },
     {
-      "name": "TapTap 社区攻略 · 当日情报",
-      "url": "https://www.taptap.cn/moment/844484238282589354"
-    },
-    {
       "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
       "url": "https://www.taptap.cn/app/45213/topic"
     },
@@ -81,7 +77,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 23
+        "posts": 25
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
@@ -90,8 +86,8 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": true,
-        "posts": 0
+        "isTargetDate": false,
+        "posts": 2
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
@@ -122,9 +118,7 @@ window.HEARTOPIA_DAILY = {
     ],
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 6 号家园门口",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 2 号家园门口",
-      "TapTap 策略库 · 每日兑换码汇总 学习到 2026-10-13 预告: 雨",
-      "TapTap 策略库 · 每日兑换码汇总 学习到 2026-10-14 预告: 雨"
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 2 号家园门口"
     ]
   }
 };
