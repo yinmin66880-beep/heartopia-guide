@@ -2,7 +2,7 @@
  * scripts/fetch_daily.py가 자동 생성합니다 — 수동 수정하지 마세요.
  * 게임 내 날씨는 공식 고정 일정을 따르며, 커뮤니티 게시물과 매일 대조합니다. */
 window.HEARTOPIA_WEATHER = {
-  updated: "2026-10-11",
+  updated: "2026-10-13",
   source: {
     name: "TapTap 하트오피아 · 커뮤니티 날씨 정보",
     url: "https://www.taptap.cn/user/594768777"
@@ -128,6 +128,18 @@ window.HEARTOPIA_WEATHER = {
     "label": "맑음",
     "icon": "☀️",
     "note": ""
+  },
+  "2026-10-13": {
+    "label": "비",
+    "icon": "🌧️",
+    "note": "",
+    "fish": "샌드브림 · 뱀장어"
+  },
+  "2026-10-14": {
+    "label": "비",
+    "icon": "🌧️",
+    "note": "",
+    "fish": "샌드브림 · 뱀장어"
   },
   "2026-10-17": {
     "label": "비",
