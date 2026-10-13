@@ -479,33 +479,36 @@ def extract_res_segment(seg):
 
 
 def parse_forecasts(seg, seg_date):
-    """段内多日预告「21日 周一 流星雨」「17日 周四 0-6点 下雨天」→ [(date, phases)]。"""
+    """解析单日/共用天气的多日预告，如「13日周二 14日周三 下雨天」。"""
     out = []
     for m in re.finditer(
-            r"(\d{1,2})日\s*周[一二三四五六日天]\s*"
+            r"((?:\d{1,2}日\s*周[一二三四五六日天]\s*)+)"
             r"(?:(\d{1,2})\s*[-–~]\s*(\d{1,2})\s*点?\s*)?(\S{1,12})", seg):
-        day = int(m.group(1))
         types = wx_types_in(m.group(4))
         if not types:
             continue
-        if day >= seg_date.day:
-            month = seg_date.month
-            year = seg_date.year
-        else:
-            nxt = seg_date.replace(day=28) + timedelta(days=7)
-            month, year = nxt.month, nxt.year
-        try:
-            fdate = date(year, month, day)
-        except ValueError:
-            continue
-        if fdate > seg_date + timedelta(days=14):
-            continue  # 预告不会超过两周，超出视为解析噪声
         if m.group(2):
-            phases = [{"t": t, "s": int(m.group(2)), "e": int(m.group(3))} for t in types]
+            start, end = int(m.group(2)), int(m.group(3))
+            if not 0 <= start < end <= 24:
+                continue
+            phases = [{"t": t, "s": start, "e": end} for t in types]
             phases.append({"t": "sunny"})
         else:
             phases = [{"t": t} for t in types]
-        out.append((fdate, phases))
+        for day_text in re.findall(r"(\d{1,2})日", m.group(1)):
+            day = int(day_text)
+            if day >= seg_date.day:
+                month, year = seg_date.month, seg_date.year
+            else:
+                nxt = seg_date.replace(day=28) + timedelta(days=7)
+                month, year = nxt.month, nxt.year
+            try:
+                fdate = date(year, month, day)
+            except ValueError:
+                continue
+            if fdate > seg_date + timedelta(days=14):
+                continue  # 预告不会超过两周，超出视为解析噪声
+            out.append((fdate, [dict(phase) for phase in phases]))
     return out
 
 
