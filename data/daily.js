@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-16",
   "weekday": "星期五",
-  "generatedAt": "2026-10-16 16:28:30",
+  "generatedAt": "2026-10-16 22:45:31",
   "status": "live",
   "weather": null,
   "specialForecast": {
@@ -11,7 +11,12 @@ window.HEARTOPIA_DAILY = {
     "note": "",
     "icon": "🌧️"
   },
-  "codes": [],
+  "codes": [
+    {
+      "code": "Q7AX9RU",
+      "note": "置顶码评 · 当日 23:59:59 前有效"
+    }
+  ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
   "resources": [
@@ -30,7 +35,7 @@ window.HEARTOPIA_DAILY = {
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
+      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
@@ -74,7 +79,7 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 12
       },
       {
@@ -85,7 +90,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 22
+        "posts": 20
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
@@ -100,7 +105,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 30
+        "posts": 43
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -116,6 +121,7 @@ window.HEARTOPIA_DAILY = {
     "sourcesFailed": [],
     "conflicts": [],
     "notes": [
+      "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 Q7AX9RU（努力再努力 18:01 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 12 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 12 号家园门口",
       "天气日历未覆盖 2026-10-16，等待自动学习或人工补录"
