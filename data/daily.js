@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-16",
   "weekday": "星期五",
-  "generatedAt": "2026-10-16 08:21:02",
+  "generatedAt": "2026-10-16 16:28:30",
   "status": "live",
   "weather": null,
   "specialForecast": {
@@ -38,8 +38,16 @@ window.HEARTOPIA_DAILY = {
       "url": "https://www.taptap.cn/moment/844636406570549558"
     },
     {
+      "name": "TapTap 社区攻略 · 当日情报",
+      "url": "https://www.taptap.cn/moment/844484238282589354"
+    },
+    {
       "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
       "url": "https://www.taptap.cn/app/45213/topic"
+    },
+    {
+      "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
+      "url": "https://www.taptap.cn/hashtag/心动小镇鑫时代"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -77,22 +85,22 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 24
+        "posts": 22
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 2
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 7
+        "posts": 3
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-        "isTargetDate": false,
-        "posts": 43
+        "isTargetDate": true,
+        "posts": 30
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
