@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハートピア釣り図鑑大全（24 種 · 釣り場攻略 · 糸さばきテクニック）| ハートピア攻略手帳</title>
-<meta name="description" content="ハートピア（Heartopia）釣り図鑑：人気 24 種の出現時間・天気条件・釣り場・売値の早見表に加え、釣り場マップ、釣りの趣味レベル解放表、ラインの色のさばき方、釣り大会とコレクション実績の攻略 — 虹の日はシュモクザメ、雨の夜はウナギ、深夜の秘密の池でニシキゴイを狙う。">
+<title>ハートピア釣り図鑑・釣りプランナー | 攻略手帳</title>
+<meta name="description" content="観測した天気とサーバー時刻で釣りの予定を作成。コミュニティの部分的な魚データを検索し、収集・解放済みリストを端末内に保存できます。">
 <meta name="keywords" content="ハートピア釣り,ハートピア魚,ハートピア釣り攻略,ハートピアニシキゴイ,ハートピアシュモクザメ,ハートピア伝説の魚">
 <link rel="canonical" href="https://heartopiaguide.net/ja/fishing">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/fishing">
@@ -13,94 +13,20 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/fishing">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/fishing">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ハートピア釣り図鑑（全 24 種 · 時間/天気/釣り場検索）| ハートピア攻略手帳">
-<meta property="og:description" content="24 種 × 時間 × 天気 × 釣り場の検索で、今食べつく魚がひと目で分かる。">
+<meta property="og:title" content="ハートピア釣り図鑑・釣りプランナー | 攻略手帳">
+<meta property="og:description" content="観測した天気とサーバー時刻で釣りの予定を作成。コミュニティの部分的な魚データを検索し、収集・解放済みリストを端末内に保存できます。">
 <meta property="og:url" content="https://heartopiaguide.net/ja/fishing">
 <meta name="theme-color" content="#FAF5EA">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "今すぐ釣れる魚は？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "上の「今、何が釣れる？」パネルを使ってください。既定では端末の時刻に追従します — 天気を選ぶだけでライブ絞り込みできます。天気は天気カレンダー（公式の固定スケジュール）に合わせて。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "虹の日に釣れる伝説級の魚は？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "昼間はシュモクザメ（クジラ海・600 コイン）とニジマス（湖・180 コイン）。通常は雨の夜の魚であるウナギも、虹の日の夜には現れます。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ニシキゴイはどこで釣れる？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "秘密の池で夜（00:00–06:00）のみ、晴れの日限定です。天気カレンダーで翌日が晴れか確認して、アラームをセットしましょう。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "エビはどこで釣れる？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "3 種類います：サクラエビは温泉の小川で晴れの朝（65 コイン）、海エビは東の海で終日（25 コイン）、オマールエビは東の海の夜・晴れか雨（260 コイン）。夜の東の海がいちばん効率的です。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ウナギはどこで釣れる？何時？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "旧海（灯台方面の古い海域）で、雨の夜 18:00–24:00 が狙い時（150 コイン）。虹の日の夜にも現れます。釣りの趣味レベル 7 で解放されます。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "いちばん高く売れる魚は？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "伝説級：ニシキゴイ 800、氷の海の天使 750、シュモクザメ 600。高単価の周回候補はズワイガニ 300 とオマールエビ 260。レア度は各カードの右上に表示されています。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "釣りレベルはどう上げるのが一番速い？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "釣りの経験値は主に新魚種の解放から。同じ魚を繰り返し釣ってもほぼ伸びません。釣り場を順番に回って未解放の魚を優先し、特殊天気には限定魚（ぜんぶ新魚種）を集中させるのが最速です。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ラインがしょっちゅう切れるのはどうすればいい？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ほとんどは赤いラインのまま引っ張り続けたのが原因 — 赤に変わったらすぐ手を離し、白か黄に戻ってから巻きましょう。竿のメンテナンスと駆け引きの達人のレベルが上がると失敗も減ります。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "釣った魚はそのまま売る？それとも料理する？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "新魚種はまず図鑑に寄贈して報酬を回収。サケは寿司にすると直売より約 350 コイン得で、星 1 の安価な魚はフィッシュアンドチップス向き。伝説級の高額魚はそのまま売るのがいちばん手軽です。"
-      }
-    }
-  ]
-}
-</script>
+
 <!-- adsense:auto-ads -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../assets/css/planner.css">
+<meta property="og:image" content="https://heartopiaguide.net/assets/social/weather-fishing-ja.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body data-page="fishing">
 
@@ -121,341 +47,17 @@
   </div>
 </nav>
 
-<header class="page-hero">
-  <p class="crumbs"><a href="./">ホーム</a> / 釣り図鑑</p>
-  <span class="hero-kicker display blue">🎣 ツール · リアルタイム</span>
-  <h1 class="display">釣り <em>検索</em></h1>
-  <p class="page-sub">ハートピアの魚は時間と天気にうるさい — 今の条件を設定すれば<b>釣れる魚がすぐ分かる</b>。下にスクロールすれば<b>全 24 種</b>の詳細データも。</p>
-</header>
+<header class="page-hero"><p class="crumbs"><a href="./">Heartopia Guide</a> / ハートピア釣りプランナー</p><span class="hero-kicker display">🎣 部分的な登録データを見る</span><h1 class="display">ハートピア釣りプランナー</h1><p class="page-sub">選択した条件に合う登録データを探し、個人の収集リストを管理できます。魚名、場所、正確な条件はゲーム内図鑑を確認してください。</p></header>
 
-<main class="wrap">
-
-  <section class="reveal" style="padding-top:40px" id="now">
-    <div class="sec-head">
-      <span class="sec-tag display blue">リアルタイム</span>
-      <h2 class="display"><span class="wavy">今、何が釣れる？</span></h2>
-    </div>
-    <p class="sec-desc">既定では端末の時計に従って自動更新。<a href="weather">天気スケジュール</a>と併用すれば正確 — 天気を間違えると、魚も間違えます。</p>
-    <div class="panel">
-      <div class="ctrl-row">
-        <span class="ctrl-label">🕐 時間帯</span>
-        <button class="switch on" id="autoSwitch" title="現地時刻に追従"><span class="knob"></span></button>
-        <span class="switch-text" id="clockText">—</span>
-        <div class="chips" id="timeChips">
-          <button class="chip" data-period="朝">朝 <small>06–12</small></button>
-          <button class="chip" data-period="昼">昼 <small>12–18</small></button>
-          <button class="chip" data-period="夜">夜 <small>18–24</small></button>
-          <button class="chip" data-period="深夜">深夜 <small>00–06</small></button>
-        </div>
-      </div>
-      <div class="ctrl-row">
-        <span class="ctrl-label">☁️ 現在の天気</span>
-        <div class="chips" id="weatherChips">
-          <button class="chip wx sunny" data-weather="晴れ">☀️ 晴れ</button>
-          <button class="chip wx rainy" data-weather="雨">🌧️ 雨</button>
-          <button class="chip wx rainbow" data-weather="虹">🌈 虹</button>
-          <button class="chip wx snow" data-weather="雪">❄️ 雪</button>
-        </div>
-      </div>
-      <hr class="divider-dash">
-      <div class="search-bar">
-        <input class="search-input" id="searchInput" type="text" placeholder="🔍 魚・釣り場・特徴で検索（例：「虹」「旧海」…）">
-        <span class="result-summary" id="resultSummary"></span>
-      </div>
-      <div class="fish-grid" id="fishGrid"></div>
-    </div>
-  </section>
-
-  <section class="reveal" id="dex">
-    <div class="sec-head">
-      <span class="sec-tag display">図鑑</span>
-      <h2 class="display"><span class="wavy">人気魚種の図鑑（24 種）</span></h2>
-    </div>
-    <p class="sec-desc">検索や出釣頻度の高い人気魚種から 24 種をセレクト。検索ボックスに魚名や釣り場を入力すれば、すぐ該当カードにたどり着けます。趣味レベル解放や季節限定も含め、ゲーム内の完全図鑑には実際に 90 種以上の魚が収録されています。レア度はカード右上の表示、魚価はゲーム内の図鑑を基準にどうぞ。</p>
-    <div class="fish-grid" id="fishGridAll"></div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">伝説級</span>
-      <h2 class="display"><span class="wavy">伝説の漁獲</span></h2>
-    </div>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">800 コイン</span><span class="emo">🎏</span>
-        <h4 class="display">ニシキゴイ · 秘密の池</h4>
-        <p>夜（00–06）の秘密の池にだけ現れ、晴れの日限定。図鑑でも最もレアな部類の漁獲 — ガチ勢なら狙うべき一匹。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">750 コイン</span><span class="emo">🐟</span>
-        <h4 class="display">氷の海の天使 · 氷雪海域</h4>
-        <p>雪の日は氷雪海域を終日回遊。冬の祝福を運ぶとされる魚 — 冬のスケジュールを見逃さないで。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">600 コイン</span><span class="emo">🦈</span>
-        <h4 class="display">シュモクザメ · クジラ海</h4>
-        <p>虹の日の昼間限定（朝・昼）— 竿が限界まで曲がる大物。虹の日は天気カレンダーで確認を。</p>
-      </div>
-      <a class="guide-card" href="weather">
-        <span class="guide-count">スケジュール</span><span class="emo">📅</span>
-        <h4 class="display">次の虹の日はいつ？</h4>
-        <p>天気は公式の固定スケジュール — カレンダーで確認して、計画的に待機しよう</p>
-        <span class="go">カレンダーを見る →</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display blue">釣り場マップ</span>
-      <h2 class="display"><span class="wavy">全釣り場の出魚ガイド</span></h2>
-    </div>
-    <p class="sec-desc">ハートピアの水域は町のあちこちに散らばっており、釣り場ごとに釣れる魚はほぼ重なりません — どこで何を釣りたいか、まずはこの表で確認。魚価と出現条件はゲーム内の図鑑を基準にしてください。</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>釣り場</th><th>行き方</th><th>代表魚種</th><th>特徴</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="fish-name">🏞️ 静かな川 / 川</td><td>町の中央を貫く</td><td>ミノー · パーチ · サンドブリーム</td><td>釣りの入門第 1 歩、終日釣れる</td></tr>
-          <tr><td class="fish-name">⛰️ 湖（近郊の湖 / 森の湖）</td><td>森林エリア</td><td>ニジマス · ハクレン · オオクチバス</td><td>虹の日の朝に訪れるニジマスの時間帯</td></tr>
-          <tr><td class="fish-name">♨️ 温泉の小川 / 温泉山の湖</td><td>温泉山エリア</td><td>サクラエビ · ゴールデンコイ · ライオンヘッド金魚</td><td>レア観賞魚の産地、虹の日はライオンヘッド金魚</td></tr>
-          <tr><td class="fish-name">🌊 東の海</td><td>東側の海岸</td><td>海エビ · オマールエビ</td><td>夜のエビ釣り（260 コイン）の安定スポット</td></tr>
-          <tr><td class="fish-name">🏴 旧海</td><td>灯台方面の古い海域</td><td>フグ · ヒラメ · ウナギ · クロダイ</td><td>雨の夜のウナギはここでしか釣れない</td></tr>
-          <tr><td class="fish-name">🐋 クジラ海</td><td>北部の沖合</td><td>シュモクザメ · サバ · アトランティックサーモン</td><td>虹の日の伝説級メインステージ</td></tr>
-          <tr><td class="fish-name">🧊 氷雪海域</td><td>アイスシーズン限定</td><td>ズワイガニ · 氷の海の天使 · 氷晶シリーズ</td><td>アイスシーズンのみ開放、限定魚がいちばん密集</td></tr>
-          <tr><td class="fish-name">🕳️ 秘密の池</td><td>隠しスポット</td><td>ニシキゴイ · 真夜中のニシキゴイ</td><td>深夜限定、伝説漁獲の待ち伏せ聖地</td></tr>
-          <tr><td class="fish-name">💦 滝 / 温泉</td><td>温泉山の上</td><td>滝マス · 滝パーチ · 温泉ウナギ</td><td>特殊スポット、レア魚が出没</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="warn-box" style="margin-top:18px">🗺️ <b>ルート提案</b> — 日常は「川 → 湖 → 東の海」の 3 点周回がコスパ最高。特殊天気のときだけ限定釣り場へ直行です（虹の日はクジラ海、雨の夜は旧海、雪の日は氷雪海域）。通常の天気で限定魚を待ち伏せても、待つだけ損です。</div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">上級</span>
-      <h2 class="display"><span class="wavy">釣りの趣味レベル：解放表と報酬</span></h2>
-    </div>
-    <p class="sec-desc">釣りレベルは「新魚種の解放」で上がります — 初めて釣った魚だけが経験値になり、同じ魚の再キャッチはほぼ無意味。レベルが高いほど、釣れるレア魚と実用アイテムが増えていきます。</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>趣味レベル</th><th>主な報酬</th><th>説明</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="price">レベル 1</td><td>釣りテクニック 1 · 魚の品質 1</td><td>入門報酬、ドロップ品質が上がり始める</td></tr>
-          <tr><td class="price">レベル 2</td><td>竿メンテナンス 1 · 魚の品質 2</td><td>竿の耐久消費が軽減</td></tr>
-          <tr><td class="price">レベル 4</td><td>魚寄せ · 駆け引きの達人 1</td><td>魚寄せは青く光る魚影を呼び出せる</td></tr>
-          <tr><td class="price">レベル 6</td><td>人魚の香水 · 駆け引きの達人 2</td><td>香水で釣りイベントの目標達成を支援</td></tr>
-          <tr><td class="price">レベル 10</td><td>駆け引きの達人 4 · 竿メンテナンス 5</td><td>糸さばきの許容範囲と竿の保守がほぼ完成形</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="warn-box" style="margin-top:18px;background:rgba(232,184,75,.1);border-color:rgba(232,184,75,.45)">🌈 <b>虹の日の限定魚もレベルで解放</b> — レベル 6 でシロザケ・大真珠貝・ホウボウ、7 でウナギ、8 でタラバガニ・ゴールデンタラバガニ、9 でドナウパイクパーチ・ホンマグロ、10 でマコザメ・シュモクザメ・メカジキ。レベルが足りないと虹の日に遭遇しても釣れない伝説魚があります — 日頃からのレベル上げこそ本番です。</div>
-  </section>
-
-  <section class="reveal" id="windows">
-    <div class="sec-head">
-      <span class="sec-tag display coral" style="background:var(--coral)">データ徹底分析</span>
-      <h2 class="display"><span class="wavy">魚汛経済学：天気ウィンドウそれぞれの価値</span></h2>
-    </div>
-    <p class="sec-desc">図鑑 24 種の売値を「天気 × 時間帯」で再集計すると、ウィンドウごとの本当の生産力の差が一目で分かります — 数字はすべて当サイト図鑑の★1基準価格で、ゲーム内で検証できます。</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>天気ウィンドウ</th><th>時間帯</th><th>高価値ターゲット</th><th>主役</th><th>生産評価</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="fish-name">🌈 虹の日</td><td>朝 / 昼</td><td>シュモクザメ 600 · ニジマス 180</td><td class="price">シュモクザメ（Lv10 解放）</td><td>★★★★★</td></tr>
-          <tr><td class="fish-name">❄️ 雪の日</td><td>終日 / 夜</td><td>氷の海の天使 750 · ズワイガニ 300</td><td class="price">氷の海の天使</td><td>★★★★★ 季節限定</td></tr>
-          <tr><td class="fish-name">☀️ 晴れの深夜</td><td>00–06</td><td>ニシキゴイ 800 · ギンザメ 140</td><td class="price">ニシキゴイ（秘密の池）</td><td>★★★★</td></tr>
-          <tr><td class="fish-name">🌧️ 雨の夜</td><td>18–24</td><td>ウナギ 150 · ヒラメ 80 · サンドブリーム 55</td><td class="price">ウナギ（Lv7 解放）</td><td>★★★★</td></tr>
-          <tr><td class="fish-name">☀️ 晴れの夜</td><td>18–24</td><td>オマールエビ 260 · フグ 120 · クロダイ 90</td><td class="price">オマールエビ（東の海）</td><td>★★★★</td></tr>
-          <tr><td class="fish-name">🌤️ 通常の日</td><td>終日</td><td>サバ 70 · サケ 60 · カツオ 35</td><td class="price">—</td><td>★★ レベル上げ用</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="grid-guides" style="margin-top:22px">
-      <div class="guide-card now">
-        <span class="guide-count">5〜20 倍</span><span class="emo">🌈</span>
-        <h4 class="display">虹の日のプレミアム</h4>
-        <p>通常の日はいつでも釣れる基礎魚（ミノー 12〜サケ 60）の平均は 1 投げ約 30 コイン。虹の日のシュモクザメはその 20 倍、ニジマスでも 6 倍。同じ一投でも、ウィンドウを選べばリターンが桁違いになります。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">140 コイン</span><span class="emo">🪱</span>
-        <h4 class="display">餌の元が取れるライン</h4>
-        <p>餌はリンゴから合成しますが、リンゴ 1 個をジャムにすると 67 コインの価値 — 30 コインの基礎魚に餌をやるのはリンゴの無駄焼きです。1 匹 140 コイン（ギンザメ・ウナギクラス）以上のウィンドウでこそ餌が回収でき、伝説ウィンドウでは必須。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">易しい順に</span><span class="emo">🏆</span>
-        <h4 class="display">伝説魚の待機順序</h4>
-        <p>3 つの伝説のうち、氷の海の天使が最も条件が緩く（雪の日は終日出現）、ニシキゴイが最も厳しく（晴れの深夜限定＋秘密の池の場所探し）、シュモクザメはレベル制限（Lv10）。当日の天気に合う伝説を狙い、雪の日は絶対に無駄にしないこと。</p>
-      </div>
-    </div>
-    <div class="warn-box" style="margin-top:18px">📊 <b>天気カレンダーと併用を</b> — 虹の日と雪の日は貴重なスケジュールです。まず <a href="weather">天気カレンダー</a> で数日先のウィンドウを確認し、上の表で待機計画を立てましょう。通常の日は餌を浪費せず、釣り場を回って新魚種の解放に専念するのが正解です。</div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">実技講座</span>
-      <h2 class="display"><span class="wavy">糸のさばき方：ラインの色が合図</span></h2>
-    </div>
-    <p class="sec-desc">釣りの核心操作は「引き合いの駆け引き」— ラインの色こそがスタート合図。色の見間違いが大物を逃がす原因ナンバーワンです。</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">安全</span><span class="emo">⬜</span>
-        <h4 class="display">白いライン</h4>
-        <p>糸はたるみ、状態は安全。長押しで巻き取りを続け、回線の隙をしっかり活用。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">減速</span><span class="emo">🟨</span>
-        <h4 class="display">黄色いライン</h4>
-        <p>テンション上昇。一拍置くか点押しで力を調整 — 急がないこと。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">危険</span><span class="emo">🟥</span>
-        <h4 class="display">赤いライン</h4>
-        <p>すぐ手を離すこと！引っ張り続けると糸切れて逃げられます。白か黄に戻ってから再開。</p>
-      </div>
-    </div>
-    <div class="tl" style="margin-top:22px">
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">STEP</span><span class="n">1</span></div>
-        <div class="tl-body">
-          <h4 class="display">魚影のそばにキャスト</h4>
-          <p>水中の魚影を見つけたら、その近くに浮きを投げて食いつきを待つ。震えやビックリマークが出たらヒットです。</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">STEP</span><span class="n">2</span></div>
-        <div class="tl-body">
-          <h4 class="display">長押しでファイト、ラインの色を注視</h4>
-          <p>長押しで駆け引き開始、最後までラインの色から目を離さない：白 → 黄 → 赤がサイクルで巡り、赤では必ず手を離す。</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">STEP</span><span class="n">3</span></div>
-        <div class="tl-body">
-          <h4 class="display">大きな魚影は多段の引き合い</h4>
-          <p>体の大きな魚ほど引き合いの回数が増えます、焦らず冷静に。りんごから合成した餌や魚寄せ（青く光る魚影）で食いつき率と品質を底上げできます。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display gold" style="background:var(--gold);color:#fff">イベント</span>
-      <h2 class="display"><span class="wavy">釣り大会とコレクション実績</span></h2>
-    </div>
-    <p class="sec-desc">釣りは日々の売却以外にも、周期的な大会と長期のコレクション目標があります。報酬はどちらも限定品。</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">漁村の船</span><span class="emo">⚓</span>
-        <h4 class="display">釣り大会の遊び方</h4>
-        <p>大会は漁村の船で開始。時間内にできるだけ多く釣り上げます：個人目標 5 匹・チーム合計 30 匹でクリア、報酬はサプライズガチャカプセル。人魚の香水で短時間の効率アップも。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">メダル</span><span class="emo">🏅</span>
-        <h4 class="display">図鑑コレクションのマイルストーン</h4>
-        <p>10 種解放でブロンズ釣りメダル、50 種でシルバー、全図鑑完成でゴールド釣りメダルと特製ロッド — コレクターの一生の好敵手。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">称号</span><span class="emo">👑</span>
-        <h4 class="display">釣りの実績一覧</h4>
-        <p>釣りの趣味レベル 10 で「熟練釣り客」の称号、大会の隠しステージ累計 10 回で「釣り師」、魚群の発生累計 100 回で「魚群の祝福」。</p>
-      </div>
-      <a class="guide-card" href="money">
-        <span class="guide-count">エコノミクス</span><span class="emo">💰</span>
-        <h4 class="display">釣りのいちばんお得な金策</h4>
-        <p>高単価魚 TOP10 + 天気ごとのリターン分析</p>
-        <span class="go">攻略を見る →</span>
-      </a>
-      <a class="guide-card" href="codes">
-        <span class="guide-count">毎日 18:00</span><span class="emo">🎁</span>
-        <h4 class="display">出撃前に今日のギフトコード</h4>
-        <p>釣りに出かける前にワンクリックでコピー — 報酬はメールボックスへ</p>
-        <span class="go">コードを受け取る →</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">価値チェーン</span>
-      <h2 class="display"><span class="wavy">釣った後はどうする？売るか、料理するか</span></h2>
-    </div>
-    <p class="sec-desc">漁獲の行き先は 3 つ：そのまま売る、料理で価値を上げる、図鑑に寄贈する。使い分けができる人が得をします。</p>
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">初</span><span class="n">釣</span></div>
-        <div class="tl-body">
-          <h4 class="display">🐟 新魚種はまず図鑑に寄贈 <span class="todo">図鑑報酬は隠れた資産</span></h4>
-          <p>初めて釣った新種は優先して寄贈して図鑑報酬を回収 — 図鑑の進捗とコレクション実績自体が隠れた収入です。重複した分から売りましょう。</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">料</span><span class="n">理</span></div>
-        <div class="tl-body">
-          <h4 class="display">🍳 料理で魚価は 2 倍 <span class="todo">素材 → 料理で利益アップ</span></h4>
-          <p>料理にしたほうが直売より稼げる魚は多い：サケの握り寿司は生サケ直売より約 350 コイン得。星 1 で 130 未満の魚はフィッシュアンドチップス（星 1 ジャガイモと）向き、貝 2 + 魚 2 で豪華シーフード盛り合わせに。詳細は <a href="recipes">料理レシピ</a> へ。</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">直</span><span class="n">売</span></div>
-        <div class="tl-body">
-          <h4 class="display">🛒 高額魚は迷わず直売 <span class="todo">伝説級は即決</span></h4>
-          <p>ニシキゴイ、氷の海の天使、シュモクザメといった伝説級の漁獲はそのまま売るのがいちばん楽 — 単価が高く、キッチンの生産力にも依存しません。日々貯めた低星の魚はキッチンに任せれば、どちらも無駄が出ません。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">FAQ</span>
-      <h2 class="display"><span class="wavy">釣り FAQ</span></h2>
-    </div>
-    <details class="faq" open>
-      <summary>今すぐ釣れる魚は？</summary>
-      <div class="a">上の<b>「今、何が釣れる？」</b>パネルを使ってください。既定では端末の時刻に追従します — 天気を選ぶだけでライブ絞り込みできます。天気は<a href="weather">天気カレンダー</a>（公式の固定スケジュール）に合わせて。</div>
-    </details>
-    <details class="faq">
-      <summary>虹の日に釣れる伝説級の魚は？</summary>
-      <div class="a">昼間は<b>シュモクザメ（クジラ海・600 コイン）</b>と<b>ニジマス（湖・180 コイン）</b>。通常は雨の夜の魚である<b>ウナギ</b>も、虹の日の夜には現れます。ただし、虹の日の限定魚の一部は釣りの趣味レベルが条件です（上のレベル解放表を参照）。</div>
-    </details>
-    <details class="faq">
-      <summary>ニシキゴイはどこで釣れる？</summary>
-      <div class="a"><b>秘密の池で夜（00:00–06:00）</b>のみ、晴れの日限定です。天気カレンダーで翌日が晴れか確認して、アラームをセットしましょう。</div>
-    </details>
-    <details class="faq">
-      <summary>エビはどこで釣れる？</summary>
-      <div class="a">3 種類います：<b>サクラエビ</b>（温泉の小川 · 晴れの朝 · 65 コイン）、<b>海エビ</b>（東の海 · 終日 · 25 コイン）、<b>オマールエビ</b>（東の海 · 夜 · 晴れ/雨 · 260 コイン）。夜の東の海がいちばん効率的です。</div>
-    </details>
-    <details class="faq">
-      <summary>ウナギはどこで釣れる？何時？</summary>
-      <div class="a"><b>旧海</b>（灯台方面の古い海域）で、<b>雨の夜 18:00–24:00</b> が狙い時（150 コイン）。虹の日の夜にも現れます。釣りの趣味レベル 7 で解放。</div>
-    </details>
-    <details class="faq">
-      <summary>いちばん高く売れる魚は？</summary>
-      <div class="a">伝説級：ニシキゴイ 800、氷の海の天使 750、シュモクザメ 600。高単価の周回候補はズワイガニ 300 とオマールエビ 260。レア度は各カードの右上に表示されています。</div>
-    </details>
-    <details class="faq">
-      <summary>釣りレベルはどう上げるのが一番速い？</summary>
-      <div class="a">経験値は主に<b>新魚種の解放</b>から。同じ魚の再キャッチはほぼ無意味です。速攻ルート：釣り場を順番に回って未解放の魚種を優先し、特殊天気は限定魚（＝丸ごと新魚種）の集中チャンスにする。</div>
-    </details>
-    <details class="faq">
-      <summary>ラインがしょっちゅう切れるのはどうすればいい？</summary>
-      <div class="a">断線はほぼ<b>赤いラインのまま引っ張り続けた</b>のが原因 — 赤に変わったら即手を離し、白か黄に戻ってから再開。竿のメンテナンスのレベルが上がると耐久消費が減り、駆け引きの達人で許容範囲が広がります。</div>
-    </details>
-    <details class="faq">
-      <summary>釣り大会はいつ始まる？報酬は？</summary>
-      <div class="a">大会は<b>漁村の船</b>で受付。時間内の釣り上げチャレンジで、個人目標 5 匹・チーム合計 30 匹、報酬はサプライズガチャカプセル。開始前に人魚の香水で短時間の効率アップも可能です。</div>
-    </details>
-  </section>
-
-</main>
+<main class="wrap"><section id="now" style="padding-top:28px"><h2 class="display">今、何が釣れる？</h2><div class="panel" id="catchPlanner">
+<div class="planner-toolbar"><label>時計の基準<select id="plannerMode" aria-label="時計の基準"><option value="source">情報源カレンダー（UTC+8）</option><option value="custom">自分のサーバー時刻・観測天気</option></select></label><label id="plannerOffsetRow" hidden>サーバーのUTC時差<input id="plannerOffset" aria-label="サーバーのUTC時差" type="number" min="-12" max="14" step="0.25" value="8"></label><label>計画用の時間区分<select id="plannerPeriod" aria-label="計画用の時間区分"><option value="auto">選択した時計に合わせる</option><option value="morning">朝（06–12）</option><option value="afternoon">午後（12–18）</option><option value="evening">夜（18–24）</option><option value="night">深夜（00–06）</option></select></label><label>観測した天気<select id="plannerWeather" aria-label="観測した天気"><option value="">天気を選択</option><option value="sunny">晴れ</option><option value="rain">雨</option><option value="rainbow">虹</option><option value="snow">雪</option></select></label><label>自分の釣りレベル<input id="plannerLevel" aria-label="自分の釣りレベル" type="number" min="1" max="99" step="1" value="1"></label></div>
+<p class="planner-clock" id="plannerClock">UTC+8</p><p class="planner-scope" id="plannerCondition">予定を立てる前に情報の日付を確認してください。TapTapコミュニティの記録が基準で、すべてのゲーム地域との一致を独立検証したものではありません。</p><p class="planner-note" id="plannerScope">既存のコミュニティ攻略データ24件を使用しています。網羅性、翻訳した地名、正確な条件はゲーム内での再確認待ちです。完全な公式図鑑ではありません。</p><details class="planner-note"><summary>ⓘ データ範囲と解放レベル</summary><p>登録データの解放レベルは未確認です。レベルは設定として保存します。ゲーム内図鑑で解放済みの項目にチェックすると確実に絞り込めます。6時間区分は計画用で、魚ごとの確認済み出現時間ではありません。</p></details>
+<div class="planner-checks"><label><input type="checkbox" id="plannerBrowseAll">全登録のリストを管理（天気・時間で絞り込まない）</label><label><input type="checkbox" id="plannerMissing">未収集のみ</label><label><input type="checkbox" id="plannerUnlocked">自分の解放済みのみ</label></div>
+<label for="plannerSearch">魚名・場所を検索</label><input class="search-input" id="plannerSearch" type="search" autocomplete="off" placeholder="魚名・場所を検索">
+<div class="planner-summary"><strong id="plannerCount" role="status" aria-live="polite"></strong><button type="button" class="planner-action" id="plannerShare">予定リンクをコピー</button><button type="button" class="planner-action" id="plannerClear">チェックリストを消去</button></div><input class="search-input" id="plannerShareUrl" readonly hidden aria-label="Plan URL"><p class="planner-status" id="plannerStatus" role="status"></p><p class="planner-note">収集・解放リストとレベルはこのブラウザ内に保存します。登録不要です。保存した収集リストは消去ボタンで削除できます。</p>
+<div class="fish-grid" id="plannerResults"><p class="planner-empty">天気を選択. 既存のコミュニティ攻略データ24件を使用しています。網羅性、翻訳した地名、正確な条件はゲーム内での再確認待ちです。完全な公式図鑑ではありません。</p></div></div></section>
+<section><h2 class="display">記録の使い方</h2><p class="sec-desc">既存のコミュニティ攻略データ24件を使用しています。網羅性、翻訳した地名、正確な条件はゲーム内での再確認待ちです。完全な公式図鑑ではありません。</p><details><summary>部分的な登録データを見る (24)</summary><div class="tbl-scroll"><table class="planner-static-table"><thead><tr><th scope="col">魚名</th><th scope="col">コミュニティの地名表記</th><th scope="col">時間の表記</th><th scope="col">天気の表記</th></tr></thead><tbody><tr><td>ミノー</td><td>静かな川</td><td>終日</td><td>晴れ / 雨 / 虹</td></tr><tr><td>ブルーギル</td><td>静かな川</td><td>朝 / 昼</td><td>晴れ</td></tr><tr><td>サンドブリーム</td><td>静かな川</td><td>終日</td><td>雨</td></tr><tr><td>パーチ</td><td>川</td><td>終日</td><td>晴れ / 雨 / 虹</td></tr><tr><td>ニジマス</td><td>湖</td><td>朝 / 昼</td><td>虹</td></tr><tr><td>サクラエビ</td><td>温泉の小川</td><td>朝</td><td>晴れ</td></tr><tr><td>海エビ</td><td>東の海</td><td>終日</td><td>晴れ / 雨 / 虹</td></tr><tr><td>カツオ</td><td>全海域</td><td>終日</td><td>晴れ / 雨 / 虹</td></tr><tr><td>サケ</td><td>全海域</td><td>終日</td><td>晴れ / 雨 / 虹</td></tr><tr><td>アジ</td><td>全海域</td><td>終日</td><td>晴れ / 雨 / 虹</td></tr><tr><td>イワシ</td><td>旧海 · クジラ海</td><td>終日</td><td>晴れ / 雨</td></tr><tr><td>フグ</td><td>旧海</td><td>昼 / 夜</td><td>晴れ</td></tr><tr><td>ヒラメ</td><td>旧海</td><td>夜 / 深夜</td><td>晴れ / 雨</td></tr><tr><td>ウナギ</td><td>旧海</td><td>夜</td><td>雨 / 虹</td></tr><tr><td>クロダイ</td><td>旧海</td><td>夜</td><td>晴れ</td></tr><tr><td>シュモクザメ</td><td>クジラ海</td><td>朝 / 昼</td><td>虹</td></tr><tr><td>サバ</td><td>クジラ海</td><td>終日</td><td>晴れ / 雨</td></tr><tr><td>アトランティックサーモン</td><td>クジラ海</td><td>終日</td><td>晴れ / 雨</td></tr><tr><td>ギンザメ</td><td>全海域</td><td>深夜</td><td>晴れ</td></tr><tr><td>ギンコショウドジョウ</td><td>旧海</td><td>終日</td><td>晴れ</td></tr><tr><td>オマールエビ</td><td>東の海</td><td>夜</td><td>晴れ / 雨</td></tr><tr><td>ズワイガニ</td><td>氷雪海域</td><td>夜</td><td>雪</td></tr><tr><td>氷の海の天使</td><td>氷雪海域</td><td>終日</td><td>雪</td></tr><tr><td>ニシキゴイ</td><td>秘密の池</td><td>深夜</td><td>晴れ</td></tr></tbody></table></div></details></section>
+<section><h2 class="display">目的別ガイド</h2><div class="planner-guides" id="focusedGuideLinks"><a href="rain-fishing-guide">ハートピア 雨の日の釣りガイド：出発前の準備と釣れない時の確認</a><a href="rainbow-planning-guide">ハートピア 虹の天気ガイド：短い時間で迷わない行動計画</a><a href="fish-collection-guide">ハートピア 魚図鑑の埋め方：未収集の整理と出現条件の確認</a><a href="weather-time-guide">ハートピア 天気カレンダーの読み方：サーバー時刻・日付・未確認情報</a><a href="small-house-planning-guide">ハートピア 小さな家の作り方：間取りから考える建築計画</a></div><a class="planner-action" href="weather">📅 ハートピアの今日の天気 →</a></section></main>
 
 <footer>
   <div class="foot-logo display">🏡 ハートピア攻略手帳</div>
@@ -473,7 +75,7 @@
     <a href="about">当サイトについて</a>
     <a href="changelog">更新履歴</a>
   </div>
-  <p>魚のデータはゲーム内図鑑とコミュニティ攻略をクロス編集 · 天気で変わる出現は公式の固定スケジュールに従います</p>
+  <p>コミュニティの部分的な登録データです。最新条件はゲーム内図鑑で確認してください。</p>
   <p class="foot-contact">📮 データ訂正・お問い合わせ：<a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a></p>
   <p>非公式のファンメイド攻略プロジェクトであり、XD Inc. とは無関係 · 『ハートピア』のゲーム素材は各著作権者に帰属</p>
 </footer>
@@ -481,102 +83,12 @@
 <script src="../assets/js/common.js"></script>
 <script src="../assets/js/lang.js"></script>
 <script src="../data/fish-ja.js"></script>
-<script>
-const FISH = window.HEARTOPIA_FISH || [];
-const RARITY = window.HEARTOPIA_RARITY || {};
-const state = {period:'',weather:'晴れ',auto:true,q:''};
-const timeChips = $$('#timeChips .chip');
-const weatherChips = $$('#weatherChips .chip');
 
-function periodOf(h){
-  if(h>=6&&h<12) return '朝';
-  if(h>=12&&h<18) return '昼';
-  if(h>=18&&h<24) return '夜';
-  return '深夜';
-}
-function pad(n){return String(n).padStart(2,'0')}
-
-function tick(){
-  const now = new Date();
-  $('#clockText').textContent = '現在 ' + pad(now.getHours())+':'+pad(now.getMinutes()) + ' · ' + periodOf(now.getHours());
-  if(state.auto){
-    state.period = periodOf(now.getHours());
-    syncChips();
-    renderFish();
-  }
-}
-function syncChips(){
-  timeChips.forEach(c=>c.classList.toggle('active',c.dataset.period===state.period));
-  weatherChips.forEach(c=>c.classList.toggle('active',c.dataset.weather===state.weather));
-}
-function match(f){
-  const timeOk = f.times.includes('終日')||f.times.includes(state.period);
-  const weatherOk = f.weathers.includes(state.weather);
-  const q = state.q.trim().toLowerCase();
-  const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
-  return timeOk && weatherOk && qOk;
-}
-function cardHTML(f,i,useH){
-  const r = RARITY[f.rarity] || {label:'?',cls:''};
-  const timeTxt = f.times.includes('終日')?'終日':f.times.join('/');
-  const legend = f.rarity===4;
-  const nameOpen = useH ? '<h3 class="name">' : '<span class="name">';
-  const nameClose = useH ? '</h3>' : '</span>';
-  return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
-    +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
-    +nameOpen+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)
-    +(useH?'<span class="h-loc">（'+esc(f.loc)+'）</span>':'')+nameClose
-    +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
-    +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
-    +'<span class="tag time">🕐'+timeTxt+'</span>'
-    +'<span class="tag">'+f.weathers.join('/')+'</span></div>'
-    +'<div class="fish-price">💰 '+f.price+' コイン</div>'
-    +'<p class="fish-note kai">'+esc(f.note)+'</p>'
-    +'</div>';
-}
-function renderFish(){
-  const list = FISH.filter(match);
-  const grid = $('#fishGrid');
-  grid.innerHTML = list.length
-    ? list.map((f,i)=>cardHTML(f,i)).join('')
-    : '<div class="empty"><span class="emo">🎣</span>この条件では釣れる魚がいません — 天気や時間帯を変えてみると、意外な収穫があるかも。</div>';
-  $('#resultSummary').innerHTML = '今釣れる魚は <b>'+list.length+'</b> 種';
-  renderAll();
-}
-function renderAll(){
-  const q = state.q.trim().toLowerCase();
-  const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
-  $('#fishGridAll').innerHTML = list.length
-    ? list.map((f,i)=>cardHTML(f,i,true)).join('')
-    : '<div class="empty"><span class="emo">🔍</span>該当する魚が見つかりません — 別のキーワードで試してください。</div>';
-}
-timeChips.forEach(c=>{
-  c.addEventListener('click',()=>{
-    state.auto = false;
-    $('#autoSwitch').classList.remove('on');
-    state.period = c.dataset.period;
-    syncChips();
-    renderFish();
-  });
-});
-weatherChips.forEach(c=>{
-  c.addEventListener('click',()=>{
-    state.weather = c.dataset.weather;
-    syncChips();
-    renderFish();
-  });
-});
-$('#autoSwitch').addEventListener('click',e=>{
-  state.auto = !state.auto;
-  e.currentTarget.classList.toggle('on',state.auto);
-  if(state.auto) tick();
-});
-$('#searchInput').addEventListener('input',e=>{
-  state.q = e.target.value;
-  renderFish();
-});
-tick();
-setInterval(tick,30000);
-</script>
+<script src="../data/weather-plan.js"></script>
+<script src="../data/fish-identities.js"></script>
+<script src="../assets/js/analytics-config.js"></script>
+<script src="../assets/js/analytics.js"></script>
+<script src="../assets/js/planner-core.js"></script>
+<script src="../assets/js/fishing-planner.js"></script>
 </body>
 </html>

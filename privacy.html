@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <!-- adsense:auto-ads -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="assets/css/planner.css">
 </head>
 <body data-page="privacy">
 
@@ -104,6 +105,7 @@
     <p><b>联系我们</b>：如有任何疑问，欢迎通过 <a href="https://github.com/yinmin66880-beep/heartopia-guide/issues" target="_blank" rel="noopener">GitHub Issues</a> 留言。</p>
   </section>
 
+<section id="plannerPrivacy"><h2>钓鱼清单与可选访问统计</h2><p>钓鱼规划器仅在此浏览器保存收集、解锁记录和设置；清空清单可移除收集记录。Google Analytics 在配置统计属性且你选择允许后才加载。拒绝统计不影响工具功能，你可通过下方按钮撤回同意。</p><button type="button" class="planner-action" onclick="localStorage.setItem('heartopia-analytics-consent','denied');location.reload()">撤回可选统计同意</button></section>
 </main>
 
 <footer>
@@ -129,5 +131,7 @@
 
 <script src="assets/js/common.js"></script>
 <script src="assets/js/lang.js"></script>
+<script src="assets/js/analytics-config.js"></script>
+<script src="assets/js/analytics.js"></script>
 </body>
 </html>

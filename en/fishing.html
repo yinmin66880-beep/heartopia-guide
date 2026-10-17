@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heartopia Fishing Encyclopedia (All 24 Fish · Time/Weather/Location Lookup) | Heartopia Guide</title>
-<meta name="description" content="Heartopia complete fish encyclopedia: all 24 species with active hours, weather conditions, locations and sell prices, plus a real-time "what can I catch right now" lookup — Hammerhead Shark and Rainbow Trout on rainbow days, European Eel on rainy nights, Koi at the secret pond past midnight.">
+<title>Heartopia Fish Guide &amp; Catch Planner | Heartopia Guide</title>
+<meta name="description" content="Plan a Heartopia fishing session using observed weather and server time. Search a partial community fish catalog and save caught and unlocked checklists.">
 <meta name="keywords" content="Heartopia fishing,Heartopia fish,Heartopia fishing guide,Heartopia koi,Heartopia hammerhead shark,Heartopia legendary fish">
 <link rel="canonical" href="https://heartopiaguide.net/en/fishing">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/fishing">
@@ -13,70 +13,20 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/fishing">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/fishing">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Heartopia Fishing Encyclopedia (All 24 Fish · Time/Weather/Location Lookup) | Heartopia Guide">
-<meta property="og:description" content="24 species × time × weather × location lookup, telling you what's biting right now.">
+<meta property="og:title" content="Heartopia Fish Guide &amp; Catch Planner | Heartopia Guide">
+<meta property="og:description" content="Plan a Heartopia fishing session using observed weather and server time. Search a partial community fish catalog and save caught and unlocked checklists.">
 <meta property="og:url" content="https://heartopiaguide.net/en/fishing">
 <meta name="theme-color" content="#FAF5EA">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What can I catch right now?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use the \"What's Biting Right Now\" panel above: it follows your local time by default — just pick the weather to filter live. Weather should follow the weather calendar (official fixed schedule)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which legendary fish can I catch on a rainbow day?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "During the daytime: the Hammerhead Shark (Whale Sea, 600 coins) and Rainbow Trout (Lake, 180 coins). The European Eel, normally a rainy-night fish, also appears on rainbow-day evenings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where do I catch the Koi?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Only at the Secret Pond at night (00:00–06:00), and only on sunny days. Check the weather calendar to confirm tomorrow is sunny, then set an alarm."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where can I catch shrimp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Three kinds: Sakura Shrimp at the Hot Spring Creek on sunny mornings (65 coins), Sea Shrimp in the Eastern Sea all day (25 coins), and European Lobster in the Eastern Sea at night in sun or rain (260 coins). The Eastern Sea at night is the most efficient spot."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where can I catch the eel? At what time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "In the Old Sea (the old waters near the lighthouse), best on rainy nights 18:00–24:00 (150 coins). It also appears on rainbow-day evenings. Unlocks at fishing hobby level 7."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which fish sell for the most?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Legendary tier: Koi 800, Ice Sea Angel 750, Hammerhead Shark 600. High-value farmables include European Lobster 260 and Snow Crab 300. Rarity is marked on the top-right of each card."
-      }
-    }
-  ]
-}
-</script>
+
 <!-- adsense:auto-ads -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../assets/css/planner.css">
+<meta property="og:image" content="https://heartopiaguide.net/assets/social/weather-fishing-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body data-page="fishing">
 
@@ -97,341 +47,17 @@
   </div>
 </nav>
 
-<header class="page-hero">
-  <p class="crumbs"><a href="./">Home</a> / Fishing Encyclopedia</p>
-  <span class="hero-kicker display blue">🎣 Tool · Real-time</span>
-  <h1 class="display">Fishing <em>Lookup</em></h1>
-  <p class="page-sub">Heartopia's fish are picky about time and weather — set the current conditions and instantly see <b>what you can catch</b>; scroll down for the complete profiles of <b>all 24 species</b>.</p>
-</header>
+<header class="page-hero"><p class="crumbs"><a href="./">Heartopia Guide</a> / Heartopia Fish &amp; Catch Planner</p><span class="hero-kicker display">🎣 Browse the partial catalog</span><h1 class="display">Heartopia Fish &amp; Catch Planner</h1><p class="page-sub">Find catalog entries matching your chosen conditions and keep a personal collection checklist. Confirm species names, locations and exact requirements in your in-game codex.</p></header>
 
-<main class="wrap">
-
-  <section class="reveal" style="padding-top:40px" id="now">
-    <div class="sec-head">
-      <span class="sec-tag display blue">Real-time</span>
-      <h2 class="display"><span class="wavy">What's Biting Right Now</span></h2>
-    </div>
-    <p class="sec-desc">Follows your local clock by default and auto-updates; pair it with the <a href="weather">weather schedule</a> for accuracy — wrong weather, wrong fish.</p>
-    <div class="panel">
-      <div class="ctrl-row">
-        <span class="ctrl-label">🕐 Time of day</span>
-        <button class="switch on" id="autoSwitch" title="Follow local time"><span class="knob"></span></button>
-        <span class="switch-text" id="clockText">—</span>
-        <div class="chips" id="timeChips">
-          <button class="chip" data-period="Morning">Morning <small>06–12</small></button>
-          <button class="chip" data-period="Afternoon">Afternoon <small>12–18</small></button>
-          <button class="chip" data-period="Evening">Evening <small>18–24</small></button>
-          <button class="chip" data-period="Night">Night <small>00–06</small></button>
-        </div>
-      </div>
-      <div class="ctrl-row">
-        <span class="ctrl-label">☁️ Current weather</span>
-        <div class="chips" id="weatherChips">
-          <button class="chip wx sunny" data-weather="Sunny">☀️ Sunny</button>
-          <button class="chip wx rainy" data-weather="Rainy">🌧️ Rainy</button>
-          <button class="chip wx rainbow" data-weather="Rainbow">🌈 Rainbow</button>
-          <button class="chip wx snow" data-weather="Snowy">❄️ Snowy</button>
-        </div>
-      </div>
-      <hr class="divider-dash">
-      <div class="search-bar">
-        <input class="search-input" id="searchInput" type="text" placeholder="🔍 Search fish, location or traits, e.g. &quot;rainbow&quot;, &quot;Old Sea&quot;…">
-        <span class="result-summary" id="resultSummary"></span>
-      </div>
-      <div class="fish-grid" id="fishGrid"></div>
-    </div>
-  </section>
-
-  <section class="reveal" id="dex">
-    <div class="sec-head">
-      <span class="sec-tag display">Encyclopedia</span>
-      <h2 class="display"><span class="wavy">All Species (24)</span></h2>
-    </div>
-    <p class="sec-desc">The complete archive, unaffected by current filters — type a fish name or location in the search box to jump to it. Legendary cards have the ✨ gold frame.</p>
-    <div class="fish-grid" id="fishGridAll"></div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">Legendary</span>
-      <h2 class="display"><span class="wavy">Legendary Catches</span></h2>
-    </div>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">800 coins</span><span class="emo">🎏</span>
-        <h4 class="display">Koi · Secret Pond</h4>
-        <p>Only appears at the Secret Pond at night (00–06), sunny days only. One of the rarest catches in the encyclopedia — a must for the dedicated.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">750 coins</span><span class="emo">🐟</span>
-        <h4 class="display">Ice Sea Angel · Frozen Waters</h4>
-        <p>Roams the Frozen Waters all day during snow. A fish said to carry winter's blessing — don't miss the winter schedule.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">600 coins</span><span class="emo">🦈</span>
-        <h4 class="display">Hammerhead Shark · Whale Sea</h4>
-        <p>Rainbow-day daytime exclusive (morning/afternoon) — get that rod fully bent. Rainbow days are on the weather calendar.</p>
-      </div>
-      <a class="guide-card" href="weather">
-        <span class="guide-count">Schedule</span><span class="emo">📅</span>
-        <h4 class="display">When is the next rainbow day</h4>
-        <p>Weather follows a fixed official schedule — check the calendar and camp out accordingly</p>
-        <span class="go">See calendar →</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display blue">Spot Map</span>
-      <h2 class="display"><span class="wavy">Fishing Spot Guide</span></h2>
-    </div>
-    <p class="sec-desc">Heartopia's waters are scattered across the town, and each spot has almost no overlapping species — check this table before deciding where to cast. Prices and conditions follow the in-game encyclopedia.</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>Spot</th><th>Where</th><th>Signature species</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="fish-name">🏞️ Quiet River / Rivers</td><td>Through the town center</td><td>Minnow · Perch · Sand Borer</td><td>Beginner's first lesson, bites all day</td></tr>
-          <tr><td class="fish-name">⛰️ Lakes (Outskirts / Forest)</td><td>Forest area</td><td>Rainbow Trout · Roach · Largemouth Bass</td><td>Rainbow-trout window on rainbow mornings</td></tr>
-          <tr><td class="fish-name">♨️ Hot-spring Stream / Mountain Lake</td><td>Hot Spring Mountain</td><td>Sakura Shrimp · Golden Carp · Lionhead Goldfish</td><td>Rare ornamental fish; lionhead on rainbow days</td></tr>
-          <tr><td class="fish-name">🌊 East Sea</td><td>East coast</td><td>Sea Shrimp · European Lobster</td><td>Reliable night lobster spot (260 coins)</td></tr>
-          <tr><td class="fish-name">🏴 Old Sea</td><td>Lighthouse waters</td><td>Pufferfish · European Flounder · European Eel · Black Seabream</td><td>The exclusive ground for rainy-night eels</td></tr>
-          <tr><td class="fish-name">🐋 Whale Sea</td><td>Northern open sea</td><td>Hammerhead Shark · Atlantic Mackerel · Atlantic Salmon</td><td>Main stage for rainbow-day legendaries</td></tr>
-          <tr><td class="fish-name">🧊 Frozen Waters</td><td>Winter season only</td><td>Snow Crab · Ice Sea Angel · Ice-crystal series</td><td>Opens only in the ice season; densest limited pool</td></tr>
-          <tr><td class="fish-name">🕳️ Secret Pond</td><td>Hidden spot</td><td>Koi · Midnight Koi</td><td>Night-only; the legendary camping ground</td></tr>
-          <tr><td class="fish-name">💦 Waterfall / Hot Spring</td><td>Hot Spring Mountain</td><td>Waterfall Trout · Waterfall Bass · Spring Eel</td><td>Special spots with rare species</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="warn-box" style="margin-top:18px">🗺️ <b>Route tip</b> — For daily runs, the "River → Lake → East Sea" triangle is the best value; save special trips for weather windows (Whale Sea on rainbow days, Old Sea on rainy nights, Frozen Waters in snow). Camping limited fish on normal days is a waste of time — they simply won't bite.</div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">Progression</span>
-      <h2 class="display"><span class="wavy">Fishing Hobby Levels: Unlocks &amp; Rewards</span></h2>
-    </div>
-    <p class="sec-desc">Fishing XP comes from unlocking new species — landing a fish you've never caught is what levels you up, so repeat-catching the same species earns very little. Higher levels unlock rarer fish and better tools.</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>Hobby level</th><th>Key rewards</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="price">Lv. 1</td><td>Fishing Skill 1 · Fish Quality 1</td><td>Starter perks; drop quality starts improving</td></tr>
-          <tr><td class="price">Lv. 2</td><td>Rod Maintenance 1 · Fish Quality 2</td><td>Lower rod durability drain</td></tr>
-          <tr><td class="price">Lv. 4</td><td>Fish Lure · Tactician 1</td><td>The lure summons glowing blue fish shadows</td></tr>
-          <tr><td class="price">Lv. 6</td><td>Mermaid Perfume · Tactician 2</td><td>Perfume helps complete fishing event goals</td></tr>
-          <tr><td class="price">Lv. 10</td><td>Tactician 4 · Rod Maintenance 5</td><td>Near-maxed reeling tolerance and rod care</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="warn-box" style="margin-top:18px;background:rgba(232,184,75,.1);border-color:rgba(232,184,75,.45)">🌈 <b>Rainbow-day species also unlock by level</b> — Lv. 6: Chum Salmon, Giant Pearl Mussel, Fine-scale Greenfin; Lv. 7: European Eel; Lv. 8: King Crab, Golden King Crab; Lv. 9: Danube Roach, Bluefin Tuna; Lv. 10: Shortfin Mako, Hammerhead Shark, Swordfish. Level up in advance — low levels can't hook some legendaries even on a rainbow day.</div>
-  </section>
-
-  <section class="reveal" id="windows">
-    <div class="sec-head">
-      <span class="sec-tag display coral" style="background:var(--coral)">Deep Dive</span>
-      <h2 class="display"><span class="wavy">Fishery Economics: What Each Weather Window Is Worth</span></h2>
-    </div>
-    <p class="sec-desc">We re-aggregated the sell prices of all 24 species in our encyclopedia by weather × time slot — the gap between windows becomes obvious. All numbers come from this site's 1-star baseline prices, so you can verify them in-game.</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>Weather window</th><th>Hours</th><th>High-value targets</th><th>Star catch</th><th>Output rating</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="fish-name">🌈 Rainbow</td><td>Morning / Afternoon</td><td>Hammerhead Shark 600 · Rainbow Trout 180</td><td class="price">Hammerhead (Lv 10)</td><td>★★★★★</td></tr>
-          <tr><td class="fish-name">❄️ Snow</td><td>All day / Night</td><td>Ice Sea Angel 750 · Snow Crab 300</td><td class="price">Ice Sea Angel</td><td>★★★★★ seasonal</td></tr>
-          <tr><td class="fish-name">☀️ Sunny late night</td><td>00–06</td><td>Koi 800 · Silver Chimaera 140</td><td class="price">Koi (Secret Pond)</td><td>★★★★</td></tr>
-          <tr><td class="fish-name">🌧️ Rainy night</td><td>18–24</td><td>European Eel 150 · European Flounder 80 · Sand Bream 55</td><td class="price">European Eel (Lv 7)</td><td>★★★★</td></tr>
-          <tr><td class="fish-name">☀️ Sunny night</td><td>18–24</td><td>European Lobster 260 · Pufferfish 120 · Blackspot Sea Bream 90</td><td class="price">European Lobster (East Sea)</td><td>★★★★</td></tr>
-          <tr><td class="fish-name">🌤️ Ordinary day</td><td>All day</td><td>Atlantic Mackerel 70 · Salmon 60 · Bonito 35</td><td class="price">—</td><td>★★ for leveling</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="grid-guides" style="margin-top:22px">
-      <div class="guide-card now">
-        <span class="guide-count">5–20×</span><span class="emo">🌈</span>
-        <h4 class="display">The rainbow premium</h4>
-        <p>On ordinary days the always-available base fish (Minnow 12 ~ Salmon 60) average only ~30 coins per cast. In the rainbow window, the Hammerhead is worth 20× that and the Rainbow Trout 6×. Same cast — pick the right window and the payoff multiplies.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">140 coins</span><span class="emo">🪱</span>
-        <h4 class="display">The bait break-even line</h4>
-        <p>Bait is crafted from apples, and each apple turned into jam is worth 67 coins — feeding bait to a 30-coin base fish just burns apples. Only windows where fish go for 140+ coins (Silver Chimaera / European Eel tier) justify bait; legendary windows always do.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">Easy first</span><span class="emo">🏆</span>
-        <h4 class="display">Legendary camping order</h4>
-        <p>Of the three legendaries, the Ice Sea Angel has the loosest conditions (snow, all day), the Koi is the pickiest (sunny late night only, plus finding the Secret Pond), and the Hammerhead is level-gated (Lv 10). Camp whichever legendary matches today's weather — never waste a snow day.</p>
-      </div>
-    </div>
-    <div class="warn-box" style="margin-top:18px">📊 <b>Pair with the weather calendar</b> — Rainbow and snow days are scarce in the schedule. Circle the next few days' windows on the <a href="weather">weather calendar</a> first, then plan your camping with the table above; on ordinary days just rotate spots to unlock new species instead of burning bait.</div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">Technique</span>
-      <h2 class="display"><span class="wavy">The Reel Battle: Read the Line Color</span></h2>
-    </div>
-    <p class="sec-desc">Fishing's core mechanic is the reel tug-of-war — the line color is your starting gun, and misreading it is the #1 reason big fish escape.</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">Safe</span><span class="emo">⬜</span>
-        <h4 class="display">White line</h4>
-        <p>The line is slack and safe — hold to reel in continuously and bank the window.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">Caution</span><span class="emo">🟨</span>
-        <h4 class="display">Yellow line</h4>
-        <p>Tension is rising — ease off or tap lightly instead of holding. Don't get greedy.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">Danger</span><span class="emo">🟥</span>
-        <h4 class="display">Red line</h4>
-        <p>Release immediately! Keep pulling and the line snaps. Wait for white/yellow again.</p>
-      </div>
-    </div>
-    <div class="tl" style="margin-top:22px">
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">Step</span><span class="n">1</span></div>
-        <div class="tl-body">
-          <h4 class="display">Cast near the fish shadow</h4>
-          <p>Spot a shadow in the water, drop your bobber next to it, and wait for the bite — a shake or exclamation mark means it's hooked.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">Step</span><span class="n">2</span></div>
-        <div class="tl-body">
-          <h4 class="display">Hold to reel, watch the color</h4>
-          <p>Press and hold to start the battle. The color cycles white → yellow → red; whenever it turns red, let go.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">Step</span><span class="n">3</span></div>
-        <div class="tl-body">
-          <h4 class="display">Big shadows take patience</h4>
-          <p>The bigger the shadow, the more tug cycles it takes. Apple-crafted bait and the fish lure (glowing blue shadows) both raise bite rate and quality.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display gold" style="background:var(--gold);color:#fff">Events</span>
-      <h2 class="display"><span class="wavy">Fishing Contests &amp; Collection Achievements</span></h2>
-    </div>
-    <p class="sec-desc">Beyond daily selling, fishing has periodic contests and long-term collection goals with limited rewards.</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">Fishing Village</span><span class="emo">⚓</span>
-        <h4 class="display">How contests work</h4>
-        <p>Contests open at the fishing-village boat: catch as many fish as you can within the time limit — personal goal 5 fish, team goal 30 combined, rewards include surprise gacha shells. Mermaid Perfume boosts efficiency for a short time.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">Medals</span><span class="emo">🏅</span>
-        <h4 class="display">Collection milestones</h4>
-        <p>Unlock 10 different species for the Bronze fishing medal, 50 for Silver, and the full encyclopedia for the Gold medal plus a special rod — the collector's Everest.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">Titles</span><span class="emo">👑</span>
-        <h4 class="display">Fishing achievements</h4>
-        <p>Hobby level 10 grants the "Skilled Angler" title; trigger 10 hidden phases across contests for "Angler"; trigger 100 fish schools for "Blessing of the School".</p>
-      </div>
-      <a class="guide-card" href="money">
-        <span class="guide-count">Economics</span><span class="emo">💰</span>
-        <h4 class="display">Best coins-per-cast strategy</h4>
-        <p>TOP10 pricey fish ranking + weather-window analysis</p>
-        <span class="go">See the guide →</span>
-      </a>
-      <a class="guide-card" href="codes">
-        <span class="guide-count">Daily 18:00</span><span class="emo">🎁</span>
-        <h4 class="display">Grab today's codes before you head out</h4>
-        <p>One-click copy before the fishing trip — rewards land in your mailbox</p>
-        <span class="go">Get the code →</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">Value Chain</span>
-      <h2 class="display"><span class="wavy">After the Catch: Sell or Cook?</span></h2>
-    </div>
-    <p class="sec-desc">Every catch has three fates: sell directly, cook for value, or donate to the encyclopedia. Good planners use all three.</p>
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">First</span><span class="n">Catch</span></div>
-        <div class="tl-body">
-          <h4 class="display">🐟 Donate new species first <span class="todo">Encyclopedia rewards are hidden income</span></h4>
-          <p>A species caught for the first time should go to the encyclopedia donation — the collection progress and achievements are income of their own. Worry about selling the duplicates.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">Add</span><span class="n">Value</span></div>
-        <div class="tl-body">
-          <h4 class="display">🍳 Cooking doubles fish value <span class="todo">Raw → dish, higher margin</span></h4>
-          <p>Many fish earn more as dishes: Salmon Sushi beats raw salmon by about 350 coins; 1-star fish under 130 coins suit Fish &amp; Chips (with a 1-star potato); 2 shellfish + 2 fish make the Deluxe Seafood Platter. See the full <a href="recipes">recipe guide</a>.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">Sell</span><span class="n">Direct</span></div>
-        <div class="tl-body">
-          <h4 class="display">🛒 Legendary fish: sell as-is <span class="todo">No hesitation at the top</span></h4>
-          <p>Koi, Ice Sea Angel, Hammerhead Shark — the legendary tier sells fastest as-is: high unit price, no kitchen capacity needed. Let the stovetops chew through cheap low-star stock instead.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">FAQ</span>
-      <h2 class="display"><span class="wavy">Fishing FAQ</span></h2>
-    </div>
-    <details class="faq" open>
-      <summary>What can I catch right now?</summary>
-      <div class="a">Use the <b>"What's Biting Right Now"</b> panel above: it follows your local time by default — just pick the weather to filter live. Weather should follow the <a href="weather">weather calendar</a> (official fixed schedule).</div>
-    </details>
-    <details class="faq">
-      <summary>Which legendary fish can I catch on a rainbow day?</summary>
-      <div class="a">During the daytime: the <b>Hammerhead Shark (Whale Sea, 600 coins)</b> and <b>Rainbow Trout (Lake, 180 coins)</b>. The <b>European Eel</b>, normally a rainy-night fish, also appears on rainbow-day evenings. Note some rainbow-day species require a minimum fishing hobby level (see the unlock table above).</div>
-    </details>
-    <details class="faq">
-      <summary>Where do I catch the Koi?</summary>
-      <div class="a">Only at the <b>Secret Pond at night (00:00–06:00)</b>, and only on sunny days. Check the weather calendar to confirm tomorrow is sunny, then set an alarm.</div>
-    </details>
-    <details class="faq">
-      <summary>Where can I catch shrimp?</summary>
-      <div class="a">Three kinds: <b>Sakura Shrimp</b> (Hot Spring Creek · sunny mornings · 65 coins), <b>Sea Shrimp</b> (Eastern Sea · all day · 25 coins), <b>European Lobster</b> (Eastern Sea · night · sun/rain · 260 coins). The Eastern Sea at night is the most efficient spot.</div>
-    </details>
-    <details class="faq">
-      <summary>Where can I catch the eel? At what time?</summary>
-      <div class="a">In the <b>Old Sea</b> (old waters near the lighthouse), best on <b>rainy nights 18:00–24:00</b> (150 coins). Also appears on rainbow-day evenings. Unlocks at fishing hobby level 7.</div>
-    </details>
-    <details class="faq">
-      <summary>Which fish sell for the most?</summary>
-      <div class="a">Legendary tier: Koi 800, Ice Sea Angel 750, Hammerhead Shark 600. High-value farmables include European Lobster 260 and Snow Crab 300. Rarity is marked on the top-right of each card.</div>
-    </details>
-    <details class="faq">
-      <summary>How do I level fishing fastest?</summary>
-      <div class="a">XP comes mainly from <b>unlocking new species</b> — repeat catches earn little. Rotate spots, prioritize uncaught species, and blitz limited fish on special-weather days (they're all new species).</div>
-    </details>
-    <details class="faq">
-      <summary>Why does my line keep snapping?</summary>
-      <div class="a">Snapped lines are almost always <b>pulling through the red phase</b> — release the instant it turns red and resume at white/yellow. Higher Rod Maintenance and Tactician levels also add tolerance.</div>
-    </details>
-    <details class="faq">
-      <summary>When do fishing contests start and what do they reward?</summary>
-      <div class="a">Contests open at the <b>fishing-village boat</b>: catch within the time limit — personal goal 5, team 30 — for surprise gacha shells. Mermaid Perfume gives a short efficiency boost beforehand.</div>
-    </details>
-  </section>
-
-</main>
+<main class="wrap"><section id="now" style="padding-top:28px"><h2 class="display">What can I catch now?</h2><div class="panel" id="catchPlanner">
+<div class="planner-toolbar"><label>Clock reference<select id="plannerMode" aria-label="Clock reference"><option value="source">Calendar source (UTC+8)</option><option value="custom">My server clock / observed weather</option></select></label><label id="plannerOffsetRow" hidden>My server UTC offset<input id="plannerOffset" aria-label="My server UTC offset" type="number" min="-12" max="14" step="0.25" value="8"></label><label>Planning time block<select id="plannerPeriod" aria-label="Planning time block"><option value="auto">Follow selected clock</option><option value="morning">Morning (06–12)</option><option value="afternoon">Afternoon (12–18)</option><option value="evening">Evening (18–24)</option><option value="night">Night (00–06)</option></select></label><label>Observed weather<select id="plannerWeather" aria-label="Observed weather"><option value="">Choose weather</option><option value="sunny">Sunny</option><option value="rain">Rain</option><option value="rainbow">Rainbow</option><option value="snow">Snow</option></select></label><label>My fishing level<input id="plannerLevel" aria-label="My fishing level" type="number" min="1" max="99" step="1" value="1"></label></div>
+<p class="planner-clock" id="plannerClock">UTC+8</p><p class="planner-scope" id="plannerCondition">Check the source date before making a plan. This calendar uses TapTap community reports; it is not independently verified for every game region.</p><p class="planner-note" id="plannerScope">These 24 records come from the existing community guide dataset. Coverage, translated place names and precise conditions are awaiting a fresh in-game review. They are not a complete or independently verified game encyclopedia.</p><details class="planner-note"><summary>ⓘ Data coverage and unlock levels</summary><p>Unlock levels are not yet verified in this catalog. Your level is saved as context; mark entries unlocked from your own codex to filter reliably. The six-hour blocks are planning categories, not verified species-specific hours.</p></details>
+<div class="planner-checks"><label><input type="checkbox" id="plannerBrowseAll">Manage all catalog entries (ignore weather/time)</label><label><input type="checkbox" id="plannerMissing">Only missing fish</label><label><input type="checkbox" id="plannerUnlocked">Only my unlocked fish</label></div>
+<label for="plannerSearch">Search fish or location</label><input class="search-input" id="plannerSearch" type="search" autocomplete="off" placeholder="Search fish or location">
+<div class="planner-summary"><strong id="plannerCount" role="status" aria-live="polite"></strong><button type="button" class="planner-action" id="plannerShare">Copy plan link</button><button type="button" class="planner-action" id="plannerClear">Clear checklist</button></div><input class="search-input" id="plannerShareUrl" readonly hidden aria-label="Plan URL"><p class="planner-status" id="plannerStatus" role="status"></p><p class="planner-note">Checklist, unlocked entries and level stay in this browser. No account is required. Use Clear checklist to remove your saved collection.</p>
+<div class="fish-grid" id="plannerResults"><p class="planner-empty">Choose weather. These 24 records come from the existing community guide dataset. Coverage, translated place names and precise conditions are awaiting a fresh in-game review. They are not a complete or independently verified game encyclopedia.</p></div></div></section>
+<section><h2 class="display">How to use these records</h2><p class="sec-desc">These 24 records come from the existing community guide dataset. Coverage, translated place names and precise conditions are awaiting a fresh in-game review. They are not a complete or independently verified game encyclopedia.</p><details><summary>Browse the partial catalog (24)</summary><div class="tbl-scroll"><table class="planner-static-table"><thead><tr><th scope="col">Name</th><th scope="col">Community location label</th><th scope="col">Time labels</th><th scope="col">Weather labels</th></tr></thead><tbody><tr><td>Minnow</td><td>Still River</td><td>All day</td><td>Sunny / Rainy / Rainbow</td></tr><tr><td>Bluegill Sunfish</td><td>Still River</td><td>Morning / Afternoon</td><td>Sunny</td></tr><tr><td>Sand Bream</td><td>Still River</td><td>All day</td><td>Rainy</td></tr><tr><td>River Perch</td><td>River</td><td>All day</td><td>Sunny / Rainy / Rainbow</td></tr><tr><td>Rainbow Trout</td><td>Lake</td><td>Morning / Afternoon</td><td>Rainbow</td></tr><tr><td>Sakura Shrimp</td><td>Hot Spring Stream</td><td>Morning</td><td>Sunny</td></tr><tr><td>Sea Shrimp</td><td>East Sea</td><td>All day</td><td>Sunny / Rainy / Rainbow</td></tr><tr><td>Bonito</td><td>All Sea Areas</td><td>All day</td><td>Sunny / Rainy / Rainbow</td></tr><tr><td>Salmon</td><td>All Sea Areas</td><td>All day</td><td>Sunny / Rainy / Rainbow</td></tr><tr><td>Horse Mackerel</td><td>All Sea Areas</td><td>All day</td><td>Sunny / Rainy / Rainbow</td></tr><tr><td>Sardine</td><td>Old Sea · Whale Sea</td><td>All day</td><td>Sunny / Rainy</td></tr><tr><td>Pufferfish</td><td>Old Sea</td><td>Afternoon / Evening</td><td>Sunny</td></tr><tr><td>European Flounder</td><td>Old Sea</td><td>Evening / Night</td><td>Sunny / Rainy</td></tr><tr><td>European Eel</td><td>Old Sea</td><td>Evening</td><td>Rainy / Rainbow</td></tr><tr><td>Blackspot Sea Bream</td><td>Old Sea</td><td>Evening</td><td>Sunny</td></tr><tr><td>Hammerhead Shark</td><td>Whale Sea</td><td>Morning / Afternoon</td><td>Rainbow</td></tr><tr><td>Atlantic Mackerel</td><td>Whale Sea</td><td>All day</td><td>Sunny / Rainy</td></tr><tr><td>Atlantic Salmon</td><td>Whale Sea</td><td>All day</td><td>Sunny / Rainy</td></tr><tr><td>Silver Chimaera</td><td>All Sea Areas</td><td>Night</td><td>Sunny</td></tr><tr><td>Atlantic Silver Pepperfish</td><td>Old Sea</td><td>All day</td><td>Sunny</td></tr><tr><td>European Lobster</td><td>East Sea</td><td>Evening</td><td>Sunny / Rainy</td></tr><tr><td>Snow Crab</td><td>Frozen Waters</td><td>Evening</td><td>Snowy</td></tr><tr><td>Ice Sea Angel</td><td>Frozen Waters</td><td>All day</td><td>Snowy</td></tr><tr><td>Koi</td><td>Secret Pond</td><td>Night</td><td>Sunny</td></tr></tbody></table></div></details></section>
+<section><h2 class="display">Focused guides</h2><div class="planner-guides" id="focusedGuideLinks"><a href="rain-fishing-guide">Heartopia Rain Fishing Guide: Plan a Useful Rainy Session</a><a href="rainbow-planning-guide">Heartopia Rainbow Weather Guide: Make a Short Session Plan</a><a href="fish-collection-guide">Heartopia Fish Collection Guide: Find Gaps and Check Conditions</a><a href="weather-time-guide">Heartopia Weather Calendar Guide: Dates, Server Time and Unknowns</a><a href="small-house-planning-guide">Heartopia Small House Planning Guide: Layout Before Decoration</a></div><a class="planner-action" href="weather">📅 Heartopia Weather Today →</a></section></main>
 
 <footer>
   <div class="foot-logo display">🏡 Heartopia Guide</div>
@@ -449,7 +75,7 @@
     <a href="about">About Us</a>
     <a href="changelog">Changelog</a>
   </div>
-  <p>Fish data cross-compiled from the game encyclopedia and community guides · Weather-dependent appearances follow the official fixed schedule</p>
+  <p>Partial community catalog. Verify current conditions in your in-game codex.</p>
   <p class="foot-contact">📮 Data corrections &amp; contact: <a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a></p>
   <p>An unofficial fan-made guide project, not affiliated with XD Inc. · Heartopia game assets © their respective owners</p>
 </footer>
@@ -457,102 +83,12 @@
 <script src="../assets/js/common.js"></script>
 <script src="../assets/js/lang.js"></script>
 <script src="../data/fish-en.js"></script>
-<script>
-const FISH = window.HEARTOPIA_FISH || [];
-const RARITY = window.HEARTOPIA_RARITY || {};
-const state = {period:'',weather:'Sunny',auto:true,q:''};
-const timeChips = $$('#timeChips .chip');
-const weatherChips = $$('#weatherChips .chip');
 
-function periodOf(h){
-  if(h>=6&&h<12) return 'Morning';
-  if(h>=12&&h<18) return 'Afternoon';
-  if(h>=18&&h<24) return 'Evening';
-  return 'Night';
-}
-function pad(n){return String(n).padStart(2,'0')}
-
-function tick(){
-  const now = new Date();
-  $('#clockText').textContent = 'Now ' + pad(now.getHours())+':'+pad(now.getMinutes()) + ' · ' + periodOf(now.getHours());
-  if(state.auto){
-    state.period = periodOf(now.getHours());
-    syncChips();
-    renderFish();
-  }
-}
-function syncChips(){
-  timeChips.forEach(c=>c.classList.toggle('active',c.dataset.period===state.period));
-  weatherChips.forEach(c=>c.classList.toggle('active',c.dataset.weather===state.weather));
-}
-function match(f){
-  const timeOk = f.times.includes('All day')||f.times.includes(state.period);
-  const weatherOk = f.weathers.includes(state.weather);
-  const q = state.q.trim().toLowerCase();
-  const qOk = !q || (f.name+f.loc+f.note).toLowerCase().includes(q);
-  return timeOk && weatherOk && qOk;
-}
-function cardHTML(f,i,useH){
-  const r = RARITY[f.rarity] || {label:'?',cls:''};
-  const timeTxt = f.times.includes('All day')?'All day':f.times.join('/');
-  const legend = f.rarity===4;
-  const nameOpen = useH ? '<h3 class="name">' : '<span class="name">';
-  const nameClose = useH ? '</h3>' : '</span>';
-  return '<div class="fish-card'+(legend?' legend':'')+'" style="animation-delay:'+(i%12*40)+'ms">'
-    +'<div class="fish-top"><span class="emo">'+f.emoji+'</span>'
-    +nameOpen+(legend?'<span class="sparkle">✨</span> ':'')+esc(f.name)
-    +(useH?'<span class="h-loc"> · '+esc(f.loc)+'</span>':'')+nameClose
-    +'<span class="rarity '+r.cls+'">'+r.label+'</span></div>'
-    +'<div class="fish-tags"><span class="tag loc">📍'+esc(f.loc)+'</span>'
-    +'<span class="tag time">🕐'+timeTxt+'</span>'
-    +'<span class="tag">'+f.weathers.join('/')+'</span></div>'
-    +'<div class="fish-price">💰 '+f.price+' coins</div>'
-    +'<p class="fish-note kai">'+esc(f.note)+'</p>'
-    +'</div>';
-}
-function renderFish(){
-  const list = FISH.filter(match);
-  const grid = $('#fishGrid');
-  grid.innerHTML = list.length
-    ? list.map((f,i)=>cardHTML(f,i)).join('')
-    : '<div class="empty"><span class="emo">🎣</span>No fish under these conditions — try another weather or time slot; you might be surprised.</div>';
-  $('#resultSummary').innerHTML = '<b>'+list.length+'</b> species biting right now';
-  renderAll();
-}
-function renderAll(){
-  const q = state.q.trim().toLowerCase();
-  const list = FISH.filter(f => !q || (f.name+f.loc+f.note).toLowerCase().includes(q));
-  $('#fishGridAll').innerHTML = list.length
-    ? list.map((f,i)=>cardHTML(f,i,true)).join('')
-    : '<div class="empty"><span class="emo">🔍</span>No such fish found — try another keyword.</div>';
-}
-timeChips.forEach(c=>{
-  c.addEventListener('click',()=>{
-    state.auto = false;
-    $('#autoSwitch').classList.remove('on');
-    state.period = c.dataset.period;
-    syncChips();
-    renderFish();
-  });
-});
-weatherChips.forEach(c=>{
-  c.addEventListener('click',()=>{
-    state.weather = c.dataset.weather;
-    syncChips();
-    renderFish();
-  });
-});
-$('#autoSwitch').addEventListener('click',e=>{
-  state.auto = !state.auto;
-  e.currentTarget.classList.toggle('on',state.auto);
-  if(state.auto) tick();
-});
-$('#searchInput').addEventListener('input',e=>{
-  state.q = e.target.value;
-  renderFish();
-});
-tick();
-setInterval(tick,30000);
-</script>
+<script src="../data/weather-plan.js"></script>
+<script src="../data/fish-identities.js"></script>
+<script src="../assets/js/analytics-config.js"></script>
+<script src="../assets/js/analytics.js"></script>
+<script src="../assets/js/planner-core.js"></script>
+<script src="../assets/js/fishing-planner.js"></script>
 </body>
 </html>

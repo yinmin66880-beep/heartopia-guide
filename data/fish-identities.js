@@ -1,0 +1,2 @@
+/* Stable cross-language catalog identities, in source record order. */
+window.HEARTOPIA_FISH_IDS = ["minnow","bluegill-sunfish","sand-bream","river-perch","rainbow-trout","sakura-shrimp","sea-shrimp","bonito","salmon","horse-mackerel","sardine","pufferfish","european-flounder","european-eel","blackspot-sea-bream","hammerhead-shark","atlantic-mackerel","atlantic-salmon","silver-chimaera","atlantic-silver-pepperfish","european-lobster","snow-crab","ice-sea-angel","koi"];

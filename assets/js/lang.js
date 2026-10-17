@@ -24,8 +24,15 @@
   const inSub = /^\/(en|ja|ko)(\/|$)/i.test(location.pathname);
   const query = location.search || '';
 
+  // New focused guides exist in EN/JA only. Use real alternates instead of
+  // constructing nonexistent translated URLs.
+  const alternates = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+  const available = LOCALES.filter(l => alternates.some(a => a.hreflang === (l.code === 'zh' ? 'zh-CN' : l.code)));
+
   function targetUrl(code) {
     if (code === cur) return null;
+    const alternate = alternates.find(a => a.hreflang === (code === 'zh' ? 'zh-CN' : code));
+    if (alternate) return new URL(alternate.href).pathname + query;
     if (code === 'zh') {
       return (inSub ? '../' : '') + file + query;
     }
@@ -47,7 +54,7 @@
 
   const menu = document.createElement('div');
   menu.className = 'lang-menu';
-  LOCALES.forEach(l => {
+  available.forEach(l => {
     const a = document.createElement('a');
     a.href = targetUrl(l.code) || location.href;
     a.hreflang = l.code === 'zh' ? 'zh-CN' : l.code;

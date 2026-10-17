@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>하트오피아 오늘 날씨 캘린더 (무지개 / 비 / 유성우 공략 핸드북) | 하트오피아 가이드</title>
-<meta name="description" content="하트오피아(Heartopia)의 오늘 날씨를 매일 자동 갱신으로 확인하세요. 무지개 날, 비, 유성우 날짜 캘린더에 날씨 갱신 메커니즘 상세 해설, 특수 날씨 행동 매뉴얼(두두 한정 상점/2배 채집/운석 수집), 날씨 × 한정 어종 대조표까지 — 외출 전 한 번 보고 헛걸음 없이.">
+<title>하트오피아 오늘 날씨와 예보 | 공략 가이드</title>
+<meta name="description" content="날짜가 명시된 날씨 기록과 UTC+8 기준 시각, 이후 확인된 일정을 확인하세요. 기록이 없는 날짜는 미확인으로 유지합니다.">
 <meta name="keywords" content="하트오피아 날씨,하트오피아 오늘 날씨,하트오피아 무지개 날,하트오피아 날씨 캘린더,하트오피아 유성우,하트오피아 낚시 날씨">
 <link rel="canonical" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/weather">
@@ -13,78 +13,16 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/weather">
 <meta property="og:type" content="website">
-<meta property="og:title" content="하트오피아 오늘 날씨 캘린더 (무지개 / 비 / 유성우 알림) | 하트오피아 가이드">
-<meta property="og:description" content="게임 내 공식 날씨 일정을 캘린더로, 날씨 × 한정 어종 표까지.">
+<meta property="og:title" content="하트오피아 오늘 날씨와 예보 | 공략 가이드">
+<meta property="og:description" content="날짜가 명시된 날씨 기록과 UTC+8 기준 시각, 이후 확인된 일정을 확인하세요. 기록이 없는 날짜는 미확인으로 유지합니다.">
 <meta property="og:url" content="https://heartopiaguide.net/ko/weather">
 <meta name="theme-color" content="#FAF5EA">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "하트오피아의 날씨는 랜덤인가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아니요. 게임 내 날씨는 공식 고정 일정을 따릅니다 — 서버 전체가 매일 같은 날씨를 공유합니다. 커뮤니티가 이를 캘린더로 정리해 두었으니(출처는 상태바 참고) 낚시와 채집을 미리 계획할 수 있어요."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "다음 무지개 날은 언제인가요? 그때 뭘 낚을 수 있죠?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "다가오는 무지개 날은 위 캘린더에서 확인하세요. 낮 시간에는 망치상어(600 코인)과 무지개송어(180 코인) — 둘 다 평소엔 잡을 수 없는 어종입니다. 전체 조건은 낚시 도감에서."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "\"맑음 후 비\"(예: \"12:00 이후 비\")는 무슨 뜻인가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "하루 전반은 맑다가 안내된 시각부터 비가 온다는 뜻입니다. 비가 오기 시작하면 비 오는 날 전용 어종(샌드브림, 뱀장어)을 낚을 수 있습니다 — 오후 외출이 가장 이득이에요."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "유성우는 무슨 용도인가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "유성우 시간대(예: 18:00–24:00)에는 정해진 포인트에서 운석을 채집할 수 있습니다 — 희귀 제작·건축 자재죠. 놓치면 다음 일정까지 기다려야 하니, 캘린더에서 확인되면 그 시간은 비워 두세요."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "날씨는 언제 갱신되나요? 향후 7일 예보는 어디서 보나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "매일 18:00에 다음 날 하루치 날씨가 확정되며, 게임 내 우측 상단의 시계 → 날씨에서 당일 및 향후 7일 일정을 확인할 수 있습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "두두(한정 상인)는 언제 나타나나요? 어디서 찾죠?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "특수 날씨에만 등장합니다: 비 오는 날엔 예술의 거리 피아노 위치에 고정 출연, 무지개 날엔 온천산·꽃밭·타운 센터·숲·등대산 중 한 곳에 무작위 등장, 유성우 기간엔 별락 파편 교환을 담당하며, 눈 오는 날엔 예술의 거리로 돌아옵니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "비 오는 날과 무지개 날에 채집 가점이 있나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "비·무지개 날에는 나무열매, 버섯, 풀류의 채집 수량이 2배가 되어 재료 비축의 최적 창이며, 무지개 날엔 무지개 꽃다발 3송이를 주워 고가의 무지개 우산 장식을 합성할 수 있습니다."
-      }
-    }
-  ]
-}
-</script>
+
 <!-- adsense:auto-ads -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../assets/css/planner.css">
 </head>
 <body data-page="weather">
 
@@ -105,313 +43,25 @@
   </div>
 </nav>
 
-<header class="page-hero">
-  <p class="crumbs"><a href="./">홈</a> / 날씨 캘린더</p>
-  <span class="hero-kicker display">📅 공식 일정 · 커뮤니티 관리</span>
-  <h1 class="display">마을 날씨 <em>캘린더</em></h1>
-  <p class="page-sub">하트오피아의 날씨는 랜덤이 아니라 <b>공식 고정 일정</b>입니다 — 무지개 날과 유성우 밤을 미리 알면 <b>한정 어종이나 전용 채집물을 놓치는 일이 없습니다</b>.</p>
-  <p class="hero-updated" id="heroUpdated">⏱ 마지막 업데이트: 매일 7회 자동 갱신</p>
-</header>
+<header class="page-hero"><p class="crumbs"><a href="./">Heartopia Guide</a> / 하트오피아 오늘 날씨</p><span class="hero-kicker display">📅 UTC+8 · TapTap</span><h1 class="display">하트오피아 오늘 날씨</h1><p class="page-sub">계획을 세우기 전에 출처 날짜를 확인하세요. TapTap 커뮤니티 기록을 사용하며 모든 게임 지역과의 일치를 검증한 자료는 아닙니다.</p><p class="hero-updated" id="heroUpdated">UTC+8 · TapTap</p></header>
 
 <main class="wrap">
-
-  <section class="reveal" style="padding-top:40px">
-    <div class="status-bar" id="statusBar">
-      <span class="status-pill ok" id="statusPill"><span class="dot"></span><span id="statusText">불러오는 중…</span></span>
-      <span id="statusMeta">—</span>
-      <span class="src-links" id="srcLinks"></span>
-    </div>
-
-    <div class="grid-today">
-      <div class="card">
-        <span class="tape"></span>
-        <p class="today-date" id="todayDate">—</p>
-        <h3 class="display">오늘의 날씨</h3>
-        <div class="weather-big">
-          <span class="icon" id="wxIcon">⛅</span>
-          <div>
-            <div class="temp" id="wxLabel">—</div>
-            <div class="cond" id="wxDetail">—</div>
-          </div>
-        </div>
-        <div class="tip-box kai" id="wxTip">💡 날씨 정보를 불러오는 중…</div>
-        <div class="tip-box next kai" id="wxNext" style="display:none"></div>
-      </div>
-      <div class="card blue">
-        <span class="tape"></span>
-        <h3 class="display">🎣 날씨 × 낚시 치트시트</h3>
-        <div class="res-row"><span class="emo">🌈</span><span class="name">무지개 날</span><span class="pos">망치상어 · 무지개송어</span></div>
-        <div class="res-row"><span class="emo">🌧️</span><span class="name">비 오는 날</span><span class="pos">샌드브림 · 뱀장어</span></div>
-        <div class="res-row"><span class="emo">❄️</span><span class="name">눈 오는 날</span><span class="pos">대게 · 얼음바다 천사</span></div>
-        <div class="res-row"><span class="emo">☄️</span><span class="name">유성우 밤</span><span class="pos">유성우 한정 운석 채집</span></div>
-        <a class="more-link" href="fishing">전체 24종과 출현 조건 보기 →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">캘린더</span>
-      <h2 class="display"><span class="wavy">다가오는 날씨</span></h2>
-    </div>
-    <p class="sec-desc">아래 <b>확정된 날짜</b>는 커뮤니티 수집 + 파이프라인 검증을 거친 것입니다; 목록에 없는 날짜는 평범한 맑은 날입니다.</p>
-    <div class="wx-cal" id="wxCal"></div>
-    <div class="wx-legend">
-      <span><b>☀️ 맑음</b> 평상 시즌 낚시</span>
-      <span><b>🌧️ 비</b> 비 오는 날 전용 어종</span>
-      <span><b>🌈 무지개</b> 전설의 물고기 타임</span>
-      <span><b>☄️ 유성우</b> 운석 채집</span>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display blue">더보기</span>
-      <h2 class="display"><span class="wavy">오늘의 일정은 날씨가 결정합니다</span></h2>
-    </div>
-    <div class="grid-guides">
-      <a class="guide-card" href="fishing">
-        <span class="guide-count">24종</span><span class="emo">🎣</span>
-        <h4 class="display">낚시 도감</h4>
-        <p>시간 × 날씨 × 낚시 포인트 조회 — 무지개 날 망치상어를 놓치지 마세요</p>
-        <span class="go">물고기 조회 →</span>
-      </a>
-      <a class="guide-card" href="codes">
-        <span class="guide-count">매일 갱신</span><span class="emo">🎁</span>
-        <h4 class="display">오늘의 쿠폰 코드</h4>
-        <p>매일 18:00경 새 코드, 원클릭 복사, 가는 길에 자원까지</p>
-        <span class="go">바로 복사 →</span>
-      </a>
-      <a class="guide-card" href="guide">
-        <span class="guide-count">7일</span><span class="emo">🌱</span>
-        <h4 class="display">초보 7일 루트</h4>
-        <p>DAY4는 도감의 날: 보이는 대로 낚고, 만나는 대로 잡기</p>
-        <span class="go">루트 보기 →</span>
-      </a>
-      <a class="guide-card" href="templates">
-        <span class="guide-count">30건 템플릿</span><span class="emo">🏠</span>
-        <h4 class="display">인테리어 템플릿 라이브러리</h4>
-        <p>비 오는 날 낚시가 끝났나요? 집에 돌아와 템플릿으로 꾸미기</p>
-        <span class="go">템플릿 보기 →</span>
-      </a>
-      <a class="guide-card" href="recipes">
-        <span class="guide-count">요리로 2배</span><span class="emo">🍳</span>
-        <h4 class="display">잡은 물고기는 요리가 이득</h4>
-        <p>연어 초밥은 직판보다 약 350 코인 추가 수익 — 어가를 올리는 레시피표</p>
-        <span class="go">레시피 보기 →</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display blue">메커니즘</span>
-      <h2 class="display"><span class="wavy">날씨 갱신 메커니즘 상세 해설</span></h2>
-    </div>
-    <p class="sec-desc">세 가지 규칙만 알면 다른 플레이어보다 하루 먼저 낚시·채집·명당 대기 계획을 세울 수 있습니다.</p>
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">규칙</span><span class="n">1</span></div>
-        <div class="tl-body">
-          <h4 class="display">🕐 매일 18:00에 다음 날 날씨 확정 <span class="todo">전 서버 통일</span></h4>
-          <p>하트오피아의 날씨는 <b>랜덤이 아니라</b> 공식 고정 일정으로, 전 서버가 동기화됩니다. 매일 18:00에 다음 날 하루치 날씨가 확정되는데 — 데일리 쿠폰 코드가 18:00에 갱신되는 이유도 여기에 있죠. 코드 발표 게시물에는 날씨도 함께 안내됩니다.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">규칙</span><span class="n">2</span></div>
-        <div class="tl-body">
-          <h4 class="display">⌚ 게임 내에서 향후 7일 예보 확인 <span class="todo">시계 → 날씨</span></h4>
-          <p>게임 우측 상단의 <b>시계 아이콘 → 날씨</b> 탭에서 당일과 향후 7일의 날씨·시간대 일정(예: '12:00 이후 비 전환')을 볼 수 있습니다. 18:00 이후에 열어보면 다음 날 계획이 확정됩니다.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">규칙</span><span class="n">3</span></div>
-        <div class="tl-body">
-          <h4 class="display">🌧️ 비 다음 날은 무지개 날 확률 상승 <span class="todo">전설 어종 미리 준비</span></h4>
-          <p>커뮤니티의 장기 관찰 결과, 비 오는 날 뒤에는 <b>높은 확률로</b> 무지개 날이 옵니다(100%는 아님). 오늘 비가 온다면 내일의 망치상어·무지개송어 명당 계획을 미리 세워 두세요. 참고로 특수 날씨는 당일에 두 번 반복되지 않습니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">플레이 가이드</span>
-      <h2 class="display"><span class="wavy">특수 날씨 행동 매뉴얼</span></h2>
-    </div>
-    <p class="sec-desc">특수 날씨마다 전용 콘텐츠가 있습니다: 한정 어종, 한정 채집물, 한정 상인 '두두', 그리고 2배 채집. 매뉴얼대로 움직이면 하루도 낭비하지 않습니다.</p>
-
-    <div class="panel" style="margin-bottom:22px">
-      <h4 class="display" style="font-size:17px">🌧️ 비 오는 날: 공짜의 날 + 2배 채집의 날</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>한정 어종</b>: 강꼬치고기, 대형 진주조개, 금붕어는 비 오는 날에만 입질 — 문어와 메기도 비 오는 밤에 더 활발해집니다</li>
-        <li><b>두두 상인</b>: 비 오는 날 두두는 <b>예술의 거리 피아노 위치</b>에 등장 — 우산, 사탕, 浮云山卷 레시피, 엽서, 한정 우산 장식을 판매합니다</li>
-        <li><b>2배 채집</b>: 비 오는 날엔 나무열매, 버섯, 풀류 채집 수량 ×2 — 재료 비축 효율이 두 배</li>
-        <li><b>조류 관찰 창</b>: 비 오는 날에만 보이는 한정 조류 — 노랑목 벌자리, 작은홍학, 동부파랑새, 송골매, 흰머리오리, 수리부엉이 등</li>
-      </ul>
-    </div>
-
-    <div class="panel" style="margin-bottom:22px">
-      <h4 class="display" style="font-size:17px">🌈 무지개 날: 전설 어종 대박의 날 + 2배 채집의 날</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>한정 어종</b>: 무지개 날 어종은 낚시 취미 레벨로 해금됩니다(6레벨 다름연어 → 10레벨 망치상어·새치), 전체 해금표는 <a href="fishing">낚시 도감</a> 참고</li>
-        <li><b>무지개 꽃다발</b>: 당일 <b>3송이</b>를 주울 수 있고, 고가의 무지개 우산 장식으로 합성 가능 — 장터 인기템입니다</li>
-        <li><b>무지개 비눗방울</b>: 무지개 날 전용 아이템, 전 지도에 무작위로 등장</li>
-        <li><b>두두 상인</b>: 무지개 날 두두는 <b>위치가 고정되지 않습니다</b> — 온천산, 꽃밭, 타운 센터, 숲, 등대산 중 한 곳에 무작위 등장하며 무지개 사탕, 무지개 이모지 스티커, 전용 장식을 판매</li>
-        <li><b>2배 채집</b>: 나무열매, 버섯, 풀류 ×2 — 비 오는 날과 마찬가지로 재료 비축에 최적</li>
-      </ul>
-    </div>
-
-    <div class="panel" style="margin-bottom:22px">
-      <h4 class="display" style="font-size:17px">☄️ 유성우: 운석 채집의 날 (18:00 → 다음 날 18:00)</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>운석 채집</b>: 유성우는 보통 18:00부터 다음 날 18:00까지 이어지며, 지도에 <b>9개의 운석</b>(흰색·노란색·보라색 등)이 갱신됩니다 — 각 운석은 24시간 유지</li>
-        <li><b>교환 체인</b>: 별락 광석 채굴 → 별락 파편 수집 → 두두에게서 한정 가구와 1인 감정표현 교환</li>
-        <li><b>소원 빌기</b>: 유성우 기간에는 소원을 빌 수 있으며, 두두에게서 가구와 감정표현 보상으로 교환</li>
-        <li><b>숨은 업적</b>: 친구와 함께 유성우 아래에서 상호작용 사진을 찍으면 숨은 업적 해금 — 놓치면 다음 일정까지 기다려야 합니다</li>
-      </ul>
-    </div>
-
-    <div class="panel">
-      <h4 class="display" style="font-size:17px">❄️ 눈 오는 날 / 얼음 시즌: 얼음 판 플레이와 한정 어종</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>한정 어종</b>: 얼음 해역이 개방됩니다 — 대게, 얼음바다 천사와 크리스탈 시리즈(크리스탈 킹크랩, 크리스탈 복어, 크리스탈 해마, 크리스탈 고래상어)는 얼음 시즌에만 출몰</li>
-        <li><b>두두 상인</b>: 눈 오는 날 두두는 예술의 거리에 등장해 눈 날 한정 아이템을 판매합니다</li>
-        <li><b>얼음 판 플레이</b>: 얼어붙은 호수에서 얼음 위 활동 해금; 일부 펫은 눈 오는 날 00:00–12:00에만 출현</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">행동 체크리스트</span>
-      <h2 class="display"><span class="wavy">특수 날씨 접속 30초 체크리스트</span></h2>
-    </div>
-    <p class="sec-desc">특수 날씨의 시간은 소중합니다 — 우선순위대로 움직이고, '놓치면 없는' 것부터 하세요.</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">1순위</span><span class="emo">🎣</span>
-        <h4 class="display">먼저 한정 어종 낚기</h4>
-        <p>한정 어종 창은 날씨와 함께 닫힙니다 — 무지개 날엔 고래 바다로 직행, 비 오는 밤엔 옛 바다로. 놓치면 다음 일정까지 대기입니다.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">2순위</span><span class="emo">☄️</span>
-        <h4 class="display">다음으로 한정 채집물 수집</h4>
-        <p>유성우 땐 운석 9개를 모두 두들기고, 무지개 날엔 꽃다발 3송이를 줍기 — 둘 다 한정 보상으로 바꾸는 확실한 화폐입니다.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">3순위</span><span class="emo">🛍️</span>
-        <h4 class="display">두두의 한정 상점 둘러보기</h4>
-        <p>비 오는 날은 예술의 거리 피아노 자리 고정, 무지개 날은 무지개 방향을 따라 찾으세요(온천산/꽃밭/타운 센터/숲/등대산).</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">덤으로</span><span class="emo">🧺</span>
-        <h4 class="display">2배 채집으로 재료 비축</h4>
-        <p>비·무지개 날엔 나무열매·버섯·풀류 ×2 — 가는 길에 채우고 접속 종료. <a href="codes">데일리 쿠폰 코드</a>와 자원 포인트도 함께 수령하세요.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal" id="weather-ledger">
-    <div class="sec-head">
-      <span class="sec-tag display coral" style="background:var(--coral)">데이터 심층 분석</span>
-      <h2 class="display"><span class="wavy">날씨 수익 총장부: 특수 하루는 평상일 며칠치?</span></h2>
-    </div>
-    <p class="sec-desc">각 특수 날씨의 산출(한정 어종 + 2배 채집 + 전용 하드커런시)을 비교 가능한 평상일로 환산했습니다 — 어종 가격은 본 사이트 낚시 도감의 ★1 기준가이며, 한 줄 한 줄 도감에서 바로 검증할 수 있습니다.</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>날씨</th><th>한 대 상한가</th><th>채집 보너스</th><th>전용 하드커런시</th><th>평상일 환산</th><th>한 줄 공략</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="fish-name">🌈 무지개 날</td><td>망치상어 600 (낚시 Lv10)</td><td>나무열매·버섯·풀류 ×2</td><td>무지개 꽃다발 3송이 → 무지개 우산 장식</td><td class="price">약 8대</td><td>낚시 + 꽃다발 + 2배 채집 + 두두, 4개 라인 동시 진행</td></tr>
-          <tr><td class="fish-name">❄️ 눈 오는 날</td><td>얼음바다 천사 750</td><td>—(빙설 시즌 얼음 위 놀이)</td><td>크리스탈 시리즈 한정 어종</td><td class="price">약 10대</td><td>전설 어종 최우선, 나머지는 후순위</td></tr>
-          <tr><td class="fish-name">🌧️ 비 오는 날</td><td>뱀장어 150 (비 오는 밤)</td><td>나무열매·버섯·풀류 ×2</td><td>두두가 예술의 거리에 고정 출연, 시간 절약 최고</td><td class="price">약 2대</td><td>낮엔 재료 비축, 밤엔 옛 바다 밤낚시</td></tr>
-          <tr><td class="fish-name">☄️ 유성우</td><td>코인 수익 없음</td><td>—</td><td>운석 9개 → 별락 파편 → 한정 가구·감정 표현</td><td class="price">환산 불가</td><td>운석 전량 회수가 최우선</td></tr>
-          <tr><td class="fish-name">☀️ 평상일</td><td>대서양고등어 70</td><td>—</td><td>—</td><td class="price">기준 1</td><td>낚시 포인트를 돌며 레벨 업·도감 해금</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="grid-guides" style="margin-top:22px">
-      <div class="guide-card now">
-        <span class="guide-count">8.6배</span><span class="emo">🌈</span>
-        <h4 class="display">무지개 날의 한 대 프리미엄</h4>
-        <p>망치상어 600 ÷ 대서양고등어 70 ≈ 8.6: 무지개 날 한 대는 평상일 8대 이상에 해당합니다. 이 창을 평범한 채집에 쓰는 건 순손해 — 먼저 낚시, 다음 꽃다발, 마지막에 재료 비축.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">67 × 2</span><span class="emo">🧺</span>
-        <h4 class="display">2배 채집의 숨은 장부</h4>
-        <p>사과는 잼으로 끓이면 개당 67 코인 — 비·무지개 날엔 채집 ×2로 같은 노동 시간의 재료 산출이 그대로 두 배. 접속 종료 전 돌아오는 길에 가득 채우면 재료 비축 효율도 배로 뛰어오릅니다.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">18:00 계획법</span><span class="emo">🕐</span>
-        <h4 class="display">3분 만에 캘린더를 일정표로</h4>
-        <p>매일 18:00 날씨 갱신 직후 캘린더 확인: 내일이 무지개면 낚시 데이, 비면 재료 데이, 유성우면 밤새 운석 두드리기로 비워 두세요 — 일정은 공식이 정하지만, 계획은 당신의 몫입니다.</p>
-      </div>
-    </div>
-    <div class="warn-box" style="margin-top:18px">📊 <b>낚시 도감과 연동</b> —— 각 날씨 창의 전체 어종 가격·해금 레벨·미끼 손익 라인은 낚시 도감의 '어군 경제학' 장에서 확인하세요; 특수일 접속 시 <a href="codes">데일리 쿠폰 코드</a>와 자원 포인트를 먼저 수령한 뒤 작업을 시작하세요.</div>
-  </section>
-
-  <section class="reveal" id="dataSource">
-    <div class="sec-head">
-      <span class="sec-tag display blue">데이터 출처</span>
-      <h2 class="display"><span class="wavy">이 캘린더의 출처와 정확도 관리</span></h2>
-    </div>
-    <p class="sec-desc">날씨 캘린더는 자동화 데이터 파이프라인이 매일 관리합니다. 손으로 옮겨 적은 것이 아니며 모든 단계를 검증할 수 있습니다.</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">공식 스케줄</span><span class="emo">📅</span>
-        <h4 class="display">출처</h4>
-        <p>게임 내 날씨는 공식 고정 스케줄로 전 서버 동일합니다. 커뮤니티 공략 게시글이 매일 캘린더로 정리하며, 이 사이트는 TapTap 커뮤니티 날씨 종합을 기준 출처로 사용합니다.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">하루 7회</span><span class="emo">🔄</span>
-        <h4 class="display">자동 관리</h4>
-        <p>파이프라인은 매일 베이징 시간 06:10~23:30 총 7회 실행되며, 예보와 당일 실제 날씨를 매일 대조·수정합니다. 수동 수정 항목은 덮어써지지 않습니다.</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">48시간</span><span class="emo">📮</span>
-        <h4 class="display">정정 채널</h4>
-        <p>스케줄이 게임 내용과 다른가요? 원본 게시글에 댓글을 남기거나 <a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a> 으로 메일을 보내 주세요. 확인 후 48시간 이내에 수정합니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">FAQ</span>
-      <h2 class="display"><span class="wavy">날씨 FAQ</span></h2>
-    </div>
-    <details class="faq" open>
-      <summary>하트오피아의 날씨는 랜덤인가요?</summary>
-      <div class="a">아니요. 게임 내 날씨는 <b>공식 고정 일정</b>을 따릅니다 — 서버 전체가 매일 같은 날씨를 공유합니다. 커뮤니티가 이를 캘린더로 정리해 두었으니(출처는 상태바 참고) 낚시와 채집을 미리 계획할 수 있어요.</div>
-    </details>
-    <details class="faq">
-      <summary>다음 무지개 날은 언제인가요? 그때 뭘 낚을 수 있죠?</summary>
-      <div class="a">다가오는 무지개 날은 위 캘린더에서 확인하세요. 낮 시간에는 <b>망치상어(600 코인)</b>과 <b>무지개송어(180 코인)</b> — 둘 다 평소엔 잡을 수 없는 어종입니다. 전체 조건은 <a href="fishing">낚시 도감</a>에서.</div>
-    </details>
-    <details class="faq">
-      <summary>"맑음 후 비"(예: "12:00 이후 비")는 무슨 뜻인가요?</summary>
-      <div class="a">하루 전반은 맑다가 안내된 시각부터 비가 온다는 뜻입니다. 비가 오기 시작하면 비 오는 날 전용 어종(샌드브림, 뱀장어)을 낚을 수 있습니다 — 오후 외출이 가장 이득이에요.</div>
-    </details>
-    <details class="faq">
-      <summary>유성우는 무슨 용도인가요?</summary>
-      <div class="a">유성우 시간대(예: 18:00–24:00)에는 정해진 포인트에서 <b>운석</b>을 채집할 수 있습니다 — 희귀 제작·건축 자재죠. 놓치면 다음 일정까지 기다려야 하니, 캘린더에서 확인되면 그 시간은 비워 두세요.</div>
-    </details>
-    <details class="faq">
-      <summary>날씨는 언제 갱신되나요? 향후 7일 예보는 어디서 보나요?</summary>
-      <div class="a">매일 <b>18:00</b>에 다음 날 하루치 날씨가 확정됩니다; 게임 내 우측 상단의 <b>시계 → 날씨</b>에서 당일과 향후 7일 일정을 볼 수 있어요. 18:00 이후에 확인하면 내일 계획이 확정됩니다.</div>
-    </details>
-    <details class="faq">
-      <summary>두두(한정 상인)는 언제 나타나나요? 어디서 찾죠?</summary>
-      <div class="a">특수 날씨에만 등장합니다: 비 오는 날 두두는 <b>예술의 거리 피아노 위치</b>에 고정 출연(우산, 浮云山卷 레시피 등 판매); 무지개 날 두두는 온천산, 꽃밭, 타운 센터, 숲, 등대산 중 한 곳에 <b>무작위 등장</b>; 유성우 기간엔 별락 파편 교환 담당; 눈 오는 날엔 예술의 거리로 돌아옵니다.</div>
-    </details>
-    <details class="faq">
-      <summary>비 오는 날과 무지개 날에 채집 가점이 있나요?</summary>
-      <div class="a">비·무지개 날엔 <b>나무열매·버섯·풀류 채집 수량 ×2</b> — 인테리어와 요리 재료를 비축하는 최적의 창입니다; 무지개 날엔 무지개 꽃다발 3송이도 주워서 고가의 무지개 우산 장식을 합성할 수 있어요.</div>
-    </details>
-  </section>
-
+<!-- weather-snapshot:start -->
+<section class="planner-snapshot" id="weatherSnapshot" aria-label="확인된 날씨 달력 기록" data-snapshot-date="2026-10-17">
+  <h2>확인된 날씨 달력 기록</h2>
+  <p><time datetime="2026-10-17">2026-10-17</time> · UTC+8 · <strong>비</strong></p>
+  <p class="planner-note">TapTap 커뮤니티 달력 · 기준 시간 UTC+8. 다른 게임 지역과의 일치는 별도로 검증하지 않았습니다. 현재 날씨는 게임 내 시계와 일기예보에서 확인하세요. 기록이 없는 날짜는 미확인입니다.</p>
+  <p class="planner-note">원본 달력 갱신일: 2026-10-13 · 일일 정보 생성 시각: 2026-10-17 22:25:40 (UTC+8)</p>
+  <h3>이후 확인된 일정</h3><ul><li>추가로 확인된 일정이 없습니다.</li></ul>
+  <a class="planner-action" href="fishing#now">낚시 계획 세우기 →</a>
+</section>
+<!-- weather-snapshot:end -->
+<section style="padding-top:28px">
+<div class="grid-today"><div class="card"><p class="today-date" id="todayDate">UTC+8</p><h2>오늘의 달력 기록</h2><div class="weather-big"><span class="icon" id="wxIcon">❔</span><div><div class="temp" id="wxLabel">—</div><div class="cond" id="wxDetail">기록이 없는 날짜는 미확인입니다. 날씨 종류를 알아도 정확한 시작과 종료 시각은 모를 수 있습니다.</div></div></div><p class="tip-box" id="wxTip">다른 지역에서는 게임 내 날씨를 우선하세요. 출처는 UTC+8이며 기기의 현지 시각은 별도로 표시합니다.</p><div class="tip-box next" id="wxNext" style="display:none"></div></div>
+<div class="card blue"><h2>🎣 낚시 계획 세우기</h2><p class="planner-note">게임에서 관측한 날씨로 자료를 검색하고 수집 목록을 저장하고 계획을 공유하세요.</p><a class="planner-action primary" data-weather-plan href="fishing#now">낚시 계획 세우기 →</a><p class="planner-note">다른 지역에서는 게임 내 날씨를 우선하세요. 출처는 UTC+8이며 기기의 현지 시각은 별도로 표시합니다.</p></div></div></section>
+<div class="status-bar" id="statusBar"><span class="status-pill warn" id="statusPill"><span class="dot"></span><span id="statusText">기록이 없는 날짜는 미확인입니다. 날씨 종류를 알아도 정확한 시작과 종료 시각은 모를 수 있습니다.</span></span><span id="statusMeta">UTC+8</span><span class="src-links" id="srcLinks"></span></div>
+<section><div class="sec-head"><h2 class="display">확인된 날씨 달력</h2></div><p class="sec-desc">기록이 없는 날짜는 미확인입니다. 날씨 종류를 알아도 정확한 시작과 종료 시각은 모를 수 있습니다.</p><div class="wx-cal" id="wxCal"></div></section>
+<section><h2 class="display">주제별 가이드</h2><div class="planner-guides" id="focusedGuideLinks"><a href="../en/weather-time-guide" lang="en">English · Weather &amp; server time</a><a href="../ja/rain-fishing-guide" lang="ja">日本語 · 雨の日の釣りガイド</a></div></section>
 </main>
 
 <footer>
@@ -440,94 +90,11 @@
 <script src="../data/daily.js"></script>
 <script src="../data/weather-ko.js"></script>
 <script src="../assets/i18n/ko.js"></script>
-<script>
-const DAILY = window.HEARTOPIA_DAILY || null;
-const WX = window.HEARTOPIA_WEATHER || null;
-const I18N = window.HEARTOPIA_I18N;
-const WEEK = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
-const MONTHS = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 
-function todayStr(){
-  const n = new Date();
-  return n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
-}
-
-function renderToday(){
-  const pill = $('#statusPill'), pillTxt = $('#statusText'), meta = $('#statusMeta'), links = $('#srcLinks');
-  const dNow = todayStr();
-  let w = null, sp = null;
-  if(DAILY){
-    const stMap = {
-      live:  {cls:'ok',   txt:'오늘 실시간'},
-      stale: {cls:'warn', txt:'커뮤니티 아카이브'},
-      fallback:{cls:'warn', txt:'캐시 폴백'}
-    };
-    let st = stMap[DAILY.status] || stMap.fallback;
-    if(DAILY.date < dNow) st = {cls: 'warn', txt: '갱신 대기 중'};
-    pill.className = 'status-pill ' + st.cls;
-    pillTxt.textContent = st.txt;
-    const nOk = (DAILY.audit && DAILY.audit.sourcesOk ? DAILY.audit.sourcesOk.length : (DAILY.sources || []).length);
-    meta.textContent = DAILY.date + ' · 갱신 ' + DAILY.generatedAt + (nOk ? ' · 소스 ' + nOk + '개' : '');
-    (DAILY.sources || []).slice(0, 2).forEach(s => {
-      const a = document.createElement('a');
-      a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = I18N.t(s.name);
-      links.appendChild(a);
-    });
-    w = DAILY.weather;
-    sp = DAILY.specialForecast;
-  }else if(WX && WX.days[dNow]){
-    pillTxt.textContent = '캘린더 데이터';
-    meta.textContent = '갱신 ' + WX.updated;
-    w = {icon: WX.days[dNow].icon, label: WX.days[dNow].label, detail: WX.days[dNow].note || '공식 고정 일정', fishTip: ''};
-  }else{
-    pill.className = 'status-pill warn';
-    pillTxt.textContent = '갱신 대기 중';
-    meta.textContent = '캘린더가 아직 오늘 날짜를 다루지 않습니다 — 파이프라인 대기 중';
-  }
-
-  $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
-  const hu = $('#heroUpdated');
-  if(hu) hu.textContent = '⏱ 마지막 업데이트: ' + (DAILY && DAILY.generatedAt ? DAILY.generatedAt : (WX && WX.updated ? WX.updated : '—')) + ' · 매일 7회 자동 갱신';
-  if(w){
-    $('#wxIcon').textContent = w.icon || '⛅';
-    $('#wxLabel').textContent = w.label ? I18N.t(w.label) : '알 수 없음';
-    $('#wxDetail').textContent = w.detail ? I18N.t(w.detail) : '게임 내 날씨는 공식 고정 일정을 따릅니다';
-    $('#wxTip').textContent = w.fishTip ? I18N.fishTip(w.label, w.detail) : '💡 외출 전 날씨를 확인하세요 — 한정 어종을 놓치지 마세요.';
-  }
-  if(sp){
-    const nx = $('#wxNext');
-    nx.style.display = '';
-    nx.textContent = '📅 사전 알림: ' + sp.date + ' ' + I18N.t(sp.label) + (sp.note ? ' — ' + I18N.t(sp.note) : '');
-  }
-}
-
-function renderCal(){
-  const cal = $('#wxCal');
-  if(!WX || !WX.days){ cal.innerHTML = '<div class="empty"><span class="emo">📅</span>캘린더 데이터를 불러오지 못했습니다 — data/weather-ko.js가 배포되어 있는지 확인하세요.</div>'; return; }
-  const dNow = todayStr();
-  const rows = Object.keys(WX.days).sort().map(k => {
-    const d = WX.days[k];
-    const dt = new Date(k + 'T00:00:00');
-    const isToday = k === dNow;
-    const isPast = k < dNow;
-    let cls = 'wx-cell';
-    if(/무지개/.test(d.label)) cls += ' rainbow';
-    else if(/비|눈/.test(d.label) && d.label !== '맑음') cls += ' special';
-    if(isToday) cls += ' today';
-    return '<div class="' + cls + '"' + (isPast ? ' style="opacity:.55"' : '') + '>'
-      + '<span class="wx-week">' + WEEK[dt.getDay()] + '</span>'
-      + '<div class="wx-date">' + MONTHS[parseInt(k.slice(5,7),10) - 1] + ' ' + (parseInt(k.slice(8,10),10)) + '일' + (isToday ? ' · 오늘' : '') + '</div>'
-      + '<span class="wx-icon">' + d.icon + '</span>'
-      + '<div class="wx-label">' + esc(d.label) + '</div>'
-      + (d.note ? '<div class="wx-note">' + esc(d.note) + '</div>' : '<div class="wx-note"></div>')
-      + (d.fish ? '<div class="wx-fish">🎣 ' + esc(d.fish) + '</div>' : '')
-      + '</div>';
-  }).join('');
-  cal.innerHTML = rows || '<div class="empty"><span class="emo">📅</span>아직 일정 데이터가 없습니다</div>';
-}
-
-renderToday();
-renderCal();
-</script>
+<script src="../assets/js/analytics-config.js"></script>
+<script src="../assets/js/analytics.js"></script>
+<script src="../assets/js/planner-core.js"></script>
+<script src="../data/weather-plan.js"></script>
+<script src="../assets/js/weather-page.js"></script>
 </body>
 </html>

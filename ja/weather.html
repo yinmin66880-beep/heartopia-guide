@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハートピア今日の天気とカレンダー（虹・雨・流星群の攻略ハンドブック）| ハートピア攻略手帳</title>
-<meta name="description" content="ハートピア（Heartopia）の今日の天気を自動更新で掲載。虹・雨・流星群の日程カレンダーに加え、天気リセットの仕組み詳解、特殊天気のアクションハンドブック（ドゥオドゥオ限定ショップ／採集 2 倍／隕石収集）、天気 × 釣り限定魚の早見表 — お出かけ前にチェックして空振りなし。">
+<title>ハートピアの今日の天気・天気予報 | 攻略手帳</title>
+<meta name="description" content="日付付きの天気記録、UTC+8の情報基準時刻、確認済みの今後の日程を掲載。未確認の日を晴れと推測せず、釣りの予定に役立てます。">
 <meta name="keywords" content="ハートピア天気,ハートピア今日の天気,ハートピア虹の日,ハートピア天気カレンダー,ハートピア流星群,ハートピア釣り天気">
 <link rel="canonical" href="https://heartopiaguide.net/ja/weather">
 <link rel="alternate" hreflang="zh-CN" href="https://heartopiaguide.net/weather">
@@ -13,78 +13,20 @@
 <link rel="alternate" hreflang="ko" href="https://heartopiaguide.net/ko/weather">
 <link rel="alternate" hreflang="x-default" href="https://heartopiaguide.net/weather">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ハートピア今日の天気カレンダー（虹・雨・流星群のお知らせ）| ハートピア攻略手帳">
-<meta property="og:description" content="公式のゲーム内天気スケジュールをカレンダー化。天気 × 限定魚の早見表つき。">
+<meta property="og:title" content="ハートピアの今日の天気・天気予報 | 攻略手帳">
+<meta property="og:description" content="日付付きの天気記録、UTC+8の情報基準時刻、確認済みの今後の日程を掲載。未確認の日を晴れと推測せず、釣りの予定に役立てます。">
 <meta property="og:url" content="https://heartopiaguide.net/ja/weather">
 <meta name="theme-color" content="#FAF5EA">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
 <link rel="stylesheet" href="../assets/css/style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "ハートピアの天気はランダム？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "いいえ。ゲーム内の天気は公式の固定スケジュールに従い、サーバー全体で毎日同じ天気になります。コミュニティがそれをカレンダー化しています（情報源はステータスバー参照）— 釣りも採集も事前に計画できます。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "次の虹の日はいつ？何が釣れる？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "今後の虹の日は上のカレンダーで。昼間はシュモクザメ（600 コイン）とニジマス（180 コイン）が狙えます — どちらも通常日は釣れません。出現条件の詳細は釣り図鑑へ。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "「晴れのち雨」（例：「12:00 以降は雨」）とは？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "前半は晴れで、指定時刻から雨になります。雨になった時点で雨の日限定（サンドブリーム・ウナギ）が釣れるようになるので、午後の出撃がいちばんお得。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "流星群は何のため？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "流星群の時間帯（例：18:00–24:00）には決まったスポットで隕石を採集できます — 貴重な制作・建材素材。逃すと次のスケジュールまで待つことに。カレンダーで確定したら時間を確保しておきましょう。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "天気はいつ更新？未来 7 日の予報はどこで見る？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "毎日 18:00 に翌日の天気が確定します。ゲーム内で右上の時計 → 天気を開けば、当日と今後 7 日間の予定が見られます。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ドゥオドゥオ（限定商人）はいつ現れる？どこで探す？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "特殊天気限定です：雨の日は芸術街のピアノ付近に固定、虹の日は温泉山・花畑・タウンセンター・森林・灯台山のどこかにランダム、流星群中は星隕の欠片の交換係、雪の日は芸術街に戻ります。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "雨の日と虹の日の採集にはどんなボーナスが？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "雨・虹の日は木の実、キノコ、草系の採集量が 2 倍 — 素材を蓄えるベストタイムです。虹の日はさらに虹の花束を 3 つ拾えて、高額な虹のかさ飾りを合成できます。"
-      }
-    }
-  ]
-}
-</script>
+
 <!-- adsense:auto-ads -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../assets/css/planner.css">
+<meta property="og:image" content="https://heartopiaguide.net/assets/social/weather-fishing-ja.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body data-page="weather">
 
@@ -105,313 +47,25 @@
   </div>
 </nav>
 
-<header class="page-hero">
-  <p class="crumbs"><a href="./">ホーム</a> / 天気カレンダー</p>
-  <span class="hero-kicker display">📅 公式スケジュール · コミュニティ管理</span>
-  <h1 class="display">町の天気 <em>カレンダー</em></h1>
-  <p class="page-sub">ハートピアの天気はランダムではなく<b>公式の固定スケジュール</b>。虹の日と流星群の夜を事前に知れば、<b>限定魚も限定採集も逃しません</b>。</p>
-  <p class="hero-updated" id="heroUpdated">⏱ 最終更新：毎日 7 回自動更新</p>
-</header>
+<header class="page-hero"><p class="crumbs"><a href="./">Heartopia Guide</a> / ハートピアの今日の天気</p><span class="hero-kicker display">📅 UTC+8 · TapTap</span><h1 class="display">ハートピアの今日の天気</h1><p class="page-sub">予定を立てる前に情報の日付を確認してください。TapTapコミュニティの記録が基準で、すべてのゲーム地域との一致を独立検証したものではありません。</p><p class="hero-updated" id="heroUpdated">UTC+8 · TapTap</p></header>
 
 <main class="wrap">
-
-  <section class="reveal" style="padding-top:40px">
-    <div class="status-bar" id="statusBar">
-      <span class="status-pill ok" id="statusPill"><span class="dot"></span><span id="statusText">読み込み中…</span></span>
-      <span id="statusMeta">—</span>
-      <span class="src-links" id="srcLinks"></span>
-    </div>
-
-    <div class="grid-today">
-      <div class="card">
-        <span class="tape"></span>
-        <p class="today-date" id="todayDate">—</p>
-        <h3 class="display">今日の天気</h3>
-        <div class="weather-big">
-          <span class="icon" id="wxIcon">⛅</span>
-          <div>
-            <div class="temp" id="wxLabel">—</div>
-            <div class="cond" id="wxDetail">—</div>
-          </div>
-        </div>
-        <div class="tip-box kai" id="wxTip">💡 天気情報を読み込み中…</div>
-        <div class="tip-box next kai" id="wxNext" style="display:none"></div>
-      </div>
-      <div class="card blue">
-        <span class="tape"></span>
-        <h3 class="display">🎣 天気 × 釣り早見表</h3>
-        <div class="res-row"><span class="emo">🌈</span><span class="name">虹の日</span><span class="pos">シュモクザメ · ニジマス</span></div>
-        <div class="res-row"><span class="emo">🌧️</span><span class="name">雨の日</span><span class="pos">サンドブリーム · ウナギ</span></div>
-        <div class="res-row"><span class="emo">❄️</span><span class="name">雪の日</span><span class="pos">ズワイガニ · 氷の海の天使</span></div>
-        <div class="res-row"><span class="emo">☄️</span><span class="name">流星群の夜</span><span class="pos">隕石の限定採集</span></div>
-        <a class="more-link" href="fishing">全 24 種の出現条件を見る →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">カレンダー</span>
-      <h2 class="display"><span class="wavy">今後の天気</span></h2>
-    </div>
-    <p class="sec-desc">下記の<b>確定済み日程</b>はコミュニティ収集 + パイプライン検証済み。掲載のない日は通常の晴れです。</p>
-    <div class="wx-cal" id="wxCal"></div>
-    <div class="wx-legend">
-      <span><b>☀️ 晴れ</b> いつもどおり釣り</span>
-      <span><b>🌧️ 雨</b> 雨の日限定</span>
-      <span><b>🌈 虹</b> 伝説級の魚のチャンス</span>
-      <span><b>☄️ 流星群</b> 隕石採集</span>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display blue">さらに詳しく</span>
-      <h2 class="display"><span class="wavy">天気で今日の計画を決める</span></h2>
-    </div>
-    <div class="grid-guides">
-      <a class="guide-card" href="fishing">
-        <span class="guide-count">24 種</span><span class="emo">🎣</span>
-        <h4 class="display">釣り図鑑</h4>
-        <p>時間 × 天気 × 釣り場の検索 — 虹の日にシュモクザメを逃さない</p>
-        <span class="go">魚を調べる →</span>
-      </a>
-      <a class="guide-card" href="codes">
-        <span class="guide-count">毎日更新</span><span class="emo">🎁</span>
-        <h4 class="display">今日のギフトコード</h4>
-        <p>毎日 18:00 頃に新しいコード、ワンクリックでコピー。ついでに物資も</p>
-        <span class="go">今すぐコピー →</span>
-      </a>
-      <a class="guide-card" href="guide">
-        <span class="guide-count">7 日間</span><span class="emo">🌱</span>
-        <h4 class="display">初心者 7 日間ルート</h4>
-        <p>DAY4 は図鑑の日：見た魚は釣って、会った虫は捕る</p>
-        <span class="go">ルートを見る →</span>
-      </a>
-      <a class="guide-card" href="templates">
-        <span class="guide-count">30 作</span><span class="emo">🏠</span>
-        <h4 class="display">家づくりテンプレートライブラリ</h4>
-        <p>雨の日の釣りが終わったら？ 帰宅してテンプレートでインテリア</p>
-        <span class="go">テンプレートを見る →</span>
-      </a>
-      <a class="guide-card" href="recipes">
-        <span class="guide-count">料理で 2 倍</span><span class="emo">🍳</span>
-        <h4 class="display">釣った魚は料理がお得</h4>
-        <p>サケの握り寿司は直売より約 350 コイン得 — 魚価の上がるレシピ表</p>
-        <span class="go">レシピを見る →</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display blue">仕組み</span>
-      <h2 class="display"><span class="wavy">天気リセットの仕組み詳解</span></h2>
-    </div>
-    <p class="sec-desc">3 つのルールを理解すれば、釣り・採集・待ち伏せの計画をほかのプレイヤーより 1 日早く立てられます。</p>
-    <div class="tl">
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">ルール</span><span class="n">1</span></div>
-        <div class="tl-body">
-          <h4 class="display">🕐 毎日 18:00 に翌日の天気が確定 <span class="todo">サーバー全体で共通</span></h4>
-          <p>ハートピアの天気は<b>ランダムではなく</b>、公式の固定スケジュールで全サーバー同期。毎日 18:00 に翌日の天気が確定します — デイリーギフトコードの更新が 18:00 なのも同じ理由で、コード発表の投稿には天気の予報も併記されます。</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">ルール</span><span class="n">2</span></div>
-        <div class="tl-body">
-          <h4 class="display">⌚ ゲーム内で未来 7 日の予報 <span class="todo">時計 → 天気</span></h4>
-          <p>画面右上の<b>時計アイコン → 天気</b>タブを開くと、当日と今後 7 日間の天気・時間帯の予定（例：「12:00 以降は雨」）が見られます。18:00 以降に見れば翌日の計画は確定です。</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-day"><span class="d">ルール</span><span class="n">3</span></div>
-        <div class="tl-body">
-          <h4 class="display">🌧️ 雨の翌日は虹の日の確率が高い <span class="todo">伝説魚の待ち伏せを前倒し</span></h4>
-          <p>コミュニティの長期観察では、雨の日の翌日は<b>高確率</b>で虹の日（100% ではありません）。今日雨なら、明日のシュモクザメ・ニジマス待ち伏せ計画を今から立てましょう。同じ特殊天気が 1 日に重複して来ることもありません。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display green">行動ガイド</span>
-      <h2 class="display"><span class="wavy">特殊天気アクションハンドブック</span></h2>
-    </div>
-    <p class="sec-desc">特殊天気ごとに限定コンテンツがあります：限定魚、限定採集物、限定商人「ドゥオドゥオ」、そして採集 2 倍。ハンドブックどおりに動けば、1 日も無駄にしません。</p>
-
-    <div class="panel" style="margin-bottom:22px">
-      <h4 class="display" style="font-size:17px">🌧️ 雨の日：タダ取りの日 + 採集 2 倍の日</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>限定魚</b>：カワカマス、大真珠貝、キンギョは雨の日にだけ食いつく。タコとナマズも雨の夜は活発化</li>
-        <li><b>商人ドゥオドゥオ</b>：雨の日は<b>芸術街のピアノ付近</b>に出現。かさ、キャンディ、浮雲山巻きのレシピ、はがき、限定かさ飾りを販売</li>
-        <li><b>採集 2 倍</b>：雨の日は木の実・キノコ・草系の採集量 ×2。素材集めの効率が倍増</li>
-        <li><b>バードウォッチング</b>：雨の日限定の鳥（ハチクイ・コフラミンゴ・ヒガシルリツグミ・ハヤブサ・シロガシラオタテガモ・ワシミミズクなど）も観察できます</li>
-      </ul>
-    </div>
-
-    <div class="panel" style="margin-bottom:22px">
-      <h4 class="display" style="font-size:17px">🌈 虹の日：伝説魚のチャンス + 採集 2 倍の日</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>限定魚</b>：虹の日の魚は釣りの趣味レベルで解放（レベル 6 のシロザケ → レベル 10 のシュモクザメ・メカジキ）。完全な解放表は <a href="fishing">釣り図鑑</a> へ</li>
-        <li><b>虹の花束</b>：当日 <b>3 つ</b>拾えて、高額な虹のかさ飾りに合成可能 — 露店の人気商品</li>
-        <li><b>虹のシャボン玉</b>：虹の日限定アイテム。マップ上のランダムの場所に出現</li>
-        <li><b>商人ドゥオドゥオ</b>：虹の日は<b>位置が不定</b>。温泉山・花畑・タウンセンター・森林・灯台山のどこかにランダム出現し、レインボーキャンディ、虹のスタンプ、限定装飾を販売</li>
-        <li><b>採集 2 倍</b>：木の実・キノコ・草系 ×2。雨の日と同じく素材集め向き</li>
-      </ul>
-    </div>
-
-    <div class="panel" style="margin-bottom:22px">
-      <h4 class="display" style="font-size:17px">☄️ 流星群：隕石採集の日（18:00 → 翌日 18:00）</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>隕石採集</b>：流星群は通常 18:00 から翌日 18:00 まで。マップに<b>9 個の隕石</b>（白・黄・紫などの色）が出現し、各隕石は 24 時間残ります</li>
-        <li><b>交換チェーン</b>：星隕鉱石をたたく → 星隕の欠片を集める → ドゥオドゥオで限定家具と一人用アクションに交換</li>
-        <li><b>願い事</b>：流星群の間は願い事ができ、ドゥオドゥオで家具とアクションの報酬に交換</li>
-        <li><b>隠し実績</b>：流星群の下でフレンドと一緒に写真を撮ると隠し実績が解除 — 逃すと次のスケジュールまで待つことに</li>
-      </ul>
-    </div>
-
-    <div class="panel">
-      <h4 class="display" style="font-size:17px">❄️ 雪の日 / アイスシーズン：氷上の遊びと限定魚</h4>
-      <ul class="furni" style="margin:10px 0 0">
-        <li><b>限定魚</b>：氷雪海域が開放。ズワイガニ、氷の海の天使、氷晶シリーズ（氷晶タラバガニ・氷晶フグ・氷晶タツノオトシゴ・氷晶ジンベエザメ）はアイスシーズン限定</li>
-        <li><b>商人ドゥオドゥオ</b>：雪の日は芸術街に出現し、雪の日の限定アイテムを販売</li>
-        <li><b>氷上の遊び</b>：凍った湖面では氷上アクティビティが解放。一部のペットは雪の日の 00:00–12:00 にしか現れません</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">チェックリスト</span>
-      <h2 class="display"><span class="wavy">特殊天気、ログイン 30 秒チェックリスト</span></h2>
-    </div>
-    <p class="sec-desc">特殊天気の時間は貴重。優先順位どおりに動いて、「逃したら終わり」から片付けましょう。</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">第 1 優先</span><span class="emo">🎣</span>
-        <h4 class="display">まず限定魚を釣る</h4>
-        <p>限定魚の窓は天気と一緒に閉まります。虹の日は先にクジラ海、雨の夜は先に旧海へ — 逃すと次のスケジュールまで待つことに。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">第 2 優先</span><span class="emo">☄️</span>
-        <h4 class="display">次に限定採集を回収</h4>
-        <p>流星群で 9 個の隕石をたたき、虹の日は虹の花束を 3 つ — どちらも限定報酬に交換できる確かな通貨です。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">第 3 優先</span><span class="emo">🛍️</span>
-        <h4 class="display">ドゥオドゥオの限定ショップ</h4>
-        <p>雨の日は芸術街のピアノ付近に固定、虹の日は虹の方角から探す（温泉山 / 花畑 / タウンセンター / 森林 / 灯台山）。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">ついでに</span><span class="emo">🧺</span>
-        <h4 class="display">採集 2 倍で素材備蓄</h4>
-        <p>雨・虹の日は木の実・キノコ・草系 ×2。道中で採り尽くしてからログアウト。<a href="codes">デイリーギフトコード</a>と物資スポットの受取も忘れずに。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal" id="weather-ledger">
-    <div class="sec-head">
-      <span class="sec-tag display coral" style="background:var(--coral)">データ徹底分析</span>
-      <h2 class="display"><span class="wavy">天気の損得勘定：特殊な一日は普段の何日分？</span></h2>
-    </div>
-    <p class="sec-desc">各特殊天気の産出（限定魚 + 2 倍採集 + 専用の希少品）を「通常日換算」に置き換えてみましょう — 魚価格は当サイト釣り図鑑の★1基準価格で、どの行も図鑑で検証できます。</p>
-    <div class="tbl-scroll">
-      <table class="money-table">
-        <thead>
-          <tr><th>天気の日</th><th>1 投の上限</th><th>採集ボーナス</th><th>専用の希少品</th><th>通常日換算</th><th>一言プレイ方針</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="fish-name">🌈 虹の日</td><td>シュモクザメ 600（釣り Lv10）</td><td>木の実・キノコ・草類 ×2</td><td>虹の花束 3 個 → 虹の傘飾り</td><td class="price">約 8 投</td><td>釣り＋花束＋2 倍採集＋ドュオドュオを四並行</td></tr>
-          <tr><td class="fish-name">❄️ 雪の日</td><td>氷の海の天使 750</td><td>—（氷雪シーズンの氷上遊び）</td><td>氷晶シリーズ限定魚</td><td class="price">約 10 投</td><td>伝説魚最優先、ほかは後回し</td></tr>
-          <tr><td class="fish-name">🌧️ 雨の日</td><td>ヨーロッパウナギ 150（雨の夜）</td><td>木の実・キノコ・草類 ×2</td><td>ドュオドュオは芸術街固定で探す手間ゼロ</td><td class="price">約 2 投</td><td>昼は素材確保、夜は旧海の夜釣り</td></tr>
-          <tr><td class="fish-name">☄️ 流星群</td><td>コイン収入なし</td><td>—</td><td>隕石 9 個 → 星隕の欠片 → 限定家具・アクション</td><td class="price">換算不可</td><td>隕石の全回収が最優先</td></tr>
-          <tr><td class="fish-name">☀️ 通常の日</td><td>サバ 70</td><td>—</td><td>—</td><td class="price">基準 1</td><td>釣り場を回してレベル上げ・図鑑解放</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="grid-guides" style="margin-top:22px">
-      <div class="guide-card now">
-        <span class="guide-count">8.6 倍</span><span class="emo">🌈</span>
-        <h4 class="display">虹の日の 1 投プレミアム</h4>
-        <p>シュモクザメ 600 ÷ サバ 70 ≈ 8.6：虹の日の 1 投は通常日の 8 投以上に相当。この時間帯を普通の採集に使うのは純損 — 釣り → 花束 → 採集の順番で。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">67 × 2</span><span class="emo">🧺</span>
-        <h4 class="display">2 倍採集の隠れた帳簿</h4>
-        <p>リンゴはジャムにすると 1 個 67 コイン — 雨・虹の日は採集 ×2 で、同じ労働時間の素材産出がそのまま倍に。ログアウト前の帰り道で満タンに。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">18:00 プラン術</span><span class="emo">🕐</span>
-        <h4 class="display">3 分でカレンダーを予定表に</h4>
-        <p>毎日 18:00 の天気リセット後にカレンダーを確認：明日が虹なら釣りデー、雨なら素材デー、流星群なら夜をまるごと空けておく。日程は公式が決める、計画はあなたが決める。</p>
-      </div>
-    </div>
-    <div class="warn-box" style="margin-top:18px">📊 <b>釣り図鑑と併用</b> —— 各天気ウィンドウの詳細な魚価格・解放レベル・餌の元持ち出しラインは、釣り図鑑の「魚汛経済学」章を参照。特殊日のログイン時は <a href="codes">デイリーギフトコード</a> と物資スポットを先に受け取ってから作業開始を。</div>
-  </section>
-
-  <section class="reveal" id="dataSource">
-    <div class="sec-head">
-      <span class="sec-tag display blue">データソース</span>
-      <h2 class="display"><span class="wavy">このカレンダーの出どころと精度の保ち方</span></h2>
-    </div>
-    <p class="sec-desc">天気カレンダーは自動化データパイプラインが毎日保守しています。手写しではなく、すべての工程を検証できます。</p>
-    <div class="grid-guides">
-      <div class="guide-card now">
-        <span class="guide-count">公式スケジュール</span><span class="emo">📅</span>
-        <h4 class="display">出どころ</h4>
-        <p>ゲーム内の天気は公式の固定スケジュールで全サーバー共通。コミュニティ攻略スレッドが毎日カレンダーに整理し、当サイトは TapTap コミュニティの天気まとめを基準ソースにしています。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">1 日 7 回</span><span class="emo">🔄</span>
-        <h4 class="display">自動メンテナンス</h4>
-        <p>パイプラインは毎日北京時間 06:10〜23:30 の計 7 回実行し、予報と当日の実際の天気を毎日照合・修正。手動修正エントリが上書きされることはありません。</p>
-      </div>
-      <div class="guide-card now">
-        <span class="guide-count">48 時間</span><span class="emo">📮</span>
-        <h4 class="display">訂正窓口</h4>
-        <p>スケジュールがゲーム内と違う？元スレッドにコメントするか、<a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a> までメールを。確認後 48 時間以内に修正します。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head">
-      <span class="sec-tag display">FAQ</span>
-      <h2 class="display"><span class="wavy">天気 FAQ</span></h2>
-    </div>
-    <details class="faq" open>
-      <summary>ハートピアの天気はランダム？</summary>
-      <div class="a">いいえ。ゲーム内の天気は<b>公式の固定スケジュール</b>に従い、サーバー全体で毎日同じ天気になります。コミュニティがそれをカレンダー化しています（情報源はステータスバー参照）— 釣りも採集も事前に計画できます。</div>
-    </details>
-    <details class="faq">
-      <summary>次の虹の日はいつ？何が釣れる？</summary>
-      <div class="a">今後の虹の日は上のカレンダーで。昼間は<b>シュモクザメ（600 コイン）とニジマス（180 コイン）</b>が狙えます — どちらも通常日は釣れません。出現条件の詳細は<a href="fishing">釣り図鑑</a>へ。</div>
-    </details>
-    <details class="faq">
-      <summary>「晴れのち雨」（例：「12:00 以降は雨」）とは？</summary>
-      <div class="a">前半は晴れで、指定時刻から雨になります。雨になった時点で雨の日限定（サンドブリーム・ウナギ）が釣れるようになるので、午後の出撃がいちばんお得。</div>
-    </details>
-    <details class="faq">
-      <summary>流星群は何のため？</summary>
-      <div class="a">流星群の時間帯（例：18:00–24:00）には決まったスポットで<b>隕石</b>を採集できます — 貴重な制作・建材素材。逃すと次のスケジュールまで待つことに。カレンダーで確定したら時間を確保しておきましょう。</div>
-    </details>
-    <details class="faq">
-      <summary>天気はいつ更新？未来 7 日の予報はどこで見る？</summary>
-      <div class="a">毎日 <b>18:00</b> に翌日の天気が確定します。ゲーム内で右上の<b>時計 → 天気</b>を開けば、当日と今後 7 日間の予定が見られます。18:00 以降に見れば翌日の計画は確定です。</div>
-    </details>
-    <details class="faq">
-      <summary>ドゥオドゥオ（限定商人）はいつ現れる？どこで探す？</summary>
-      <div class="a">特殊天気限定です：雨の日は<b>芸術街のピアノ付近</b>に固定（かさ、浮雲山巻きのレシピなどを販売）。虹の日は<b>ランダム出現</b>で、温泉山・花畑・タウンセンター・森林・灯台山のどこかに現れます。流星群中は星隕の欠片の交換係、雪の日は芸術街に戻ります。</div>
-    </details>
-    <details class="faq">
-      <summary>雨の日と虹の日の採集にはどんなボーナスが？</summary>
-      <div class="a">雨・虹の日は<b>木の実・キノコ・草系の採集量 ×2</b> — インテリアと料理の素材を蓄えるベストタイムです。虹の日はさらに虹の花束を 3 つ拾えて、高額な虹のかさ飾りを合成できます。</div>
-    </details>
-  </section>
-
+<!-- weather-snapshot:start -->
+<section class="planner-snapshot" id="weatherSnapshot" aria-label="確認済みカレンダーの最新記録" data-snapshot-date="2026-10-17">
+  <h2>確認済みカレンダーの最新記録</h2>
+  <p><time datetime="2026-10-17">2026-10-17</time> · UTC+8 · <strong>雨</strong></p>
+  <p class="planner-note">TapTapコミュニティのカレンダー・情報基準はUTC+8。ほかのゲーム地域との一致は独立検証していません。 現在の天気はゲーム内の時計・天気予報で確認してください。記録のない日は未確認です。</p>
+  <p class="planner-note">元カレンダー更新日: 2026-10-13 · デイリー情報生成日時: 2026-10-17 22:25:40 (UTC+8)</p>
+  <h3>今後の確認済み日程</h3><ul><li>これ以降の確認済み日程はありません。</li></ul>
+  <a class="planner-action" href="fishing#now">釣りの予定を立てる →</a>
+</section>
+<!-- weather-snapshot:end -->
+<section style="padding-top:28px">
+<div class="grid-today"><div class="card"><p class="today-date" id="todayDate">UTC+8</p><h2>今日のカレンダー記録</h2><div class="weather-big"><span class="icon" id="wxIcon">❔</span><div><div class="temp" id="wxLabel">—</div><div class="cond" id="wxDetail">記録のない日は未確認です。天気の種類が判明していても、開始・終了時刻が不明な場合があります。</div></div></div><p class="tip-box" id="wxTip">別の地域で遊ぶ場合はゲーム内の天気を優先してください。情報源はUTC+8、端末の現地時刻は別に表示します。</p><div class="tip-box next" id="wxNext" style="display:none"></div></div>
+<div class="card blue"><h2>🎣 釣りの予定を立てる</h2><p class="planner-note">ゲーム内で観測した天気に合わせて候補を探し、収集リストを保存して予定を共有できます。</p><a class="planner-action primary" data-weather-plan href="fishing#now">釣りの予定を立てる →</a><p class="planner-note">別の地域で遊ぶ場合はゲーム内の天気を優先してください。情報源はUTC+8、端末の現地時刻は別に表示します。</p></div></div></section>
+<div class="status-bar" id="statusBar"><span class="status-pill warn" id="statusPill"><span class="dot"></span><span id="statusText">記録のない日は未確認です。天気の種類が判明していても、開始・終了時刻が不明な場合があります。</span></span><span id="statusMeta">UTC+8</span><span class="src-links" id="srcLinks"></span></div>
+<section><div class="sec-head"><h2 class="display">確認済みの天気カレンダー</h2></div><p class="sec-desc">記録のない日は未確認です。天気の種類が判明していても、開始・終了時刻が不明な場合があります。</p><div class="wx-cal" id="wxCal"></div></section>
+<section><h2 class="display">目的別ガイド</h2><div class="planner-guides" id="focusedGuideLinks"><a href="rain-fishing-guide">ハートピア 雨の日の釣りガイド：出発前の準備と釣れない時の確認</a><a href="rainbow-planning-guide">ハートピア 虹の天気ガイド：短い時間で迷わない行動計画</a><a href="fish-collection-guide">ハートピア 魚図鑑の埋め方：未収集の整理と出現条件の確認</a><a href="weather-time-guide">ハートピア 天気カレンダーの読み方：サーバー時刻・日付・未確認情報</a><a href="small-house-planning-guide">ハートピア 小さな家の作り方：間取りから考える建築計画</a></div></section>
 </main>
 
 <footer>
@@ -430,7 +84,7 @@
     <a href="about">当サイトについて</a>
     <a href="changelog">更新履歴</a>
   </div>
-  <p>天気は公式の固定スケジュールに従い、カレンダーはコミュニティ管理 + パイプライン検証 · 掲載のない日は晴れ</p>
+  <p>記録のない日は未確認です。天気の種類が判明していても、開始・終了時刻が不明な場合があります。</p>
   <p class="foot-contact">📮 データ訂正・お問い合わせ：<a href="mailto:contact@heartopiaguide.net">contact@heartopiaguide.net</a></p>
   <p>非公式のファンメイド攻略プロジェクトであり、XD Inc. とは無関係 · 『ハートピア』のゲーム素材は各著作権者に帰属</p>
 </footer>
@@ -440,94 +94,11 @@
 <script src="../data/daily.js"></script>
 <script src="../data/weather-ja.js"></script>
 <script src="../assets/i18n/ja.js"></script>
-<script>
-const DAILY = window.HEARTOPIA_DAILY || null;
-const WX = window.HEARTOPIA_WEATHER || null;
-const I18N = window.HEARTOPIA_I18N;
-const WEEK = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
-const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 
-function todayStr(){
-  const n = new Date();
-  return n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
-}
-
-function renderToday(){
-  const pill = $('#statusPill'), pillTxt = $('#statusText'), meta = $('#statusMeta'), links = $('#srcLinks');
-  const dNow = todayStr();
-  let w = null, sp = null;
-  if(DAILY){
-    const stMap = {
-      live:  {cls:'ok',   txt:'今日の最新'},
-      stale: {cls:'warn', txt:'コミュニティアーカイブ'},
-      fallback:{cls:'warn', txt:'キャッシュフォールバック'}
-    };
-    let st = stMap[DAILY.status] || stMap.fallback;
-    if(DAILY.date < dNow) st = {cls:'warn', txt:'更新待ち'};
-    pill.className = 'status-pill ' + st.cls;
-    pillTxt.textContent = st.txt;
-    const nOk = (DAILY.audit && DAILY.audit.sourcesOk ? DAILY.audit.sourcesOk.length : (DAILY.sources || []).length);
-    meta.textContent = DAILY.date + ' · 更新 ' + DAILY.generatedAt + (nOk ? ' · 情報源 ' + nOk + ' 件' : '');
-    (DAILY.sources || []).slice(0, 2).forEach(s => {
-      const a = document.createElement('a');
-      a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = I18N.t(s.name);
-      links.appendChild(a);
-    });
-    w = DAILY.weather;
-    sp = DAILY.specialForecast;
-  }else if(WX && WX.days[dNow]){
-    pillTxt.textContent = 'カレンダーデータ';
-    meta.textContent = '更新 ' + WX.updated;
-    w = {icon: WX.days[dNow].icon, label: WX.days[dNow].label, detail: WX.days[dNow].note || '公式の固定スケジュール', fishTip: ''};
-  }else{
-    pill.className = 'status-pill warn';
-    pillTxt.textContent = '更新待ち';
-    meta.textContent = '今日はまだカレンダーの対象外です — パイプラインの更新を待っています';
-  }
-
-  $('#todayDate').textContent = dNow + ' · ' + WEEK[new Date().getDay()];
-  const hu = $('#heroUpdated');
-  if(hu) hu.textContent = '⏱ 最終更新：' + (DAILY && DAILY.generatedAt ? DAILY.generatedAt : (WX && WX.updated ? WX.updated : '—')) + ' · 毎日 7 回自動更新';
-  if(w){
-    $('#wxIcon').textContent = w.icon || '⛅';
-    $('#wxLabel').textContent = w.label ? I18N.t(w.label) : '不明';
-    $('#wxDetail').textContent = w.detail ? I18N.t(w.detail) : 'ゲーム内の天気は公式の固定スケジュールに従います';
-    $('#wxTip').textContent = w.fishTip ? I18N.fishTip(w.label, w.detail) : '💡 お出かけ前に天気をチェック — 限定魚を見逃さないで。';
-  }
-  if(sp){
-    const nx = $('#wxNext');
-    nx.style.display = '';
-    nx.textContent = '📅 先行予告：' + sp.date + ' ' + I18N.t(sp.label) + (sp.note ? ' — ' + I18N.t(sp.note) : '');
-  }
-}
-
-function renderCal(){
-  const cal = $('#wxCal');
-  if(!WX || !WX.days){ cal.innerHTML = '<div class="empty"><span class="emo">📅</span>カレンダーデータの読み込みに失敗しました — data/weather-ja.js が配置されているか確認してください。</div>'; return; }
-  const dNow = todayStr();
-  const rows = Object.keys(WX.days).sort().map(k => {
-    const d = WX.days[k];
-    const dt = new Date(k + 'T00:00:00');
-    const isToday = k === dNow;
-    const isPast = k < dNow;
-    let cls = 'wx-cell';
-    if(/虹/.test(d.label)) cls += ' rainbow';
-    else if(/雨|雪/.test(d.label) && d.label !== '晴れ') cls += ' special';
-    if(isToday) cls += ' today';
-    return '<div class="' + cls + '"' + (isPast ? ' style="opacity:.55"' : '') + '>'
-      + '<span class="wx-week">' + WEEK[dt.getDay()] + '</span>'
-      + '<div class="wx-date">' + MONTHS[parseInt(k.slice(5,7),10) - 1] + (parseInt(k.slice(8,10),10)) + '日' + (isToday ? ' · 今日' : '') + '</div>'
-      + '<span class="wx-icon">' + d.icon + '</span>'
-      + '<div class="wx-label">' + esc(d.label) + '</div>'
-      + (d.note ? '<div class="wx-note">' + esc(d.note) + '</div>' : '<div class="wx-note"></div>')
-      + (d.fish ? '<div class="wx-fish">🎣 ' + esc(d.fish) + '</div>' : '')
-      + '</div>';
-  }).join('');
-  cal.innerHTML = rows || '<div class="empty"><span class="emo">📅</span>スケジュールデータはまだありません</div>';
-}
-
-renderToday();
-renderCal();
-</script>
+<script src="../assets/js/analytics-config.js"></script>
+<script src="../assets/js/analytics.js"></script>
+<script src="../assets/js/planner-core.js"></script>
+<script src="../data/weather-plan.js"></script>
+<script src="../assets/js/weather-page.js"></script>
 </body>
 </html>

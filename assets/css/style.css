@@ -569,3 +569,6 @@ footer .foot-contact a:hover{color:var(--coral-deep)}
   .tl-day{width:52px;height:52px}
   .steps-3{grid-template-columns:1fr}
 }
+
+/* Optional consent panel; visible only with a configured analytics property. */
+.planner-consent{position:fixed;bottom:16px;left:16px;right:16px;z-index:150;background:var(--card);padding:18px;border:2px solid var(--line);border-radius:16px;box-shadow:0 6px 30px #4c443733;max-width:680px;margin:auto}.planner-consent p{margin:10px 0}.planner-consent button{font:inherit;cursor:pointer;margin:4px;min-height:44px;padding:8px 14px;border:1.5px solid var(--green-deep);border-radius:9px;background:var(--card);color:var(--green-deep)}.planner-consent a{color:var(--green-deep)}

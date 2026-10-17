@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 <!-- adsense:auto-ads -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3254582406359037" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../assets/css/planner.css">
 </head>
 <body data-page="privacy">
 
@@ -104,6 +105,7 @@
     <p><b>お問い合わせ</b>：<a href="https://github.com/yinmin66880-beep/heartopia-guide/issues" target="_blank" rel="noopener">GitHub Issues</a> からどうぞ。</p>
   </section>
 
+<section id="plannerPrivacy"><h2>釣りリストと任意の利用計測</h2><p>釣りプランナーの収集・解放リストと設定はブラウザ内だけに保存します。消去ボタンで収集リストを削除できます。Google Analyticsはプロパティの設定後、利用者が許可した場合だけ読み込みます。拒否しても全機能を利用できます。下のボタンで計測の同意を撤回できます。</p><button type="button" class="planner-action" onclick="localStorage.setItem('heartopia-analytics-consent','denied');location.reload()">任意の計測の同意を撤回</button></section>
 </main>
 
 <footer>
@@ -129,5 +131,7 @@
 
 <script src="../assets/js/common.js"></script>
 <script src="../assets/js/lang.js"></script>
+<script src="../assets/js/analytics-config.js"></script>
+<script src="../assets/js/analytics.js"></script>
 </body>
 </html>

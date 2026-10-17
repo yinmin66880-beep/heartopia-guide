@@ -9,6 +9,14 @@
 /data/daily.js
   Cache-Control: public, max-age=120, must-revalidate
 
+/data/daily.json
+  Cache-Control: public, max-age=120, must-revalidate
+/data/weather-plan.js
+  Cache-Control: public, max-age=120, must-revalidate
+
+/assets/js/analytics-config.js
+  Cache-Control: public, max-age=120, must-revalidate
+
 /data/weather.js
   Cache-Control: public, max-age=600, must-revalidate
 /data/weather-en.js

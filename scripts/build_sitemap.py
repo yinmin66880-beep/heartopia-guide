@@ -21,6 +21,7 @@
 """
 
 import argparse
+import json
 import re
 from pathlib import Path
 
@@ -84,6 +85,18 @@ def build_sitemap(base):
                 f"    <priority>{pri}</priority>\n"
                 "  </url>"
             )
+    # Focused guides are available only in the languages actually authored.
+    guide_source = ROOT / "data-src" / "focused-guides.json"
+    if guide_source.exists():
+        for guide in json.loads(guide_source.read_text(encoding="utf-8"))["pages"]:
+            slug = guide["slug"]
+            supported = [lang for lang in ("en", "ja") if lang in guide]
+            alternates = "\n".join(
+                f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{base}/{lang}/{slug}"/>'
+                for lang in supported
+            )
+            for lang in supported:
+                urls.append("  <url>\n" + f"    <loc>{base}/{lang}/{slug}</loc>\n" + alternates + "\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>")
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
@@ -131,7 +144,7 @@ def main():
 
     sitemap = ROOT / "sitemap.xml"
     sitemap.write_text(build_sitemap(base), encoding="utf-8")
-    print(f"sitemap.xml 已生成（{len(PAGES)} 页 × {len(LOCALES)} 语言，含 hreflang 互链，基准 {base}/）")
+    print(f"sitemap.xml 已生成（{sitemap.read_text(encoding='utf-8').count('<loc>')} 个 URL，含真实语言互链，基准 {base}/）")
 
     if args.apply:
         apply_domain(base, args.old_base)

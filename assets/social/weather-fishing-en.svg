@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Heartopia Guide: check the weather, plan your fishing route</title>
+  <desc id="desc">Original evergreen illustration of a cloud, fish, and route. It asks players to confirm the date, source, and server coverage. No actual forecast or game screenshot is shown.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f4ee"/><stop offset="1" stop-color="#f9f2dd"/></linearGradient>
+    <linearGradient id="pond" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bfded8"/><stop offset="1" stop-color="#79b7b0"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#194d43" flood-opacity=".11"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1158" cy="-12" r="216" fill="#d7e9db"/>
+  <circle cx="-24" cy="619" r="185" fill="#d4e7d6"/>
+  <g fill="none" stroke="#c4d8c8" stroke-width="2" opacity=".65"><path d="M25 193q90-48 181 0t181 0"/><path d="M881 574q90-48 181 0t181 0"/></g>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" fill="#173f35">
+    <g transform="translate(64 47)"><rect width="34" height="34" rx="11" fill="#1e6653"/><path d="M9 21c7-14 17-13 17-13s0 12-12 17" stroke="#e7f3d9" stroke-width="2.4" fill="none"/><path d="m12 23 10-11" stroke="#e7f3d9" stroke-width="2"/><text x="48" y="25" font-size="24" font-weight="750" letter-spacing="-.5">HEARTOPIA GUIDE</text></g>
+    <text x="64" y="158" font-size="15" font-weight="700" letter-spacing="3" fill="#467360">A LITTLE PLANNING. MORE PLAY.</text>
+    <text x="60" y="237" font-size="63" font-weight="780" letter-spacing="-2.8">Check the weather.</text>
+    <text x="60" y="311" font-size="63" font-weight="780" letter-spacing="-2.8">Plan your</text>
+    <text x="60" y="385" font-size="63" font-weight="780" letter-spacing="-2.8">fishing route.</text>
+    <text x="64" y="438" font-size="23" fill="#4b6b5c">Date. Source. Server coverage.</text>
+    <text x="64" y="471" font-size="23" fill="#4b6b5c">Check all three before you go.</text>
+    <g transform="translate(64 518)"><rect width="294" height="56" rx="28" fill="#1d604d"/><text x="24" y="36" fill="#fffbed" font-size="21" font-weight="650">heartopiaguide.net</text><path d="M254 28h14m-6-6 6 6-6 6" stroke="#fffbed" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+    <text x="388" y="552" font-size="14" fill="#5c7667">Community-sourced references.</text>
+    <text x="388" y="574" font-size="14" fill="#5c7667">Check the scope shown on the page.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="776" y="151" width="348" height="357" rx="35" fill="#fffdf5" transform="rotate(5 950 329)"/>
+    <rect x="757" y="128" width="348" height="357" rx="35" fill="#fffdf5"/>
+    <path d="M789 360c44-67 86 57 132-5s68-31 126-69" fill="none" stroke="#659887" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 11"/>
+    <ellipse cx="935" cy="415" rx="123" ry="34" fill="url(#pond)"/>
+    <path d="M838 417q22-9 44 0m25 10q23-9 46 0m20-16q23-9 46 0" fill="none" stroke="#e7f5e9" stroke-width="3" stroke-linecap="round"/>
+    <g transform="translate(883 355)"><path d="M0 17C26-10 66-9 87 17 66 44 26 44 0 17Z" fill="#e6aa64"/><path d="m84 17 24-21v42Z" fill="#ce8754"/><circle cx="23" cy="14" r="3.5" fill="#214d40"/><path d="M40 0q11-14 20-7l-2 14" fill="#e6aa64"/></g>
+    <circle cx="813" cy="340" r="12" fill="#1e6653" stroke="#fffdf5" stroke-width="5"/>
+    <circle cx="945" cy="332" r="12" fill="#e2a45e" stroke="#fffdf5" stroke-width="5"/>
+    <circle cx="1045" cy="286" r="12" fill="#1e6653" stroke="#fffdf5" stroke-width="5"/>
+    <g transform="translate(812 178)"><circle cx="107" cy="39" r="27" fill="#efc66b"/><path d="M39 92C7 92 4 49 33 43 38 8 88 8 99 40c37-11 54 47 13 52Z" fill="#dcece8" stroke="#7eaaa0" stroke-width="3"/><path d="m35 110-5 12m33-12-5 12m33-12-5 12" stroke="#7aa9a2" stroke-width="4" stroke-linecap="round"/></g>
+    <g font-family="Inter, Segoe UI, Arial, sans-serif" fill="#527163"><text x="1015" y="178" font-size="12" font-weight="700" letter-spacing="1">PLAN</text><text x="800" y="463" font-size="13">YOUR GAME · YOUR CONDITIONS</text></g>
+  </g>
+  <g fill="#658b68"><path d="M1125 457q29-35 33-3-17 8-33 3"/><path d="M1127 480q-22-29-31-3 11 11 31 3"/><path d="M1126 500v-56" stroke="#658b68" stroke-width="3" fill="none"/></g>
+</svg>

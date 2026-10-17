@@ -1,0 +1,27 @@
+name: site-checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Test source precision, clocks, filters and analytics consent
+        run: |
+          node --test tests/planner-core.test.cjs tests/analytics.test.cjs
+          python -m unittest discover -s tests -p 'test_*.py'
+      - name: Validate generated guides, translations, links and scripts
+        run: |
+          python scripts/build_focused_guides.py --check
+          python scripts/validate_i18n.py
+          python scripts/validate_growth.py

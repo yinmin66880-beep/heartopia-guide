@@ -481,4 +481,74 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/rain-fishing-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/rain-fishing-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/rain-fishing-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/rain-fishing-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/rain-fishing-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/rain-fishing-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/rainbow-planning-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/rainbow-planning-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/rainbow-planning-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/rainbow-planning-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/rainbow-planning-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/rainbow-planning-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/fish-collection-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/fish-collection-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/fish-collection-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/fish-collection-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/fish-collection-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/fish-collection-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/weather-time-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/weather-time-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/weather-time-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/weather-time-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/weather-time-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/weather-time-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/en/small-house-planning-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/small-house-planning-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/small-house-planning-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://heartopiaguide.net/ja/small-house-planning-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heartopiaguide.net/en/small-house-planning-guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://heartopiaguide.net/ja/small-house-planning-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
