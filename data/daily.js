@@ -2,14 +2,15 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-18",
   "weekday": "星期日",
-  "generatedAt": "2026-10-18 22:08:43",
+  "generatedAt": "2026-10-18 22:49:19",
   "status": "live",
   "weather": null,
   "specialForecast": null,
   "codes": [
     {
       "code": "E6VT9QA",
-      "note": "置顶码评 · 当日 23:59:59 前有效"
+      "note": "已获 2 个独立源交叉验证 · 当日有效",
+      "verified": 2
     }
   ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
@@ -77,7 +78,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 16
+        "posts": 14
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
@@ -87,7 +88,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
@@ -108,8 +109,8 @@ window.HEARTOPIA_DAILY = {
     "sourcesFailed": [],
     "conflicts": [
       "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 温泉山遗迹 / TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 提到 12 号家园门口",
-      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 温泉山遗迹 / TapTap 官方论坛 · 每日兑换码 提到 12 号家园门口",
-      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 温泉山遗迹 / TapTap 官方论坛 · 每日兑换码 提到 12 号家园门口"
+      "物资点位分歧: 溜溜橡木 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 12 号家园门口 / 话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 提到 4 号家园门口",
+      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 温泉山遗迹 / 话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 提到 11 号家园门口"
     ],
     "notes": [
       "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 E6VT9QA（努力再努力 18:01 发布）",
