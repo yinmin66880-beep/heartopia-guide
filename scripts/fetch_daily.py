@@ -436,14 +436,15 @@ def extract_codes_segment(seg, seg_date, target):
     return codes
 
 
-STONE_SPOTS = [("温泉山遗迹", "温泉山遗迹"), ("温泉山老家", "温泉山遗迹"), ("遗迹老家", "温泉山遗迹"),
-               ("森林灵橡松林", "森林灵橡松林"), ("灵橡松林", "森林灵橡松林")]
+RESOURCE_SPOTS = [("温泉山遗迹", "温泉山遗迹"), ("温泉山老家", "温泉山遗迹"), ("遗迹老家", "温泉山遗迹"),
+                  ("森林灵橡松林", "森林灵橡松林"), ("灵橡松林", "森林灵橡松林")]
 
 
 def extract_res_segment(seg):
     """段内物资点位 → {wood: 位置, stone: 位置}。
     支持「溜溜橡木：12号（溜溜木）」「溜溜木在12号房」「溜溜木/橡木位置：12家园门口」
-    「无瑕萤石：温泉山遗迹」「萤石在温泉山老家」等格式。
+    「无瑕萤石：温泉山遗迹」「溜溜木：森林灵橡松林」等格式。
+    只读取下一个不同物资名称之前的位置，避免借用另一物资的家园号或地名。
     """
     res = {}
     for aliases in (("溜溜橡木", "溜溜木", "橡木"), ("无瑕萤石", "无暇萤石", "萤石")):
@@ -454,25 +455,16 @@ def extract_res_segment(seg):
             hit = False
             for m in re.finditer(re.escape(alias), seg):
                 win = seg[m.end(): m.end() + 30]
-                if key == "wood":
-                    hm = re.search(r"(\d{1,2})\s*号", win) or re.search(r"(\d{1,2})\s*家园", win)
-                    if hm and 1 <= int(hm.group(1)) <= 12:
-                        res[key] = f"{int(hm.group(1))} 号家园门口"
-                        hit = True
-                        break
-                else:
-                    for spot, norm in STONE_SPOTS:
-                        if spot in win:
-                            res[key] = norm
-                            hit = True
-                            break
-                    if not hit:
-                        hm = re.search(r"(\d{1,2})\s*号", win) or re.search(r"(\d{1,2})\s*家园", win)
-                        if hm and 1 <= int(hm.group(1)) <= 12:
-                            res[key] = f"{int(hm.group(1))} 号家园门口"
-                            hit = True
-                    if hit:
-                        break
+                other = r"无瑕萤石|无暇萤石|萤石" if key == "wood" else r"溜溜橡木|溜溜木|橡木"
+                win = re.split(other, win, maxsplit=1)[0]
+                positions = [(win.index(spot), norm) for spot, norm in RESOURCE_SPOTS if spot in win]
+                for hm in re.finditer(r"(?<!\d)(\d{1,2})\s*(?:号|家园)", win):
+                    if 1 <= int(hm.group(1)) <= 12:
+                        positions.append((hm.start(), f"{int(hm.group(1))} 号家园门口"))
+                if positions:
+                    res[key] = min(positions, key=lambda item: item[0])[1]
+                    hit = True
+                    break
             if hit:
                 break
     return res

@@ -11,6 +11,54 @@ pipeline = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pipeline)
 
 
+class ResourceTests(unittest.TestCase):
+    def test_live_forest_wood_and_home_fluorite(self):
+        self.assertEqual(
+            pipeline.extract_res_segment(
+                "溜溜木/橡木位置：森林灵橡松林 萤石位置：8号家园门口"
+            ),
+            {"wood": "森林灵橡松林", "stone": "8 号家园门口"},
+        )
+
+    def test_each_resource_keeps_its_own_location_in_either_order(self):
+        for text in (
+            "萤石位置：8号家园门口 溜溜木位置：森林灵橡松林",
+            "溜溜木：森林灵橡松林，无瑕萤石：8号房",
+        ):
+            with self.subTest(text=text):
+                self.assertEqual(
+                    pipeline.extract_res_segment(text),
+                    {"wood": "森林灵橡松林", "stone": "8 号家园门口"},
+                )
+
+    def test_unknown_location_does_not_borrow_from_other_resource(self):
+        for text, expected in (
+            ("溜溜木位置待更新 萤石位置：8号家园门口", {"stone": "8 号家园门口"}),
+            ("萤石位置待更新 溜溜木位置：森林灵橡松林", {"wood": "森林灵橡松林"}),
+        ):
+            with self.subTest(text=text):
+                self.assertEqual(pipeline.extract_res_segment(text), expected)
+
+    def test_previous_day_and_existing_aliases(self):
+        for text in (
+            "溜溜木/橡木位置：12号家园门口 萤石位置：温泉山遗迹老家",
+            "溜溜橡木：12号（溜溜木） 无暇萤石在温泉山老家",
+            "溜溜木在12号房 无瑕萤石：遗迹老家",
+        ):
+            with self.subTest(text=text):
+                self.assertEqual(
+                    pipeline.extract_res_segment(text),
+                    {"wood": "12 号家园门口", "stone": "温泉山遗迹"},
+                )
+
+    def test_first_location_wins_and_invalid_home_is_ignored(self):
+        self.assertEqual(
+            pipeline.extract_res_segment("萤石在8号房，附近通往森林灵橡松林"),
+            {"stone": "8 号家园门口"},
+        )
+        self.assertEqual(pipeline.extract_res_segment("溜溜木在13号房 萤石在0号房"), {})
+
+
 class ForecastTests(unittest.TestCase):
     def test_live_grouped_rain_forecast(self):
         text = "今日天气: 晴天 13日周二 14日周三 17日周六 下雨天 🎁 今日物资"
