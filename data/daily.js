@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-19",
   "weekday": "星期一",
-  "generatedAt": "2026-10-19 08:11:46",
+  "generatedAt": "2026-10-19 10:35:10",
   "status": "live",
   "weather": null,
   "specialForecast": null,
@@ -13,7 +13,7 @@ window.HEARTOPIA_DAILY = {
     {
       "emo": "🪵",
       "name": "溜溜橡木",
-      "pos": "8 号家园门口"
+      "pos": "森林灵橡松林"
     },
     {
       "emo": "💎",
@@ -27,14 +27,6 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
-    },
-    {
-      "name": "TapTap 官方论坛 · 每日兑换码",
-      "url": "https://www.taptap.cn/moment/844636406570549558"
-    },
-    {
-      "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-      "url": "https://www.taptap.cn/app/45213/topic"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -71,23 +63,23 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
-        "isTargetDate": true,
-        "posts": 26
+        "isTargetDate": false,
+        "posts": 24
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
         "isTargetDate": false,
-        "posts": 2
+        "posts": 0
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-        "isTargetDate": true,
-        "posts": 0
+        "isTargetDate": false,
+        "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 43
+        "posts": 30
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -101,11 +93,9 @@ window.HEARTOPIA_DAILY = {
       }
     ],
     "sourcesFailed": [],
-    "conflicts": [
-      "物资点位分歧: 无瑕萤石 采信「TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）」的 8 号家园门口 / TapTap 官方论坛 · 每日兑换码 提到 森林灵橡松林"
-    ],
+    "conflicts": [],
     "notes": [
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 8 号家园门口",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 森林灵橡松林",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 8 号家园门口",
       "天气日历未覆盖 2026-10-19，等待自动学习或人工补录"
     ]
