@@ -60,6 +60,34 @@ class ResourceTests(unittest.TestCase):
 
 
 class ForecastTests(unittest.TestCase):
+    def test_dated_community_post_keeps_weather_on_its_own_day(self):
+        text = (
+            "2026.10.20今日兑换码 YAQVD96 "
+            "10.21号心动小镇攻略来啦！！！ "
+            "1、萤石在4号家园 2、溜溜木在1号家园 "
+            "4、18点-24点有流星雨，会在🍎更新陨石位置 5、18点更新兑换码 "
+            "10.22心动小镇攻略 天气待更新"
+        )
+        segments = pipeline.split_posts(text, date(2026, 10, 21))
+        self.assertEqual([day for day, _ in segments], [date(2026, 10, day) for day in (20, 21, 22)])
+        self.assertIsNone(pipeline.parse_today_weather(segments[0][1]))
+        self.assertIsNone(pipeline.parse_today_weather(segments[2][1]))
+        calendar = {"days": {}}
+        pipeline.learn_weather(calendar, segments, {"name": "community", "priority": "primary"},
+                               date(2026, 10, 21), {"notes": []})
+        self.assertEqual(calendar["days"], {
+            "2026-10-21": {"phases": [{"t": "meteor", "s": 18, "e": 24}], "auto": True}
+        })
+
+    def test_time_before_weather_does_not_invent_other_hours(self):
+        for text in ("18点-24点有流星雨", "18:00–24:00 流星雨", "18-24点流星雨"):
+            with self.subTest(text=text):
+                self.assertEqual(pipeline.parse_today_weather(text), [{"t": "meteor", "s": 18, "e": 24}])
+        for text in ("24点-30点有流星雨", "18点-6点有流星雨", "18:30-24:00流星雨",
+                     "流星雨24-30", "18点更新兑换码", "无特殊天气"):
+            with self.subTest(text=text):
+                self.assertIsNone(pipeline.parse_today_weather(text))
+
     def test_live_grouped_rain_forecast(self):
         text = "今日天气: 晴天 13日周二 14日周三 17日周六 下雨天 🎁 今日物资"
         self.assertEqual(
