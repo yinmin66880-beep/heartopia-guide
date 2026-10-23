@@ -6,7 +6,7 @@ window.HEARTOPIA_CODE_HISTORY = [
       "K4VX7WA"
     ],
     "api": true,
-    "verified": 3
+    "verified": 4
   },
   {
     "date": "2026-10-22",
