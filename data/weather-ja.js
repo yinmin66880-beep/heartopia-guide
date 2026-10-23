@@ -2,7 +2,7 @@
  * scripts/fetch_daily.py による自動生成 — 手書き編集はしないでください。
  * ゲーム内天気は公式の固定スケジュールに従います。コミュニティ投稿と毎日照合しています。 */
 window.HEARTOPIA_WEATHER = {
-  updated: "2026-10-22",
+  updated: "2026-10-23",
   source: {
     name: "TapTap ハートピア · コミュニティ天気情報",
     url: "https://www.taptap.cn/user/594768777"
@@ -108,6 +108,12 @@ window.HEARTOPIA_WEATHER = {
     "icon": "🌠",
     "note": "18:00-24:00 流星群",
     "fish": "隕石の限定採集"
+  },
+  "2026-10-23": {
+    "label": "虹",
+    "icon": "🌈",
+    "note": "12:00-18:00 虹",
+    "fish": "シュモクザメ · ニジマス"
   }
 }
 };
