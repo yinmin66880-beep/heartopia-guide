@@ -60,6 +60,32 @@ class ResourceTests(unittest.TestCase):
 
 
 class ForecastTests(unittest.TestCase):
+    def test_dated_rainbow_guide_keeps_its_explicit_range_on_its_own_day(self):
+        text = (
+            "10.22号心动小镇攻略 18点-24点有流星雨 "
+            "10月23日彩虹攻略 朵朵位置 彩虹泡泡花束 彩虹时间：12:00-18:00 "
+            "10.24心动小镇攻略 天气待更新"
+        )
+        segments = pipeline.split_posts(text, date(2026, 10, 23))
+        self.assertEqual([day.day for day, _ in segments], [22, 23, 24])
+        calendar = {"days": {}}
+        pipeline.learn_weather(calendar, segments, {"name": "community", "priority": "primary"},
+                               date(2026, 10, 23), {"notes": []})
+        self.assertEqual(calendar["days"], {
+            "2026-10-22": {"phases": [{"t": "meteor", "s": 18, "e": 24}], "auto": True},
+            "2026-10-23": {"phases": [{"t": "rainbow", "s": 12, "e": 18}], "auto": True},
+        })
+
+    def test_labelled_weather_ranges_preserve_unknown_hours_and_reject_invalid_times(self):
+        self.assertEqual(pipeline.parse_today_weather(
+            "下雨时间：6点-12点 彩虹时间：12:00-18:00 彩虹时间：12:00-18:00"
+        ), [{"t": "rain", "s": 6, "e": 12}, {"t": "rainbow", "s": 12, "e": 18}])
+        for text in ("彩虹时间：12:30-18:00", "彩虹时间：12:00-18:30",
+                     "彩虹时间：24:00-30:00", "彩虹时间：18:00-6:00",
+                     "早上六点有雨 中午12点有彩虹", "彩虹时间：12点"):
+            with self.subTest(text=text):
+                self.assertIsNone(pipeline.parse_today_weather(text))
+
     def test_dated_community_post_keeps_weather_on_its_own_day(self):
         text = (
             "2026.10.20今日兑换码 YAQVD96 "

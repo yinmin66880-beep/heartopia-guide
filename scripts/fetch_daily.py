@@ -307,6 +307,19 @@ def parse_today_weather(seg):
         r"(?=\s*\d{1,2}日\s*周|\s*🎁|每日物资|活动时间表|⏰|溜溜|萤石|$)", seg)
     if m:
         return parse_phases(m.group(1))
+    # 如「彩虹时间：12:00-18:00」：只收录明确时段，不推断其余小时。
+    labelled = []
+    for match in re.finditer(
+        r"(流星雨|流星|彩虹天|彩虹|下雨天|下雨|雨天|下雪天|下雪|雪天|酷暑天)"
+        r"时间\s*[:：]\s*(\d{1,2})(?::00)?\s*点?\s*[-–~]\s*"
+        r"(\d{1,2})(?::00)?\s*点?(?![\d:])", seg):
+        start, end = int(match.group(2)), int(match.group(3))
+        if 0 <= start < end <= 24:
+            phase = {"t": wx_types_in(match.group(1))[0], "s": start, "e": end}
+            if phase not in labelled:
+                labelled.append(phase)
+    if labelled:
+        return labelled
     m2 = re.search(
         r"(流星雨|流星|彩虹天|彩虹|下雨天|雨天|下雪天|雪天|酷暑天)\s*"
         r"(\d{1,2})(?::\d{2})?\s*[-–~]\s*(\d{1,2})(?::\d{2})?", seg)
@@ -376,6 +389,7 @@ POST_MARKS = [
     re.compile(r"(?<![\d.])(\d{1,2})\.(\d{1,2})(?![\d.])号?[）)\s]*(?:溜溜木|心动小镇)"),  # 9.21溜溜木 / 9.21号心动小镇 标题
     re.compile(r"(\d{1,2})月(\d{1,2})日小镇日报"),                                # 主帖标题
     re.compile(r"(\d{1,2})月(\d{1,2})日位置播报"),                                # 位置播报帖
+    re.compile(r"(\d{1,2})月(\d{1,2})日(?:彩虹|流星雨|天气)攻略"),                 # 特殊天气攻略标题
     re.compile(r"(\d{1,2})月(\d{1,2})日溜溜木和萤石位置"),                        # 呗呗标题
     re.compile(r"(\d{4})\.(\d{1,2})\.(\d{1,2})今日兑换码"),                       # 诗音 2026.9.21今日兑换码
 ]
