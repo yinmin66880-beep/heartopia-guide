@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-23",
   "weekday": "星期五",
-  "generatedAt": "2026-10-23 21:42:27",
+  "generatedAt": "2026-10-23 22:56:53",
   "status": "live",
   "weather": {
     "icon": "🌈",
@@ -14,8 +14,8 @@ window.HEARTOPIA_DAILY = {
   "codes": [
     {
       "code": "K4VX7WA",
-      "note": "已获 2 个独立源交叉验证 · 当日有效",
-      "verified": 2
+      "note": "已获 3 个独立源交叉验证 · 当日有效",
+      "verified": 3
     }
   ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
@@ -86,12 +86,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 21
+        "posts": 23
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 26
+        "posts": 24
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
@@ -101,12 +101,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 11
+        "posts": 3
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 40
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -124,8 +124,7 @@ window.HEARTOPIA_DAILY = {
     "notes": [
       "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 K4VX7WA（努力再努力 18:01 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 5 号家园门口",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 温泉山遗迹",
-      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 学习到 2026-10-23 天气: 彩虹"
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 温泉山遗迹"
     ]
   }
 };
