@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-24",
   "weekday": "星期六",
-  "generatedAt": "2026-10-24 22:06:36",
+  "generatedAt": "2026-10-24 22:53:38",
   "status": "live",
   "weather": null,
   "specialForecast": null,
@@ -85,7 +85,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 22
+        "posts": 24
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
@@ -100,7 +100,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 30
+        "posts": 33
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
