@@ -114,6 +114,37 @@ class ForecastTests(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertIsNone(pipeline.parse_today_weather(text))
 
+    def test_shared_and_separate_explicit_weather_windows(self):
+        self.assertEqual(pipeline.parse_today_weather(
+            "6点-12点，18点-24点有雨，可以去找朵朵买糖哦"
+        ), [{"t": "rain", "s": 6, "e": 12}, {"t": "rain", "s": 18, "e": 24}])
+        self.assertEqual(pipeline.parse_today_weather(
+            "6:00-12:00有雨，18点-24点有流星雨"
+        ), [{"t": "rain", "s": 6, "e": 12}, {"t": "meteor", "s": 18, "e": 24}])
+        self.assertEqual(pipeline.parse_today_weather(
+            "6-12点、18-24点有雪；18-24点有雪"
+        ), [{"t": "snow", "s": 6, "e": 12}, {"t": "snow", "s": 18, "e": 24}])
+        for text in ("6点-12点，18点更新兑换码", "18:30-24:00有雨",
+                     "24点-30点有雨", "18点-6点有雨", "18点-24点有雨伞"):
+            with self.subTest(text=text):
+                self.assertIsNone(pipeline.parse_today_weather(text))
+
+    def test_live_rain_post_keeps_both_windows_on_its_own_date(self):
+        text = ("10.24心动小镇攻略 天气待更新 "
+                "10.25号心动小镇攻略来啦！！！ 1、萤石在8号家园 2、溜溜木在4号家园 "
+                "3、6点-12点，18点-24点有雨，可以去找朵朵买糖哦 "
+                "10.26心动小镇攻略 天气待更新")
+        manual = {"phases": [{"t": "rainbow"}]}
+        calendar = {"days": {"2026-10-24": manual}}
+        pipeline.learn_weather(calendar, pipeline.split_posts(text, date(2026, 10, 25)),
+                               {"name": "community", "priority": "primary"},
+                               date(2026, 10, 25), {"notes": []})
+        self.assertEqual(calendar["days"], {
+            "2026-10-24": manual,
+            "2026-10-25": {"phases": [{"t": "rain", "s": 6, "e": 12},
+                                      {"t": "rain", "s": 18, "e": 24}], "auto": True},
+        })
+
     def test_live_grouped_rain_forecast(self):
         text = "今日天气: 晴天 13日周二 14日周三 17日周六 下雨天 🎁 今日物资"
         self.assertEqual(

@@ -329,16 +329,25 @@ def parse_today_weather(seg):
         if not 0 <= s < e <= 24:
             return None
         return [{"t": key, "s": s, "e": e}, {"t": "sunny"}]
-    # 社区攻略也会先写时段，如「18点-24点有流星雨」。只记录明确的时段，
-    # 不能由这句话推断其余时间晴天。
-    m3 = re.search(
-        r"(?<![\d:])(\d{1,2})(?::00)?\s*点?\s*[-–~]\s*"
-        r"(\d{1,2})(?::00)?\s*点?\s*(?:有\s*)?"
-        r"(流星雨|流星|彩虹天|彩虹|下雨天|雨天|下雪天|雪天|酷暑天)", seg)
-    if m3:
-        s, e = int(m3.group(1)), int(m3.group(2))
-        if 0 <= s < e <= 24:
-            return [{"t": wx_types_in(m3.group(3))[0], "s": s, "e": e}]
+    # 时段可共用末尾的天气，如「6点-12点，18点-24点有雨」。
+    # 只连接相邻的明确时段；其余小时仍未知，不跨过正文推断天气。
+    hour_range = (r"(?<![\d:])\d{1,2}(?::00)?\s*点?\s*[-–~]\s*"
+                  r"\d{1,2}(?::00)?\s*点?(?![\d:])")
+    timed = []
+    for match in re.finditer(
+        rf"({hour_range}(?:\s*[,，、]\s*{hour_range})*)\s*"
+        r"((?:有\s*)?(?:流星雨|流星|彩虹天|彩虹|下雨天|下雨|雨天|下雪天|下雪|雪天|酷暑天)"
+        r"|有\s*[雨雪](?=$|[\s，,。；;!！?？#\\]))", seg):
+        key = wx_types_in(match.group(2))[0]
+        for span in re.finditer(hour_range, match.group(1)):
+            hours = re.fullmatch(
+                r"(\d{1,2})(?::00)?\s*点?\s*[-–~]\s*(\d{1,2})(?::00)?\s*点?", span.group())
+            start, end = int(hours.group(1)), int(hours.group(2))
+            phase = {"t": key, "s": start, "e": end}
+            if 0 <= start < end <= 24 and phase not in timed:
+                timed.append(phase)
+    if timed:
+        return timed
     return None
 
 
