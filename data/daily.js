@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-25",
   "weekday": "星期日",
-  "generatedAt": "2026-10-25 22:33:01",
+  "generatedAt": "2026-10-25 23:02:53",
   "status": "live",
   "weather": {
     "icon": "🌧️",
@@ -105,7 +105,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 40
+        "posts": 30
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
