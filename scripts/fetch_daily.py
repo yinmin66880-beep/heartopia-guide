@@ -56,6 +56,7 @@ import time
 import urllib.parse
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -443,6 +444,56 @@ def split_posts(text, ref):
     return out
 
 
+class StrategyCards(HTMLParser):
+    """Keep each rendered strategy card separate, including undated guides."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.cards = []
+        self.parts = None
+        self.anchor_depth = 0
+        self.ignored = 0
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "a":
+            if self.parts is not None:
+                self.anchor_depth += 1
+            elif ("app-strategy-v2__item" in attrs.get("class", "").split()
+                  and re.fullmatch(r"/moment/\d+", attrs.get("href", ""))):
+                self.parts = []
+                self.anchor_depth = 1
+        if self.parts is not None and tag in ("script", "style"):
+            self.ignored += 1
+
+    def handle_endtag(self, tag):
+        if self.parts is None:
+            return
+        if tag in ("script", "style"):
+            self.ignored = max(0, self.ignored - 1)
+        if tag == "a":
+            self.anchor_depth -= 1
+            if self.anchor_depth == 0:
+                self.cards.append(" ".join(self.parts))
+                self.parts = None
+                self.ignored = 0
+
+    def handle_data(self, data):
+        if self.parts is not None and not self.ignored:
+            self.parts.append(data)
+
+
+def source_posts(payload, ref, source_type):
+    if source_type != "strategy-collection":
+        return split_posts(strip_html(payload), ref)
+    parser = StrategyCards()
+    parser.feed(payload)
+    parser.close()
+    # Never let a dated card lend its date to another card or hydration script.
+    # Unrecognized collection markup supplies no dated evidence.
+    return [segment for card in parser.cards for segment in split_posts(card, ref)]
+
+
 # ---------------------------------------------------------------- 段内提取
 
 CODE_IN_SEG = re.compile(r"(?:今日)?(?:兑换码|礼包码)\s*[：:]?\s*([A-Z0-9]{7})\b")
@@ -787,7 +838,7 @@ def build_daily(target, mode):
                 log(f"  [fail] {src['name']}: {payload}")
                 continue
             text = strip_html(payload)
-            segments = split_posts(text, target)
+            segments = source_posts(payload, target, src.get("type"))
             seg_dates = {d for d, _ in segments}
             same_day = target in seg_dates or mentions_target_date(text, target)
             audit["sourcesOk"].append({"name": src["name"], "isTargetDate": same_day,

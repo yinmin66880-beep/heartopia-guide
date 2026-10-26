@@ -1,14 +1,9 @@
 {
   "date": "2026-10-26",
   "weekday": "星期一",
-  "generatedAt": "2026-10-26 08:16:12",
+  "generatedAt": "2026-10-26 10:41:20",
   "status": "live",
-  "weather": {
-    "icon": "🌧️",
-    "label": "雨",
-    "detail": "06:00-18:00 雨",
-    "fishTip": "🌧️ 雨天限定鱼可钓：沙白鱼、欧洲鳗鲡（夜晚）。"
-  },
+  "weather": null,
   "specialForecast": null,
   "codes": [],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
@@ -71,37 +66,37 @@
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 23
+        "posts": 25
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 22
+        "posts": 26
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
         "isTargetDate": false,
-        "posts": 17
+        "posts": 19
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 7
+        "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 43
+        "posts": 35
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
         "isTargetDate": true,
-        "posts": 53
+        "posts": 22
       },
       {
         "name": "TapTap 策略库 · 天气预报汇总",
         "isTargetDate": true,
-        "posts": 52
+        "posts": 21
       }
     ],
     "sourcesFailed": [],
@@ -109,7 +104,7 @@
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 7 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 2 号家园门口",
-      "TapTap 策略库 · 天气预报汇总 学习到 2026-10-26 天气: 雨"
+      "天气日历未覆盖 2026-10-26，等待自动学习或人工补录"
     ]
   }
 }

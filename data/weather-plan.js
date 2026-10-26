@@ -4,7 +4,7 @@ window.HEARTOPIA_WEATHER_PLAN = {
   "sourceScope": "TapTap community calendar; other game regions not independently verified",
   "sourceUrl": "https://www.taptap.cn/user/594768777",
   "updated": "2026-10-26",
-  "generatedAt": "2026-10-26 08:16:12",
+  "generatedAt": "2026-10-26 10:41:20",
   "days": {
     "2026-09-01": {
       "phases": [
@@ -387,16 +387,6 @@ window.HEARTOPIA_WEATHER_PLAN = {
           "t": "rain",
           "s": 18,
           "e": 24
-        }
-      ],
-      "auto": true
-    },
-    "2026-10-26": {
-      "phases": [
-        {
-          "t": "rain",
-          "s": 6,
-          "e": 18
         }
       ],
       "auto": true

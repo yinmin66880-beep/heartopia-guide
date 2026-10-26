@@ -59,6 +59,51 @@ class ResourceTests(unittest.TestCase):
         self.assertEqual(pipeline.extract_res_segment("溜溜木在13号房 萤石在0号房"), {})
 
 
+class StrategyCardTests(unittest.TestCase):
+    def test_undated_bird_guide_cannot_supply_daily_weather(self):
+        payload = '''
+          <a class="tap-router app-strategy-v2__item" href="/moment/1">
+            <div>10月26日小镇日报</div><div>溜溜木在7号家园 萤石在2号家园</div>
+          </a>
+          <a class="app-strategy-v2__item" href="/moment/2">
+            <div>近幽集限定鸟 五星攻略</div>
+            <div>天气：下雨/彩虹 时间：6-18点 下雨/彩虹</div>
+          </a>
+          <script>["10月26日小镇日报", "天气：6-18点下雨"]</script>
+        '''
+        segments = pipeline.source_posts(payload, date(2026, 10, 26), "strategy-collection")
+        self.assertEqual(len(segments), 1)
+        self.assertEqual(pipeline.extract_res_segment(segments[0][1]),
+                         {"wood": "7 号家园门口", "stone": "2 号家园门口"})
+        self.assertIsNone(pipeline.parse_today_weather(segments[0][1]))
+
+    def test_dated_cards_keep_weather_and_codes_on_their_own_dates(self):
+        payload = '''
+          <a href="/moment/1" class="app-strategy-v2__item">
+            <div>10.25号心动小镇攻略</div><div>6点-12点，18点-24点有雨</div>
+          </a>
+          <a href="/moment/2" class="app-strategy-v2__item">
+            <div>2026.10.26今日兑换码 W3XH6UA</div>
+          </a>
+        '''
+        segments = pipeline.source_posts(payload, date(2026, 10, 26), "strategy-collection")
+        self.assertEqual([day.day for day, _ in segments], [25, 26])
+        self.assertEqual(pipeline.parse_today_weather(segments[0][1]),
+                         [{"t": "rain", "s": 6, "e": 12}, {"t": "rain", "s": 18, "e": 24}])
+        self.assertIsNone(pipeline.parse_today_weather(segments[1][1]))
+        self.assertEqual(pipeline.extract_codes_segment(segments[1][1], date(2026, 10, 26), date(2026, 10, 26)),
+                         ["W3XH6UA"])
+
+    def test_collection_scripts_and_unknown_layout_supply_no_dated_evidence(self):
+        payload = '<script>"10月26日小镇日报 天气6-18点有雨"</script>'
+        self.assertEqual(pipeline.source_posts(payload, date(2026, 10, 26), "strategy-collection"), [])
+        self.assertEqual(pipeline.source_posts('<div>10月26日小镇日报 天气6-18点有雨</div>',
+                                             date(2026, 10, 26), "strategy-collection"), [])
+        self.assertEqual(pipeline.source_posts("10.26号心动小镇攻略 18-24点有流星雨",
+                                             date(2026, 10, 26), "daily-moment"),
+                         [(date(2026, 10, 26), "10.26号心动小镇攻略 18-24点有流星雨")])
+
+
 class ForecastTests(unittest.TestCase):
     def test_dated_rainbow_guide_keeps_its_explicit_range_on_its_own_day(self):
         text = (
