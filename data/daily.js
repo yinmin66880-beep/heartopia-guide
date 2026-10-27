@@ -1,8 +1,8 @@
 /* 心动小镇每日情报 · 由 scripts/fetch_daily.py 自动生成，勿手改 */
 window.HEARTOPIA_DAILY = {
-  "date": "2026-10-26",
-  "weekday": "星期一",
-  "generatedAt": "2026-10-26 17:19:45",
+  "date": "2026-10-27",
+  "weekday": "星期二",
+  "generatedAt": "2026-10-27 09:27:22",
   "status": "live",
   "weather": null,
   "specialForecast": null,
@@ -13,7 +13,7 @@ window.HEARTOPIA_DAILY = {
     {
       "emo": "🪵",
       "name": "溜溜橡木",
-      "pos": "7 号家园门口"
+      "pos": "3 号家园门口"
     },
     {
       "emo": "💎",
@@ -33,16 +33,8 @@ window.HEARTOPIA_DAILY = {
       "url": "https://www.taptap.cn/moment/844636406570549558"
     },
     {
-      "name": "TapTap 社区攻略 · 当日情报",
-      "url": "https://www.taptap.cn/moment/844484238282589354"
-    },
-    {
       "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
       "url": "https://www.taptap.cn/app/45213/topic"
-    },
-    {
-      "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-      "url": "https://www.taptap.cn/hashtag/心动小镇鑫时代"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -55,7 +47,7 @@ window.HEARTOPIA_DAILY = {
   ],
   "audit": {
     "fetchMode": "online",
-    "targetDate": "2026-10-26",
+    "targetDate": "2026-10-27",
     "sourcesTried": [
       "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
@@ -75,27 +67,27 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
         "isTargetDate": true,
-        "posts": 23
+        "posts": 25
       },
       {
         "name": "TapTap 官方论坛 · 每日兑换码",
         "isTargetDate": true,
-        "posts": 26
+        "posts": 22
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": true,
+        "isTargetDate": false,
         "posts": 19
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 5
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-        "isTargetDate": true,
-        "posts": 30
+        "isTargetDate": false,
+        "posts": 38
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -111,9 +103,9 @@ window.HEARTOPIA_DAILY = {
     "sourcesFailed": [],
     "conflicts": [],
     "notes": [
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 7 号家园门口",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 3 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 2 号家园门口",
-      "天气日历未覆盖 2026-10-26，等待自动学习或人工补录"
+      "天气日历未覆盖 2026-10-27，等待自动学习或人工补录"
     ]
   }
 };
