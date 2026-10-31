@@ -2,11 +2,17 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-10-31",
   "weekday": "星期六",
-  "generatedAt": "2026-10-31 17:55:37",
+  "generatedAt": "2026-10-31 23:42:09",
   "status": "live",
   "weather": null,
   "specialForecast": null,
-  "codes": [],
+  "codes": [
+    {
+      "code": "T5HQ6VA",
+      "note": "已获 2 个独立源交叉验证 · 当日有效",
+      "verified": 2
+    }
+  ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
   "resources": [
@@ -25,7 +31,7 @@ window.HEARTOPIA_DAILY = {
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
+      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
@@ -65,7 +71,7 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 18
       },
       {
@@ -86,12 +92,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 2
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 30
+        "posts": 33
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -107,6 +113,7 @@ window.HEARTOPIA_DAILY = {
     "sourcesFailed": [],
     "conflicts": [],
     "notes": [
+      "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 T5HQ6VA（努力再努力 17:59 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 12 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口",
       "天气日历未覆盖 2026-10-31，等待自动学习或人工补录"
