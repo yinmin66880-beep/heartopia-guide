@@ -104,6 +104,49 @@ class StrategyCardTests(unittest.TestCase):
                          [(date(2026, 10, 26), "10.26号心动小镇攻略 18-24点有流星雨")])
 
 
+class MomentContentTests(unittest.TestCase):
+    def test_old_recommendation_cannot_borrow_main_post_date(self):
+        payload = """
+          <div class="moment-detail__main-inner">
+            <h1 class="heading-m20-w20 moment-head__title">10月31日小镇日报</h1>
+            <div><div class="tap-rich-content__wrapper moment-detail__module-space">
+              <div>溜溜木位置：12号家园门口<br>萤石位置：4号家园门口</div>
+              <img src="wood.png"><p>每日18点更新码</p>
+              <script>今日兑换码 E6VT9QA</script>
+            </div></div>
+          </div>
+          <aside><a class="ugc-rec-card"><div>10.18兑换码心动小镇</div>
+            <div>无瑕萤石：温泉山遗迹 兑换码：E6VT9QA 天气6-18点有雨</div>
+          </a></aside>
+          <script id="__NUXT_DATA__">["10月31日小镇日报", "兑换码：E6VT9QA"]</script>
+        """
+        target = date(2026, 10, 31)
+        segments = pipeline.source_posts(payload, target, "daily-moment")
+        self.assertEqual(len(segments), 1)
+        self.assertEqual(segments[0][0], target)
+        self.assertEqual(pipeline.extract_res_segment(segments[0][1]),
+                         {"wood": "12 号家园门口", "stone": "4 号家园门口"})
+        self.assertEqual(pipeline.extract_codes_segment(segments[0][1], target, target), [])
+        self.assertIsNone(pipeline.parse_today_weather(segments[0][1]))
+
+    def test_dated_body_keeps_real_codes_and_weather(self):
+        payload = """<div class="moment-detail__main-inner">
+          <h1 class="moment-head__title">心动小镇最新每日兑换码</h1>
+          <div class="tap-rich-content__wrapper">
+            2026.10.30今日兑换码 <b>6C3KYC6</b> 18-24点有流星雨
+          </div></div>"""
+        target = date(2026, 10, 30)
+        [(day, segment)] = pipeline.source_posts(payload, target, "daily-moment")
+        self.assertEqual(day, target)
+        self.assertEqual(pipeline.extract_codes_segment(segment, day, target), ["6C3KYC6"])
+        self.assertEqual(pipeline.parse_today_weather(segment), [{"t": "meteor", "s": 18, "e": 24}])
+
+    def test_unknown_html_or_scripts_supply_no_main_post_evidence(self):
+        for payload in ('<div>10月31日小镇日报 兑换码：E6VT9QA</div>',
+                        '<script>10月31日小镇日报 兑换码：E6VT9QA</script>'):
+            self.assertEqual(pipeline.source_posts(payload, date(2026, 10, 31), "daily-moment"), [])
+
+
 class ForecastTests(unittest.TestCase):
     def test_dated_rainbow_guide_keeps_its_explicit_range_on_its_own_day(self):
         text = (

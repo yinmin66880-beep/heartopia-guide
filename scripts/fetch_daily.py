@@ -483,7 +483,53 @@ class StrategyCards(HTMLParser):
             self.parts.append(data)
 
 
+class MomentContent(HTMLParser):
+    """Read a moment's rendered title/body without recommendations or scripts."""
+
+    VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input",
+                 "link", "meta", "param", "source", "track", "wbr"}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack = []
+        self.title = []
+        self.body = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in self.VOID_TAGS:
+            self.stack.append((tag, set(dict(attrs).get("class", "").split())))
+
+    def handle_startendtag(self, tag, attrs):
+        pass
+
+    def handle_endtag(self, tag):
+        for index in range(len(self.stack) - 1, -1, -1):
+            if self.stack[index][0] == tag:
+                del self.stack[index:]
+                break
+
+    def handle_data(self, data):
+        if any(tag in ("script", "style") for tag, _ in self.stack):
+            return
+        classes = set().union(*(classes for _, classes in self.stack))
+        if "moment-detail__main-inner" not in classes:
+            return
+        if "moment-head__title" in classes:
+            self.title.append(data)
+        elif "tap-rich-content__wrapper" in classes:
+            self.body.append(data)
+
+
 def source_posts(payload, ref, source_type):
+    if source_type == "daily-moment" and "<" in payload:
+        parser = MomentContent()
+        parser.feed(payload)
+        parser.close()
+        # A main-post date must never label a sidebar card or hydration data.
+        # Unknown HTML supplies no evidence; plain-text callers remain supported.
+        if not parser.title or not parser.body:
+            return []
+        return split_posts(" ".join(parser.title + parser.body), ref)
     if source_type != "strategy-collection":
         return split_posts(strip_html(payload), ref)
     parser = StrategyCards()
