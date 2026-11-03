@@ -1,7 +1,10 @@
 import importlib.util
+import json
+import tempfile
 import unittest
 from datetime import date
 from pathlib import Path
+from unittest.mock import patch
 
 
 spec = importlib.util.spec_from_file_location(
@@ -9,6 +12,35 @@ spec = importlib.util.spec_from_file_location(
 )
 pipeline = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pipeline)
+
+
+class CodeHistoryTests(unittest.TestCase):
+    def test_pending_morning_and_visitor_comment_do_not_create_no_code_day(self):
+        target = date(2026, 11, 3)
+        history = [{"date": "2026-11-02", "codes": ["HEGZSP5"], "api": True}]
+        for seen in ([], [str(target)]):
+            with self.subTest(seen=seen), tempfile.TemporaryDirectory() as tmp:
+                path = Path(tmp) / "history.js"
+                original = "window.HEARTOPIA_CODE_HISTORY = " + json.dumps(history) + ";\n"
+                path.write_text(original, encoding="utf-8")
+                with patch.object(pipeline, "CODES_HIST_JS", path):
+                    pipeline.update_codes_history(target, {"codes": []},
+                        {"pairs": [], "seen": seen, "no_code": []}, history)
+                self.assertEqual(path.read_text(encoding="utf-8"), original)
+
+    def test_explicit_no_code_and_later_published_code_are_archived(self):
+        target = date(2026, 11, 3)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "history.js"
+            with patch.object(pipeline, "CODES_HIST_JS", path), patch.object(pipeline, "ROOT", Path(tmp)):
+                pipeline.update_codes_history(target, {"codes": []},
+                    {"pairs": [], "seen": [str(target)], "no_code": [str(target)]}, [])
+                self.assertEqual(pipeline.load_codes_history(), [{"date": str(target), "codes": []}])
+                pipeline.update_codes_history(target, {"codes": [{"code": "HEGZSP5"}]},
+                    {"pairs": [(target, "HEGZSP5", True, "author", "18:01")],
+                     "seen": [str(target)], "no_code": []}, pipeline.load_codes_history())
+                self.assertEqual(pipeline.load_codes_history(),
+                                 [{"date": str(target), "codes": ["HEGZSP5"], "api": True}])
 
 
 class ResourceTests(unittest.TestCase):
@@ -102,6 +134,58 @@ class StrategyCardTests(unittest.TestCase):
         self.assertEqual(pipeline.source_posts("10.26号心动小镇攻略 18-24点有流星雨",
                                              date(2026, 10, 26), "daily-moment"),
                          [(date(2026, 10, 26), "10.26号心动小镇攻略 18-24点有流星雨")])
+
+
+class FeedCardTests(unittest.TestCase):
+    def test_hidden_old_forecast_and_adjacent_guides_cannot_borrow_today_date(self):
+        payload = '''
+          <a class="tap-router moment-article__link" href="/moment/1?group_id=4761">
+            <span>11.3心动小镇刚更新溜溜橡木和萤石位置</span>
+            <div>2026.11.3位置日报 无特殊天气 溜溜木在4号家园 萤石在1号家园</div>
+          </a>
+          <div class="comment">今日兑换码 E6VT9QA</div>
+          <a class="moment-article__link" href="/moment/2">
+            <span>近幽集限定鸟攻略</span><div>彩虹时间：12:00-18:00</div>
+          </a>
+          <aside><a href="/moment/3">11月2日 彩虹天攻略</a></aside>
+          <script id="__NUXT_DATA__">["11.3心动小镇刚更新溜溜橡木和萤石位置",
+            "11月2日 彩虹天攻略", "彩虹时间：12:00-18:00 兑换码：E6VT9QA"]</script>
+        '''
+        target = date(2026, 11, 3)
+        for source_type in ("topic", "hashtag", "user-moments"):
+            with self.subTest(source_type=source_type):
+                [(day, text)] = pipeline.source_posts(payload, target, source_type)
+                self.assertEqual(day, target)
+                self.assertEqual(pipeline.extract_res_segment(text),
+                                 {"wood": "4 号家园门口", "stone": "1 号家园门口"})
+                self.assertIsNone(pipeline.parse_today_weather(text))
+                self.assertEqual(pipeline.extract_codes_segment(text, day, target), [])
+                cal = {"days": {}}
+                pipeline.learn_weather(cal, [(day, text)], {"name": "feed"}, target, {"notes": []})
+                self.assertEqual(cal["days"], {})
+
+    def test_spaced_weather_title_keeps_forecast_on_its_own_card_date(self):
+        payload = '''
+          <a class="moment-article__link" href="/moment/1">
+            <span>11月2日 彩虹天攻略</span><div>彩虹时间：12:00-18:00<br/>朵朵位置待更新</div>
+          </a>
+          <a class="moment-article__link" href="/moment/2">
+            <span>11.3号心动小镇攻略来啦！！！</span><div>溜溜木在4号家园</div>
+          </a>
+        '''
+        for source_type in ("topic", "hashtag"):
+            with self.subTest(source_type=source_type):
+                segments = pipeline.source_posts(payload, date(2026, 11, 3), source_type)
+                self.assertEqual([day for day, _ in segments], [date(2026, 11, 2), date(2026, 11, 3)])
+                self.assertEqual(pipeline.parse_today_weather(segments[0][1]),
+                                 [{"t": "rainbow", "s": 12, "e": 18}])
+                self.assertIsNone(pipeline.parse_today_weather(segments[1][1]))
+
+    def test_unrecognized_feed_layout_supplies_no_dated_evidence(self):
+        for source_type in ("topic", "hashtag"):
+            self.assertEqual(pipeline.source_posts(
+                '<div>11.3心动小镇攻略 彩虹时间：12:00-18:00</div>',
+                date(2026, 11, 3), source_type), [])
 
 
 class MomentContentTests(unittest.TestCase):

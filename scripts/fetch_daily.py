@@ -399,7 +399,7 @@ POST_MARKS = [
     re.compile(r"(?<![\d.])(\d{1,2})\.(\d{1,2})(?![\d.])号?[）)\s]*(?:溜溜木|心动小镇)"),  # 9.21溜溜木 / 9.21号心动小镇 标题
     re.compile(r"(\d{1,2})月(\d{1,2})日小镇日报"),                                # 主帖标题
     re.compile(r"(\d{1,2})月(\d{1,2})日位置播报"),                                # 位置播报帖
-    re.compile(r"(\d{1,2})月(\d{1,2})日(?:彩虹|流星雨|天气)攻略"),                 # 特殊天气攻略标题
+    re.compile(r"(\d{1,2})月(\d{1,2})日\s*(?:彩虹天?|流星雨|天气)攻略"),           # 特殊天气攻略标题
     re.compile(r"(\d{1,2})月(\d{1,2})日溜溜木和萤石位置"),                        # 呗呗标题
     re.compile(r"(\d{4})\.(\d{1,2})\.(\d{1,2})今日兑换码"),                       # 诗音 2026.9.21今日兑换码
 ]
@@ -445,10 +445,11 @@ def split_posts(text, ref):
 
 
 class StrategyCards(HTMLParser):
-    """Keep each rendered strategy card separate, including undated guides."""
+    """Keep rendered collection/feed cards separate, including undated posts."""
 
-    def __init__(self):
+    def __init__(self, card_class="app-strategy-v2__item"):
         super().__init__(convert_charrefs=True)
+        self.card_class = card_class
         self.cards = []
         self.parts = None
         self.anchor_depth = 0
@@ -459,8 +460,8 @@ class StrategyCards(HTMLParser):
         if tag == "a":
             if self.parts is not None:
                 self.anchor_depth += 1
-            elif ("app-strategy-v2__item" in attrs.get("class", "").split()
-                  and re.fullmatch(r"/moment/\d+", attrs.get("href", ""))):
+            elif (self.card_class in attrs.get("class", "").split()
+                  and re.fullmatch(r"/moment/\d+(?:\?[^#]*)?", attrs.get("href", ""))):
                 self.parts = []
                 self.anchor_depth = 1
         if self.parts is not None and tag in ("script", "style"):
@@ -530,9 +531,15 @@ def source_posts(payload, ref, source_type):
         if not parser.title or not parser.body:
             return []
         return split_posts(" ".join(parser.title + parser.body), ref)
-    if source_type != "strategy-collection":
+    card_class = {
+        "strategy-collection": "app-strategy-v2__item",
+        "topic": "moment-article__link",
+        "hashtag": "moment-article__link",
+        "user-moments": "moment-article__link",
+    }.get(source_type)
+    if card_class is None or (source_type != "strategy-collection" and "<" not in payload):
         return split_posts(strip_html(payload), ref)
-    parser = StrategyCards()
+    parser = StrategyCards(card_class)
     parser.feed(payload)
     parser.close()
     # Never let a dated card lend its date to another card or hydration script.
@@ -1026,7 +1033,7 @@ def update_codes_history(target, daily, comment_data, hist, dry_run=False):
 
     - 当日码来自本次 daily 构建（含多源票数与评论 API 标记）
     - 回填：评论 API 结果里命中归档窗口内缺失日期的码直接补档；
-      seen 中覆盖到但无码的日期记空条目（已查过，当日无码）
+      只有明确声明「今日无」的日期记空条目，未发布的日期保持待更新
     - 权威自愈（评论 API 为兑换码权威源）：
       1) 声明「今日无」的日期，条目清空 —— 修正聚合帖隔日旧段漏切分
          导致的当日污染（如 2026-10-01 被误标 9-21 旧码 J4ZR3D1）
@@ -1076,14 +1083,17 @@ def update_codes_history(target, daily, comment_data, hist, dry_run=False):
                 e["api"] = True
                 dirty = True
                 log(f"  [hist] 归档 {iso} 兑换码 {code}（{author} {hm} 发布）")
-        for iso in comment_data["seen"]:
+        # An ordinary visitor comment does not establish an explicit no-code day.
+        for iso in comment_data["no_code"]:
             if window_lo.isoformat() <= iso <= target.isoformat() and iso not in by_date:
                 by_date[iso] = {"date": iso, "codes": []}
                 dirty = True
 
     # 当日条目：合并本次构建结果
     key = target.isoformat()
-    e = by_date.setdefault(key, {"date": key, "codes": []})
+    e = by_date.get(key, {"date": key, "codes": []})
+    if daily.get("codes"):
+        by_date[key] = e
     for c in daily.get("codes", []):
         if c["code"] not in e["codes"]:
             e["codes"].append(c["code"])

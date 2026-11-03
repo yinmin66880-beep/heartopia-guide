@@ -74,7 +74,7 @@ window.HEARTOPIA_WEATHER = {
     "note": "06:00-12:00 Rain, 18:00-24:00 Rain",
     "fish": "Sand Bream · European Eel"
   },
-  "2026-11-03": {
+  "2026-11-02": {
     "label": "Rainbow",
     "icon": "🌈",
     "note": "12:00-18:00 Rainbow",
