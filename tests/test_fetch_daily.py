@@ -232,6 +232,41 @@ class MomentContentTests(unittest.TestCase):
 
 
 class ForecastTests(unittest.TestCase):
+    def test_live_tomorrow_rain_is_not_today_weather(self):
+        text = ("11.6号心动小镇攻略来啦！！！ 1、萤石和溜溜木在8号家园 "
+                "2、森林岛空心树可采摘 3、18点更新兑换码 "
+                "4、明天6-12点有雨，可以找朵朵买糖")
+        self.assertIsNone(pipeline.parse_today_weather(text))
+        calendar = {"days": {}}
+        pipeline.learn_weather(calendar, [(date(2026, 11, 6), text)],
+                               {"name": "community"}, date(2026, 11, 6), {"notes": []})
+        self.assertEqual(calendar["days"], {
+            "2026-11-07": {"phases": [{"t": "rain", "s": 6, "e": 12}], "auto": True}})
+
+    def test_relative_weather_keeps_separate_days_and_year_rollover(self):
+        text = "今日天气：晴天；明日6-12点有雨；后天18-24点有雪"
+        self.assertEqual(pipeline.parse_today_weather(text), [{"t": "sunny"}])
+        self.assertEqual(pipeline.parse_forecasts(text, date(2026, 12, 31)), [
+            (date(2027, 1, 1), [{"t": "rain", "s": 6, "e": 12}]),
+            (date(2027, 1, 2), [{"t": "snow", "s": 18, "e": 24}])])
+        self.assertEqual(pipeline.parse_today_weather(
+            "昨天6-12点有雨 今天18-24点有流星雨 明天6-12点有雪"),
+            [{"t": "meteor", "s": 18, "e": 24}])
+        self.assertEqual(pipeline.parse_today_weather(
+            "1、明天6-12点有雨 2、彩虹时间：12:00-18:00"),
+            [{"t": "rainbow", "s": 12, "e": 18}])
+
+    def test_relative_forecast_preserves_unknown_hours_and_manual_calendar(self):
+        manual = {"phases": [{"t": "rainbow"}]}
+        calendar = {"days": {"2026-11-07": manual}}
+        pipeline.learn_weather(calendar, [(date(2026, 11, 6), "明天6-12点有雨")],
+                               {"name": "community"}, date(2026, 11, 6), {"notes": []})
+        self.assertEqual(calendar["days"], {"2026-11-07": manual})
+        for text in ("明天24-30点有雨", "明天6:30-12:00有雨", "明天18点更新兑换码"):
+            with self.subTest(text=text):
+                self.assertIsNone(pipeline.parse_today_weather(text))
+                self.assertEqual(pipeline.parse_forecasts(text, date(2026, 11, 6)), [])
+
     def test_dated_rainbow_guide_keeps_its_explicit_range_on_its_own_day(self):
         text = (
             "10.22号心动小镇攻略 18点-24点有流星雨 "

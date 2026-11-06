@@ -74,7 +74,7 @@ window.HEARTOPIA_WEATHER = {
     "note": "12:00-18:00 Rainbow",
     "fish": "Hammerhead Shark · Rainbow Trout"
   },
-  "2026-11-06": {
+  "2026-11-07": {
     "label": "Rain",
     "icon": "🌧️",
     "note": "06:00-12:00 Rain",

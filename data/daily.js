@@ -2,15 +2,15 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-06",
   "weekday": "星期五",
-  "generatedAt": "2026-11-06 10:22:00",
+  "generatedAt": "2026-11-06 10:35:13",
   "status": "live",
-  "weather": {
-    "icon": "🌧️",
+  "weather": null,
+  "specialForecast": {
+    "date": "2026-11-07",
     "label": "雨",
-    "detail": "06:00-12:00 雨",
-    "fishTip": "🌧️ 雨天限定鱼可钓：沙白鱼、欧洲鳗鲡（夜晚）。"
+    "note": "06:00-12:00 雨",
+    "icon": "🌧️"
   },
-  "specialForecast": null,
   "codes": [],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
@@ -91,12 +91,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 2
+        "posts": 3
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 19
+        "posts": 17
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -114,7 +114,9 @@ window.HEARTOPIA_DAILY = {
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 8 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 8 号家园门口",
-      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 学习到 2026-11-06 天气: 雨"
+      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 学习到 2026-11-07 预告: 雨",
+      "天气日历未覆盖 2026-11-06，等待自动学习或人工补录",
+      "Retracted November 6 rain misdated from tomorrow; original November 6 post forecasts November 7 06:00-12:00 rain: https://www.taptap.cn/moment/867673994323558566"
     ]
   }
 };

@@ -301,7 +301,38 @@ def parse_phases(line):
     return phases or None
 
 
+def relative_weather_segments(seg):
+    """Keep relative-day weather within its sentence or numbered list item."""
+    offsets = {"今天": 0, "今日": 0, "明天": 1, "明日": 1,
+               "后天": 2, "后日": 2, "大后天": 3,
+               "昨天": -1, "昨日": -1, "前天": -2, "前日": -2}
+    marker = r"大后天|后天|后日|明天|明日|前天|前日|昨天|昨日|今天|今日"
+    if not re.search(marker, seg):
+        return [(0, seg)]
+    result = []
+    for clause in re.split(r"[。；;\n]|(?<!\d)\d{1,2}[、]", seg):
+        matches = list(re.finditer(marker, clause))
+        if not matches:
+            result.append((0, clause))
+            continue
+        result.append((0, clause[:matches[0].start()]))
+        for i, match in enumerate(matches):
+            end = matches[i + 1].start() if i + 1 < len(matches) else len(clause)
+            result.append((offsets[match.group()], clause[match.start():end]))
+    return result
+
+
 def parse_today_weather(seg):
+    phases = []
+    for offset, text in relative_weather_segments(seg):
+        if offset == 0:
+            for phase in parse_weather_segment(text) or []:
+                if phase not in phases:
+                    phases.append(phase)
+    return phases or None
+
+
+def parse_weather_segment(seg):
     """帖子段内的「今日天气」→ phases；主帖无该关键词时识别「流星 18:00-24:00」格式。"""
     m = re.search(
         r"(?:今日天气|小镇天气)\s*[:：]?\s*(.+?)"
@@ -612,6 +643,13 @@ def extract_res_segment(seg):
 def parse_forecasts(seg, seg_date):
     """解析单日/共用天气的多日预告，如「13日周二 14日周三 下雨天」。"""
     out = []
+    for offset, text in relative_weather_segments(seg):
+        if offset > 0:
+            phases = parse_weather_segment(text)
+            if phases:
+                entry = (seg_date + timedelta(days=offset), phases)
+                if entry not in out:
+                    out.append(entry)
     for m in re.finditer(
             r"((?:\d{1,2}日\s*周[一二三四五六日天]\s*)+)"
             r"(?:(\d{1,2})\s*[-–~]\s*(\d{1,2})\s*点?\s*)?(\S{1,12})", seg):
