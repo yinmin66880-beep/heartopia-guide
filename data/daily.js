@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-06",
   "weekday": "星期五",
-  "generatedAt": "2026-11-06 10:35:13",
+  "generatedAt": "2026-11-06 10:38:54",
   "status": "live",
   "weather": null,
   "specialForecast": {
@@ -40,10 +40,6 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "TapTap 社区攻略 · 当日情报",
       "url": "https://www.taptap.cn/moment/844484238282589354"
-    },
-    {
-      "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-      "url": "https://www.taptap.cn/app/45213/topic"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -90,13 +86,13 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
-        "isTargetDate": true,
-        "posts": 3
+        "isTargetDate": false,
+        "posts": 0
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 17
+        "posts": 16
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -114,9 +110,7 @@ window.HEARTOPIA_DAILY = {
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 8 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 8 号家园门口",
-      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 学习到 2026-11-07 预告: 雨",
-      "天气日历未覆盖 2026-11-06，等待自动学习或人工补录",
-      "Retracted November 6 rain misdated from tomorrow; original November 6 post forecasts November 7 06:00-12:00 rain: https://www.taptap.cn/moment/867673994323558566"
+      "天气日历未覆盖 2026-11-06，等待自动学习或人工补录"
     ]
   }
 };
