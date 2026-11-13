@@ -232,6 +232,47 @@ class MomentContentTests(unittest.TestCase):
 
 
 class ForecastTests(unittest.TestCase):
+    def test_dated_chinese_clock_weather_and_rainbow_emoji_backfill_only_the_post_day(self):
+        payload = '''
+          <a class="app-strategy-v2__item" href="/moment/870085879299834129">
+            <div>11月12日位置播报</div>
+            <div>今天萤石在11号房，溜溜木在6号房<br/>
+              今晚兑换码EF8J6AM<br/>中午12点-晚上6点下雨<br/>
+              晚上6点-半夜12点有🌈<br/>本次的彩虹花束在温泉山</div>
+          </a>
+          <a class="app-strategy-v2__item" href="/moment/1">
+            <div>11月13日小镇日报</div><div>天气待更新</div>
+          </a>
+        '''
+        phases = [{"t": "rain", "s": 12, "e": 18},
+                  {"t": "rainbow", "s": 18, "e": 24}]
+        segments = pipeline.source_posts(payload, date(2026, 11, 13), "strategy-collection")
+        self.assertEqual(pipeline.parse_today_weather(segments[0][1]), phases)
+        self.assertIsNone(pipeline.parse_today_weather(segments[1][1]))
+        calendar = {"days": {}}
+        pipeline.learn_weather(calendar, segments, {"name": "community", "priority": "secondary"},
+                               date(2026, 11, 13), {"notes": []})
+        self.assertEqual(calendar["days"], {"2026-11-12": {"phases": phases, "auto": True}})
+        manual = {"phases": [{"t": "snow", "s": 6, "e": 12}]}
+        calendar["days"]["2026-11-12"] = manual
+        pipeline.learn_weather(calendar, segments, {"name": "community"},
+                               date(2026, 11, 13), {"notes": []})
+        self.assertEqual(calendar["days"]["2026-11-12"], manual)
+
+    def test_chinese_clock_ranges_keep_relative_dates_and_unknown_hours(self):
+        text = "今天中午12点-晚上6点下雨；明天晚上6点-半夜12点有🌈"
+        self.assertEqual(pipeline.parse_today_weather(text), [{"t": "rain", "s": 12, "e": 18}])
+        self.assertEqual(pipeline.parse_forecasts(text, date(2026, 12, 31)), [
+            (date(2027, 1, 1), [{"t": "rainbow", "s": 18, "e": 24}])])
+        self.assertEqual(pipeline.parse_today_weather("半夜12点-早上6点下雨"),
+                         [{"t": "rain", "s": 0, "e": 6}])
+        for text in ("中午12点-晚上25点下雨", "中午12点-晚上6:30下雨",
+                     "晚上6点-早上6点有🌈", "中午12点有🌈", "晚上6点更新兑换码 🌈",
+                     "中午12点-晚上6点购买彩虹花束", "中午12点-晚上6点有雨伞",
+                     "晚上6点-半夜12点🌈花束位置", "晚上6点-半夜12点有🌈花束"):
+            with self.subTest(text=text):
+                self.assertIsNone(pipeline.parse_today_weather(text))
+
     def test_live_tomorrow_rain_is_not_today_weather(self):
         text = ("11.6号心动小镇攻略来啦！！！ 1、萤石和溜溜木在8号家园 "
                 "2、森林岛空心树可采摘 3、18点更新兑换码 "

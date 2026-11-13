@@ -332,6 +332,31 @@ def parse_today_weather(seg):
     return phases or None
 
 
+def weather_clock_hour(token, is_end=False):
+    """Resolve explicit Chinese clock periods; reject ambiguous/invalid hours."""
+    match = re.fullmatch(
+        r"(凌晨|早上|上午|中午|下午|晚上|半夜|午夜)?\s*"
+        r"(\d{1,2})(?::00)?\s*点?", token.strip())
+    if not match:
+        return None
+    period, hour = match.group(1), int(match.group(2))
+    if not period:
+        return hour
+    if period in ("半夜", "午夜") and hour == 12:
+        return 24 if is_end else 0
+    if period == "晚上" and hour == 12:
+        return 24 if is_end else 0
+    if period in ("下午", "晚上") and 1 <= hour <= 11:
+        return hour + 12
+    if period == "中午" and hour == 12:
+        return 12
+    if period in ("凌晨", "半夜", "午夜") and 0 <= hour <= 6:
+        return hour
+    if period in ("早上", "上午") and 1 <= hour <= 12:
+        return hour
+    return None
+
+
 def parse_weather_segment(seg):
     """帖子段内的「今日天气」→ phases；主帖无该关键词时识别「流星 18:00-24:00」格式。"""
     m = re.search(
@@ -363,20 +388,22 @@ def parse_weather_segment(seg):
         return [{"t": key, "s": s, "e": e}, {"t": "sunny"}]
     # 时段可共用末尾的天气，如「6点-12点，18点-24点有雨」。
     # 只连接相邻的明确时段；其余小时仍未知，不跨过正文推断天气。
-    hour_range = (r"(?<![\d:])\d{1,2}(?::00)?\s*点?\s*[-–~]\s*"
-                  r"\d{1,2}(?::00)?\s*点?(?![\d:])")
+    clock = (r"(?:凌晨|早上|上午|中午|下午|晚上|半夜|午夜)?\s*"
+             r"\d{1,2}(?::00)?\s*点?")
+    hour_range = rf"(?<![\d:]){clock}\s*[-–~]\s*{clock}(?![\d:])"
     timed = []
     for match in re.finditer(
         rf"({hour_range}(?:\s*[,，、]\s*{hour_range})*)\s*"
         r"((?:有\s*)?(?:流星雨|流星|彩虹天|彩虹|下雨天|下雨|雨天|下雪天|下雪|雪天|酷暑天)"
-        r"|有\s*[雨雪](?=$|[\s，,。；;!！?？#\\]))", seg):
-        key = wx_types_in(match.group(2))[0]
+        r"|有\s*(?:[雨雪]|🌈)(?=$|[\s，,。；;!！?？#\\]))", seg):
+        key = "rainbow" if "🌈" in match.group(2) else wx_types_in(match.group(2))[0]
         for span in re.finditer(hour_range, match.group(1)):
-            hours = re.fullmatch(
-                r"(\d{1,2})(?::00)?\s*点?\s*[-–~]\s*(\d{1,2})(?::00)?\s*点?", span.group())
-            start, end = int(hours.group(1)), int(hours.group(2))
+            hours = re.split(r"\s*[-–~]\s*", span.group())
+            start = weather_clock_hour(hours[0])
+            end = weather_clock_hour(hours[1], is_end=True)
             phase = {"t": key, "s": start, "e": end}
-            if 0 <= start < end <= 24 and phase not in timed:
+            if (start is not None and end is not None
+                    and 0 <= start < end <= 24 and phase not in timed):
                 timed.append(phase)
     if timed:
         return timed
