@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-13",
   "source": {
     "name": "TapTap 心动小镇 · 社区每日攻略（筱鑫）+ 天气预报策略库",
     "url": "https://www.taptap.cn/user/594768777",
@@ -408,6 +408,21 @@
           "t": "rain",
           "s": 6,
           "e": 12
+        }
+      ],
+      "auto": true
+    },
+    "2026-11-12": {
+      "phases": [
+        {
+          "t": "rain",
+          "s": 12,
+          "e": 18
+        },
+        {
+          "t": "rainbow",
+          "s": 18,
+          "e": 24
         }
       ],
       "auto": true

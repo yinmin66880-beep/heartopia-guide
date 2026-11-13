@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-13",
   "weekday": "星期五",
-  "generatedAt": "2026-11-13 10:35:52",
+  "generatedAt": "2026-11-13 10:46:44",
   "status": "live",
   "weather": null,
   "specialForecast": null,
@@ -95,7 +95,7 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 14
+        "posts": 17
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -113,6 +113,7 @@ window.HEARTOPIA_DAILY = {
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 11 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 11 号家园门口",
+      "TapTap 策略库 · 每日兑换码汇总 学习到 2026-11-12 天气: 雨转彩虹",
       "天气日历未覆盖 2026-11-13，等待自动学习或人工补录"
     ]
   }
