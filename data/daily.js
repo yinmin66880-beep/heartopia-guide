@@ -1,36 +1,31 @@
 /* 心动小镇每日情报 · 由 scripts/fetch_daily.py 自动生成，勿手改 */
 window.HEARTOPIA_DAILY = {
-  "date": "2026-11-15",
-  "weekday": "星期日",
-  "generatedAt": "2026-11-15 19:26:40",
+  "date": "2026-11-16",
+  "weekday": "星期一",
+  "generatedAt": "2026-11-16 09:57:30",
   "status": "live",
   "weather": null,
   "specialForecast": null,
-  "codes": [
-    {
-      "code": "N4C6YKP",
-      "note": "置顶码评 · 当日 23:59:59 前有效"
-    }
-  ],
+  "codes": [],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
   "resources": [
     {
       "emo": "🪵",
       "name": "溜溜橡木",
-      "pos": "9 号家园门口"
+      "pos": "3 号家园门口"
     },
     {
       "emo": "💎",
       "name": "无瑕萤石",
-      "pos": "12 号家园门口"
+      "pos": "4 号家园门口"
     }
   ],
   "resourceNote": "溜溜橡木 / 无瑕萤石每日 06:00 刷新，每处每天 1 次、每次 3 个，位置每日随机（多见于各家园门口、森林灵橡松林、温泉山遗迹）",
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
+      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
@@ -48,7 +43,7 @@ window.HEARTOPIA_DAILY = {
   ],
   "audit": {
     "fetchMode": "online",
-    "targetDate": "2026-11-15",
+    "targetDate": "2026-11-16",
     "sourcesTried": [
       "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
@@ -62,7 +57,7 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
-        "isTargetDate": true,
+        "isTargetDate": false,
         "posts": 12
       },
       {
@@ -104,10 +99,9 @@ window.HEARTOPIA_DAILY = {
     "sourcesFailed": [],
     "conflicts": [],
     "notes": [
-      "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 N4C6YKP（努力再努力 18:26 发布）",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 9 号家园门口",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 12 号家园门口",
-      "天气日历未覆盖 2026-11-15，等待自动学习或人工补录"
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 3 号家园门口",
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口",
+      "天气日历未覆盖 2026-11-16，等待自动学习或人工补录"
     ]
   }
 };
