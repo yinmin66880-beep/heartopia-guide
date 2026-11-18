@@ -1,6 +1,14 @@
 /* 心动小镇每日码历史归档 · 由 scripts/fetch_daily.py 自动生成，勿手改 */
 window.HEARTOPIA_CODE_HISTORY = [
   {
+    "date": "2026-11-18",
+    "codes": [
+      "4S6X6GR"
+    ],
+    "api": true,
+    "verified": 2
+  },
+  {
     "date": "2026-11-17",
     "codes": [
       "J4NG5AQ"
