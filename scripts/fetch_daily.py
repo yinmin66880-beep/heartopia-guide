@@ -148,6 +148,60 @@ def fetch_source(src, retries=2):
             return False, f"{type(e).__name__}: {e}"
 
 
+def fetch_author_posts(src, target):
+    """Discover dated originals without relying on the rotating topic feed.
+
+    The public author API supplies identity and publication time. Its summaries
+    can be truncated, so only the original article body supplies game data.
+    """
+    query = urllib.parse.urlencode({"user_id": src["authorId"], "limit": 10})
+    url = "https://www.taptap.cn/webapiv2/feed/v7/by-user?" + query
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA, "X-UA": XUA_HEADER, "Accept": "application/json"})
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            if (not isinstance(data, dict) or data.get("success") is not True
+                    or not isinstance((data.get("data") or {}).get("list"), list)):
+                raise ValueError("Author feed did not return a valid article list")
+            break
+        except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+            if attempt:
+                raise
+            time.sleep(3)
+    segments, failures = [], []
+    seen = set()
+    for item in data["data"]["list"]:
+        moment = item.get("moment") or {}
+        if (item.get("type") != "moment"
+                or ((moment.get("author") or {}).get("user") or {}).get("id") != src["authorId"]
+                or (moment.get("group") or {}).get("id") != 4761):
+            continue
+        moment_id = str(moment.get("id_str", ""))
+        timestamp = moment.get("publish_time")
+        if not moment_id.isdigit() or moment_id in seen or not isinstance(timestamp, (int, float)):
+            continue
+        published = datetime.fromtimestamp(timestamp, BJT).date()
+        if not target - timedelta(days=LEARN_PAST_DAYS) <= published <= target:
+            continue
+        title = (moment.get("topic") or {}).get("title", "")
+        if not any(day == published for day, _ in split_posts(title, target)):
+            continue  # Undated guides and mismatched titles cannot label game data.
+        seen.add(moment_id)
+        ok, payload = fetch_source({"url": "https://www.taptap.cn/moment/" + moment_id})
+        if not ok:
+            failures.append(payload)
+            continue
+        original = source_posts(payload, target, "daily-moment")
+        segments.extend((day, text) for day, text in original if day == published)
+    if failures:
+        log(f"  [warn] {src['name']} 原帖读取失败 {len(failures)} 条")
+        if not segments:
+            raise OSError(failures[0])
+    return segments
+
+
 # ---------------------------------------------------------------- 评论 API（兑换码权威源）
 
 def comment_text(c):
@@ -950,13 +1004,22 @@ def build_daily(target, mode):
                     status = "live"
                 continue
 
-            ok, payload = fetch_source(src)
+            if src.get("type") == "author-moments-api":
+                try:
+                    segments = fetch_author_posts(src, target)
+                except (urllib.error.URLError, TimeoutError, OSError, ValueError) as e:
+                    audit["sourcesFailed"].append({"name": src["name"], "error": f"{type(e).__name__}: {e}"})
+                    log(f"  [fail] {src['name']}: {type(e).__name__}: {e}")
+                    continue
+                ok, payload = True, ""
+            else:
+                ok, payload = fetch_source(src)
+                segments = source_posts(payload, target, src.get("type")) if ok else []
             if not ok:
                 audit["sourcesFailed"].append({"name": src["name"], "error": payload})
                 log(f"  [fail] {src['name']}: {payload}")
                 continue
             text = strip_html(payload)
-            segments = source_posts(payload, target, src.get("type"))
             seg_dates = {d for d, _ in segments}
             same_day = target in seg_dates or mentions_target_date(text, target)
             audit["sourcesOk"].append({"name": src["name"], "isTargetDate": same_day,

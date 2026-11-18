@@ -1,8 +1,9 @@
 import importlib.util
+import io
 import json
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from unittest.mock import patch
 
@@ -447,6 +448,61 @@ class ForecastTests(unittest.TestCase):
                 calendar["days"][f"2026-10-{day}"],
                 {"phases": [{"t": "rain"}], "auto": True},
             )
+
+
+class AuthorFeedTests(unittest.TestCase):
+    target = date(2026, 11, 18)
+    source = {"name": "daily author", "authorId": 741611957}
+
+    def moment(self, **overrides):
+        value = {"id_str": "872030579590170977",
+                 "publish_time": datetime(2026, 11, 18, 8, 18, tzinfo=pipeline.BJT).timestamp(),
+                 "author": {"user": {"id": 741611957}}, "group": {"id": 4761},
+                 "topic": {"title": "11.18号心动小镇攻略来啦！！！", "summary": "天气晴"}}
+        value.update(overrides)
+        return {"type": "moment", "moment": value}
+
+    def test_original_body_supplies_weather_when_summary_and_topic_feed_miss_it(self):
+        data = {"success": True, "data": {"list": [self.moment()]}}
+        original = '''<div class="moment-detail__main-inner">
+          <h1 class="moment-head__title">11.18号心动小镇攻略来啦！！！</h1>
+          <div class="tap-rich-content__wrapper">18-24点有流星雨</div></div>
+          <aside>11.18号心动小镇攻略 0-18点下雨</aside>'''
+        with patch.object(pipeline.urllib.request, "urlopen", return_value=io.BytesIO(json.dumps(data).encode())), \
+                patch.object(pipeline, "fetch_source", return_value=(True, original)) as fetch:
+            segments = pipeline.fetch_author_posts(self.source, self.target)
+        self.assertEqual(len(segments), 1)
+        self.assertEqual(segments[0][0], self.target)
+        self.assertEqual(pipeline.parse_today_weather(segments[0][1]), [{"t": "meteor", "s": 18, "e": 24}])
+        fetch.assert_called_once_with({"url": "https://www.taptap.cn/moment/872030579590170977"})
+        self.assertNotIn("0-18点下雨", segments[0][1])
+
+    def test_foreign_undated_old_future_and_mismatched_articles_are_not_fetched(self):
+        entries = [self.moment(author={"user": {"id": 999}}), self.moment(group={"id": 123}),
+                   self.moment(topic={"title": "无日期钓鱼攻略"}),
+                   self.moment(topic={"title": "11.17号心动小镇攻略"}),
+                   self.moment(publish_time=datetime(2026, 10, 18, tzinfo=pipeline.BJT).timestamp()),
+                   self.moment(publish_time=datetime(2026, 11, 19, tzinfo=pipeline.BJT).timestamp()),
+                   self.moment(id_str="https://example.com/untrusted")]
+        data = {"success": True, "data": {"list": entries}}
+        with patch.object(pipeline.urllib.request, "urlopen", return_value=io.BytesIO(json.dumps(data).encode())), \
+                patch.object(pipeline, "fetch_source") as fetch:
+            self.assertEqual(pipeline.fetch_author_posts(self.source, self.target), [])
+        fetch.assert_not_called()
+
+    def test_article_failures_do_not_fall_back_to_truncated_summary(self):
+        data = {"success": True, "data": {"list": [self.moment()]}}
+        with patch.object(pipeline.urllib.request, "urlopen", return_value=io.BytesIO(json.dumps(data).encode())), \
+                patch.object(pipeline, "fetch_source", return_value=(False, "temporary read failure")):
+            with self.assertRaises(OSError):
+                pipeline.fetch_author_posts(self.source, self.target)
+
+    def test_unsuccessful_api_response_is_not_treated_as_an_empty_author_feed(self):
+        data = {"success": False, "data": {"msg": "unavailable"}}
+        with patch.object(pipeline.urllib.request, "urlopen", side_effect=lambda *a, **k: io.BytesIO(json.dumps(data).encode())), \
+                patch.object(pipeline.time, "sleep"):
+            with self.assertRaises(ValueError):
+                pipeline.fetch_author_posts(self.source, self.target)
 
 
 if __name__ == "__main__":

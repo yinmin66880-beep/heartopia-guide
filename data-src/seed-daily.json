@@ -65,6 +65,14 @@
       "type": "strategy-collection",
       "priority": "secondary",
       "enabled": true
+    },
+    {
+      "name": "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API）",
+      "url": "https://www.taptap.cn/user/741611957",
+      "authorId": 741611957,
+      "type": "author-moments-api",
+      "priority": "primary",
+      "enabled": true
     }
   ],
   "gameRules": {
