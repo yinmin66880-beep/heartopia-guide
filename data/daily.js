@@ -2,15 +2,19 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-21",
   "weekday": "星期六",
-  "generatedAt": "2026-11-21 19:42:23",
+  "generatedAt": "2026-11-21 21:43:02",
   "status": "live",
-  "weather": null,
+  "weather": {
+    "icon": "🌈",
+    "label": "彩虹",
+    "detail": "12:00-18:00 彩虹",
+    "fishTip": "🌈 彩虹天限定鱼别错过：锤头鲨（白天）、彩虹鳟（清晨/午后）。"
+  },
   "specialForecast": null,
   "codes": [
     {
       "code": "67GYS42",
-      "note": "已获 2 个独立源交叉验证 · 当日有效",
-      "verified": 2
+      "note": "置顶码评 · 当日 23:59:59 前有效"
     }
   ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
@@ -57,6 +61,10 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "TapTap 策略库 · 天气预报汇总",
       "url": "https://www.taptap.cn/app/45213/strategy/entity-collection/283527"
+    },
+    {
+      "name": "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API）",
+      "url": "https://www.taptap.cn/user/741611957"
     }
   ],
   "audit": {
@@ -97,12 +105,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 2
+        "posts": 0
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 12
+        "posts": 17
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -116,8 +124,8 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API）",
-        "isTargetDate": false,
-        "posts": 8
+        "isTargetDate": true,
+        "posts": 9
       }
     ],
     "sourcesFailed": [],
@@ -126,7 +134,7 @@ window.HEARTOPIA_DAILY = {
       "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 67GYS42（努力再努力 18:02 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 森林灵橡松林",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口",
-      "天气日历未覆盖 2026-11-21，等待自动学习或人工补录"
+      "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API） 学习到 2026-11-21 天气: 彩虹"
     ]
   }
 };
