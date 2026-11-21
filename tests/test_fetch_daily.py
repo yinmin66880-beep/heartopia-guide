@@ -490,6 +490,62 @@ class AuthorFeedTests(unittest.TestCase):
             self.assertEqual(pipeline.fetch_author_posts(self.source, self.target), [])
         fetch.assert_not_called()
 
+    def bulletin(self, **metadata):
+        moment = self.moment(topic={"title": "心动小镇与小马宝莉联动攻略来啦！！！"})
+        article = {"@type": "NewsArticle", "datePublished": "2026-11-18T00:18:00Z",
+                   "author": {"url": "https://www.taptap.cn/user/741611957"},
+                   "mainEntityOfPage": {"@id": "https://www.taptap.cn/moment/872030579590170977"}}
+        article.update(metadata)
+        payload = ('<script type="application/ld+json">' + json.dumps(article) + '</script>'
+                   '<div class="moment-detail__main-inner">'
+                   '<h1 class="moment-head__title">心动小镇与小马宝莉联动攻略来啦！！！</h1>'
+                   '<div class="tap-rich-content__wrapper"><p>1、11.18-11.24号粉红泡泡</p>'
+                   '<p>2、萤石在4号家园</p><p>3、溜溜木在灵橡松林</p>'
+                   '<p>4、12-18点是彩虹天哦</p><p>5、18点更新兑换码</p>'
+                   '<p>活动礼包码 ABC1234</p></div></div>'
+                   '<aside>今日天气：0-12点下雨</aside>')
+        return moment, payload
+
+    def test_event_titled_daily_bulletin_only_supplies_verified_weather(self):
+        moment, original = self.bulletin()
+        data = {"success": True, "data": {"list": [moment]}}
+        with patch.object(pipeline.urllib.request, "urlopen", return_value=io.BytesIO(json.dumps(data).encode())), \
+                patch.object(pipeline, "fetch_source", return_value=(True, original)):
+            segments = pipeline.fetch_author_posts(self.source, self.target)
+        self.assertEqual(segments, [(self.target, "今日天气：12-18点彩虹")])
+        self.assertEqual(pipeline.parse_today_weather(segments[0][1]), [{"t": "rainbow", "s": 12, "e": 18}])
+        self.assertEqual(pipeline.extract_codes_segment(segments[0][1], self.target, self.target), [])
+        self.assertEqual(pipeline.extract_res_segment(segments[0][1]), {})
+
+    def test_undated_bulletin_requires_original_identity_time_and_daily_context(self):
+        moment, original = self.bulletin()
+        variants = [
+            self.bulletin(author={"url": "https://www.taptap.cn/user/999"})[1],
+            self.bulletin(datePublished="2026-11-17T00:18:00Z")[1],
+            self.bulletin(datePublished="2026-11-18T00:18:00")[1],
+            self.bulletin(mainEntityOfPage={"@id": "https://www.taptap.cn/moment/1"})[1],
+            original.replace('type="application/ld+json"', 'type="text/plain"'),
+            original.replace('moment-head__title', 'unrecognized-title'),
+            original.replace('tap-rich-content__wrapper', 'unrecognized-body'),
+            original.replace('萤石在4号家园', ''),
+            original.replace('18点更新兑换码', ''),
+            original.replace('12-18点是彩虹天哦', '明天12-18点是彩虹天哦'),
+            original.replace('12-18点是彩虹天哦', '12-18点是彩虹天，明天'),
+            original.replace('12-18点是彩虹天哦', '11月19日12-18点是彩虹天'),
+            original.replace('12-18点是彩虹天哦', '12点是彩虹天哦'),
+            original.replace('12-18点是彩虹天哦', '18-12点是彩虹天哦'),
+        ]
+        for payload in variants:
+            with self.subTest(payload=payload):
+                self.assertEqual(pipeline.author_bulletin_weather(payload, moment["moment"], 741611957, self.target), [])
+        early = self.moment(publish_time=datetime(2026, 11, 18, 5, 59, tzinfo=pipeline.BJT).timestamp())["moment"]
+        self.assertEqual(pipeline.author_bulletin_weather(original, early, 741611957, self.target), [])
+
+    def test_copula_weather_preserves_relative_dates_and_unknown_hours(self):
+        self.assertEqual(pipeline.parse_today_weather("12-18点是彩虹天哦"), [{"t": "rainbow", "s": 12, "e": 18}])
+        self.assertIsNone(pipeline.parse_today_weather("明天12-18点是彩虹天哦"))
+        self.assertIsNone(pipeline.parse_today_weather("12点是彩虹天哦"))
+
     def test_article_failures_do_not_fall_back_to_truncated_summary(self):
         data = {"success": True, "data": {"list": [self.moment()]}}
         with patch.object(pipeline.urllib.request, "urlopen", return_value=io.BytesIO(json.dumps(data).encode())), \

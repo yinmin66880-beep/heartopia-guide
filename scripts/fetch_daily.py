@@ -186,14 +186,19 @@ def fetch_author_posts(src, target):
         if not target - timedelta(days=LEARN_PAST_DAYS) <= published <= target:
             continue
         title = (moment.get("topic") or {}).get("title", "")
-        if not any(day == published for day, _ in split_posts(title, target)):
-            continue  # Undated guides and mismatched titles cannot label game data.
+        title_posts = split_posts(title, target)
+        dated = any(day == published for day, _ in title_posts)
+        bulletin = (not title_posts and published == target
+                    and "心动小镇" in title and "攻略" in title)
+        if not dated and not bulletin:
+            continue  # Mismatched dates and unrelated undated guides stay excluded.
         seen.add(moment_id)
         ok, payload = fetch_source({"url": "https://www.taptap.cn/moment/" + moment_id})
         if not ok:
             failures.append(payload)
             continue
-        original = source_posts(payload, target, "daily-moment")
+        original = (source_posts(payload, target, "daily-moment") if dated else
+                    author_bulletin_weather(payload, moment, src["authorId"], target))
         segments.extend((day, text) for day, text in original if day == published)
     if failures:
         log(f"  [warn] {src['name']} 原帖读取失败 {len(failures)} 条")
@@ -448,7 +453,7 @@ def parse_weather_segment(seg):
     timed = []
     for match in re.finditer(
         rf"({hour_range}(?:\s*[,，、]\s*{hour_range})*)\s*"
-        r"((?:有\s*)?(?:流星雨|流星|彩虹天|彩虹|下雨天|下雨|雨天|下雪天|下雪|雪天|酷暑天)"
+        r"((?:[有是]\s*)?(?:流星雨|流星|彩虹天|彩虹|下雨天|下雨|雨天|下雪天|下雪|雪天|酷暑天)"
         r"|有\s*(?:[雨雪]|🌈)(?=$|[\s，,。；;!！?？#\\]))", seg):
         key = "rainbow" if "🌈" in match.group(2) else wx_types_in(match.group(2))[0]
         for span in re.finditer(hour_range, match.group(1)):
@@ -631,6 +636,60 @@ class MomentContent(HTMLParser):
             self.title.append(data)
         elif "tap-rich-content__wrapper" in classes:
             self.body.append(data)
+
+
+def author_bulletin_weather(payload, moment, author_id, target):
+    """Use independently dated originals for weather-only daily bulletins.
+
+    Some daily guides use event titles. Require matching canonical identity and
+    publication metadata plus daily material/code cues in the rendered body.
+    Only explicit current-day weather intervals leave this fallback; event codes,
+    date ranges and material positions cannot acquire the publication date.
+    """
+    title = (moment.get("topic") or {}).get("title", "").strip()
+    published = datetime.fromtimestamp(moment["publish_time"], BJT)
+    if published.date() != target or published.hour < 6:
+        return []
+    canonical = "https://www.taptap.cn/moment/" + moment["id_str"]
+    verified = False
+    for raw in re.findall(r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', payload, re.S):
+        try:
+            article = json.loads(raw)
+            stamp = datetime.fromisoformat(article["datePublished"].replace("Z", "+00:00"))
+            verified = (article.get("@type") in ("Article", "NewsArticle")
+                        and stamp.tzinfo is not None
+                        and stamp.timestamp() == moment["publish_time"]
+                        and (article.get("author") or {}).get("url") ==
+                        "https://www.taptap.cn/user/" + str(author_id)
+                        and (article.get("mainEntityOfPage") or {}).get("@id") == canonical)
+        except (ValueError, KeyError, TypeError, AttributeError):
+            continue
+        if verified:
+            break
+    if not verified:
+        return []
+    parser = MomentContent()
+    parser.feed(payload)
+    parser.close()
+    if " ".join(parser.title).strip() != title or not parser.body:
+        return []
+    body = "\n".join(parser.body)
+    if (set(extract_res_segment(body)) != {"wood", "stone"}
+            or not re.search(r"18\s*点\s*更新\s*兑换码", body)):
+        return []
+    phases = []
+    for clause in re.split(r"\n|(?<!\d)\d+[、]", body):
+        if (not re.match(r"\s*(?:今天|今日)?\s*\d{1,2}(?::00)?\s*点?\s*[-–~]", clause)
+                or re.search(r"明天|明日|明早|明晚|后天|昨天|昨日|前天|预告|预报|回顾|\d+月|\d+日|\d+[./]\d+|周[一二三四五六日天]", clause)):
+            continue
+        for phase in parse_today_weather(clause) or []:
+            if "s" in phase and "e" in phase and phase not in phases:
+                phases.append(phase)
+    if not phases:
+        return []
+    text = "今日天气：" + " ".join(
+        f"{p['s']}-{p['e']}点{TYPE_ZH[p['t']]}" for p in phases)
+    return [(target, text)]
 
 
 def source_posts(payload, ref, source_type):
