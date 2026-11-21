@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-21",
   "weekday": "星期六",
-  "generatedAt": "2026-11-21 21:43:02",
+  "generatedAt": "2026-11-21 21:47:15",
   "status": "live",
   "weather": {
     "icon": "🌈",
@@ -14,7 +14,8 @@ window.HEARTOPIA_DAILY = {
   "codes": [
     {
       "code": "67GYS42",
-      "note": "置顶码评 · 当日 23:59:59 前有效"
+      "note": "已获 2 个独立源交叉验证 · 当日有效",
+      "verified": 2
     }
   ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
@@ -105,12 +106,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 0
+        "posts": 2
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": true,
-        "posts": 17
+        "posts": 12
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -133,8 +134,7 @@ window.HEARTOPIA_DAILY = {
     "notes": [
       "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 67GYS42（努力再努力 18:02 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 森林灵橡松林",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口",
-      "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API） 学习到 2026-11-21 天气: 彩虹"
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 4 号家园门口"
     ]
   }
 };
