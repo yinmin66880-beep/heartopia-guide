@@ -481,6 +481,8 @@ class AuthorFeedTests(unittest.TestCase):
         entries = [self.moment(author={"user": {"id": 999}}), self.moment(group={"id": 123}),
                    self.moment(topic={"title": "无日期钓鱼攻略"}),
                    self.moment(topic={"title": "11.17号心动小镇攻略"}),
+                   self.moment(topic={"title": "心动小镇11.19攻略"}),
+                   self.moment(topic={"title": "心动小镇明天的攻略"}),
                    self.moment(publish_time=datetime(2026, 10, 18, tzinfo=pipeline.BJT).timestamp()),
                    self.moment(publish_time=datetime(2026, 11, 19, tzinfo=pipeline.BJT).timestamp()),
                    self.moment(id_str="https://example.com/untrusted")]

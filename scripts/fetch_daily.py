@@ -189,7 +189,8 @@ def fetch_author_posts(src, target):
         title_posts = split_posts(title, target)
         dated = any(day == published for day, _ in title_posts)
         bulletin = (not title_posts and published == target
-                    and "心动小镇" in title and "攻略" in title)
+                    and "心动小镇" in title and "攻略" in title
+                    and not re.search(r"\d+\s*[月./-]\s*\d+|明[天日早晚]|后天|昨日|昨天|回顾|预告|预报", title))
         if not dated and not bulletin:
             continue  # Mismatched dates and unrelated undated guides stay excluded.
         seen.add(moment_id)
