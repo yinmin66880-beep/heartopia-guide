@@ -9,12 +9,6 @@ window.HEARTOPIA_WEATHER = {
   },
   note: "Weather in Heartopia follows an official fixed schedule. Special weather (rain / rainbow / snow / meteor showers) determines limited fish and exclusive gathering spots.",
   days: {
-  "2026-10-23": {
-    "label": "Rainbow",
-    "icon": "🌈",
-    "note": "12:00-18:00 Rainbow",
-    "fish": "Hammerhead Shark · Rainbow Trout"
-  },
   "2026-10-25": {
     "label": "Rain",
     "icon": "🌧️",
