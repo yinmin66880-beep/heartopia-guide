@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-24",
   "weekday": "星期二",
-  "generatedAt": "2026-11-24 08:44:41",
+  "generatedAt": "2026-11-24 10:28:40",
   "status": "live",
   "weather": {
     "icon": "🌧️",
@@ -92,12 +92,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 2
+        "posts": 3
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 14
+        "posts": 17
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -119,8 +119,7 @@ window.HEARTOPIA_DAILY = {
     "conflicts": [],
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 10 号家园门口",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 3 号家园门口",
-      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 学习到 2026-11-24 天气: 雨"
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 3 号家园门口"
     ]
   }
 };
