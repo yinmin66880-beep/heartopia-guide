@@ -361,6 +361,11 @@ def parse_phases(line):
     return phases or None
 
 
+WEATHER_CLOCK = (r"(?:凌晨|早上|上午|中午|下午|晚上|半夜|午夜)?\s*"
+                 r"\d{1,2}(?::00)?\s*点?")
+WEATHER_HOUR_RANGE = rf"(?<![\d:]){WEATHER_CLOCK}\s*[-–~]\s*{WEATHER_CLOCK}(?![\d:])"
+
+
 def relative_weather_segments(seg):
     """Keep relative-day weather within its sentence or numbered list item."""
     offsets = {"今天": 0, "今日": 0, "明天": 1, "明日": 1,
@@ -369,6 +374,10 @@ def relative_weather_segments(seg):
     marker = r"大后天|后天|后日|明天|明日|前天|前日|昨天|昨日|今天|今日"
     if not re.search(marker, seg):
         return [(0, seg)]
+    # A semicolon between adjacent clock ranges shares the following weather
+    # and relative day. Keep sentence/list boundaries elsewhere unchanged.
+    seg = re.sub(rf"{WEATHER_HOUR_RANGE}(?:\s*[；;]\s*{WEATHER_HOUR_RANGE})+",
+                 lambda m: re.sub(r"[；;]", "，", m.group()), seg)
     result = []
     for clause in re.split(r"[。；;\n]|(?<!\d)\d{1,2}[、]", seg):
         matches = list(re.finditer(marker, clause))
@@ -446,14 +455,12 @@ def parse_weather_segment(seg):
         if not 0 <= s < e <= 24:
             return None
         return [{"t": key, "s": s, "e": e}, {"t": "sunny"}]
-    # 时段可共用末尾的天气，如「6点-12点，18点-24点有雨」。
+    # 时段可共用末尾的天气，如「6点-12点，18点-24点有雨」或「6-12；18-24有雨」。
     # 只连接相邻的明确时段；其余小时仍未知，不跨过正文推断天气。
-    clock = (r"(?:凌晨|早上|上午|中午|下午|晚上|半夜|午夜)?\s*"
-             r"\d{1,2}(?::00)?\s*点?")
-    hour_range = rf"(?<![\d:]){clock}\s*[-–~]\s*{clock}(?![\d:])"
+    hour_range = WEATHER_HOUR_RANGE
     timed = []
     for match in re.finditer(
-        rf"({hour_range}(?:\s*[,，、]\s*{hour_range})*)\s*"
+        rf"({hour_range}(?:\s*[,，、；;]\s*{hour_range})*)\s*"
         r"((?:[有是]\s*)?(?:流星雨|流星|彩虹天|彩虹|下雨天|下雨|雨天|下雪天|下雪|雪天|酷暑天)"
         r"|有\s*(?:[雨雪]|🌈)(?=$|[\s，,。；;!！?？#\\]))", seg):
         key = "rainbow" if "🌈" in match.group(2) else wx_types_in(match.group(2))[0]

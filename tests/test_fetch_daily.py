@@ -394,6 +394,36 @@ class ForecastTests(unittest.TestCase):
                                       {"t": "rain", "s": 18, "e": 24}], "auto": True},
         })
 
+    def test_semicolon_shared_windows_keep_relative_day_boundaries(self):
+        phases = [{"t": "rain", "s": 6, "e": 12}, {"t": "rain", "s": 18, "e": 24}]
+        for separator in ("；", ";"):
+            text = f"6-12{separator}18-24有雨，可以去文艺街找朵朵买糖"
+            with self.subTest(separator=separator):
+                self.assertEqual(pipeline.parse_today_weather(text), phases)
+                self.assertEqual(pipeline.parse_today_weather("今天" + text), phases)
+                self.assertIsNone(pipeline.parse_today_weather("明天" + text))
+                self.assertEqual(pipeline.parse_forecasts("明天" + text, date(2026, 12, 31)),
+                                 [(date(2027, 1, 1), phases)])
+                self.assertIsNone(pipeline.parse_today_weather(f"6-12{separator}明天18-24有雨"))
+                self.assertIsNone(pipeline.parse_today_weather(f"6-12{separator}18点更新兑换码"))
+
+    def test_live_semicolon_post_repairs_auto_calendar_without_changing_manual_days(self):
+        text = ("11.24号心动小镇攻略来啦！！！ 1、萤石在3号家园 2、溜溜木在10号家园 "
+                "3、6-12；18-24有雨，可以去文艺街找朵朵买糖 4、18点更新兑换码")
+        phases = [{"t": "rain", "s": 6, "e": 12}, {"t": "rain", "s": 18, "e": 24}]
+        target = date(2026, 11, 24)
+        for manual in (False, True):
+            entry = {"phases": [{"t": "rain", "s": 18, "e": 24}]}
+            if not manual:
+                entry["auto"] = True
+            calendar = {"days": {str(target): entry}}
+            with self.subTest(manual=manual):
+                self.assertEqual(pipeline.learn_weather(calendar, pipeline.split_posts(text, target),
+                                 {"name": "daily author", "priority": "primary"}, target,
+                                 {"notes": []}), not manual)
+                self.assertEqual(calendar["days"][str(target)]["phases"],
+                                 [{"t": "rain", "s": 18, "e": 24}] if manual else phases)
+
     def test_live_grouped_rain_forecast(self):
         text = "今日天气: 晴天 13日周二 14日周三 17日周六 下雨天 🎁 今日物资"
         self.assertEqual(
