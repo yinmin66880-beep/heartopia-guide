@@ -2,11 +2,16 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-25",
   "weekday": "星期三",
-  "generatedAt": "2026-11-25 12:52:37",
+  "generatedAt": "2026-11-25 21:26:19",
   "status": "live",
   "weather": null,
   "specialForecast": null,
-  "codes": [],
+  "codes": [
+    {
+      "code": "Q9CXV7X",
+      "note": "置顶码评 · 当日 23:59:59 前有效"
+    }
+  ],
   "redeemPath": "游戏内【手表】→【设置】→【兑换码】",
   "codeRule": "每日兑换码约 18:00 更新，有效至当日 23:59:59",
   "resources": [
@@ -25,7 +30,7 @@ window.HEARTOPIA_DAILY = {
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
     {
-      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
+      "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
       "url": "https://www.taptap.cn/moment/651125368966612788"
     },
     {
@@ -74,8 +79,8 @@ window.HEARTOPIA_DAILY = {
     "sourcesOk": [
       {
         "name": "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源）",
-        "isTargetDate": false,
-        "posts": 16
+        "isTargetDate": true,
+        "posts": 15
       },
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
@@ -121,6 +126,7 @@ window.HEARTOPIA_DAILY = {
     "sourcesFailed": [],
     "conflicts": [],
     "notes": [
+      "TapTap 每日更新帖 · 置顶码评（评论 API，兑换码权威源） 提取到当日兑换码 Q9CXV7X（努力再努力 17:59 发布）",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 3 号家园门口",
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 7 号家园门口",
       "天气日历未覆盖 2026-11-25，等待自动学习或人工补录"
