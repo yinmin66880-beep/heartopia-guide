@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-25",
   "weekday": "星期三",
-  "generatedAt": "2026-11-25 07:59:43",
+  "generatedAt": "2026-11-25 12:52:37",
   "status": "live",
   "weather": null,
   "specialForecast": null,
@@ -33,8 +33,16 @@ window.HEARTOPIA_DAILY = {
       "url": "https://www.taptap.cn/moment/844636406570549558"
     },
     {
+      "name": "TapTap 社区攻略 · 当日情报",
+      "url": "https://www.taptap.cn/moment/844484238282589354"
+    },
+    {
       "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
       "url": "https://www.taptap.cn/app/45213/topic"
+    },
+    {
+      "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
+      "url": "https://www.taptap.cn/hashtag/心动小镇鑫时代"
     },
     {
       "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -43,6 +51,10 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "TapTap 策略库 · 天气预报汇总",
       "url": "https://www.taptap.cn/app/45213/strategy/entity-collection/283527"
+    },
+    {
+      "name": "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API）",
+      "url": "https://www.taptap.cn/user/741611957"
     }
   ],
   "audit": {
@@ -77,18 +89,18 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 社区攻略 · 当日情报",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 1
       },
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 1
+        "posts": 0
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
-        "isTargetDate": false,
-        "posts": 16
+        "isTargetDate": true,
+        "posts": 17
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -102,7 +114,7 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API）",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 9
       }
     ],
