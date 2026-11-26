@@ -233,6 +233,41 @@ class MomentContentTests(unittest.TestCase):
 
 
 class ForecastTests(unittest.TestCase):
+    def test_tonight_midnight_to_second_day_is_a_next_day_forecast(self):
+        text = ("11.26号心动小镇攻略来啦！！！ 1、萤石在7号家园 "
+                "2、溜溜木在6号家园 3、今晚18-24点有流星雨哦，"
+                "会在🍎更新陨石位置，陨石可以保留到第二天早上六点， "
+                "4、今晚0点-第二天12点有雨，可以去找朵朵买糖 5、18点更新兑换码")
+        meteor = [{"t": "meteor", "s": 18, "e": 24}]
+        rain = [{"t": "rain", "s": 0, "e": 12}]
+        self.assertEqual(pipeline.parse_today_weather(text), meteor)
+        self.assertEqual(pipeline.parse_forecasts(text, date(2026, 11, 26)),
+                         [(date(2026, 11, 27), rain)])
+        calendar = {"days": {}}
+        pipeline.learn_weather(calendar, [(date(2026, 11, 26), text)],
+                               {"name": "original"}, date(2026, 11, 26), {"notes": []})
+        self.assertEqual(calendar["days"], {
+            "2026-11-26": {"phases": meteor, "auto": True},
+            "2026-11-27": {"phases": rain, "auto": True}})
+        manual = {"phases": [{"t": "snow", "s": 6, "e": 12}]}
+        calendar["days"]["2026-11-27"] = manual
+        pipeline.learn_weather(calendar, [(date(2026, 11, 26), text)],
+                               {"name": "original"}, date(2026, 11, 26), {"notes": []})
+        self.assertEqual(calendar["days"]["2026-11-27"], manual)
+
+    def test_midnight_forecast_rollover_rejects_unresolved_cross_day_ranges(self):
+        for text in ("今晚0点-第二天12点有雨", "今晚00:00–第二天上午12点有雨"):
+            with self.subTest(text=text):
+                self.assertIsNone(pipeline.parse_today_weather(text))
+                self.assertEqual(pipeline.parse_forecasts(text, date(2026, 12, 31)),
+                                 [(date(2027, 1, 1), [{"t": "rain", "s": 0, "e": 12}])])
+        for text in ("今晚18点-第二天12点有雨", "今晚0点-第二天25点有雨",
+                     "今晚0:30-第二天12点有雨", "今晚0点-第二天12:30有雨",
+                     "今晚0点-第二天12点有雨伞", "今晚0点-第二天12点更新兑换码"):
+            with self.subTest(text=text):
+                self.assertIsNone(pipeline.parse_today_weather(text))
+                self.assertEqual(pipeline.parse_forecasts(text, date(2026, 12, 31)), [])
+
     def test_dated_chinese_clock_weather_and_rainbow_emoji_backfill_only_the_post_day(self):
         payload = '''
           <a class="app-strategy-v2__item" href="/moment/870085879299834129">

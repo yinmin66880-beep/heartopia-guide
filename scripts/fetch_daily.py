@@ -368,6 +368,11 @@ WEATHER_HOUR_RANGE = rf"(?<![\d:]){WEATHER_CLOCK}\s*[-–~]\s*{WEATHER_CLOCK}(?!
 
 def relative_weather_segments(seg):
     """Keep relative-day weather within its sentence or numbered list item."""
+    # "Tonight 0:00 to the second day 12:00" is wholly on the next date.
+    # Normalize only an explicit midnight start; other cross-day ranges stay
+    # unresolved rather than assigning them to today or inventing hours.
+    seg = re.sub(r"今晚\s*0{1,2}(?::00)?\s*点?\s*[-–~]\s*第二天\s*",
+                 "明天0点-", seg)
     offsets = {"今天": 0, "今日": 0, "明天": 1, "明日": 1,
                "后天": 2, "后日": 2, "大后天": 3,
                "昨天": -1, "昨日": -1, "前天": -2, "前日": -2}
