@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-27",
   "weekday": "星期五",
-  "generatedAt": "2026-11-27 03:48:14",
+  "generatedAt": "2026-11-27 04:32:16",
   "status": "live",
   "weather": {
     "icon": "🌧️",
@@ -18,10 +18,6 @@ window.HEARTOPIA_DAILY = {
   "resourceNote": "溜溜橡木 / 无瑕萤石每日 06:00 刷新，每处每天 1 次、每次 3 个，位置每日随机（多见于各家园门口、森林灵橡松林、温泉山遗迹）",
   "resourceUnlock": "需完成【寻找星灵】主线任务后才能采集",
   "sources": [
-    {
-      "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
-      "url": "https://www.taptap.cn/moment/651125368966612788"
-    },
     {
       "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
       "url": "https://www.taptap.cn/app/45213/topic"
@@ -49,7 +45,7 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气）",
-        "isTargetDate": true,
+        "isTargetDate": false,
         "posts": 1
       },
       {
