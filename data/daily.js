@@ -2,7 +2,7 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-27",
   "weekday": "星期五",
-  "generatedAt": "2026-11-27 03:31:09",
+  "generatedAt": "2026-11-27 03:48:14",
   "status": "live",
   "weather": {
     "icon": "🌧️",
@@ -65,12 +65,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 1
+        "posts": 0
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 12
+        "posts": 17
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -90,8 +90,6 @@ window.HEARTOPIA_DAILY = {
     ],
     "sourcesFailed": [],
     "conflicts": [],
-    "notes": [
-      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 修正 2026-11-26 天气 → 流星雨"
-    ]
+    "notes": []
   }
 };
