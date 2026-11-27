@@ -2,12 +2,12 @@
 window.HEARTOPIA_DAILY = {
   "date": "2026-11-27",
   "weekday": "星期五",
-  "generatedAt": "2026-11-27 07:56:50",
+  "generatedAt": "2026-11-27 10:42:09",
   "status": "live",
   "weather": {
     "icon": "🌧️",
     "label": "雨",
-    "detail": "00:00-12:00 雨",
+    "detail": "06:00-12:00 雨",
     "fishTip": "🌧️ 雨天限定鱼可钓：沙白鱼、欧洲鳗鲡（夜晚）。"
   },
   "specialForecast": null,
@@ -48,6 +48,10 @@ window.HEARTOPIA_DAILY = {
     {
       "name": "TapTap 策略库 · 天气预报汇总",
       "url": "https://www.taptap.cn/app/45213/strategy/entity-collection/283527"
+    },
+    {
+      "name": "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API）",
+      "url": "https://www.taptap.cn/user/741611957"
     }
   ],
   "audit": {
@@ -88,12 +92,12 @@ window.HEARTOPIA_DAILY = {
       {
         "name": "话题广场 · 心动小镇每日攻略（筱鑫全文字帖）",
         "isTargetDate": true,
-        "posts": 1
+        "posts": 2
       },
       {
         "name": "话题标签 · 心动小镇鑫时代（每日攻略聚合）",
         "isTargetDate": false,
-        "posts": 17
+        "posts": 15
       },
       {
         "name": "TapTap 策略库 · 每日兑换码汇总",
@@ -107,7 +111,7 @@ window.HEARTOPIA_DAILY = {
       },
       {
         "name": "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API）",
-        "isTargetDate": false,
+        "isTargetDate": true,
         "posts": 9
       }
     ],
@@ -115,7 +119,9 @@ window.HEARTOPIA_DAILY = {
     "conflicts": [],
     "notes": [
       "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 溜溜橡木: 9 号家园门口",
-      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 1 号家园门口"
+      "TapTap 每日更新帖（溜溜木/萤石/兑换码/天气） 新建物资条目 无瑕萤石: 1 号家园门口",
+      "话题广场 · 心动小镇每日攻略（筱鑫全文字帖） 修正 2026-11-27 天气 → 雨",
+      "TapTap 饼饼脆脆鲨 · 每日攻略原帖（作者 API） 修正 2026-11-26 天气 → 流星雨"
     ]
   }
 };

@@ -54,13 +54,13 @@ window.HEARTOPIA_WEATHER = {
   "2026-11-26": {
     "label": "Meteor Shower",
     "icon": "🌠",
-    "note": "06:00-24:00 Meteor Shower",
+    "note": "18:00-24:00 Meteor Shower",
     "fish": "Exclusive meteorite gathering"
   },
   "2026-11-27": {
     "label": "Rain",
     "icon": "🌧️",
-    "note": "00:00-12:00 Rain",
+    "note": "06:00-12:00 Rain",
     "fish": "Sand Bream · European Eel"
   }
 }
