@@ -519,6 +519,37 @@ class AuthorFeedTests(unittest.TestCase):
     target = date(2026, 11, 18)
     source = {"name": "daily author", "authorId": 741611957}
 
+    def test_prior_day_original_repairs_weather_before_today_post_exists(self):
+        target = date(2026, 11, 27)
+        original = [(date(2026, 11, 26),
+                     "11.26号攻略 18-24点有流星雨 萤石在7号家园 溜溜木在6号家园")]
+        expected = [{"t": "meteor", "s": 18, "e": 24}]
+        for manual in (False, True):
+            with self.subTest(manual=manual), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                calendar = {"days": {"2026-11-26": {
+                    "phases": [{"t": "meteor", "s": 6, "e": 24}]}}}
+                if not manual:
+                    calendar["days"]["2026-11-26"]["auto"] = True
+                (root / "calendar.json").write_text(json.dumps(calendar), encoding="utf-8")
+                seed = {"watchUrls": [{**self.source, "type": "author-moments-api",
+                                      "priority": "primary", "url": "https://www.taptap.cn/user/741611957"}]}
+                (root / "seed.json").write_text(json.dumps(seed), encoding="utf-8")
+                with patch.object(pipeline, "ROOT", root), \
+                        patch.object(pipeline, "WEATHER_CAL", root / "calendar.json"), \
+                        patch.object(pipeline, "SEED", root / "seed.json"), \
+                        patch.object(pipeline, "OUT_JSON", root / "daily.json"), \
+                        patch.object(pipeline, "fetch_author_posts", return_value=original):
+                    daily, actual, changed, _ = pipeline.build_daily(target, "online")
+                self.assertEqual(changed, not manual)
+                self.assertEqual(actual["days"]["2026-11-26"]["phases"],
+                                 calendar["days"]["2026-11-26"]["phases"] if manual else expected)
+                self.assertEqual(daily["status"], "fallback")
+                self.assertEqual(daily["resources"], [])
+                self.assertEqual(daily["codes"], [])
+                self.assertIsNone(daily["weather"])
+                self.assertFalse(daily["audit"]["sourcesOk"][0]["isTargetDate"])
+
     def moment(self, **overrides):
         value = {"id_str": "872030579590170977",
                  "publish_time": datetime(2026, 11, 18, 8, 18, tzinfo=pipeline.BJT).timestamp(),

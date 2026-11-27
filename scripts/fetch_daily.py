@@ -1097,13 +1097,14 @@ def build_daily(target, mode):
             audit["sourcesOk"].append({"name": src["name"], "isTargetDate": same_day,
                                        "posts": len(segments)})
             log(f"  [ok]   {src['name']}（{len(payload)} 字节, {len(segments)} 帖, 当日: {same_day}）")
+            # Verified author originals can repair recent weather even before
+            # today's bulletin exists. Keep daily codes/materials date-gated.
+            if same_day or src.get("type") == "author-moments-api":
+                if learn_weather(cal, segments, src, target, audit):
+                    cal_dirty = True
             if not same_day:
                 continue
             is_primary = src.get("priority", "primary") == "primary"
-
-            # 天气学习（所有源；当日实际修正仅 primary）
-            if learn_weather(cal, segments, src, target, audit):
-                cal_dirty = True
 
             for seg_date, seg in segments:
                 if seg_date != target:
